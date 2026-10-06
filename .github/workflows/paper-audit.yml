@@ -1,0 +1,46 @@
+name: Pinned paper audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Audit on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 240
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - name: Check out the pinned paper source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          ref: 198bcf14b5f5d554c5e2e179815417e57f6f81a4
+
+      - name: Build the final theorem audit
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
+        with:
+          auto-config: "false"
+          build: "true"
+          build-args: HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "true"
+
+      - name: Record source and toolchain; verify tracked files
+        shell: bash
+        run: |
+          git rev-parse HEAD
+          lake env lean --version
+          git diff --exit-code
+          git diff --cached --exit-code
