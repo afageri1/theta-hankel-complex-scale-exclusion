@@ -54,8 +54,7 @@ theorem hpThetaJensenGamma_one :
 theorem hpThetaJensenGamma_two :
     hpThetaJensenGamma 2 = hpThetaPhiMomentFour / 12 := by
   rw [hpThetaJensenGamma, hpThetaPhiEvenMoment_two]
-  norm_num [Nat.factorial]
-  ring
+  norm_num [Nat.factorial] <;> ring
 
 theorem hpThetaJensenPolynomial_zero (n : ℕ) :
     hpThetaJensenPolynomial 0 n =
