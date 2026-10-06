@@ -1,0 +1,20 @@
+import HodgeProofHP.Stage4ThetaFiniteCosineIBP
+
+/-!
+Audit the existing integrability and boundary-limit interfaces
+needed to pass from finite to improper integration by parts.
+-/
+
+namespace HodgeProofHP
+
+#check hpTheta_weighted_integrableOn_of_continuous_decay
+#check hpTheta_mul_complex_cos_integrableOn
+#check hpTheta_mul_complex_sin_integrableOn
+#check hpRiemannThetaLogProfile_secondDeriv_exp_weighted_tendsto_zero
+#check hpRiemannThetaLogProfile_deriv_cos_boundary_tendsto_zero
+#check hpRiemannThetaLogProfile_sin_boundary_tendsto_zero
+#check hpRiemannThetaLogProfile_cos_integrableOn
+#check hpRiemannThetaLogProfile_secondDeriv_continuous
+#check hpRiemannThetaLogProfile_secondDeriv_finite_cosine_ibp
+
+end HodgeProofHP

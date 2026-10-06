@@ -1,0 +1,19 @@
+import HodgeProofHP.Stage4ThetaHankelSpectralValues
+import HodgeProofHP.Stage4ThetaHankelDiagonalEnergy
+import HodgeProofHP.Stage4ThetaHankelBasisTrace
+
+namespace HodgeProofHP
+
+#check HPThetaHankelSpectralIndex
+#check hpThetaHankelSpectralBasis
+#check hpThetaHankelSpectralValue_re_eq_energy
+
+#check hpThetaHankelBasis_norm_sq_hasSum_energy
+#check hpThetaHankelAdjointSquare_diagonal_hasSum_energy
+#check hpThetaHankelBasisTrace_adjointSquare_hasSum
+
+#print axioms hpThetaHankelBasis_norm_sq_hasSum_energy
+#print axioms hpThetaHankelBasisTrace_adjointSquare_hasSum
+#print axioms hpThetaHankelSpectralValue_re_eq_energy
+
+end HodgeProofHP

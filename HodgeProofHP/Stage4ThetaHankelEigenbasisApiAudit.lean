@@ -1,0 +1,24 @@
+import HodgeProofHP.Stage4ThetaHankelPositiveEigenvalue
+
+/-!
+API audit for constructing a Hilbert basis of eigenvectors.
+This file records interfaces; it does not construct that basis.
+-/
+
+namespace HodgeProofHP
+
+#check HilbertBasis
+#check HilbertBasis.mkOfOrthogonalEqBot
+#check HilbertBasis.coe_mkOfOrthogonalEqBot
+#check OrthogonalFamily
+
+#check hpThetaHankelAdjointSquare_eigenspaces_orthogonalFamily
+#check hpThetaHankelAdjointSquare_eigenspaces_orthogonalComplement_eq_bot
+#check hpThetaHankelAdjointSquare_eigenspace_finiteDimensional
+#check hpThetaHankel_exists_hilbertBasis
+#check hpThetaHankelAdjointSquare_exists_positive_eigenvector
+
+#print axioms hpThetaHankelAdjointSquare_eigenspaces_orthogonalFamily
+#print axioms hpThetaHankelAdjointSquare_eigenspaces_orthogonalComplement_eq_bot
+
+end HodgeProofHP
