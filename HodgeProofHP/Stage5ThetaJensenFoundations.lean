@@ -1,5 +1,5 @@
 import HodgeProofHP.Stage4ThetaPhiFourthIntegralDerivative
-import Mathlib.Data.Polynomial.Basic
+import Mathlib.Algebra.Polynomial.Basic
 import Mathlib.Tactic
 
 /-!
@@ -54,12 +54,12 @@ theorem hpThetaJensenGamma_one :
 theorem hpThetaJensenGamma_two :
     hpThetaJensenGamma 2 = hpThetaPhiMomentFour / 12 := by
   rw [hpThetaJensenGamma, hpThetaPhiEvenMoment_two]
-  norm_num [Nat.factorial] <;> ring
+  norm_num [Nat.factorial]; ring
 
 theorem hpThetaJensenPolynomial_zero (n : ℕ) :
     hpThetaJensenPolynomial 0 n =
       Polynomial.C (hpThetaJensenGamma n) := by
-  simp [hpThetaJensenPolynomial, Finset.sum_range_succ]
+  simp [hpThetaJensenPolynomial]
 
 theorem hpThetaJensenPolynomial_one (n : ℕ) :
     hpThetaJensenPolynomial 1 n =
