@@ -476,15 +476,22 @@ Preliminary Python interval calculations guide discovery but are not proof artif
 
 \noindent\textbf{Source repository.} \repo.
 
-\noindent\textbf{Version information.} The Stage~4 source snapshot is commit \code{198bcf14b5f5d554c5e2e179815417e57f6f81a4}. Its \code{lean-toolchain} specifies \code{leanprover/lean4:v4.35.0-rc3}, and its \code{lake-manifest.json} pins mathlib to \code{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. These files were inspected through authenticated repository access. The snapshot is available at \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/198bcf14b5f5d554c5e2e179815417e57f6f81a4}. This pin applies to Stage~4, not the complete combined development. No version-specific archive DOI has been supplied.
+\noindent\textbf{Version information.} The combined Stage~4 and Stage~5 source snapshot is commit \code{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. Its \code{lean-toolchain} specifies \code{leanprover/lean4:v4.35.0-rc3}, and its \code{lake-manifest.json} pins mathlib to \code{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The public snapshot is available at \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. No version-specific archive DOI has been supplied.
 
 The exact recorded toolchain is \code{leanprover/lean4:v4.35.0-rc3}. The release-candidate suffix is part of this version identifier and must not be dropped or silently replaced by a stable release. Reproducibility depends on preserving the actual toolchain and dependency revisions; using a release candidate does not itself invalidate a checked proof. Migration to another Lean release requires a fresh build and audit.
 
-The mathlib revision above is obtained from the actual dependency manifest, rather than inferred from the CPP~2020 library reference. A tagged release and version-specific archive DOI should accompany the final combined source snapshot. At the repository inspection on 7 October 2026, the remote \code{research/jensen-foundations} branch, commit \code{66a3ba8a84eca896cfddeee67ffce1a4f486ba2c}, contains the Jensen foundations module but not the later certified moment and complex-root modules reported in the supplied local build logs. Those later sources must be committed before the Stage~5 commands below can be reproduced from GitHub.
+The mathlib revision above is obtained from the actual dependency manifest, rather than inferred from the CPP~2020 library reference. The combined snapshot includes the eighty checked cell batches, the certified moment inequality, the real factorization, and the complex-root classification. These sources were incorporated from commit \code{5cd221d78d6840f97bac7b6ad61be36ddc006887} on \code{research/jensen-foundations}; reproduction should use the immutable combined commit rather than a moving branch.
 
-A publication release needs a single immutable snapshot containing both Stage~4 and Stage~5, together with the exact mathlib revision from \code{lake-manifest.json}. The supplied Stage~5 checkout is named \code{theta-hankel-paper-release} on branch \code{research/jensen-foundations}; this branch name is not an immutable release identifier. A publication artifact should contain the complete audited development and its pinned dependency manifest.
+The earlier Stage~4 snapshot, commit \code{198bcf14b5f5d554c5e2e179815417e57f6f81a4}, remains the reference for the historical Stage~4 build records. The combined snapshot supplies a separate GitHub Actions workflow that builds the Stage~4 audit and final Stage~5 complex-root target on Linux and Windows. The latter target imports the certified moment inequality and real factorization. Inclusion of this workflow is not a claim that its runs have completed successfully; its results must be inspected separately from the supplied local build records. A tagged release and version-specific archive DOI may be added after the combined audit.
 
-A reproducible release includes the project sources, \code{lean-toolchain}, the Lake configuration, \code{lake-manifest.json}, certificate-generation and repair scripts needed to regenerate the checked files, and the final audit source. Preserve the dependency manifest so that ``mathlib'' names an exact revision instead of a moving branch. At the audited project revision, run
+A reproducible release includes the project sources, \code{lean-toolchain}, the Lake configuration, \code{lake-manifest.json}, certificate-generation and repair scripts needed to regenerate the checked files, and the final audit source. Preserve the dependency manifest so that ``mathlib'' names an exact revision instead of a moving branch. For a clean reproduction, clone the repository and select the combined snapshot:
+\begin{lstlisting}
+git clone https://github.com/afageri1/theta-hankel-complex-scale-exclusion.git
+cd theta-hankel-complex-scale-exclusion
+git checkout --detach 62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7
+lake exe cache get
+\end{lstlisting}
+Then run
 \begin{lstlisting}
 lake build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
 \end{lstlisting}
@@ -497,7 +504,7 @@ import HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
 #print axioms
   HodgeProofHP.hpThetaHankel_every_complex_scale_exists_mismatch
 \end{lstlisting}
-For the new results, once the complete Stage~5 sources are included in the release, the build targets are
+For the Stage~5 results, the build targets in the combined snapshot are
 \begin{lstlisting}
 lake build HodgeProofHP.Stage5ThetaJensenCertifiedMomentInequality
 lake build HodgeProofHP.Stage5ThetaJensenQuadraticFactorization
@@ -542,7 +549,7 @@ The development provides two complementary results from the same differential th
 \Needspace{8\baselineskip}
 \section*{Code availability}
 The source repository is:\par\noindent\repo.\par
-The Stage~4 source commit and mathlib revision are recorded in Section~\ref{sec:repro}. The combined Stage~4 and Stage~5 source release and its version-specific archive DOI remain to be completed. A final release should identify the same immutable combined snapshot as Section~\ref{sec:repro}. The recorded toolchain is Lean \code{v4.35.0-rc3}; a moving repository branch is insufficient to reproduce the exact reported audit.
+The public combined Stage~4 and Stage~5 sources are pinned to commit \code{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}; the exact Lean and mathlib revisions are recorded in Section~\ref{sec:repro}. A version-specific archive DOI has not yet been supplied. The recorded toolchain is Lean \code{v4.35.0-rc3}; a moving repository branch is insufficient to reproduce the exact source snapshot. Supplied local audit records and independently reproducible CI results are distinguished in Section~\ref{sec:repro}.
 
 \begin{thebibliography}{99}
 \bibitem{lean} Leonardo de Moura and Sebastian Ullrich. The Lean 4 Theorem Prover and Programming Language. In \emph{Automated Deduction---CADE 28}, pp.~625--635. Springer, 2021. \url{https://doi.org/10.1007/978-3-030-79876-5_37}.

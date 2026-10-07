@@ -7,7 +7,7 @@ Companion formalization for **A Lean 4 Formalization of Theta–Hankel Spectral 
 - [PDF](paper/Theta_Hankel_Spectral_Theory_Jensen.pdf)
 - [LaTeX source](paper/Theta_Hankel_Spectral_Theory_Jensen.tex)
 
-The manuscript covers the Stage 4 exclusion and the later Stage 5 quadratic Jensen certificate reported in the author's local build logs. This repository does not yet contain the complete Stage 5 source release; see the status below.
+The manuscript covers Stage 4 complex-scale exclusion and Stage 5 certified quadratic Jensen hyperbolicity. Both source developments are available on `main`, with immutable combined source snapshot `62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7`.
 
 ## Result and scope
 
@@ -85,25 +85,39 @@ The [paper audit workflow](https://github.com/afageri1/theta-hankel-complex-scal
 
 The workflow runs on pushes to `main` and can also be started manually from GitHub Actions.
 
-## Stage 5 source status
+## Combined source snapshot and Stage 5
 
-Remote branch `research/jensen-foundations` at `66a3ba8a84eca896cfddeee67ffce1a4f486ba2c` contains `HodgeProofHP/Stage5ThetaJensenFoundations.lean`. The later moment certificates, factorization, and complex-root modules are not yet present on GitHub.
+- Combined source commit: `62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7`.
+- Stage 5 source contribution: `5cd221d78d6840f97bac7b6ad61be36ddc006887`.
+- Lean: `leanprover/lean4:v4.35.0-rc3`.
+- Mathlib: `ec6a61cec0d8f9fda04453e9bb5761a79aa43a70`.
 
-The supplied local build records report the strict bound
+The combined snapshot includes all eighty cell batches, finite integral and tail certificates, the moment inequality, real factorization, and complex-root classification. The supplied local build records report
 
 ```text
 3 * M2^2 - M0 * M4 >= 4287 / 100000000 > 0
 ```
 
-and two distinct real roots of the degree-two, shift-zero polynomial. This is the single case `(d,n) = (2,0)`, not a proof of RH. Complete Stage 5 sources must be pushed from the tested local checkout before these targets can be reproduced from this repository:
+and two distinct real roots of the degree-two, shift-zero polynomial. This is the single case `(d,n) = (2,0)`, not a proof of RH.
+
+To reproduce the combined development after cloning:
 
 ```bash
+git checkout --detach 62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7
+lake exe cache get
+lake build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
 lake build HodgeProofHP.Stage5ThetaJensenCertifiedMomentInequality
 lake build HodgeProofHP.Stage5ThetaJensenQuadraticFactorization
 lake build HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
 ```
 
-The existing CI audits the pinned Stage 4 snapshot only; it does not certify the later Stage 5 results. A combined immutable release, exact Stage 5 dependency manifest, and archive DOI remain pending.
+The [combined paper audit](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/workflows/combined-paper-audit.yml) tests the exact workflow commit on Linux and Windows, using Mathlib's cache but no restored project build cache. Its final Stage 5 target imports the certified inequality and real factorization. Inspect run results before claiming independent CI certification; adding the workflow does not establish a passing build. The historical Stage 4 workflow remains pinned to its original snapshot.
+
+A versioned tag and archive DOI have not yet been supplied. Preserve the exact manifest; do not run `lake update` during reproduction.
+
+## Exact arithmetic check
+
+Run `python paper/check_certificate_arithmetic.py` to check both manuscript appendices with rational arithmetic. This checks arithmetic after the analytic thresholds; it is not a Lean proof of the integrals.
 
 ## Compile the paper
 
@@ -115,3 +129,4 @@ pdflatex -interaction=nonstopmode -halt-on-error Theta_Hankel_Spectral_Theory_Je
 ```
 
 The PDF is produced directly from LaTeX, without OCR.
+
