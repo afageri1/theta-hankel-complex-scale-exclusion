@@ -1,6 +1,13 @@
-# Theta–Hankel Complex-Scale Exclusion
+# Theta–Hankel Spectral Theory and Quadratic Jensen Hyperbolicity
 
-Companion formalization for **A Lean 4 Formalization of a Theta–Hankel Operator: Complex-Scale Exclusion for the Hilbert–Pólya Approach**.
+Companion formalization for **A Lean 4 Formalization of Theta–Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity**.
+
+## Latest manuscript
+
+- [PDF](paper/Theta_Hankel_Spectral_Theory_Jensen.pdf)
+- [LaTeX source](paper/Theta_Hankel_Spectral_Theory_Jensen.tex)
+
+The manuscript covers the Stage 4 exclusion and the later Stage 5 quadratic Jensen certificate reported in the author's local build logs. This repository does not yet contain the complete Stage 5 source release; see the status below.
 
 ## Result and scope
 
@@ -17,7 +24,7 @@ The final audit also provides a pointwise formulation: for every complex scale, 
 
 This excludes this particular product and scaling construction. It does not prove or disprove the Riemann hypothesis, exclude other Hilbert–Pólya constructions, or exclude equality of zero sets under more general modifications.
 
-## Pinned paper artifact
+## Pinned Stage 4 source artifact
 
 - Source commit: `198bcf14b5f5d554c5e2e179815417e57f6f81a4`.
 - Lean toolchain: `leanprover/lean4:v4.35.0-rc3`.
@@ -30,7 +37,7 @@ Subsequent documentation and CI commits do not change this pinned reference. Do 
 
 ## Reproduce on Windows or Linux
 
-Install Git and [elan](https://github.com/leanprover/elan) and ensure `lake` is available. Repository access is required while this repository remains private.
+Install Git and [elan](https://github.com/leanprover/elan) and ensure `lake` is available. 
 
 In Linux Bash or Windows Git Bash:
 
@@ -76,4 +83,35 @@ The final audit was successfully built from a fresh committed checkout on Window
 
 The [paper audit workflow](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/workflows/paper-audit.yml) checks the same pinned commit on Windows and Linux. It uses two Lean threads, downloads Mathlib's cache, and disables restoration of GitHub project build caches. CI results must be checked before claiming either platform has passed.
 
-The workflow runs on pushes to `main` and can also be started manually from GitHub Actions. The repository remains private until its owner changes its visibility.
+The workflow runs on pushes to `main` and can also be started manually from GitHub Actions.
+
+## Stage 5 source status
+
+Remote branch `research/jensen-foundations` at `66a3ba8a84eca896cfddeee67ffce1a4f486ba2c` contains `HodgeProofHP/Stage5ThetaJensenFoundations.lean`. The later moment certificates, factorization, and complex-root modules are not yet present on GitHub.
+
+The supplied local build records report the strict bound
+
+```text
+3 * M2^2 - M0 * M4 >= 4287 / 100000000 > 0
+```
+
+and two distinct real roots of the degree-two, shift-zero polynomial. This is the single case `(d,n) = (2,0)`, not a proof of RH. Complete Stage 5 sources must be pushed from the tested local checkout before these targets can be reproduced from this repository:
+
+```bash
+lake build HodgeProofHP.Stage5ThetaJensenCertifiedMomentInequality
+lake build HodgeProofHP.Stage5ThetaJensenQuadraticFactorization
+lake build HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
+```
+
+The existing CI audits the pinned Stage 4 snapshot only; it does not certify the later Stage 5 results. A combined immutable release, exact Stage 5 dependency manifest, and archive DOI remain pending.
+
+## Compile the paper
+
+From the `paper` directory, with a TeX installation providing the packages named in the preamble:
+
+```bash
+pdflatex -interaction=nonstopmode -halt-on-error Theta_Hankel_Spectral_Theory_Jensen.tex
+pdflatex -interaction=nonstopmode -halt-on-error Theta_Hankel_Spectral_Theory_Jensen.tex
+```
+
+The PDF is produced directly from LaTeX, without OCR.
