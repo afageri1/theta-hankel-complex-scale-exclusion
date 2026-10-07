@@ -1,0 +1,44 @@
+name: Combined paper audit
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Combined audit on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - name: Check out the exact workflow source commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+
+      - name: Build Stage 4 audit and final Stage 5 root classification
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
+        with:
+          auto-config: "false"
+          build: "true"
+          build-args: HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "true"
+
+      - name: Record source and toolchain; verify tracked files
+        shell: bash
+        run: |
+          git rev-parse HEAD
+          lake env lean --version
+          git diff --exit-code
+          git diff --cached --exit-code
