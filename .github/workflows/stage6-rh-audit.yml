@@ -1,0 +1,50 @@
+name: Stage 6 RH reduction audit
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'HodgeProofHP/**'
+      - 'lean-toolchain'
+      - 'lake-manifest.json'
+      - '.github/workflows/stage6-rh-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    name: Stage 6 on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 1
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - name: Check out the source commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Build the formal RH reduction
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          auto-config: "false"
+          build: "true"
+          build-args: HodgeProofHP.Stage6ThetaJensenRiemannHypothesisEquivalence
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "true"
+      - name: Audit final theorem dependencies and source revision
+        shell: bash
+        run: |
+          set -euo pipefail
+          git rev-parse HEAD
+          lake env lean --version
+          lake env lean HodgeProofHP/Stage6ThetaJensenRiemannHypothesisEquivalence.lean 2>&1 | tee stage6-final-axioms.log
+          if grep -q 'sorryAx' stage6-final-axioms.log; then exit 1; fi
+          git diff --exit-code
+          git diff --cached --exit-code
