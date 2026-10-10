@@ -1,5 +1,9 @@
 # Theta kernel formalization in Lean 4
 
+**Author:** Adil Fagiri ([ORCID](https://orcid.org/0009-0000-9484-5677)), MetaSolve
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227199.svg)](https://doi.org/10.5281/zenodo.23227199)
+
 Certified theta-kernel moment bounds, a complex-scale spectral obstruction, quadratic Jensen roots, and a formal reformulation of the Riemann hypothesis.
 
 The companion paper is **A Lean 4 Formalization of Theta–Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity**: [PDF](paper/Theta_Hankel_Spectral_Theory_Jensen.pdf), [LaTeX](paper/Theta_Hankel_Spectral_Theory_Jensen.tex).
