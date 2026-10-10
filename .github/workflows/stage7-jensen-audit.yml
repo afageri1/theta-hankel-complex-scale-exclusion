@@ -29,12 +29,12 @@ jobs:
       - name: Validate axiom parser
         shell: bash
         run: python scripts/test_check_axioms.py
-      - name: Build polynomial expansion
+      - name: Build uniform convergence on disks
         uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           auto-config: "false"
           build: "true"
-          build-args: HodgeProofHP.Stage7ThetaJensenPolynomialExpansion
+          build-args: HodgeProofHP.Stage7ThetaJensenUniformConvergence
           test: "false"
           lint: "false"
           use-github-cache: "false"
@@ -45,6 +45,7 @@ jobs:
           bash scripts/audit_stage7_jensen_rescaling.sh
           bash scripts/audit_stage7_jensen_coefficient_limits.sh
           bash scripts/audit_stage7_jensen_polynomial_expansion.sh
+          bash scripts/audit_stage7_jensen_uniform_convergence.sh
           git diff --exit-code
           git diff --cached --exit-code
       - name: Preserve axiom report
@@ -56,4 +57,5 @@ jobs:
             stage7-jensen-rescaling-axioms.log
             stage7-jensen-coefficient-limit-axioms.log
             stage7-jensen-polynomial-expansion-axioms.log
+            stage7-jensen-uniform-convergence-axioms.log
           if-no-files-found: warn
