@@ -2,7 +2,9 @@
 
 **Author:** Adil Fagiri ([ORCID](https://orcid.org/0009-0000-9484-5677)), MetaSolve
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23227199.svg)](https://doi.org/10.5281/zenodo.23227199)
+Source archive: [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23287564.svg)](https://doi.org/10.5281/zenodo.23287564)
+
+Manuscript: [10.5281/zenodo.23227199](https://doi.org/10.5281/zenodo.23227199)
 
 Certified theta-kernel moment bounds, a complex-scale spectral obstruction, quadratic Jensen roots, and a formal reformulation of the Riemann hypothesis.
 
@@ -37,12 +39,16 @@ The project does not prove or disprove RH. Global non-real-zero exclusion for th
 
 | Item | Exact reference |
 | --- | --- |
-| Complete Stage 4–6 source commit | `b0218c813dd2f521a8d5a1752688b82c77b5e5dd` |
+| Archived source release | [`v1.0.0`](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/releases/tag/v1.0.0) |
+| Source archive DOI | [10.5281/zenodo.23287564](https://doi.org/10.5281/zenodo.23287564) |
+| Release commit | `dbb6bd2447296cab184d7bb457054c6efec6207d` |
 | Lean | `leanprover/lean4:v4.35.0-rc3` |
 | Mathlib | `ec6a61cec0d8f9fda04453e9bb5761a79aa43a70` |
-| Completed Linux and Windows Stage 6 audit | [GitHub Actions run 38002265077](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38002265077) |
+| Complete paper audit, Linux and Windows | [38037409666](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409666) |
+| Stage 4 audit, Linux and Windows | [38037409598](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409598) |
+| Stage 6 audit, Linux and Windows | [38037409551](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409551) |
 
-The release-cleanup branch changes organization, the root import target, and audit tooling. Retained proof modules and dependency pins are unchanged. The table records the previously completed audit, not a claim that cleanup CI has already passed. See [current complete-paper CI](https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/workflows/combined-paper-audit.yml) for the new branch’s results. Historical snapshots and build counts are in [docs/HISTORY.md](docs/HISTORY.md).
+All three workflows passed on Linux and Windows at the release commit, including final theorem dependency and tracked-source audits. The release retains the 401 proof modules and dependency/resource pins unchanged from the preceding development snapshot. Historical snapshots and build counts are in [docs/HISTORY.md](docs/HISTORY.md).
 
 ## Reproduction
 
@@ -51,16 +57,7 @@ Install Git and [elan](https://github.com/leanprover/elan). Reproduce the immuta
 ```bash
 git clone https://github.com/afageri1/theta-hankel-complex-scale-exclusion.git
 cd theta-hankel-complex-scale-exclusion
-git checkout --detach b0218c813dd2f521a8d5a1752688b82c77b5e5dd
-lake exe cache get
-lake build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots HodgeProofHP.Stage6ThetaJensenRiemannHypothesisEquivalence
-```
-
-For the cleaned repository layout, check out `release-cleanup` and record its actual commit before building:
-
-```bash
-git switch release-cleanup
-git rev-parse HEAD
+git checkout --detach v1.0.0
 lake exe cache get
 lake build
 ```
@@ -69,7 +66,7 @@ The root `HodgeProofHP.lean` now imports all three final targets. Do not run `la
 
 ## Axiom verification
 
-On the cleaned branch:
+At the archived release:
 
 ```bash
 lake env lean HodgeProofHP/Stage4ThetaComplexScaledObstructionAudit.lean > stage4-final-axioms.log
@@ -95,7 +92,7 @@ The checker accepts only `propext`, `Classical.choice`, and `Quot.sound`; it rej
 - `scripts/history/`: the development-script archive; it is not required for the build. Scripts are retained as historical records and may reference archived modules.
 - `.github/workflows/`: Stage 4, complete-paper, and Stage 6 audits on Linux and Windows, with manual dispatch support.
 
-The removed exploration sources remain in `archive/exploration`. See [docs/REMOVED_MODULES.md](docs/REMOVED_MODULES.md); `python scripts/list_unused_modules.py` should print nothing on this branch.
+The removed exploration sources remain in `archive/exploration`. See [docs/REMOVED_MODULES.md](docs/REMOVED_MODULES.md); `python scripts/list_unused_modules.py` should print nothing at this release.
 
 ## Certificate generation and size
 
@@ -129,6 +126,8 @@ This work forms part of a research project pursued by the author over the past t
 
 Original Lean sources and supporting scripts are licensed under [Apache 2.0](LICENSE). Third-party dependencies retain their own licenses; manuscripts retain any explicitly stated publication license.
 
-The manuscript is published as Zenodo record [23227199](https://zenodo.org/records/23227199), version 1.0, DOI [10.5281/zenodo.23227199](https://doi.org/10.5281/zenodo.23227199). The public record contains one PDF, including the Stage 6 discussion; it does not archive the Lean source files or establish GitHub–Zenodo release integration. Cite the manuscript DOI together with the exact source commit:
+The source release is archived as **v1.0.0**, DOI [10.5281/zenodo.23287564](https://doi.org/10.5281/zenodo.23287564), at commit `dbb6bd2447296cab184d7bb457054c6efec6207d`. The companion manuscript is separately published as Zenodo record [23227199](https://zenodo.org/records/23227199), DOI [10.5281/zenodo.23227199](https://doi.org/10.5281/zenodo.23227199). The source DOI identifies the repository ZIP; the manuscript DOI identifies the paper PDF.
 
-> Adil Fagiri. *A Lean 4 Formalization of Theta–Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity*. 2026. https://doi.org/10.5281/zenodo.23227199. https://github.com/afageri1/theta-hankel-complex-scale-exclusion. Audited source: `b0218c813dd2f521a8d5a1752688b82c77b5e5dd`.
+> Adil Fagiri. *Theta kernel formalization in Lean 4*. Version v1.0.0. Zenodo, 2026. Software. https://doi.org/10.5281/zenodo.23287564.
+
+> Adil Fagiri. *A Lean 4 Formalization of Theta–Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity*. Zenodo, 2026. https://doi.org/10.5281/zenodo.23227199.
