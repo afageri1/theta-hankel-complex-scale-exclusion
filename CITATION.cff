@@ -1,9 +1,14 @@
 cff-version: 1.2.0
 message: >-
-  If you use this formalization, cite the companion manuscript below and
-  record the exact source commit. The DOI identifies the manuscript PDF,
-  not an archived Lean source release.
+  If you use this formalization, cite the software release using its source
+  archive DOI and cite the companion manuscript listed below. The software
+  DOI identifies the Lean source archive; the preferred-citation DOI
+  identifies the manuscript.
 type: software
+version: v1.0.0
+date-released: "2026-10-10"
+commit: "dbb6bd2447296cab184d7bb457054c6efec6207d"
+doi: "10.5281/zenodo.23287564"
 title: "Theta kernel formalization in Lean 4"
 authors:
   - family-names: Fagiri

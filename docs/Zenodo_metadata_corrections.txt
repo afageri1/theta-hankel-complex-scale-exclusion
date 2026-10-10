@@ -1,0 +1,38 @@
+Source record: https://zenodo.org/records/23287564
+
+Description (HTML):
+<h2>v1.0.0 — Theta-Hankel formalization in Lean 4</h2>
+<p>This release contains:</p>
+<ul>
+<li>Stage 4: certified Rayleigh bounds and exclusion of a proposed
+spectral-product identity under every constant complex scaling.</li>
+<li>Stage 5: certified degree-two, zero-shift Jensen hyperbolicity.</li>
+<li>Stage 6: an entire theta-Jensen generating function and a formal
+equivalence with Mathlib's RiemannHypothesis.</li>
+</ul>
+<p>This is a formalization and reduction, not a proof of RH.</p>
+<h2>Verification</h2>
+<p>All three audit workflows passed on Linux and Windows, including
+final theorem dependency and tracked-source checks.</p>
+<p>Final theorem dependencies are restricted to:
+propext, Classical.choice, and Quot.sound. No sorryAx.</p>
+<p>Source commit: dbb6bd2447296cab184d7bb457054c6efec6207d
+Lean: leanprover/lean4:v4.35.0-rc3
+Mathlib: ec6a61cec0d8f9fda04453e9bb5761a79aa43a70</p>
+<h2>Manuscript</h2>
+<p>https://doi.org/10.5281/zenodo.23227199</p>
+<p>The manuscript DOI identifies the paper. This source release is archived as DOI 10.5281/zenodo.23287564, version v1.0.0.</p>
+<h2>Changes</h2>
+<p>Repository cleanup, reproducible certificate generation, strict
+axiom auditing, updated documentation, and citation metadata.</p>
+<p>https://github.com/afageri1/theta-hankel-complex-scale-exclusion/pull/1</p>
+
+Notes:
+This DOI identifies the Lean source archive, release v1.0.0, at commit dbb6bd2447296cab184d7bb457054c6efec6207d. The companion manuscript is identified separately by DOI 10.5281/zenodo.23227199.
+
+Related works: add DOI 10.5281/zenodo.23227199, relation Is supplement to, resource type Publication / Preprint. Keep the existing GitHub tag relationship.
+
+Manuscript record: https://zenodo.org/records/23227199
+Related works: add DOI 10.5281/zenodo.23287564, relation Is supplemented by, resource type Software.
+
+Use Edit to change metadata only; do not change the archived source ZIP. Upload the revised paper through New version, retaining the existing manuscript DOI as the historical version.

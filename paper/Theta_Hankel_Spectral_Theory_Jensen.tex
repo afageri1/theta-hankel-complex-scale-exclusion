@@ -74,6 +74,8 @@ Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity}
 \author{Adil Fagiri}
 \date{9 October 2026}
 
+\newcommand{\code}[1]{\texttt{\expandafter\seqsplit\expandafter{\detokenize{#1}}}}
+\newcommand{\repo}{\url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}}
 \begin{document}
 \maketitle
 
@@ -624,7 +626,7 @@ The Stage 6 modules extend the existing moment development. Each module name bel
 \end{longtable}
 
 \hypertarget{rational-certificates-and-reproducibility}{%
-\section{10 Rational certificates and reproducibility}\label{rational-certificates-and-reproducibility}}
+\section{10 Rational certificates and reproducibility}\label{rational-certificates-and-reproducibility}\label{sec:repro}}
 
 We build integral bounds from finite rational certificates. Then we add analytic domination and tail estimates. Exponential bounds use finite Taylor sums and explicit remainder bounds. Endpoint inequalities control the kernel on finite intervals; integrating the lower or upper functions gives rational inequalities for moments and trace energy. The unbounded part of the trace-energy integral needs separate work: a decay estimate and an integral tail bound.
 
@@ -634,33 +636,34 @@ Preliminary Python interval calculations guide discovery but are not proof artif
 
 \textbf{Source repository.} \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}.
 
-Manuscript archive. Zenodo record \url{https://zenodo.org/records/23227199}, version 1.0, is published with DOI \url{https://doi.org/10.5281/zenodo.23227199}. The record was checked on 10 October 2026 and contains a single manuscript PDF, including the Stage 6 discussion. It does not archive the Lean source files; source reproduction uses the pinned GitHub commits and CI records below.
+Manuscript version. This revised manuscript is version 2.0, with DOI \url{https://doi.org/10.5281/zenodo.23287787}. The original manuscript version 1.0 remains available at \url{https://doi.org/10.5281/zenodo.23227199}. The Lean sources are archived separately as release v1.0.0, described below.
 
-Version information. The combined Stage~4 and Stage~5 source snapshot is commit \path{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. Its lean-toolchain specifies leanprover/lean4:v4.35.0-rc3, and its lake-manifest.json pins mathlib to \path{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The public snapshot is available at https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7.
+\noindent\textbf{Version information.} The archived source release is
+\code{v1.0.0}, commit \code{dbb6bd2447296cab184d7bb457054c6efec6207d},
+deposited as \url{https://doi.org/10.5281/zenodo.23287564} (reference [10]).
+Its \code{lean-toolchain} specifies \code{leanprover/lean4:v4.35.0-rc3},
+and its \code{lake-manifest.json} pins mathlib to
+\code{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. This DOI identifies the
+Lean source archive; the manuscript is identified separately by
+\url{https://doi.org/10.5281/zenodo.23287787}.
 
-Stage 6 source snapshot. The complete Stage 6 sources and installation scripts are pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. This commit retains Lean v4.35.0-rc3 and mathlib revision \path{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The immutable source location is https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/b0218c813dd2f521a8d5a1752688b82c77b5e5dd.
-
-Independent Stage 6 audit. GitHub Actions run 38002265077 completed successfully on ubuntu-latest and windows-latest on 9 October 2026. Each job checked out commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. It built the final RH-equivalence target and reran the six printed axiom inspections. It also verified that tracked sources were unchanged. Both final inspections list only propext, Classical.choice, and Quot.sound, with no sorryAx. We obtained Mathlib dependencies from its binary cache. The CI built the project target on fresh hosted runners with the GitHub build cache disabled. This is a reproducibility check using the standard Lean kernel, not a second-kernel validation. The workflow and logs are available at https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38002265077.
+\textbf{Release audit.} All three GitHub Actions workflows completed successfully on Linux and Windows at the release commit on 10 October 2026: the complete paper audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409666}; the Stage 4 audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409598}; and the Stage 6 RH reduction audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409551}. The final theorem dependency and tracked-source checks succeeded on both platforms. The reports list only propext, Classical.choice, and Quot.sound, with no sorryAx. Mathlib dependencies were obtained from its binary cache; the project build cache was disabled. This checks reproducibility with Lean's standard kernel rather than with an independent second kernel. The earlier Stage 6 source commit \code{b0218c813dd2f521a8d5a1752688b82c77b5e5dd} remains a historical audit reference.
 
 The exact recorded toolchain is \texttt{\seqsplit{leanprover/lean4:v4.35.0-rc3}}. The release-candidate suffix is part of this version identifier and must not be dropped or silently replaced by a stable release. Reproducibility depends on the exact toolchain and dependency revisions. Using a release candidate does not itself invalidate a checked proof. Migration to another Lean release requires a fresh build and audit.
 
-The mathlib revision above comes from the actual dependency manifest. It is not inferred from the CPP~2020 library reference. The combined snapshot includes the eighty checked cell batches, the certified moment inequality, the real factorization, and the complex-root classification. We incorporated these sources from commit \texttt{\seqsplit{5cd221d78d6840f97bac7b6ad61be36ddc006887}} on \texttt{\seqsplit{research/jensen-foundations}}; reproduction should use the immutable combined commit. A moving branch does not identify a fixed snapshot.
-
-The earlier Stage~4 snapshot, commit \path{198bcf14b5f5d554c5e2e179815417e57f6f81a4}, remains the reference for the historical Stage~4 build records. The combined snapshot supplies a separate GitHub Actions workflow that builds the Stage~4 audit and final Stage~5 complex-root target on Linux and Windows. The latter target imports the certified moment inequality and real factorization. Inclusion of this workflow is not a claim that its runs have completed successfully; its results must be inspected separately from the supplied local build records. Reproduction of the sources uses the immutable combined commit specified above.
-
-A reproducible release includes the project sources and the final audit source. It also includes lean-toolchain, the Lake configuration, lake-manifest.json, and the certificate-generation and repair scripts needed to regenerate the checked files.\texttt{\seqsplit{}}\texttt{\seqsplit{}} Preserve the dependency manifest so that ``mathlib'' names an exact revision instead of a moving branch. For a clean reproduction, clone the repository and select the combined snapshot:
+The mathlib revision above comes from the dependency manifest, not from the CPP 2020 library reference. The release contains the checked cell batches, certified moment inequality, quadratic factorization and root classification, and complete Stage 6 extension. It also contains the Stage 5 certificate generator and the strict multiline axiom parser. The release tag and source DOI identify the fixed snapshot; a moving branch does not. For reproduction, preserve the manifest and use:
 
 \begin{verbatim}
 git clone https://github.com/afageri1/theta-hankel-complex-scale-exclusion.git
 cd theta-hankel-complex-scale-exclusion
-git checkout --detach 62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7
+git checkout --detach v1.0.0
 lake exe cache get
 \end{verbatim}
 
 Then run
 
 \begin{verbatim}
-lake build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
+lake build
 \end{verbatim}
 
 Inspect theorem statements as well as the build result. The explicit theorem quantifies over \(c \in \mathbb{C}\) and compares functions on \(\mathbb{C}\). Axiom inspection can be repeated with
@@ -753,29 +756,30 @@ Equivalently, every zero of F is a strictly negative real number. For example, \
 \hypertarget{audit-evidence-and-scope}{%
 \subsection{13.3 Audit evidence and scope}\label{audit-evidence-and-scope}}
 
-The supplied local build record, dated 9 October 2026, reports successful compilation of the final target with 3926 dependency jobs. Its six printed theorem dependency lists contain only propext, Classical.choice, and Quot.sound, with no sorryAx. This count belongs to that target dependency graph; it is not a count of mathematical results. The complete Stage 6 module list appears in Section 9.5. Independent CI subsequently confirmed successful builds and final axiom inspections on both Linux and Windows for the pinned Stage 6 commit, as detailed in Section 10. Reproduction of the final statement uses:
+The supplied local build record, dated 9 October 2026, reports successful compilation of the final target with 3926 dependency jobs. Its six printed theorem dependency lists contain only propext, Classical.choice, and Quot.sound, with no sorryAx. This count belongs to that target dependency graph; it is not a count of mathematical results. The complete Stage 6 module list appears in Section 9.5. Independent CI subsequently confirmed successful builds and final axiom inspections on both Linux and Windows for the archived release commit, as detailed in Section 10. Reproduction of the final statement uses:
 
 \begin{verbatim}
-git checkout --detach b0218c813dd2f521a8d5a1752688b82c77b5e5dd
+git checkout --detach v1.0.0
 lake exe cache get
 lake build HodgeProofHP.Stage6ThetaJensenRiemannHypothesisEquivalence
 \end{verbatim}
 
-This result formalizes a reduction. It does not prove RH. Nor does it establish hyperbolicity of the full Jensen family. The unresolved global zero-exclusion statement is itself equivalent to RH. The contribution claimed here is the formal connection between these particular definitions, not a new analytic proof of the classical criterion. The source snapshot is pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}; its Lean and mathlib versions and the independent CI results are recorded in Section 10.
+This result formalizes a reduction. It does not prove RH. Nor does it establish hyperbolicity of the full Jensen family. The unresolved global zero-exclusion statement is itself equivalent to RH. The contribution claimed here is the formal connection between these particular definitions, not a new analytic proof of the classical criterion. The source release v1.0.0, its archive DOI, exact dependency revisions, and successful CI results are recorded in Section 10.
 
 \hypertarget{conclusion}{%
 \section{14 Conclusion}\label{conclusion}}
 
-We provide two complementary results from the same differential theta kernel. A Rayleigh estimate and certified fourth-order separation exclude equality of the adjoint-square spectral product with normalized xi after every constant complex rescaling. A separate 1600-cell integral certificate proves a strict quadratic Jensen inequality with an explicit rational margin, followed by factorization and complete complex-root classification. The latter is a formalization of a particular classical hyperbolicity statement, not a universal Jensen theorem, and not a proof of RH. The supplied audits report the standard axiom list without sorryAx; the Stage 6 source commit and successful Linux and Windows CI audits are now recorded in Section 10. Stage 6 additionally supplies the entire generating function and the formal RH equivalence of Section 13. Its remaining zero-exclusion hypothesis is equivalent to RH and is not discharged.
+We provide two complementary results from the same differential theta kernel. A Rayleigh estimate and certified fourth-order separation exclude equality of the adjoint-square spectral product with normalized xi after every constant complex rescaling. A separate 1600-cell integral certificate proves a strict quadratic Jensen inequality with an explicit rational margin, followed by factorization and complete complex-root classification. The latter is a formalization of a particular classical hyperbolicity statement, not a universal Jensen theorem, and not a proof of RH. The supplied audits report the standard axiom list without sorryAx; the archived source release and successful Linux and Windows audits of all three workflows are recorded in Section 10. Stage 6 additionally supplies the entire generating function and the formal RH equivalence of Section 13. Its remaining zero-exclusion hypothesis is equivalent to RH and is not discharged.
 
 \hypertarget{code-availability}{%
-\section{Code availability}\label{code-availability}}
+\section*{Code availability}\label{code-availability}}
 
-The source repository is:
-
-\url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}.
-
-Stage 4 and Stage 5 sources are pinned to commit \path{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. The later Stage 6 extension is pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. Both use the Lean and mathlib revisions recorded in Section 10. The immutable GitHub source commits and completed CI runs provide the presently verified reproduction references. The manuscript is archived at \url{https://doi.org/10.5281/zenodo.23227199}; this DOI identifies the manuscript PDF, not an archived source release. The original Lean sources and supporting scripts are licensed under Apache 2.0; the repository LICENSE records the scope and preserves third-party and manuscript licensing.
+The Lean sources are archived as release \code{v1.0.0}
+(commit \code{dbb6bd2447296cab184d7bb457054c6efec6207d}) at
+\url{https://doi.org/10.5281/zenodo.23287564} (reference [10]), and are
+developed at \repo. The manuscript DOI, 10.5281/zenodo.23287787, identifies
+this paper and not the source archive. Exact Lean and mathlib revisions
+are recorded in \hyperref[sec:repro]{Section 10}. Original Lean sources and supporting scripts are licensed under Apache 2.0; dependencies and manuscripts retain their stated licenses.
 
 \hypertarget{ai-assistance-disclosure}{%
 \section{AI Assistance Disclosure}\label{ai-assistance-disclosure}}
@@ -802,6 +806,8 @@ This work forms part of a research project pursued by the author over the past t
 {[}8{]} Farmer, D. W. (2022). \emph{Jensen polynomials are not a plausible route to proving the Riemann Hypothesis.} Preprint, version revised 9 November 2022. \url{https://arxiv.org/abs/2008.07206v2}.
 
 {[}9{]} G Six. (2026). \emph{The Bost--Connes Modular Generator as a candidate Hilbert--Pólya Operator, Lean 4 Formalization.} Companion repository; consulted 10 October 2026. \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}. This is a software repository, not a peer-reviewed article; it presents a conditional reduction with explicitly declared additional assumptions.
+
+{[}10{]} Adil Fagiri. \emph{Theta kernel formalization in Lean 4}, version v1.0.0. Zenodo, 2026. Software. \url{https://doi.org/10.5281/zenodo.23287564}.
 
 \hypertarget{a-exact-arithmetic-check}{%
 \section{A Exact arithmetic check}\label{a-exact-arithmetic-check}}
