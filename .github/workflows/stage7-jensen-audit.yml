@@ -1,0 +1,54 @@
+name: Stage 7 Jensen rescaling audit
+
+on:
+  push:
+    branches: [research/stage7-jensen-criterion]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Stage 7 rescaling on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    env:
+      LEAN_NUM_THREADS: "2"
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate axiom parser
+        shell: bash
+        run: python scripts/test_check_axioms.py
+      - name: Build rescaling bounds
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
+        with:
+          auto-config: "false"
+          build: "true"
+          build-args: HodgeProofHP.Stage7ThetaJensenRescalingBounds
+          test: "false"
+          lint: "false"
+          use-github-cache: "false"
+          use-mathlib-cache: "true"
+      - name: Verify six theorem dependencies and tracked sources
+        shell: bash
+        run: |
+          bash scripts/audit_stage7_jensen_rescaling.sh
+          git diff --exit-code
+          git diff --cached --exit-code
+      - name: Preserve axiom report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stage7-rescaling-${{ matrix.os }}
+          path: stage7-jensen-rescaling-axioms.log
+          if-no-files-found: warn
