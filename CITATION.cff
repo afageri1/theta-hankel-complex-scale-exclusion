@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+message: >-
+  If you use this formalization, cite the companion manuscript below and
+  record the exact source commit. The DOI identifies the manuscript PDF,
+  not an archived Lean source release.
+type: software
+title: "Theta kernel formalization in Lean 4"
+authors:
+  - family-names: Fagiri
+    given-names: Adil
+    affiliation: MetaSolve
+    orcid: "https://orcid.org/0009-0000-9484-5677"
+repository-code: "https://github.com/afageri1/theta-hankel-complex-scale-exclusion"
+url: "https://github.com/afageri1/theta-hankel-complex-scale-exclusion"
+license: Apache-2.0
+preferred-citation:
+  type: article
+  title: "A Lean 4 Formalization of Theta-Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity"
+  authors:
+    - family-names: Fagiri
+      given-names: Adil
+      affiliation: MetaSolve
+      orcid: "https://orcid.org/0009-0000-9484-5677"
+  doi: "10.5281/zenodo.23227199"
+  journal: Zenodo
+  year: 2026
+  date-published: "2026-10-08"
+  url: "https://zenodo.org/records/23227199"

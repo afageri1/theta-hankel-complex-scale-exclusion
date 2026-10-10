@@ -12,8 +12,10 @@ lake build HodgeProofHP.Stage6ThetaJensenRiemannHypothesisEquivalence
 lake env lean HodgeProofHP/Stage6ThetaJensenRiemannHypothesisEquivalence.lean
 ```
 
-The supplied local build record reports 3926 dependency jobs and six final axiom lists containing only propext, Classical.choice, and Quot.sound. This is local evidence, not a clean CI result. Inspect the Stage 6 RH reduction audit workflow for independent results on each operating system; do not assume that a queued run passed.
-
-The earlier project DOI supplied by the author is 10.5281/zenodo.23227199. Inclusion of Stage 6 in that archive has not been established. No Stage 6 version DOI is asserted here. A source release and archived revision should be identified after the independent audit.
+The local record and subsequent Linux and Windows CI run 38002265077 report final theorem dependencies containing only propext, Classical.choice, and Quot.sound at source commit b0218c813dd2f521a8d5a1752688b82c77b5e5dd. The new cleanup workflow audits the current branch separately; inspect its result before attributing a passing build to the reorganization.
 
 The installation scripts under scripts/stage6 are intended to be run from the project root and retain backups of changed target files.
+
+## Published manuscript
+
+Zenodo DOI [10.5281/zenodo.23227199](https://doi.org/10.5281/zenodo.23227199) identifies the published manuscript PDF, including Stage 6, verified on 10 October 2026. It is not a source-code archive; the record contains one PDF file.
