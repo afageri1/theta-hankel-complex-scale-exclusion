@@ -69,7 +69,7 @@ theorem hpComplexDisk_uniformLimit_ne_zero
   have ha : a ∈ closedBall a r := ball_subset_closedBall (mem_ball_self hr)
   have hlim : Tendsto (fun d : ℕ => ‖P d a‖) atTop (𝓝 ‖f a‖) :=
     (hconv.tendsto_at ha).norm
-  have hfa : m / 2 ≤ ‖f a‖ := le_of_tendsto hlim hlower
+  have hfa : m / 2 ≤ ‖f a‖ := ge_of_tendsto hlim hlower
   exact norm_pos_iff.mp (lt_of_lt_of_le (by positivity : 0 < m / 2) hfa)
 
 #print axioms hpComplexDisk_norm_lower_bound
