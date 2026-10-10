@@ -22,7 +22,7 @@ theorem hpThetaJensenRescaledPolynomialValue_tendstoUniformlyOn_compact
     (s : Set ℂ) (hs : IsCompact s) :
     TendstoUniformlyOn hpThetaJensenRescaledPolynomialValue
       hpThetaJensenGeneratingFunction atTop s := by
-  obtain ⟨R, hR⟩ := hs.isBounded.exists_norm_le'
+  obtain ⟨R, hR⟩ := hs.isBounded.exists_norm_le
   apply (hpThetaJensenRescaledPolynomialValue_tendstoUniformlyOn_disk
     (max R 0) (le_max_right R 0)).mono
   intro w hw
