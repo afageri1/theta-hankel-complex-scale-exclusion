@@ -16,7 +16,7 @@ jobs:
   audit:
     name: Stage 7 rescaling on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 120
+    timeout-minutes: 360
     strategy:
       fail-fast: false
       matrix:
@@ -29,21 +29,22 @@ jobs:
       - name: Validate axiom parser
         shell: bash
         run: python scripts/test_check_axioms.py
-      - name: Build rescaling bounds
+      - name: Build polynomial expansion
         uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           auto-config: "false"
           build: "true"
-          build-args: HodgeProofHP.Stage7ThetaJensenCoefficientLimits
+          build-args: HodgeProofHP.Stage7ThetaJensenPolynomialExpansion
           test: "false"
           lint: "false"
           use-github-cache: "false"
           use-mathlib-cache: "true"
-      - name: Verify six theorem dependencies and tracked sources
+      - name: Verify all Stage 7 theorem dependencies and tracked sources
         shell: bash
         run: |
           bash scripts/audit_stage7_jensen_rescaling.sh
           bash scripts/audit_stage7_jensen_coefficient_limits.sh
+          bash scripts/audit_stage7_jensen_polynomial_expansion.sh
           git diff --exit-code
           git diff --cached --exit-code
       - name: Preserve axiom report
@@ -54,4 +55,5 @@ jobs:
           path: |
             stage7-jensen-rescaling-axioms.log
             stage7-jensen-coefficient-limit-axioms.log
+            stage7-jensen-polynomial-expansion-axioms.log
           if-no-files-found: warn
