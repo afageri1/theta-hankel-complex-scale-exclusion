@@ -1,1 +1,10 @@
 /.lake
+
+/stage5_jensen_all_cells_generation_audit.txt
+/*-final-axioms.log
+/paper/*.aux
+/paper/*.log
+/paper/*.out
+
+__pycache__/
+*.pyc

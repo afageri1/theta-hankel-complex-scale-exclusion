@@ -1,44 +1,78 @@
-name: Combined paper audit
+name: Complete paper audit
 
 on:
   push:
+    branches: [main, release-cleanup]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
-    name: Combined audit on ${{ matrix.os }}
+    name: Complete paper audit on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
     timeout-minutes: 360
     strategy:
       fail-fast: false
-      max-parallel: 1
       matrix:
         os: [ubuntu-latest, windows-latest]
     env:
       LEAN_NUM_THREADS: "2"
     steps:
       - name: Check out the exact workflow source commit
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-
-      - name: Build Stage 4 audit and final Stage 5 root classification
-        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate the audit parser
+        shell: bash
+        run: python scripts/test_check_axioms.py
+      - name: Build HodgeProofHP
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           auto-config: "false"
           build: "true"
-          build-args: HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
+          build-args: HodgeProofHP
           test: "false"
           lint: "false"
           use-github-cache: "false"
           use-mathlib-cache: "true"
-
-      - name: Record source and toolchain; verify tracked files
+      - name: Verify final theorem dependencies and source revision
         shell: bash
         run: |
+          set -euo pipefail
           git rev-parse HEAD
           lake env lean --version
+          LOG=paper-final-axioms.log
+          : > "$LOG"
+          lake env lean HodgeProofHP/Stage4ThetaComplexScaledObstructionAudit.lean 2>&1 | tee -a "$LOG"
+          lake env lean HodgeProofHP/Stage5ThetaJensenQuadraticComplexRoots.lean 2>&1 | tee -a "$LOG"
+          lake env lean HodgeProofHP/Stage6ThetaJensenRiemannHypothesisEquivalence.lean 2>&1 | tee -a "$LOG"
+          python scripts/check_axioms.py "$LOG" \
+            --expect HodgeProofHP.hpThetaHankel_certified_fourthMoment_strict \
+            --expect HodgeProofHP.hpThetaHankelComplexScaledSpectralProduct_match_im_zero \
+            --expect HodgeProofHP.hpThetaHankel_no_complex_scale_normalizedXi_explicit \
+            --expect HodgeProofHP.hpThetaHankel_every_complex_scale_exists_mismatch \
+            --expect HodgeProofHP.hpThetaJensenQuadratic_zero_complex_factorization \
+            --expect HodgeProofHP.hpThetaJensenQuadratic_zero_complex_eval_eq_zero_iff \
+            --expect HodgeProofHP.hpThetaJensenQuadratic_zero_complex_root_im_zero \
+            --expect HodgeProofHP.hpThetaJensenQuadratic_zero_complex_root_is_real \
+            --expect HodgeProofHP.hpThetaJensen_RH_iff_xiRealZeros \
+            --expect HodgeProofHP.hpThetaJensen_RH_iff_negativeRealZeros \
+            --expect HodgeProofHP.hpThetaJensen_RH_iff_nonpositiveRealZeros \
+            --expect HodgeProofHP.hpThetaJensen_nonrealZeroExclusion_iff_negativeRealZeros \
+            --expect HodgeProofHP.hpThetaJensen_RH_iff_nonrealZeroExclusion \
+            --expect HodgeProofHP.hpThetaJensen_RH_of_nonrealZeroExclusion
           git diff --exit-code
           git diff --cached --exit-code
+      - name: Preserve final axiom reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: combined-paper-audit-${{ matrix.os }}
+          path: paper-final-axioms.log
+          if-no-files-found: warn

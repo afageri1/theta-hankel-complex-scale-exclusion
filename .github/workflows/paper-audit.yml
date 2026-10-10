@@ -1,33 +1,38 @@
-name: Pinned paper audit
+name: Stage 4 paper audit
 
 on:
   push:
+    branches: [main, release-cleanup]
+  pull_request:
     branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   audit:
-    name: Audit on ${{ matrix.os }}
+    name: Stage 4 paper audit on ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
-    timeout-minutes: 240
+    timeout-minutes: 360
     strategy:
       fail-fast: false
-      max-parallel: 1
       matrix:
         os: [ubuntu-latest, windows-latest]
     env:
       LEAN_NUM_THREADS: "2"
     steps:
-      - name: Check out the pinned paper source
-        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-        with:
-          ref: 198bcf14b5f5d554c5e2e179815417e57f6f81a4
-
-      - name: Build the final theorem audit
-        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865 # v1
+      - name: Check out the exact workflow source commit
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Validate the audit parser
+        shell: bash
+        run: python scripts/test_check_axioms.py
+      - name: Build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
+        uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           auto-config: "false"
           build: "true"
@@ -36,11 +41,26 @@ jobs:
           lint: "false"
           use-github-cache: "false"
           use-mathlib-cache: "true"
-
-      - name: Record source and toolchain; verify tracked files
+      - name: Verify final theorem dependencies and source revision
         shell: bash
         run: |
+          set -euo pipefail
           git rev-parse HEAD
           lake env lean --version
+          LOG=stage4-final-axioms.log
+          : > "$LOG"
+          lake env lean HodgeProofHP/Stage4ThetaComplexScaledObstructionAudit.lean 2>&1 | tee -a "$LOG"
+          python scripts/check_axioms.py "$LOG" \
+            --expect HodgeProofHP.hpThetaHankel_certified_fourthMoment_strict \
+            --expect HodgeProofHP.hpThetaHankelComplexScaledSpectralProduct_match_im_zero \
+            --expect HodgeProofHP.hpThetaHankel_no_complex_scale_normalizedXi_explicit \
+            --expect HodgeProofHP.hpThetaHankel_every_complex_scale_exists_mismatch
           git diff --exit-code
           git diff --cached --exit-code
+      - name: Preserve final axiom reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: paper-audit-${{ matrix.os }}
+          path: stage4-final-axioms.log
+          if-no-files-found: warn

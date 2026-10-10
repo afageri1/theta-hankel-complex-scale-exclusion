@@ -1,517 +1,690 @@
-\documentclass[11pt,a4paper]{article}
-\input{glyphtounicode}
-\pdfgentounicode=1
-\usepackage[T1]{fontenc}
-\usepackage[utf8]{inputenc}
-\usepackage{lmodern,amsmath,amssymb,amsthm,mathtools,microtype}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+  11pt,
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+  \setmainfont[]{Latin Modern Roman}
+  \setmonofont[]{DejaVu Sans Mono}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{seqsplit}
+\usepackage{fvextra}
+\DefineVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\scriptsize}
 \usepackage[margin=27mm]{geometry}
-\usepackage{booktabs,longtable,array,listings,xcolor}
-\usepackage[hidelinks,breaklinks]{hyperref}
-\usepackage{url,seqsplit}
-\usepackage{needspace}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
-\setlength{\emergencystretch}{3em}
-\setlength{\parskip}{4pt}
-\newtheorem{proposition}{Proposition}[section]
-\newtheorem{theorem}[proposition]{Theorem}
-\newtheorem{lemma}[proposition]{Lemma}
-\newtheorem{corollary}[proposition]{Corollary}
-\newcommand{\C}{\mathbb C}
-\newcommand{\R}{\mathbb R}
-\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
-\newcommand{\pair}[2]{\left\langle#1,#2\right\rangle}
-\DeclareRobustCommand{\code}[1]{{\small\ttfamily\expandafter\seqsplit\expandafter{\detokenize{#1}}}}
-\newcommand{\repo}{\url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}}
-\lstset{literate={¬}{{$\neg$}}1 {∃}{{$\exists$}}1 {ℂ}{{$\mathbb C$}}1 {≠}{{$\ne$}}1,basicstyle=\ttfamily\footnotesize,breaklines=true,columns=fullflexible,keepspaces=true,frame=single,rulecolor=\color{black!20},xleftmargin=5pt,xrightmargin=5pt,aboveskip=9pt,belowskip=9pt,showstringspaces=false}
-\hypersetup{pdftitle={A Lean 4 Formalization of Theta-Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity},pdfauthor={Adil Fagiri},pdfsubject={Formalized theta-Hankel obstruction and certified Jensen roots}}
-\title{A Lean 4 Formalization of Theta--Hankel Spectral Theory:\\Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity}
+\hypersetup{
+  pdftitle={A Lean 4 Formalization of Theta--Hankel Spectral Theory: Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity},
+  pdfauthor={Adil Fagiri},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{A Lean 4 Formalization of Theta--Hankel Spectral Theory:\\
+Complex-Scale Exclusion and Quadratic Jensen Hyperbolicity}
 \author{Adil Fagiri}
-\date{7 October 2026}
+\date{9 October 2026}
+
 \begin{document}
 \maketitle
-\begin{abstract}
-We present two results in a Lean 4 development built from the differential theta kernel of the Riemann xi function. First, we exclude equality between the spectral product of a theta--Hankel adjoint square and normalized xi under every constant complex rescaling. A certified Rayleigh estimate forces spectral concentration incompatible with the target's fourth-order Taylor invariant. Second, we certify the strict moment inequality $M_0M_4<3M_2^2$ and factor the degree-two, shift-zero moment-based Jensen polynomial $J^{2,0}$ only into two distinct real linear factors. A partition into 1600 rational cells, explicit exponential bounds, and analytic tail estimates establishes the quantitative gap $3M_2^2-M_0M_4\ge4287/10^8$. The complexified polynomial has exactly the same two real roots. The reported final axiom inspections list only \texttt{propext}, \texttt{Classical.choice}, and \texttt{Quot.sound}. The spectral exclusion concerns a specific function identity; the Jensen result concerns one polynomial. Neither result proves the Riemann hypothesis.
-\end{abstract}
-\noindent\textbf{Keywords:} Lean 4; formal verification; theta kernel; Hankel operator; spectral product; Riemann xi function; Jensen polynomials; certified integration; Hilbert--P\'olya approach.
 
-\section{Introduction}
+\begin{abstract}
+
+This paper presents two Lean 4 results built from the differential theta kernel of the Riemann xi function. First, we exclude equality between the spectral product of a theta--Hankel adjoint square and normalized xi under every constant complex rescaling. A certified Rayleigh estimate forces spectral concentration incompatible with the target's fourth-order Taylor invariant. Second, we certify the strict moment inequality \(M_{0}M_{4} < 3M_{2}^{2}\) and factor the degree-two, shift-zero moment-based Jensen polynomial \(J^{2,0}\) only into two distinct real linear factors. A partition into 1600 rational cells, explicit exponential bounds, and analytic tail estimates establishes the quantitative gap \(3M_{2}^{2} - M_{0}M_{4} \geq 4287/10^{8}\). The complexified polynomial has exactly the same two real roots. The final axiom inspections list only \texttt{\seqsplit{propext}}, \texttt{\seqsplit{Classical.choice}}, and \texttt{\seqsplit{Quot.sound}}. The spectral exclusion concerns a specific function identity; the Jensen result concerns one polynomial. Neither result settles the Riemann hypothesis. We also formalize the theta-Jensen generating function and an equivalence between its non-real-zero exclusion and Mathlib\textquotesingle s RiemannHypothesis. The global exclusion is still open.
+
+\end{abstract}
+
+\textbf{Keywords:} Lean 4; formal verification; theta kernel; Hankel operator; spectral product; Riemann xi function; Jensen polynomials; certified integration; Hilbert--Pólya approach.
+
+\hypertarget{introduction}{%
+\section{1 Introduction}\label{introduction}}
+
 A spectral approach to the Riemann hypothesis requires a precise connection between an operator and the nontrivial zeros of the zeta function. Constructing a compact or self-adjoint operator from theta data is only one part of that task. The proposed connection must also satisfy the analytic identities demanded by the target function. This paper examines equality between an even spectral product of an adjoint-square operator and the normalized critical-line xi function, allowing an arbitrary constant complex scale.
 
-The Hilbert--P\'olya viewpoint motivates the search for a suitable spectral realization; Berry and Keating~\cite{berry} discuss the connection with eigenvalue asymptotics. It does not prescribe the operator studied here, nor require every candidate to admit this product representation. Other spectral frameworks, including the trace-formula setting of Connes~\cite{connes}, have different objects and identification problems. Our exclusion theorem tests a concrete candidate, rather than establishing an impossibility theorem for spectral approaches to the Riemann hypothesis.
+The Hilbert--Pólya viewpoint motivates the search for a suitable spectral realization; Berry and Keating~{[}4{]} discuss the connection with eigenvalue asymptotics. It does not prescribe the operator studied here, nor require every candidate to admit this product representation. Other spectral frameworks, including the trace-formula setting of Connes~{[}3{]}, have different objects and identification problems. Our exclusion theorem tests a concrete candidate. It does not establish an impossibility theorem for spectral approaches to the Riemann hypothesis.
 
-The obstruction is most naturally interpreted through $Q/E^2$. After normalizing the spectral weights to sum to one, this ratio is their square sum. A sufficiently concentrated spectrum makes the fourth derivative of the product too small relative to the square of its second derivative. Matching the second Taylor coefficient fixes the square of the scale; matching the fourth then imposes a scale-independent constraint. The separation is proved with exact rational inequalities, rather than inferred from floating-point approximations. Lean~4~\cite{lean} and mathlib~\cite{mathlib} supply the formal environment for the analytic, Hilbert-space, spectral, and arithmetic arguments.
+The obstruction is most naturally interpreted through \(Q/E^{2}\). After normalizing the spectral weights to sum to one, this ratio is their square sum. A sufficiently concentrated spectrum makes the fourth derivative of the product too small relative to the square of its second derivative. Matching the second Taylor coefficient fixes the square of the scale; matching the fourth then imposes a scale-independent constraint. We prove the separation with exact rational inequalities. We do not infer it from floating-point approximations. Lean~4~{[}1{]} and mathlib~{[}2{]} supply the formal environment for the analytic, Hilbert-space, spectral, and arithmetic arguments.
 
-The contribution has three parts. First, we connect a normalized $L^2$ test vector to a triangular theta integral. Second, we obtain a lower bound on $Q$ through the spectral basis of $S$, without requiring a separate theorem that the operator norm is attained by an eigenvalue. Third, we combine certified bounds with the second and fourth derivative identities and reduce a hypothetical complex match to an excluded real match. A second contribution formalizes a certified quadratic Jensen inequality, explicit distinct real roots, and a complete root classification after complexification. The mathematical proofs are followed by the formal theorem correspondence and audit procedure.
+The contribution has three parts. First, we connect a normalized \(L^{2}\) test vector to a triangular theta integral. Second, we obtain a lower bound on \(Q\) through the spectral basis of \(S\), without requiring a separate theorem that the operator norm is attained by an eigenvalue. Third, we combine certified bounds with the second and fourth derivative identities and reduce a hypothetical complex match to an excluded real match. A second contribution formalizes a certified quadratic Jensen inequality, explicit distinct real roots, and a complete root classification after complexification. The mathematical proofs are followed by the formal theorem correspondence and audit procedure.
 
-\subsection{Related work}
-The analytic setting belongs to the classical xi-function theory described by Titchmarsh~\cite{titchmarsh}; spectral interpretations are discussed by Berry and Keating~\cite{berry} and Connes~\cite{connes}. The Tur\'an inequalities and Jensen polynomial results of Csordas, Norfolk, and Varga~\cite{cnv} and Griffin, Ono, Rolen, and Zagier~\cite{gorz} provide the context for the quadratic result. Farmer~\cite{farmer} distinguishes Hermite-type asymptotic behavior from evidence sufficient to establish RH, reinforcing the need to state exactly which polynomial family is proved hyperbolic.
+\hypertarget{related-work}{%
+\subsection{1.1 Related work}\label{related-work}}
 
-A recent Lean companion development by G Six~\cite{gsix} studies a Bost--Connes modular-generator candidate. Its repository explicitly describes a conditional spectral reduction, with additional named axioms and an unconstructed spectral-data hypothesis. We cite its stated scope, without claiming an independent audit of that formalization. It treats a different operator and identification problem from the constant-scale theta--Hankel product tested here. The present paper claims the specified certificates and theorem chain, rather than a general priority claim over all spectral reductions.
+The analytic setting belongs to the classical xi-function theory described by Titchmarsh~{[}5{]}; spectral interpretations are discussed by Berry and Keating~{[}4{]} and Connes~{[}3{]}. The Turán inequalities and Jensen polynomial results of Csordas, Norfolk, and Varga~{[}6{]} and Griffin, Ono, Rolen, and Zagier~{[}7{]} provide the context for the quadratic result. Farmer~{[}8{]} distinguishes Hermite-type asymptotic behavior from evidence sufficient to establish RH, reinforcing the need to state exactly which polynomial family is proved hyperbolic.
 
-\section{The theta kernel and the operator}
-\subsection{Normalization and moment conventions}
-Let $\theta(t)=1+2\sum_{n=1}^{\infty}\exp(-\pi n^2t)$ for $t>0$. Define the logarithmic theta profile $B$ and differential kernel $\Phi$ by
-\begin{equation}\label{eq:profile}
- B(u)=e^{u/2}\bigl(\theta(e^{2u})-1\bigr),\qquad
- \Phi(u)=B''(u)-\tfrac14 B(u).
-\end{equation}
-The individual Gaussian profile with parameter $a$ is $2\exp(u/2-ae^{2u})$. Applying $d^2/du^2-1/4$ and setting $a=\pi n^2$ yields
-\begin{equation}\label{eq:kernel}
- \Phi(u)=\sum_{n=1}^{\infty}
- \left(8\pi^2 n^4 e^{9u/2}-12\pi n^2 e^{5u/2}\right)e^{-\pi n^2e^{2u}}.
-\end{equation}
-These factors fix the normalization throughout the paper; no constant is absorbed into $\Phi$ when passing to the operator. For $u\geq0$, each summand is positive: it has the form $2e^{u/2-b}(4b^2-6b)$, where $b=\pi n^2e^{2u}>3/2$. Continuity and weighted decay estimates provide the integrability used below.
+A recent Lean companion development by G Six~{[}9{]} studies a Bost--Connes modular-generator candidate. Its repository explicitly describes a conditional spectral reduction, with additional named axioms and an unconstructed spectral-data hypothesis. We cite its stated scope, without claiming an independent audit of that formalization. It treats a different operator and identification problem from the constant-scale theta--Hankel product tested here. The present paper claims the specified certificates and theorem chain. It does not claim general priority over all spectral reductions.
 
-Write $\Xi$ for the critical-line xi function as represented in the development. Its cosine representation, valid for complex $z$, is
-\begin{equation}\label{eq:xi}
- \Xi(z)=\int_0^{\infty}\Phi(u)\cos(zu)\,du,\qquad X(z)=\frac{\Xi(z)}{\Xi(0)}.
-\end{equation}
-The analytic background for xi is described in Titchmarsh~\cite{titchmarsh}. Here $X$ is the normalized target \code{hpThetaNormalizedXi}; equation~\eqref{eq:xi} makes the kernel and target normalization explicit. Set
-\begin{equation}\label{eq:moments}
- M_k=\int_0^{\infty}u^k\Phi(u)\,du\qquad(k=0,2,4).
-\end{equation}
-The positivity certificate gives $M_0>0$, so $X$ is well-defined and $X(0)=1$. Differentiating under the integral, justified by weighted decay, gives $\Xi''(0)=-M_2$ and $\Xi^{(4)}(0)=M_4$. Odd derivatives at zero vanish by evenness. Analytically, strict positivity of $\Phi$ on $(0,\infty)$ also implies $M_2>0$; the denominator-free formal obstruction below needs only the supplied bound $M_2\geq0$.
+\hypertarget{the-theta-kernel-and-the-operator}{%
+\section{2 The theta kernel and the operator}\label{the-theta-kernel-and-the-operator}}
 
-\subsection{The Hankel operator and its adjoint square}
-Work on $H=L^2((0,\infty),\C,du)$, with inner product conjugate-linear in the first argument. Define
-\begin{equation}\label{eq:operator}
- K(x,y)=\Phi(x+y),\qquad (Af)(x)=\int_0^{\infty}K(x,y)f(y)\,dy.
-\end{equation}
-The formula for $Af$ is interpreted almost everywhere. Elements of $L^2$ are equivalence classes; pointwise equality of representatives is neither required nor used. The construction gives a bounded operator with a kernel representation compatible with these classes.
+\hypertarget{normalization-and-moment-conventions}{%
+\subsection{2.1 Normalization and moment conventions}\label{normalization-and-moment-conventions}}
+
+Let \(\theta(t) = 1 + 2\sum_{n = 1}^{\infty}\exp\left( - \pi n^{2}t \right)\) for \(t > 0\). Define the logarithmic theta profile \(B\) and differential kernel \(\Phi\) by
+
+\[B(u) = e^{u/2}\left( \theta\left( e^{2u} \right) - 1 \right),\quad\quad\Phi(u) = B''(u) - \frac{1}{4}B(u).\quad\quad\text{(1)}\]
+
+The individual Gaussian profile with parameter \(a\) is \(2\exp\left( u/2 - ae^{2u} \right)\). Applying \(d^{2}/du^{2} - 1/4\) and setting \(a = \pi n^{2}\) yields
+
+\[\Phi(u) = \sum_{n = 1}^{\infty}\left( 8\pi^{2}n^{4}e^{9u/2} - 12\pi n^{2}e^{5u/2} \right)e^{- \pi n^{2}e^{2u}}.\quad\quad\text{(2)}\]
+
+These factors fix the normalization throughout the paper; no constant is absorbed into \(\Phi\) when passing to the operator. For \(u \geq 0\), each summand is positive: it has the form \(2e^{u/2 - b}\left( 4b^{2} - 6b \right)\), where \(b = \pi n^{2}e^{2u} > 3/2\). Continuity and weighted decay estimates provide the integrability used below.
+
+Write \(\Xi\) for the critical-line xi function as represented in the development. Its cosine representation, valid for complex \(z\), is
+
+\[\Xi(z) = \int_{0}^{\infty}\Phi(u)\cos(zu)\, du,\quad\quad X(z) = \frac{\Xi(z)}{\Xi(0)}.\quad\quad\text{(3)}\]
+
+The analytic background for xi is described in Titchmarsh~{[}5{]}. Here \(X\) is the normalized target \texttt{\seqsplit{hpThetaNormalizedXi}}; equation~(3) makes the kernel and target normalization explicit. Set
+
+\[M_{k} = \int_{0}^{\infty}u^{k}\Phi(u)\, du\quad\quad(k = 0,2,4).\quad\quad\text{(4)}\]
+
+The positivity certificate gives \(M_{0} > 0\), so \(X\) is well-defined and \(X(0) = 1\). Differentiating under the integral, justified by weighted decay, gives \(\Xi''(0) = - M_{2}\) and \(\Xi^{(4)}(0) = M_{4}\). Odd derivatives at zero vanish by evenness. Analytically, strict positivity of \(\Phi\) on \((0,\infty)\) also implies \(M_{2} > 0\); the denominator-free formal obstruction below needs only the supplied bound \(M_{2} \geq 0\).
+
+\hypertarget{the-hankel-operator-and-its-adjoint-square}{%
+\subsection{2.2 The Hankel operator and its adjoint square}\label{the-hankel-operator-and-its-adjoint-square}}
+
+Work on \(H = L^{2}\left( (0,\infty),\mathbb{C},du \right)\), with inner product conjugate-linear in the first argument. Define
+
+\[K(x,y) = \Phi(x + y),\quad\quad(Af)(x) = \int_{0}^{\infty}K(x,y)f(y)\, dy.\quad\quad\text{(5)}\]
+
+We interpret the formula for \(Af\) almost everywhere. Elements of \(L^{2}\) are equivalence classes; pointwise equality of representatives is not required, and not used. The construction gives a bounded operator with a kernel representation compatible with these classes.
 
 A change of variables on the positive triangle gives
-\begin{equation}\label{eq:energy}
- \int_0^{\infty}\!\int_0^{\infty}|K(x,y)|^2\,dy\,dx
- =\int_0^{\infty}u\Phi(u)^2\,du=:E.
-\end{equation}
-Consequently $A$ is Hilbert--Schmidt and compact. The kernel is real and symmetric. These properties do not imply positivity of $A$; the positive operator used here is $S=A^*A$, for which $\pair{f}{Sf}=\norm{Af}^2$. Denote its nonnegative eigenvalues, with multiplicity, by $\lambda_i$. A full orthonormal spectral basis includes the zero eigenspace when present. Then
-\begin{equation}\label{eq:sums}
- E=\sum_i\lambda_i,\qquad Q=\sum_i\lambda_i^2,\qquad 0\leq Q\leq E^2.
-\end{equation}
-The equality between the integral in~\eqref{eq:energy} and the spectral sum is part of the operator-to-spectrum development. Summability and nonnegativity imply $Q\leq E^2$. Zero eigenvalues contribute neither to the sums nor to the product.
 
-\section{The spectral product and its Taylor data}
+\[\int_{0}^{\infty}{\int_{0}^{\infty}\left| K(x,y) \right|^{2}}\, dy\, dx = \int_{0}^{\infty}u\Phi(u)^{2}\, du = :E.\quad\quad\text{(6)}\]
+
+Consequently \(A\) is Hilbert--Schmidt and compact. The kernel is real and symmetric. These properties do not imply positivity of \(A\); the positive operator used here is \(S = A^{*}A\), for which \(\langle f,Sf\rangle = {\parallel Af \parallel}^{2}\). Denote its nonnegative eigenvalues, with multiplicity, by \(\lambda_{i}\). A full orthonormal spectral basis includes the zero eigenspace when present. Then
+
+\[E = \sum_{i}^{}\lambda_{i},\quad\quad Q = \sum_{i}^{}\lambda_{i}^{2},\quad\quad 0 \leq Q \leq E^{2}.\quad\quad\text{(7)}\]
+
+The equality between the integral in~(6) and the spectral sum is part of the operator-to-spectrum development. Summability and nonnegativity imply \(Q \leq E^{2}\). Zero eigenvalues contribute nothing to the sums or the product.
+
+\hypertarget{the-spectral-product-and-its-taylor-data}{%
+\section{3 The spectral product and its Taylor data}\label{the-spectral-product-and-its-taylor-data}}
+
 Define the even spectral product
-\begin{equation}\label{eq:product}
- P(z)=\prod_i(1-\lambda_i z^2),\qquad z\in\C.
-\end{equation}
-Since $\sum_i\lambda_i=E<\infty$, finite products over finite subsets converge locally uniformly on $\C$. On $|z|\leq R$, deviations of the factors from one are bounded by the summable family $\lambda_iR^2$. The limit is entire, even, and equals one at zero. Its formal name is \code{hpThetaHankelSpectralProduct}. Although~\eqref{eq:product} has the usual determinant interpretation for a trace-class adjoint square, the proof uses the spectral product directly and does not require a separately formalized Fredholm determinant API.
 
-For a finite index set $F$, expansion of $P_F(z)=\prod_{i\in F}(1-\lambda_i z^2)$ gives quadratic coefficient $-\sum_{i\in F}\lambda_i$ and quartic coefficient $\sum_{i<j}\lambda_i\lambda_j$. Thus
-\begin{align}
- P_F''(0)&=-2\sum_{i\in F}\lambda_i,\label{eq:finite2}\\
- P_F^{(4)}(0)&=12\left[\left(\sum_{i\in F}\lambda_i\right)^2-\sum_{i\in F}\lambda_i^2\right].\label{eq:finite4}
-\end{align}
+\[P(z) = \prod_{i}^{}\left( 1 - \lambda_{i}z^{2} \right),\quad\quad z \in \mathbb{C}.\quad\quad\text{(8)}\]
+
+Since \(\sum_{i}^{}\lambda_{i} = E < \infty\), finite products over finite subsets converge locally uniformly on \(\mathbb{C}\). On \(|z| \leq R\), the deviations of the factors from one have a summable bound \(\lambda_{i}R^{2}\). The limit is entire and even. It equals one at zero. Its formal name is \texttt{\seqsplit{hpThetaHankelSpectralProduct}}. Although~(8) has the usual determinant interpretation for a trace-class adjoint square, the proof uses the spectral product directly and does not require a separately formalized Fredholm determinant API.
+
+For a finite index set \(F\), expansion of \(P_{F}(z) = \prod_{i \in F}^{}\left( 1 - \lambda_{i}z^{2} \right)\) gives quadratic coefficient \(- \sum_{i \in F}^{}\lambda_{i}\) and quartic coefficient \(\sum_{i < j}^{}\lambda_{i}\lambda_{j}\). So
+
+\[\begin{matrix}
+P_{F}''(0) & = - 2\sum_{i \in F}^{}\lambda_{i},\quad\quad\text{(9)} \\
+P_{F}^{(4)}(0) & = 12\left\lbrack \left( \sum_{i \in F}^{}\lambda_{i} \right)^{2} - \sum_{i \in F}^{}\lambda_{i}^{2} \right\rbrack.\quad\quad\text{(10)}
+\end{matrix}\]
+
 The order relation only informally enumerates unordered pairs; the finite-set formula is independent of that ordering. Local uniform convergence allows passage to derivatives, and summability gives
-\begin{equation}\label{eq:derivatives}
- P''(0)=-2E,\qquad P^{(4)}(0)=12(E^2-Q).
-\end{equation}
+
+\[P''(0) = - 2E,\quad\quad P^{(4)}(0) = 12\left( E^{2} - Q \right).\quad\quad\text{(11)}\]
+
 The normalized target satisfies
-\begin{equation}\label{eq:targetderivatives}
- X''(0)=-\frac{M_2}{M_0},\qquad X^{(4)}(0)=\frac{M_4}{M_0}.
-\end{equation}
-The formal second derivative uses \code{deriv (deriv f)} and the fourth uses \code{hpThetaIteratedComplexDeriv 4}. The development also identifies its iterated derivative operator with mathlib's \code{iteratedDeriv} in the relevant setting.
 
-For $E>0$, define $p_i=\lambda_i/E$ and $\rho=Q/E^2$. Then $\sum_i p_i=1$ and $\rho=\sum_i p_i^2$. The ratio $\rho$ is a dimensionless concentration measure, invariant under multiplying all eigenvalues by a common positive constant. The reciprocal $1/\rho$ may be read as an effective spectral count, rather than an actual rank. When $M_2>0$, the scale-invariant derivative ratios are
-\begin{equation}\label{eq:ratios}
- R_P:=\frac{P^{(4)}(0)}{P''(0)^2}=3(1-\rho),\qquad
- R_X:=\frac{X^{(4)}(0)}{X''(0)^2}=\frac{M_4M_0}{M_2^2}.
-\end{equation}
-A nonzero constant change of argument multiplies the numerator and denominator of either ratio by the same fourth power. Equality of the functions therefore requires $R_P=R_X$. Section~5 first quantifies the failure of this equality, then proves the obstruction without dividing by $M_2$.
+\[X''(0) = - \frac{M_{2}}{M_{0}},\quad\quad X^{(4)}(0) = \frac{M_{4}}{M_{0}}.\quad\quad\text{(12)}\]
 
-\section{A certified Rayleigh bound}
-\subsection{The interval test vector and triangular weight}
-Let $f=2\mathbf1_{(0,1/4)}$, embedded as a real-valued vector in $H$. Its squared norm is four times the interval length, so $\norm{f}=1$. Its pairing with $A$ is real and equals
-\begin{equation}\label{eq:T}
- T:=\pair{f}{Af}=4\int_0^{1/4}\!\int_0^{1/4}\Phi(x+y)\,dy\,dx.
-\end{equation}
-For $u=x+y$, allowable $x$ values lie between $\max(0,u-1/4)$ and $\min(1/4,u)$. Their interval length is
-\begin{equation}\label{eq:weight}
- w(u)=\max\bigl(0,\min(u,1/2-u)\bigr).
-\end{equation}
-Thus $w(u)=u$ on $[0,1/4]$, $w(u)=1/2-u$ on $[1/4,1/2]$, and $w$ vanishes elsewhere. Fubini and translation of the restricted integrals give
-\begin{equation}\label{eq:triangle}
- T=4\int_0^{1/2}w(u)\Phi(u)\,du.
-\end{equation}
-The upper endpoint is $1/2$, not $1/4$, and the kernel remains in the integrand. Formally, the nonnegative integral identity is first proved in $\R_{\geq0}^{\infty}$. Finiteness permits conversion to real integrals; an explicit real-to-complex integral bridge identifies the complex pairing with~\eqref{eq:triangle}. Endpoints are immaterial for Lebesgue integration.
+The formal second derivative uses \texttt{\seqsplit{deriv\ (deriv\ f)}} and the fourth uses \texttt{\seqsplit{hpThetaIteratedComplexDeriv\ 4}}. The development also identifies its iterated derivative operator with mathlib's \texttt{\seqsplit{iteratedDeriv}} in the relevant setting.
 
-The rational certificate \code{hpThetaHankelTriangleRayleighLower_gt} proves
-\begin{equation}\label{eq:Tbound}T>\frac{117}{500}.\end{equation}
-External calculations may motivate the threshold but are not a premise. Positivity of this pairing follows from the certificate and does not assert positivity of $A$.
+For \(E > 0\), define \(p_{i} = \lambda_{i}/E\) and \(\rho = Q/E^{2}\). Then \(\sum_{i}^{}p_{i} = 1\) and \(\rho = \sum_{i}^{}p_{i}^{2}\). The ratio \(\rho\) is a dimensionless concentration measure, invariant under multiplying all eigenvalues by a common positive constant. The reciprocal \(1/\rho\) may be read as an effective spectral count. It is not an actual rank. When \(M_{2} > 0\), the scale-invariant derivative ratios are
 
-\subsection{From one test vector to the spectral square sum}
-\begin{proposition}\label{prop:Q}
-For every $f\in H$ with $\norm f=1$, one has $\norm{Af}^4\leq Q$. In particular, the interval test vector yields $Q\geq T^4>(117/500)^4$.
-\end{proposition}
-\begin{proof}
-Let $(e_i)$ be the orthonormal spectral basis of $S$ and $\alpha_i=\pair{e_i}{f}$. The expansion $Sf=\sum_i\lambda_i\alpha_i e_i$ converges in $H$. The eigenvector equation gives $\pair{e_i}{Sf}=\lambda_i\alpha_i$. Since $\lambda_i^2\leq Q$, Parseval gives
-\begin{equation}\label{eq:parseval}
- \norm{Sf}^2=\sum_i\lambda_i^2|\alpha_i|^2
- \leq Q\sum_i|\alpha_i|^2=Q\norm f^2.
-\end{equation}
-For $\norm f=1$, Cauchy--Schwarz gives
-\begin{equation}\label{eq:CS}
- \norm{Af}^2=\pair f{Sf}\leq\norm{Sf},\qquad\norm{Af}^4\leq Q.
-\end{equation}
-The pairing is real and nonnegative, so one may equivalently take its absolute value before applying Cauchy--Schwarz. For the interval test vector, $T=|\pair f{Af}|\leq\norm{Af}$ and $T>0$. Fourth powers prove the claim without selecting a largest eigenvalue.
-\end{proof}
+\[R_{P}: = \frac{P^{(4)}(0)}{P''(0)^{2}} = 3(1 - \rho),\quad\quad R_{X}: = \frac{X^{(4)}(0)}{X''(0)^{2}} = \frac{M_{4}M_{0}}{M_{2}^{2}}.\quad\quad\text{(13)}\]
+
+A nonzero constant change of argument multiplies the numerator and denominator of either ratio by the same fourth power. Equality of the functions therefore requires \(R_{P} = R_{X}\). Section~5 first quantifies the failure of this equality, then proves the obstruction without dividing by \(M_{2}\).
+
+\hypertarget{a-certified-rayleigh-bound}{%
+\section{4 A certified Rayleigh bound}\label{a-certified-rayleigh-bound}}
+
+\hypertarget{the-interval-test-vector-and-triangular-weight}{%
+\subsection{4.1 The interval test vector and triangular weight}\label{the-interval-test-vector-and-triangular-weight}}
+
+Let \(f = 2\mathbf{1}_{(0,1/4)}\), embedded as a real-valued vector in \(H\). Its squared norm is four times the interval length, so \(\parallel f \parallel = 1\). Its pairing with \(A\) is real and equals
+
+\[T: = \langle f,Af\rangle = 4\int_{0}^{1/4}{\int_{0}^{1/4}\Phi}(x + y)\, dy\, dx.\quad\quad\text{(14)}\]
+
+For \(u = x + y\), allowable \(x\) values lie between \(\max(0,u - 1/4)\) and \(\min(1/4,u)\). Their interval length is
+
+\[w(u) = \max\left( 0,\min(u,1/2 - u) \right).\quad\quad\text{(15)}\]
+
+So \(w(u) = u\) on \(\lbrack 0,1/4\rbrack\), \(w(u) = 1/2 - u\) on \(\lbrack 1/4,1/2\rbrack\), and \(w\) vanishes elsewhere. Fubini and translation of the restricted integrals give
+
+\[T = 4\int_{0}^{1/2}w(u)\Phi(u)\, du.\quad\quad\text{(16)}\]
+
+The upper endpoint is \(1/2\), not \(1/4\), and the kernel remains in the integrand. Formally, the nonnegative integral identity is first proved in \(\mathbb{R}_{\geq 0}^{\infty}\). Finiteness permits conversion to real integrals; an explicit real-to-complex integral bridge identifies the complex pairing with~(16). Endpoints are immaterial for Lebesgue integration.
+
+The rational certificate \texttt{\seqsplit{hpThetaHankelTriangleRayleighLower\_gt}} proves
+
+\[T > \frac{117}{500}.\quad\quad\text{(17)}\]
+
+External calculations may motivate the threshold but are not a premise. Positivity of this pairing follows from the certificate and does not assert positivity of \(A\).
+
+\hypertarget{from-one-test-vector-to-the-spectral-square-sum}{%
+\subsection{4.2 From one test vector to the spectral square sum}\label{from-one-test-vector-to-the-spectral-square-sum}}
+
+\textbf{Proposition 4.1.}
+
+For every \(f \in H\) with \(\parallel f \parallel = 1\), one has \({\parallel Af \parallel}^{4} \leq Q\). In particular, the interval test vector yields \(Q \geq T^{4} > (117/500)^{4}\).
+
+\emph{Proof.} Let \(\left( e_{i} \right)\) be the orthonormal spectral basis of \(S\) and \(\alpha_{i} = \langle e_{i},f\rangle\). The expansion \(Sf = \sum_{i}^{}\lambda_{i}\alpha_{i}e_{i}\) converges in \(H\). The eigenvector equation gives \(\langle e_{i},Sf\rangle = \lambda_{i}\alpha_{i}\). Since \(\lambda_{i}^{2} \leq Q\), Parseval gives
+
+\[{\parallel Sf \parallel}^{2} = \sum_{i}^{}\lambda_{i}^{2}\left| \alpha_{i} \right|^{2} \leq Q\sum_{i}^{}\left| \alpha_{i} \right|^{2} = Q{\parallel f \parallel}^{2}.\quad\quad\text{(18)}\]
+
+For \(\parallel f \parallel = 1\), Cauchy--Schwarz gives
+
+\[{\parallel Af \parallel}^{2} = \langle f,Sf\rangle \leq \parallel Sf \parallel ,\quad\quad{\parallel Af \parallel}^{4} \leq Q.\quad\quad\text{(19)}\]
+
+The pairing is real and nonnegative, so one may equivalently take its absolute value before applying Cauchy--Schwarz. For the interval test vector, \(T = \left| \langle f,Af\rangle \right| \leq \parallel Af \parallel\) and \(T > 0\). Fourth powers prove the claim without selecting a largest eigenvalue.
+
 In exact form,
-\begin{equation}\label{eq:Qbound}
- Q>\left(\frac{117}{500}\right)^4
- =\frac{187388721}{62500000000}=0.002998219536.
-\end{equation}
 
-\section{Exact rational separation and real-scale exclusion}
-\subsection{The certified bounds}
-The supplied certificates establish the following inequalities. Decimals describe the exact rational thresholds; the formal proof uses rationals.
-\begin{center}
-\begin{tabular}{@{}lll@{}}\toprule
-Quantity & Certified bound & Decimal threshold\\\midrule
-$M_0$ & $M_0>12/25$ & $0.48$\\
-$M_2$ & $0\leq M_2<27/1000$ & $0.027$\\
-$M_4$ & $M_4>27/10000$ & $0.0027$\\
-$E$ & $7/100<E<17/200$ & $0.07$, $0.085$\\
-$T$ & $T>117/500$ & $0.234$\\
-$Q$ & $Q>(117/500)^4$ & $0.002998219536$\\
-$E^2-Q$ & $E^2-Q\geq0$ & $0$\\\bottomrule
-\end{tabular}
-\end{center}
-Their purpose is strict separation rather than high-precision approximation. The fourth- and zeroth-moment lower certificates combine with the second-moment and trace-energy upper certificates and~\eqref{eq:Qbound}.
+\[Q > \left( \frac{117}{500} \right)^{4} = \frac{187388721}{62500000000} = 0.002998219536.\quad\quad\text{(20)}\]
 
-\subsection{The ratio interpretation and second-moment tolerance}
-Put $a=27/1000$, $b=27/10000$, $m=12/25$, $e=17/200$, and $t=117/500$. Since $E>0$, the bounds on $Q$ and $E$ give
-\begin{equation}\label{eq:rhobound}
- \rho=\frac Q{E^2}>\frac{t^4}{e^2}
- =\frac{187388721}{451562500}>0.41497848.
-\end{equation}
-Consequently, for the ratios in~\eqref{eq:ratios},
-\begin{equation}\label{eq:ratioseparation}
- R_P<\frac{792521337}{451562500}<1.755065
- <\frac{16}{9}<R_X,
- \qquad \frac{bm}{a^2}=\frac{16}{9}.
-\end{equation}
-Thus a hypothetical match needs a less concentrated spectrum than the test vector permits. Equivalently, the spectral effective count is less than $451562500/187388721\approx2.409763$.
+\hypertarget{exact-rational-separation-and-real-scale-exclusion}{%
+\section{5 Exact rational separation and real-scale exclusion}\label{exact-rational-separation-and-real-scale-exclusion}}
 
-The role of the $M_2$ upper bound can be stated precisely. Holding $b,m,e,t$ fixed, the denominator-free separation below is certified by any upper threshold $a$ satisfying
-\begin{equation}\label{eq:tolerance}
- a^2<\frac{bm e^2}{3(e^2-t^4)}
- =\frac{195075}{264173779},\qquad
- a<0.0271741491\ldots.
-\end{equation}
-Here $e^2-t^4>0$. The supplied $a=0.027$ lies strictly below this threshold, with approximately $0.64\%$ relative headroom. This exposes the sensitivity of the proof to $M_2$ rather than hiding it in a coarse table. A smaller certified upper bound would enlarge the margin, but no stronger Lean certificate is part of the supplied record; we therefore retain $M_2<27/1000$ and make no claim that a new integral bound has been formalized.
+\hypertarget{the-certified-bounds}{%
+\subsection{5.1 The certified bounds}\label{the-certified-bounds}}
 
-\subsection{A denominator-free contradiction}
-\begin{proposition}\label{prop:strict}
+We establish the following inequalities from the supplied certificates. Decimals describe the exact rational thresholds; the formal proof uses rationals.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3824}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3088}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3088}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Quantity}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Certified bound}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Decimal threshold}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(M_{0}\) & \(M_{0} > 12/25\) & \(0.48\) \\
+\(M_{2}\) & \(0 \leq M_{2} < 27/1000\) & \(0.027\) \\
+\(M_{4}\) & \(M_{4} > 27/10000\) & \(0.0027\) \\
+\(E\) & \(7/100 < E < 17/200\) & \(0.07\), \(0.085\) \\
+\(T\) & \(T > 117/500\) & \(0.234\) \\
+\(Q\) & \(Q > (117/500)^{4}\) & \(0.002998219536\) \\
+\(E^{2} - Q\) & \(E^{2} - Q \geq 0\) & \(0\) \\
+\end{longtable}
+
+These bounds are enough for the argument. Their purpose is strict separation, not high-precision approximation. The fourth- and zeroth-moment lower certificates combine with the second-moment and trace-energy upper certificates and~(20).
+
+\hypertarget{the-ratio-interpretation-and-second-moment-tolerance}{%
+\subsection{5.2 The ratio interpretation and second-moment tolerance}\label{the-ratio-interpretation-and-second-moment-tolerance}}
+
+Put \(a = 27/1000\), \(b = 27/10000\), \(m = 12/25\), \(e = 17/200\), and \(t = 117/500\). Since \(E > 0\), the bounds on \(Q\) and \(E\) give
+
+\[\rho = \frac{Q}{E^{2}} > \frac{t^{4}}{e^{2}} = \frac{187388721}{451562500} > 0.41497848.\quad\quad\text{(21)}\]
+
+Consequently, for the ratios in~(13),
+
+\[R_{P} < \frac{792521337}{451562500} < 1.755065 < \frac{16}{9} < R_{X},\quad\quad\frac{bm}{a^{2}} = \frac{16}{9}.\quad\quad\text{(22)}\]
+
+A hypothetical match therefore needs a less concentrated spectrum than the test vector permits. Equivalently, the spectral effective count is less than \(451562500/187388721 \approx 2.409763\).
+
+We can state the role of the \(M_{2}\) upper bound. Holding \(b,m,e,t\) fixed, the denominator-free separation below is certified by any upper threshold \(a\) satisfying
+
+\[a^{2} < \frac{bme^{2}}{3\left( e^{2} - t^{4} \right)} = \frac{195075}{264173779},\quad\quad a < 0.0271741491\ldots.\quad\quad\text{(23)}\]
+
+Here \(e^{2} - t^{4} > 0\). The supplied \(a = 0.027\) lies strictly below this threshold, with approximately \(0.64\%\) relative headroom. This shows the sensitivity of the proof to \(M_{2}\) plainly. It does not hide it in a coarse table. A smaller certified upper bound would enlarge the margin, but no stronger Lean certificate is part of the supplied record; we therefore retain \(M_{2} < 27/1000\) and make no claim that a new integral bound has been formalized.
+
+\hypertarget{a-denominator-free-contradiction}{%
+\subsection{5.3 A denominator-free contradiction}\label{a-denominator-free-contradiction}}
+
+\textbf{Proposition 5.1.}
+
 The certified quantities satisfy
-\begin{equation}\label{eq:strict}
- 3M_2^2(E^2-Q)<M_4M_0E^2.
-\end{equation}
-\end{proposition}
-\begin{proof}
-Put $D=E^2-Q\geq0$. From $0\leq M_2<a$, obtain $M_2^2\leq a^2$ and $3M_2^2D\leq3a^2D$. Since $M_4>b$ and $M_0>m$, their product is at least $bm$. It suffices to show $3a^2(E^2-Q)<bmE^2$, or $(3a^2-bm)E^2<3a^2Q$. The coefficient $3a^2-bm=891/1000000$ is positive. Using $E<e$ and $Q>t^4$ reduces the claim to
-\begin{equation}\label{eq:margin}
- 3a^2t^4-(3a^2-bm)e^2
- =\frac{7476945327}{62500000000000000}>0.
-\end{equation}
-The margin is approximately $1.19631125232\times10^{-7}$, but exact arithmetic decides its sign. No division by $D$ or $M_2$ is needed, including when either vanishes.
-\end{proof}
-\begin{theorem}\label{thm:real}
-For every real $c$, the functions $z\mapsto P(cz)$ and $X$ are unequal.
-\end{theorem}
-\begin{proof}
-Suppose $P(cz)=X(z)$ for all $z$. Differentiating twice and four times at zero gives
-\begin{equation}\label{eq:matching}
- c^2E=\frac{M_2}{2M_0},\qquad
- c^4(E^2-Q)=\frac{M_4}{12M_0}.
-\end{equation}
-Since $E>0$ and $M_0>0$, eliminating $c$ yields
-\begin{equation}\label{eq:invariant}
- 3M_2^2(E^2-Q)=M_4M_0E^2,
-\end{equation}
-contradicting Proposition~\ref{prop:strict}. The case $c=0$ is included; no nonzero-scale assumption is needed.
-\end{proof}
-The coefficient $3$ is fixed by the derivative normalizations. Equation~\eqref{eq:invariant} is the decisive invariant. An overall mismatch in the second coefficient alone would be insufficient, since rescaling could correct it. The fourth-order comparison prevents that correction.
 
-\section{Extension to every complex scale}
-\begin{lemma}\label{lem:real}
-If $c\in\C$ and $P(cz)=X(z)$ for every $z$, then $\operatorname{Im}(c)=0$.
-\end{lemma}
-\begin{proof}
-The complex second-derivative identity, after clearing the positive denominator, reads
-\begin{equation}\label{eq:complex}
- c^2(2EM_0)=M_2.
-\end{equation}
-The real quantities are embedded into $\C$. Since $2EM_0>0$ and $M_2\geq0$, the square $c^2$ is real and nonnegative. Write $c=x+iy$. Its imaginary part is $2xy$, so $xy=0$, while $x^2-y^2\geq0$. If $y\ne0$, then $x=0$ and $-y^2\geq0$, a contradiction. Thus $y=0$. If $M_2=0$, equation~\eqref{eq:complex} gives $c^2=0$, hence $c=0$ as well.
-\end{proof}
-\begin{theorem}\label{thm:complex}
-There is no $c\in\C$ such that $P(cz)=X(z)$ for all $z\in\C$:
-\begin{equation}\label{eq:exclusion}
- \neg\exists c\in\C,\quad(z\mapsto P(cz))=X.
-\end{equation}
-\end{theorem}
-\begin{proof}
-Lemma~\ref{lem:real} makes a hypothetical complex scale the real embedding of $\operatorname{Re}(c)$. The resulting real-scale identity contradicts Theorem~\ref{thm:real}.
-\end{proof}
-\begin{corollary}
-For every $c\in\C$, there exists $z\in\C$ such that $P(cz)\ne X(z)$.
-\end{corollary}
-This is the pointwise existential form of function inequality, using classical logic. It neither selects an explicit mismatch point nor gives a numerical value for one.
+\[3M_{2}^{2}\left( E^{2} - Q \right) < M_{4}M_{0}E^{2}.\quad\quad\text{(24)}\]
 
+\emph{Proof.} Put \(D = E^{2} - Q \geq 0\). From \(0 \leq M_{2} < a\), obtain \(M_{2}^{2} \leq a^{2}\) and \(3M_{2}^{2}D \leq 3a^{2}D\). Since \(M_{4} > b\) and \(M_{0} > m\), their product is at least \(bm\). It suffices to show \(3a^{2}\left( E^{2} - Q \right) < bmE^{2}\), or \(\left( 3a^{2} - bm \right)E^{2} < 3a^{2}Q\). The coefficient \(3a^{2} - bm = 891/1000000\) is positive. Using \(E < e\) and \(Q > t^{4}\) reduces the claim to
 
-\section{Moment-based Jensen polynomials}\label{sec:jensen}
-\subsection{Coefficient normalization and the quadratic case}
+\[3a^{2}t^{4} - \left( 3a^{2} - bm \right)e^{2} = \frac{7476945327}{62500000000000000} > 0.\quad\quad\text{(25)}\]
+
+The margin is approximately \(1.19631125232 \times 10^{- 7}\), but exact arithmetic decides its sign. No division by \(D\) or \(M_{2}\) is needed, including when either vanishes.
+
+\textbf{Theorem 5.2.}
+
+For every real \(c\), the functions \(z \mapsto P(cz)\) and \(X\) are unequal.
+
+\emph{Proof.} Suppose \(P(cz) = X(z)\) for all \(z\). Differentiating twice and four times at zero gives
+
+\[c^{2}E = \frac{M_{2}}{2M_{0}},\quad\quad c^{4}\left( E^{2} - Q \right) = \frac{M_{4}}{12M_{0}}.\quad\quad\text{(26)}\]
+
+Since \(E > 0\) and \(M_{0} > 0\), eliminating \(c\) yields
+
+\[3M_{2}^{2}\left( E^{2} - Q \right) = M_{4}M_{0}E^{2},\quad\quad\text{(27)}\]
+
+contradicting Proposition~5.1. The case \(c = 0\) is included; no nonzero-scale assumption is needed.
+
+The coefficient \(3\) is fixed by the derivative normalizations. Equation~(27) is the decisive invariant. An overall mismatch in the second coefficient alone would be insufficient, since rescaling could correct it. The fourth-order comparison prevents that correction.
+
+\hypertarget{extension-to-every-complex-scale}{%
+\section{6 Extension to every complex scale}\label{extension-to-every-complex-scale}}
+
+\textbf{Lemma 6.1.}
+
+If \(c \in \mathbb{C}\) and \(P(cz) = X(z)\) for every \(z\), then \(Im(c) = 0\).
+
+\emph{Proof.} The complex second-derivative identity, after clearing the positive denominator, reads
+
+\[c^{2}\left( 2EM_{0} \right) = M_{2}.\quad\quad\text{(28)}\]
+
+The real quantities are embedded into \(\mathbb{C}\). Since \(2EM_{0} > 0\) and \(M_{2} \geq 0\), the square \(c^{2}\) is real and nonnegative. Write \(c = x + iy\). Its imaginary part is \(2xy\), so \(xy = 0\), while \(x^{2} - y^{2} \geq 0\). If \(y \neq 0\), then \(x = 0\) and \(- y^{2} \geq 0\), a contradiction. So \(y = 0\). If \(M_{2} = 0\), equation~(28) gives \(c^{2} = 0\), hence \(c = 0\) as well.
+
+\textbf{Theorem 6.2.}
+
+There is no \(c \in \mathbb{C}\) such that \(P(cz) = X(z)\) for all \(z \in \mathbb{C}\):
+
+\[\neg\exists c \in \mathbb{C},\quad\left( z \mapsto P(cz) \right) = X.\quad\quad\text{(29)}\]
+
+\emph{Proof.} Lemma~6.1 makes a hypothetical complex scale the real embedding of \(Re(c)\). The resulting real-scale identity contradicts Theorem~5.2.
+
+\textbf{Corollary 6.3.}
+
+For every \(c \in \mathbb{C}\), there exists \(z \in \mathbb{C}\) such that \(P(cz) \neq X(z)\).
+
+This is the pointwise existential form of function inequality, using classical logic. It does not select an explicit mismatch point or give a numerical value for one.
+
+\hypertarget{moment-based-jensen-polynomials}{%
+\section{7 Moment-based Jensen polynomials}\label{moment-based-jensen-polynomials}}
+
+\hypertarget{coefficient-normalization-and-the-quadratic-case}{%
+\subsection{7.1 Coefficient normalization and the quadratic case}\label{coefficient-normalization-and-the-quadratic-case}}
+
 The same kernel provides a sequence without introducing an operator spectrum:
-\[
- \gamma(n)=\frac{n!}{(2n)!}M_{2n},
- \qquad
- J^{d,n}(x)=\sum_{j=0}^{d}\binom dj\gamma(n+j)x^j.
-\]
-In the formal definitions, the even moment is a Bochner integral over $\operatorname{Ioi}(0)$. Defining such an integral is not itself a proof of integrability. The arguments used here establish the integrability required for moments of orders zero, two, and four. No all-orders integrability theorem is assumed in the quadratic proof.
+
+\[\gamma(n) = \frac{n!}{(2n)!}M_{2n},\quad\quad J^{d,n}(x) = \sum_{j = 0}^{d}\binom{d}{j}\gamma(n + j)x^{j}.\]
+
+In the formal definitions, the even moment is a Bochner integral over \(Ioi(0)\). Defining such an integral is not itself a proof of integrability. The arguments used here establish the integrability required for moments of orders zero, two, and four. No all-orders integrability theorem is assumed in the quadratic proof.
 
 The intended analytic expansion is
-\[
- \Xi(iz)=\sum_{n=0}^{\infty}\frac{\gamma(n)}{n!}z^{2n}.
-\]
-This equality, including its convergence and interchange of integration with an infinite sum, is a subsequent formal proof obligation. It is not asserted by the Jensen foundations module. The low-order identities needed below are already available from the moment definitions and the derivative theory. Multiplying all coefficients by $1/M_0>0$ would normalize xi at zero without changing polynomial roots.
+
+\[\Xi(iz) = \sum_{n = 0}^{\infty}\frac{\gamma(n)}{n!}z^{2n}.\]
+
+The all-orders expansion above is established in Section 13, together with its formal connection to the Mathlib definition of RH.
 
 At degree two and shift zero,
-\begin{equation}\label{eq:jquadratic}
- \gamma(0)=M_0,\qquad \gamma(1)=\frac{M_2}{2},\qquad
- \gamma(2)=\frac{M_4}{12},\qquad
- J^{2,0}(x)=M_0+M_2x+\frac{M_4}{12}x^2.
-\end{equation}
-Since the kernel is positive on the nonnegative half-line and the weighted integrals are finite, $M_0>0$ and $M_4>0$. Thus this polynomial has degree exactly two. Its discriminant is
-\begin{equation}\label{eq:discriminant}
- D=M_2^2-\frac{M_0M_4}{3}
-   =4\gamma(1)^2-4\gamma(0)\gamma(2).
-\end{equation}
-Consequently its hyperbolicity is equivalent to $M_0M_4\le3M_2^2$; strict inequality gives distinct roots. This is an elementary equivalence for this polynomial, not an equivalence between a single moment inequality and RH.
 
-\subsection{Certified strict hyperbolicity}
-\begin{theorem}[Certified moment gap]\label{thm:jgap}
+\[\gamma(0) = M_{0},\quad\quad\gamma(1) = \frac{M_{2}}{2},\quad\quad\gamma(2) = \frac{M_{4}}{12},\quad\quad J^{2,0}(x) = M_{0} + M_{2}x + \frac{M_{4}}{12}x^{2}.\quad\quad\text{(30)}\]
+
+Since the kernel is positive on the nonnegative half-line and the weighted integrals are finite, \(M_{0} > 0\) and \(M_{4} > 0\). This polynomial therefore has degree exactly two. Its discriminant is
+
+\[D = M_{2}^{2} - \frac{M_{0}M_{4}}{3} = 4\gamma(1)^{2} - 4\gamma(0)\gamma(2).\quad\quad\text{(31)}\]
+
+Consequently its hyperbolicity is equivalent to \(M_{0}M_{4} \leq 3M_{2}^{2}\); strict inequality gives distinct roots. This is an elementary equivalence for this polynomial, not an equivalence between a single moment inequality and RH.
+
+\hypertarget{certified-strict-hyperbolicity}{%
+\subsection{7.2 Certified strict hyperbolicity}\label{certified-strict-hyperbolicity}}
+
+\textbf{Theorem 7.1 (Certified moment gap).}
+
 The moments of the differential theta kernel satisfy
-\[
- M_0\le\frac{501}{1000},\qquad
- M_2\ge\frac{227}{10000},\qquad
- M_4\le\frac{3}{1000}.
-\]
-Moreover,
-\begin{equation}\label{eq:jgap}
- 3M_2^2-M_0M_4\ge\frac{4287}{100000000}>0.
-\end{equation}
-\end{theorem}
-\begin{proof}
-The integral certificates proving the three bounds are described in Section~\ref{sec:jcert}. Positivity permits multiplication of the upper bounds for $M_0$ and $M_4$; the positive lower bound for $M_2$ permits squaring. Exact rational arithmetic gives
-\[
- 3\left(\frac{227}{10000}\right)^2
-  -\frac{501}{1000}\frac{3}{1000}
-  =\frac{4287}{100000000}.
-\]
+
+\[M_{0} \leq \frac{501}{1000},\quad\quad M_{2} \geq \frac{227}{10000},\quad\quad M_{4} \leq \frac{3}{1000}.\]
+
+We also obtain
+
+\[3M_{2}^{2} - M_{0}M_{4} \geq \frac{4287}{100000000} > 0.\quad\quad\text{(32)}\]
+
+\emph{Proof.} The integral certificates proving the three bounds are described in Section~8. Positivity permits multiplication of the upper bounds for \(M_{0}\) and \(M_{4}\); the positive lower bound for \(M_{2}\) permits squaring. Exact rational arithmetic gives
+
+\[3\left( \frac{227}{10000} \right)^{2} - \frac{501}{1000}\frac{3}{1000} = \frac{4287}{100000000}.\]
+
 The final Lean proof combines these certified inequalities with polynomial arithmetic.
-\end{proof}
 
-\begin{theorem}[Quadratic factorization and complete root classification]\label{thm:jroots}
-Put $a=M_4/12$ and
-\[
- r_\pm=\frac{-M_2\pm\sqrt D}{2a}.
-\]
-Then $r_-<r_+$ and
-\begin{equation}\label{eq:jfactor}
- J^{2,0}(x)=a(x-r_+)(x-r_-).
-\end{equation}
-The complexified polynomial has precisely the roots $r_+$ and $r_-$, viewed in $\C$. Every complex root has imaginary part zero.
-\end{theorem}
-\begin{proof}
-Theorem~\ref{thm:jgap} gives $D>0$; in fact the mathematical bound $D\ge1429/10^8$ follows by division by three. Also $a>0$. The identity $(\sqrt D)^2=D$ yields
-$r_++r_-=-M_2/a$ and $r_+r_-=M_0/a$.
-Expanding the right-hand side of~\eqref{eq:jfactor} proves the polynomial identity. Since $\sqrt D>0$ and $2a>0$, the roots are distinct and ordered. Applying the coefficient embedding $\R\hookrightarrow\C$ preserves the factorization. The absence of zero divisors in $\C$, together with $a\ne0$, gives the two-root classification and hence realness of every root.
-\end{proof}
-In Lean the roots are first expressed using $\gamma(1)$ and $\gamma(2)$; equation~\eqref{eq:jquadratic} identifies these expressions with $r_\pm$ above. The complex theorem is about the mapped polynomial, not about the zeros of $\Xi$.
+\textbf{Theorem 7.2 (Quadratic factorization and complete root classification).}
 
-\subsection{Relation to the classical Jensen criterion}
-Farmer's critique~\cite{farmer} concerns the usefulness of Jensen methods for attacking RH, not the failure of the classical logical equivalence. Hyperbolicity of the full appropriate xi Jensen family, under the criterion's analytic hypotheses, remains equivalent to RH. Large-shift hyperbolicity and Hermite-type limits can instead occur broadly and do not settle the missing cases. We formalize $J^{2,0}$ as a target in its own right: a concrete theorem with certified integration, an explicit margin, and a complete root classification. Its value here is the reusable formal proof infrastructure, rather than evidence for RH.
+Put \(a = M_{4}/12\) and
 
-The Tur\'an inequalities for the xi coefficient sequence have a substantial classical literature, including Csordas, Norfolk, and Varga~\cite{cnv}. Our contribution is the formal certificate and root classification, rather than a claim that the degree-two inequality is new. Griffin, Ono, Rolen, and Zagier~\cite{gorz} discuss the Jensen criterion for RH and establish hyperbolicity in large-shift regimes for each fixed degree.
+\[r_{\pm} = \frac{- M_{2} \pm \sqrt{D}}{2a}.\]
 
-The full classical criterion requires an entire family of Jensen polynomials of the appropriate xi coefficient sequence. Our formalization covers $(d,n)=(2,0)$ only; the general classical Jensen criterion discussed in~\cite{cnv,gorz} is not formalized in this development. A formal use of that criterion would additionally require the all-orders coefficient bridge, the hypotheses of the relevant entire-function criterion, and a proof covering the quantified polynomial family. The existing finite certificate supplies none of those universal conclusions.
+Then \(r_{-} < r_{+}\) and
 
-There is no tension between the two principal results. The quadratic theorem gives
-$M_0M_4/M_2^2<3$, while the spectral obstruction places the product's fourth-order ratio strictly below this same target ratio. Hyperbolicity of this quadratic is compatible with failure of the proposed spectral-product identity.
+\[J^{2,0}(x) = a\left( x - r_{+} \right)\left( x - r_{-} \right).\quad\quad\text{(33)}\]
 
-\section{Finite integration certificates for the Jensen bound}\label{sec:jcert}
-\subsection{Rational cells and kernel envelopes}
-The new moment certificates partition $[0,1]$ into 1600 cells,
-\[
- \ell_i=\frac{i}{1600},\qquad
- u_i=\frac{i+1}{1600},\qquad 0\le i<1600.
-\]
+The complexified polynomial has precisely the roots \(r_{+}\) and \(r_{-}\), viewed in \(\mathbb{C}\). Every complex root has imaginary part zero.
+
+\emph{Proof.} Theorem~7.1 gives \(D > 0\); in fact the mathematical bound \(D \geq 1429/10^{8}\) follows by division by three. Also \(a > 0\). The identity \(\left( \sqrt{D} \right)^{2} = D\) yields \(r_{+} + r_{-} = - M_{2}/a\) and \(r_{+}r_{-} = M_{0}/a\). Expanding the right-hand side of~(33) proves the polynomial identity. Since \(\sqrt{D} > 0\) and \(2a > 0\), the roots are distinct and ordered. Applying the coefficient embedding \(\mathbb{R} \hookrightarrow \mathbb{C}\) preserves the factorization. The absence of zero divisors in \(\mathbb{C}\), together with \(a \neq 0\), gives the two-root classification and hence realness of every root.
+
+In Lean the roots are first expressed using \(\gamma(1)\) and \(\gamma(2)\); equation~(30) identifies these expressions with \(r_{\pm}\) above. The complex theorem is about the mapped polynomial, not about the zeros of \(\Xi\).
+
+\hypertarget{relation-to-the-classical-jensen-criterion}{%
+\subsection{7.3 Relation to the classical Jensen criterion}\label{relation-to-the-classical-jensen-criterion}}
+
+Farmer's critique~{[}8{]} concerns the usefulness of Jensen methods for attacking RH, not the failure of the classical logical equivalence. Hyperbolicity of the full appropriate xi Jensen family, under the criterion's analytic hypotheses, remains equivalent to RH. Large-shift hyperbolicity and Hermite-type limits can instead occur broadly and do not settle the missing cases. We formalize \(J^{2,0}\) as a target in its own right: a concrete theorem with certified integration, an explicit margin, and a complete root classification. Its value here is the reusable formal proof infrastructure. This is not evidence for RH.
+
+The Turán inequalities for the xi coefficient sequence have a substantial classical literature, including Csordas, Norfolk, and Varga~{[}6{]}. Our contribution is the formal certificate and root classification. We do not claim the degree-two inequality is new. Griffin, Ono, Rolen, and Zagier~{[}7{]} discuss the Jensen criterion for RH and establish hyperbolicity in large-shift regimes for each fixed degree.
+
+The full classical criterion requires an entire family of Jensen polynomials of the appropriate xi coefficient sequence. Our computation covers (d,n) = (2,0) only; the general classical Jensen criterion is not formalized here. Stage 6 proves the all-orders coefficient bridge and connects the resulting entire function to the Mathlib definition of RH through zero location, as described in Section 13. Hyperbolicity of the entire family remains unproved.
+
+The quadratic theorem gives \(M_{0}M_{4}/M_{2}^{2} < 3\), while the spectral obstruction places the product's fourth-order ratio strictly below this same target ratio. Hyperbolicity of this quadratic is compatible with failure of the proposed spectral-product identity.
+
+\hypertarget{finite-integration-certificates-for-the-jensen-bound}{%
+\section{8 Finite integration certificates for the Jensen bound}\label{finite-integration-certificates-for-the-jensen-bound}}
+
+\hypertarget{rational-cells-and-kernel-envelopes}{%
+\subsection{8.1 Rational cells and kernel envelopes}\label{rational-cells-and-kernel-envelopes}}
+
+The new moment certificates partition \(\lbrack 0,1\rbrack\) into 1600 cells,
+
+\[\ell_{i} = \frac{i}{1600},\quad\quad u_{i} = \frac{i + 1}{1600},\quad\quad 0 \leq i < 1600.\]
+
 The checked files group twenty cells into each of eighty batches. These batches are distinct from the older 400-endpoint fourth-moment lower certificate used for the spectral obstruction.
 
-On each open cell, rational endpoint constructions give lower and upper bounds $L_i\le\Phi(u)\le U_i$ with nonnegative envelopes. For $m\in\{0,2,4\}$, monotonicity of the nonnegative power gives
-\[
- \ell_i^m L_i\le u^m\Phi(u)\le u_i^m U_i.
-\]
-Here the zeroth power equals one, including at zero. Integration multiplies the constant bounds by the cell length $1/1600$. This step uses integrability theorems and integral monotonicity, rather than interpreting pointwise samples as quadrature estimates.
+On each open cell, rational endpoint constructions give lower and upper bounds \(L_{i} \leq \Phi(u) \leq U_{i}\) with nonnegative envelopes. For \(m \in \{ 0,2,4\}\), monotonicity of the nonnegative power gives
+
+\[\ell_{i}^{m}L_{i} \leq u^{m}\Phi(u) \leq u_{i}^{m}U_{i}.\]
+
+Here the zeroth power equals one, including at zero. Integration multiplies the constant bounds by the cell length \(1/1600\). This step uses integrability theorems and integral monotonicity. It does not interpret pointwise samples as quadrature estimates.
 
 The endpoint arithmetic uses the rational enclosure
-\[
- \frac{3141592}{10^6}\le\pi\le\frac{3141593}{10^6}.
-\]
-\Needspace{8\baselineskip}
-Exponential certificates use a finite Taylor sum and a controlled remainder. For $0\le x\le1$, writing
-$T_{12}(x)=\sum_{j=0}^{11}x^j/j!$, the construction uses
-\[
- T_{12}(x)\le e^x\le
- T_{12}(x)+\frac{13x^{12}}{12\cdot12!}.
-\]
-The upper remainder follows by bounding the successive tail-term ratios by $1/13$. Scaling by 32 and using $e^y=(e^{y/32})^{32}$ allows the endpoint values to be enclosed by rational arithmetic in the range required by the certificates. The kernel envelopes also account for the theta-series tail; retaining finitely many theta terms without a remainder would not establish an upper bound.
 
-\subsection{Summation, endpoints, and the infinite tail}
-Let $I_m=\int_0^1 u^m\Phi(u)\,du$. The finite integral proof normalizes casts of finite indices before combining the batch bounds. It connects integrals over open cells to interval integrals and telescopes along the rational partition. Endpoints contribute zero measure, so the use of open rather than half-open cells does not lose integral mass.
+\[\frac{3141592}{10^{6}} \leq \pi \leq \frac{3141593}{10^{6}}.\]
+
+Exponential certificates use a finite Taylor sum and a controlled remainder. For \(0 \leq x \leq 1\), writing \(T_{12}(x) = \sum_{j = 0}^{11}x^{j}/j!\), the construction uses
+
+\[T_{12}(x) \leq e^{x} \leq T_{12}(x) + \frac{13x^{12}}{12 \cdot 12!}.\]
+
+The upper remainder follows by bounding the successive tail-term ratios by \(1/13\). Scaling by 32 and using \(e^{y} = \left( e^{y/32} \right)^{32}\) allows the endpoint values to be enclosed by rational arithmetic in the range required by the certificates. The kernel envelopes also account for the theta-series tail; retaining finitely many theta terms without a remainder would not establish an upper bound.
+
+\hypertarget{summation-endpoints-and-the-infinite-tail}{%
+\subsection{8.2 Summation, endpoints, and the infinite tail}\label{summation-endpoints-and-the-infinite-tail}}
+
+Let \(I_{m} = \int_{0}^{1}u^{m}\Phi(u)\, du\). The finite integral proof normalizes casts of finite indices before combining the batch bounds. It connects integrals over open cells to interval integrals and telescopes along the rational partition. Endpoints contribute zero measure, so the use of open rather than half-open cells does not lose integral mass.
 
 The rational batch aggregation provides the bounds
-\begin{align*}
- I_0&\le\frac{125142475349}{250000000000}
-       =0.500569901396,\\
- I_2&\ge\frac{11394869437}{500000000000}
-       =0.022789738874,\\
- I_4&\le\frac{1499664107}{500000000000}
-       =0.002999328214.
-\end{align*}
-The decimals are terminating representations of the displayed fractions. The thresholds exported for subsequent proofs are the simpler inequalities
-\[
- I_0\le\frac{501}{1000}-\frac1{50000000},\qquad
- I_2\ge\frac{227}{10000},\qquad
- I_4\le\frac3{1000}-\frac1{50000000}.
-\]
-Separate analytic estimates establish
-\[
- \int_1^\infty\Phi(u)\,du\le\frac1{50000000},
- \qquad
- \int_1^\infty u^4\Phi(u)\,du\le\frac1{50000000}.
-\]
-They use the proved exponential tail envelope and integrals of shifted exponential functions. The second-moment tail is nonnegative, so a numerical upper bound for it is unnecessary for the lower bound on $M_2$. Splitting the positive half-line at one, whose singleton has zero measure, now proves the three moment bounds in Theorem~\ref{thm:jgap}.
 
-\subsection{Discovery arithmetic and checked arithmetic}
+\[\begin{matrix}
+I_{0} & \leq \frac{125142475349}{250000000000} = 0.500569901396, \\
+I_{2} & \geq \frac{11394869437}{500000000000} = 0.022789738874, \\
+I_{4} & \leq \frac{1499664107}{500000000000} = 0.002999328214.
+\end{matrix}\]
+
+The decimals are terminating representations of the displayed fractions. The thresholds exported for subsequent proofs are the simpler inequalities
+
+\[I_{0} \leq \frac{501}{1000} - \frac{1}{50000000},\quad\quad I_{2} \geq \frac{227}{10000},\quad\quad I_{4} \leq \frac{3}{1000} - \frac{1}{50000000}.\]
+
+Separate analytic estimates establish
+
+\[\int_{1}^{\infty}\Phi(u)\, du \leq \frac{1}{50000000},\quad\quad\int_{1}^{\infty}u^{4}\Phi(u)\, du \leq \frac{1}{50000000}.\]
+
+They use the proved exponential tail envelope and integrals of shifted exponential functions. The second-moment tail is nonnegative, so a numerical upper bound for it is unnecessary for the lower bound on \(M_{2}\). Splitting the positive half-line at one, whose singleton has zero measure, now proves the three moment bounds in Theorem~7.1.
+
+\hypertarget{discovery-arithmetic-and-checked-arithmetic}{%
+\subsection{8.3 Discovery arithmetic and checked arithmetic}\label{discovery-arithmetic-and-checked-arithmetic}}
+
 An external exact-rational Python audit guided certificate selection. Such an audit does not prove that its rational enclosures dominate the analytic kernel. The Lean modules supply that connection, integrability, partition identities, and tail estimates. The numerical values in this section refer to the later batch aggregation; preliminary Python audit values need not coincide because rounding and aggregation choices differ.
 
-The certificate structure makes failures local: endpoint proofs, individual cell integrals, batch sums, partition identities, and final nonlinear inequalities are checked separately. In particular, a finite-index coercion mismatch is an elaboration issue, not evidence against the moment inequality. A failed build cannot support a final theorem until corrected and rebuilt. The final successful records discussed below supersede the earlier failed finite-integral build.
+The certificate structure localizes failures. Endpoint proofs, cell integrals, batch sums, partition identities, and final inequalities are each checked on their own. In particular, a finite-index coercion mismatch is an elaboration issue, not evidence against the moment inequality. A failed build cannot support a final theorem until corrected and rebuilt. The final successful records discussed below supersede the earlier failed finite-integral build.
 
-\section{Formal organization and proof audit}
-\subsection{Objects and theorem correspondence}
-All identifiers below lie in the \code{HodgeProofHP} namespace. The mathematical objects correspond as follows.
-\begin{center}\begin{tabular}{@{}ll@{}}\toprule
-Object & Lean identifier\\\midrule
-$\Phi$ & \code{hpRiemannThetaDifferentialKernel}\\
-$A$ & \code{hpThetaHankelOperator}\\
-$S$ & \code{hpThetaHankelAdjointSquare}\\
-$E$ & \code{hpThetaFirstTraceEnergy}\\
-$Q$ & \code{hpThetaHankelSpectralSquareEnergy}\\
-$X$ & \code{hpThetaNormalizedXi}\\\bottomrule
-\end{tabular}\end{center}
-The representation of an $L^2$ operator application is stated almost everywhere, as required by the quotient nature of the space. Modules follow the mathematical dependencies rather than taking the arithmetic certificate as an unproved numerical hypothesis. Names below are module suffixes within \code{HodgeProofHP}.
-\begingroup\small
-\begin{longtable}{@{}p{.52\textwidth}p{.44\textwidth}@{}}
-\toprule Module & Mathematical role\\\midrule\endfirsthead
-\toprule Module & Mathematical role (continued)\\\midrule\endhead
-\code{Stage4ThetaTriangleTestVector} & Normalized interval vector and operator action.\\[5pt]
-\code{Stage4ThetaTriangleTestPairing} & Pairing as a complex square integral.\\[5pt]
-\code{Stage4ThetaTriangleSquareLIntegral} & Triangular change of variables for nonnegative integrals.\\[5pt]
-\code{Stage4ThetaTriangleSquareMoment} & Finiteness and real moment conversion.\\[5pt]
-\code{Stage4ThetaTriangleRayleighBridge} & Square integral and pairing linked to the certified Rayleigh value.\\[5pt]
-\code{Stage4ThetaHankelQLowerBound} & Parseval estimate and $Q>(117/500)^4$.\\[5pt]
-\code{Stage4ThetaRealScaledObstruction} & Strict moment inequality and real-scale exclusion.\\[5pt]
-\code{Stage4ThetaComplexScaledObstruction} & Realness of a hypothetical complex scale and exclusion.\\[5pt]
-\code{Stage4ThetaComplexScaledObstructionAudit} & Final statements and axiom dependencies.\\\bottomrule
-\end{longtable}\endgroup
+\hypertarget{formal-organization-and-proof-audit}{%
+\section{9 Formal organization and proof audit}\label{formal-organization-and-proof-audit}}
+
+\hypertarget{objects-and-theorem-correspondence}{%
+\subsection{9.1 Objects and theorem correspondence}\label{objects-and-theorem-correspondence}}
+
+All identifiers below lie in the \texttt{\seqsplit{HodgeProofHP}} namespace. The mathematical objects correspond as follows.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4926}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5074}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Object}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Lean identifier}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(\Phi\) & \texttt{\seqsplit{hpRiemannThetaDifferentialKernel}} \\
+\(A\) & \texttt{\seqsplit{hpThetaHankelOperator}} \\
+\(S\) & \texttt{\seqsplit{hpThetaHankelAdjointSquare}} \\
+\(E\) & \texttt{\seqsplit{hpThetaFirstTraceEnergy}} \\
+\(Q\) & \texttt{\seqsplit{hpThetaHankelSpectralSquareEnergy}} \\
+\(X\) & \texttt{\seqsplit{hpThetaNormalizedXi}} \\
+\end{longtable}
+
+The representation of an \(L^{2}\) operator application is stated almost everywhere, as required by the quotient nature of the space. Modules follow the mathematical dependencies. They do not treat the arithmetic certificate as an unproved numerical hypothesis. Names below are module suffixes within \texttt{\seqsplit{HodgeProofHP}}.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4926}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5074}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Module}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Mathematical role}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\seqsplit{Stage4ThetaTriangleTestVector}} & Normalized interval vector and operator action. \\
+\texttt{\seqsplit{Stage4ThetaTriangleTestPairing}} & Pairing as a complex square integral. \\
+\texttt{\seqsplit{Stage4ThetaTriangleSquareLIntegral}} & Triangular change of variables for nonnegative integrals. \\
+\texttt{\seqsplit{Stage4ThetaTriangleSquareMoment}} & Finiteness and real moment conversion. \\
+\texttt{\seqsplit{Stage4ThetaTriangleRayleighBridge}} & Square integral and pairing linked to the certified Rayleigh value. \\
+\texttt{\seqsplit{Stage4ThetaHankelQLowerBound}} & Parseval estimate and \(Q > (117/500)^{4}\). \\
+\texttt{\seqsplit{Stage4ThetaRealScaledObstruction}} & Strict moment inequality and real-scale exclusion. \\
+\texttt{\seqsplit{Stage4ThetaComplexScaledObstruction}} & Realness of a hypothetical complex scale and exclusion. \\
+\texttt{\seqsplit{Stage4ThetaComplexScaledObstructionAudit}} & Final statements and axiom dependencies. \\
+\end{longtable}
+
 The coefficient identities are developed in the spectral-product second- and fourth-derivative modules and their higher-derivative limit modules. Moment normalization comes from the cosine-integral and normalized-xi derivative modules. Certificate modules provide exact rational bounds before the final theorem is assembled.
 
-\subsection{The final statements}
+\hypertarget{the-final-statements}{%
+\subsection{9.2 The final statements}\label{the-final-statements}}
+
 The audit exposes the explicit complex-scale theorem:
-\begin{lstlisting}
+
+\begin{verbatim}
 HodgeProofHP.hpThetaHankel_no_complex_scale_normalizedXi_explicit :
   ¬ ∃ c : ℂ,
     (fun z => hpThetaHankelSpectralProduct (c * z)) =
       hpThetaNormalizedXi
-\end{lstlisting}
+\end{verbatim}
+
 Its pointwise consequence is:
-\begin{lstlisting}
-HodgeProofHP.hpThetaHankel_every_complex_scale_exists_mismatch
-    (c : ℂ) :
-  ∃ z, hpThetaHankelSpectralProduct (c * z) ≠
-    hpThetaNormalizedXi z
-\end{lstlisting}
-The decisive arithmetic theorem is \code{hpThetaHankel_certified_fourthMoment_strict}, corresponding to~\eqref{eq:strict}. The spectral lower theorem is \code{hpThetaHankelSpectralSquareEnergy_gt_triangle_certificate}, corresponding to~\eqref{eq:Qbound}. The reduction lemma is \code{hpThetaHankelComplexScaledSpectralProduct_match_im_zero}, concluding \code{c.im = 0} under a matching hypothesis.
 
-\subsection{Jensen modules and final statements}
+\begin{verbatim}
+theorem hpThetaHankel_every_complex_scale_exists_mismatch :
+    ∀ c : ℂ, ∃ z : ℂ,
+      hpThetaHankelSpectralProduct (c * z) ≠ hpThetaNormalizedXi z
+\end{verbatim}
+
+The decisive arithmetic theorem is \texttt{\seqsplit{hpThetaHankel\_certified\_fourthMoment\_strict}}, corresponding to~(24). The spectral lower theorem is \texttt{\seqsplit{hpThetaHankelSpectralSquareEnergy\_gt\_triangle\_certificate}}, corresponding to~(20). The reduction lemma is \texttt{\seqsplit{hpThetaHankelComplexScaledSpectralProduct\_match\_im\_zero}}, concluding \texttt{\seqsplit{c.im\ =\ 0}} under a matching hypothesis.
+
+\hypertarget{jensen-modules-and-final-statements}{%
+\subsection{9.3 Jensen modules and final statements}\label{jensen-modules-and-final-statements}}
+
 The Stage~5 dependency chain separates foundations, analytic bounds, certificate arithmetic, and root algebra. The main module groups are:
-\begin{center}\small
-\begin{tabular}{@{}p{.47\textwidth}p{.49\textwidth}@{}}\toprule
-Module suffixes & Role\\\midrule
-\code{Stage5ThetaJensenFoundations}, \code{Stage5ThetaJensenQuadratic} & Moments, factorial coefficients, and degree-two identities.\\[4pt]
-\code{Stage5ThetaJensenKernelBounds}, \code{Stage5ThetaJensenTailIntegrals}, \code{Stage5ThetaJensenTailNumericBounds} & Pointwise envelopes and infinite-tail certificates.\\[4pt]
-\code{Stage5ThetaJensenCellsBatch000} through \code{Stage5ThetaJensenCellsBatch079} & Eighty groups of checked cell certificates.\\[4pt]
-\code{Stage5ThetaJensenCellIntegrals}, \code{Stage5ThetaJensenIntegralPartition}, \code{Stage5ThetaJensenFiniteIntegralBounds} & Integral comparison, partition, and finite sums.\\[4pt]
-\code{Stage5ThetaJensenCertifiedMomentInequality} & Global moment thresholds and strict gap.\\[4pt]
-\code{Stage5ThetaJensenQuadraticFactorization}, \code{Stage5ThetaJensenQuadraticComplexRoots} & Distinct real roots, factorization, and complex-root classification.\\\bottomrule
-\end{tabular}
-\end{center}
-The gap theorem is \code{hpThetaJensen_momentGap_ge_certified}; the strict inequality is \code{hpThetaJensen_moment_inequality_strict}. The real factorization and distinct-root theorems are \code{hpThetaJensenQuadratic_zero_factorization} and \code{hpThetaJensenQuadratic_zero_two_distinct_real_roots}. The complex classification is \code{hpThetaJensenQuadratic_zero_complex_eval_eq_zero_iff}, with consequences \code{hpThetaJensenQuadratic_zero_complex_root_im_zero} and \code{hpThetaJensenQuadratic_zero_complex_root_is_real}. These names identify statements for inspection, rather than replacing their mathematical specifications.
 
-\subsection{What the audit establishes}
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.4926}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5074}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Module suffixes}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Role}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\texttt{\seqsplit{Stage5ThetaJensenFoundations}}, \texttt{\seqsplit{Stage5ThetaJensenQuadratic}} & Moments, factorial coefficients, and degree-two identities. \\
+\texttt{\seqsplit{Stage5ThetaJensenKernelBounds}}, \texttt{\seqsplit{Stage5ThetaJensenTailIntegrals}}, \texttt{\seqsplit{Stage5ThetaJensenTailNumericBounds}} & Pointwise envelopes and infinite-tail certificates. \\
+\texttt{\seqsplit{Stage5ThetaJensenCellsBatch000}} through \texttt{\seqsplit{Stage5ThetaJensenCellsBatch079}} & Eighty groups of checked cell certificates. \\
+\texttt{\seqsplit{Stage5ThetaJensenCellIntegrals}}, \texttt{\seqsplit{Stage5ThetaJensenIntegralPartition}}, \texttt{\seqsplit{Stage5ThetaJensenFiniteIntegralBounds}} & Integral comparison, partition, and finite sums. \\
+\texttt{\seqsplit{Stage5ThetaJensenCertifiedMomentInequality}} & Global moment thresholds and strict gap. \\
+\texttt{\seqsplit{Stage5ThetaJensenQuadraticFactorization}}, \texttt{\seqsplit{Stage5ThetaJensenQuadraticComplexRoots}} & Distinct real roots, factorization, and complex-root classification. \\
+\end{longtable}
+
+The gap theorem is \texttt{\seqsplit{hpThetaJensen\_momentGap\_ge\_certified}}; the strict inequality is \texttt{\seqsplit{hpThetaJensen\_moment\_inequality\_strict}}. The real factorization and distinct-root theorems are \texttt{\seqsplit{hpThetaJensenQuadratic\_zero\_factorization}} and \texttt{\seqsplit{hpThetaJensenQuadratic\_zero\_two\_distinct\_real\_roots}}. The complex classification is \texttt{\seqsplit{hpThetaJensenQuadratic\_zero\_complex\_eval\_eq\_zero\_iff}}, with consequences \texttt{\seqsplit{hpThetaJensenQuadratic\_zero\_complex\_root\_im\_zero}} and \texttt{\seqsplit{hpThetaJensenQuadratic\_zero\_complex\_root\_is\_real}}. These names identify statements for inspection. They do not replace their mathematical specifications.
+
+\hypertarget{what-the-audit-establishes}{%
+\subsection{9.4 What the audit establishes}\label{what-the-audit-establishes}}
+
 The supplied development record reports the axiom list
-\begin{center}\code{[propext, Classical.choice, Quot.sound]}\end{center}
-for the final theorem and displayed dependencies, with no \code{sorryAx} for the final theorem. The appropriate description is a kernel-checked proof under these standard logical principles, rather than an axiom-free proof. The mathematical interpretation of a theorem still requires inspection of its definitions and statement.
 
-The earlier Stage~4 record uses Lean \code{v4.35.0-rc3} and reports 4086 build jobs for \code{Stage4ThetaComplexScaledObstructionAudit}. This figure belongs to that Stage~4 audit target; it is not a combined Stage~4 and Stage~5 total. This counts build tasks, including dependencies and replayed targets; it is not a theorem count or a performance result. A build replaying cached artifacts must be distinguished from an independent clean rebuild. The Stage~4 account is inherited from the author\'s earlier manuscript and recorded audit summary. Stage~5 is supported by the supplied successful build logs described below. No independent clean Lean execution was performed while preparing this combined manuscript.
+\texttt{{[}propext,\ Classical.choice,\ Quot.sound{]}}
 
-The supplied Stage~5 records report successful builds of the certified moment inequality (3966 jobs), quadratic factorization (3967 jobs), and complex-root module (3968 jobs). Their final axiom inspections report the same three standard axioms and no \code{sorryAx}. A subsequent factorization build also removes its reported style warning. Stage~5 counts refer to separately built targets with their own dependency graphs and recorded checkout state. They therefore need not exceed the 4086 jobs of the earlier Stage~4 audit. Neither ordering nor subtraction of these counts measures mathematical progress.
+for the final theorem and displayed dependencies, with no \texttt{\seqsplit{sorryAx}} for the final theorem. We call this a kernel-checked proof under these standard logical principles. It is not an axiom-free proof. The mathematical interpretation of a theorem still requires inspection of its definitions and statement.
 
-\section{Rational certificates and reproducibility}\label{sec:repro}
-Integral bounds come from finite rational certificates combined with analytic domination and tail estimates. Exponential bounds use finite Taylor sums and explicit remainder bounds. Endpoint inequalities control the kernel on finite intervals; integrating the lower or upper functions gives rational inequalities for moments and trace energy. The unbounded portion of the trace-energy integral is handled separately by a decay estimate and integral tail bound.
+The earlier Stage~4 record uses Lean v4.35.0-rc3 and reports 4086 build jobs for \path{Stage4ThetaComplexScaledObstructionAudit}. This figure belongs to that Stage~4 audit target; it is not a combined Stage~4 and Stage~5 total. This counts build tasks, including dependencies and replayed targets; it is not a theorem count or a performance result. We must distinguish a build that replays cached artifacts from an independent clean rebuild. The Stage~4 account is inherited from the authorś earlier manuscript and recorded audit summary. Stage~5 is supported by the supplied successful build logs described below. The historical record did not include an independent clean rebuild. The later independent Stage 6 CI audit is documented in Section 10.
 
-The fourth-moment certificate was organized into 400 rational endpoint values across 20 batches. The finite energy upper certificate uses 800 intervals across 40 batches. Partitioning reduces elaboration work and helps diagnose local failures without changing the mathematical bounds. Heartbeat and recursion limits affect elaboration resources, not theorem statements. Exact rational arithmetic and polynomial inequality tactics assemble the final strict inequality.
+The supplied Stage~5 records report successful builds of the certified moment inequality (3966 jobs), quadratic factorization (3967 jobs), and complex-root module (3968 jobs). Their final axiom inspections report the same three standard axioms and no \texttt{\seqsplit{sorryAx}}. A subsequent factorization build also removes its reported style warning. Stage~5 counts refer to separately built targets with their own dependency graphs and recorded checkout state. They therefore need not exceed the 4086 jobs of the earlier Stage~4 audit. Ordering or subtracting these counts does not measure mathematical progress.
 
-Preliminary Python interval calculations guide discovery but are not proof artifacts. In the supplied development record, the thresholds used by the exclusion theorems are conclusions of Lean theorems. Equation~\eqref{eq:margin} can be independently checked arithmetically; the integral certificates justify applying its thresholds to the analytic quantities.
+\hypertarget{stage-6-modules}{%
+\subsection{9.5 Stage 6 modules}\label{stage-6-modules}}
 
-\noindent\textbf{Source repository.} \repo.
+The Stage 6 modules extend the existing moment development. Each module name below denotes a Lean file under HodgeProofHP. The final target imports the earlier modules transitively.
 
-\noindent\textbf{Version information.} The combined Stage~4 and Stage~5 source snapshot is commit \code{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. Its \code{lean-toolchain} specifies \code{leanprover/lean4:v4.35.0-rc3}, and its \code{lake-manifest.json} pins mathlib to \code{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The public snapshot is available at \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. No version-specific archive DOI has been supplied.
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Module}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Formal role}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\path{Stage6ThetaPhiAllMomentsIntegrability} & Integrability of all moments \\
+\path{Stage6ThetaPhiCoshSeriesDomination} & Bounds for real cosh partial sums \\
+\path{Stage6ThetaPhiCoshIntegralConvergence} & Convergence under the integral \\
+\path{Stage6ThetaJensenXiImaginaryExpansion} & Xi expansion on the imaginary axis \\
+\path{Stage6ThetaPhiComplexCoshConvergence} & Complex cosh integral convergence \\
+\path{Stage6ThetaJensenComplexSeries} & Absolutely convergent complex series \\
+\path{Stage6ThetaJensenGeneratingFunction} & Generating function and xi identities \\
+\path{Stage6ThetaJensenEntire} & Entire analyticity \\
+\path{Stage6ThetaJensenDerivativeCoefficients} & Derivative and moment coefficients \\
+\path{Stage6ThetaJensenZeroReduction} & Transfer of zero locations \\
+\path{Stage6ThetaJensenPositiveAxis} & Positivity on the nonnegative real axis \\
+\path{Stage6ThetaJensenRiemannHypothesisEquivalence} & Equivalence with Mathlib RH \\
+\end{longtable}
 
-The exact recorded toolchain is \code{leanprover/lean4:v4.35.0-rc3}. The release-candidate suffix is part of this version identifier and must not be dropped or silently replaced by a stable release. Reproducibility depends on preserving the actual toolchain and dependency revisions; using a release candidate does not itself invalidate a checked proof. Migration to another Lean release requires a fresh build and audit.
+\hypertarget{rational-certificates-and-reproducibility}{%
+\section{10 Rational certificates and reproducibility}\label{rational-certificates-and-reproducibility}}
 
-The mathlib revision above is obtained from the actual dependency manifest, rather than inferred from the CPP~2020 library reference. The combined snapshot includes the eighty checked cell batches, the certified moment inequality, the real factorization, and the complex-root classification. These sources were incorporated from commit \code{5cd221d78d6840f97bac7b6ad61be36ddc006887} on \code{research/jensen-foundations}; reproduction should use the immutable combined commit rather than a moving branch.
+We build integral bounds from finite rational certificates. Then we add analytic domination and tail estimates. Exponential bounds use finite Taylor sums and explicit remainder bounds. Endpoint inequalities control the kernel on finite intervals; integrating the lower or upper functions gives rational inequalities for moments and trace energy. The unbounded part of the trace-energy integral needs separate work: a decay estimate and an integral tail bound.
 
-The earlier Stage~4 snapshot, commit \code{198bcf14b5f5d554c5e2e179815417e57f6f81a4}, remains the reference for the historical Stage~4 build records. The combined snapshot supplies a separate GitHub Actions workflow that builds the Stage~4 audit and final Stage~5 complex-root target on Linux and Windows. The latter target imports the certified moment inequality and real factorization. Inclusion of this workflow is not a claim that its runs have completed successfully; its results must be inspected separately from the supplied local build records. A tagged release and version-specific archive DOI may be added after the combined audit.
+We organize the fourth-moment certificate into 400 rational endpoint values across 20 batches. The finite energy upper certificate uses 800 intervals across 40 batches. Partitioning reduces elaboration work and helps diagnose local failures without changing the mathematical bounds. Heartbeat and recursion limits affect elaboration resources, not theorem statements. Exact rational arithmetic and polynomial inequality tactics assemble the final strict inequality.
 
-A reproducible release includes the project sources, \code{lean-toolchain}, the Lake configuration, \code{lake-manifest.json}, certificate-generation and repair scripts needed to regenerate the checked files, and the final audit source. Preserve the dependency manifest so that ``mathlib'' names an exact revision instead of a moving branch. For a clean reproduction, clone the repository and select the combined snapshot:
-\begin{lstlisting}
+Preliminary Python interval calculations guide discovery but are not proof artifacts. In the supplied development record, the thresholds used by the exclusion theorems follow from Lean theorems. Equation~(25) can be independently checked arithmetically; the integral certificates justify applying its thresholds to the analytic quantities.
+
+\textbf{Source repository.} \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}.
+
+Manuscript archive. Zenodo record \url{https://zenodo.org/records/23227199}, version 1.0, is published with DOI \url{https://doi.org/10.5281/zenodo.23227199}. The record was checked on 10 October 2026 and contains a single manuscript PDF, including the Stage 6 discussion. It does not archive the Lean source files; source reproduction uses the pinned GitHub commits and CI records below.
+
+Version information. The combined Stage~4 and Stage~5 source snapshot is commit \path{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. Its lean-toolchain specifies leanprover/lean4:v4.35.0-rc3, and its lake-manifest.json pins mathlib to \path{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The public snapshot is available at https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7.
+
+Stage 6 source snapshot. The complete Stage 6 sources and installation scripts are pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. This commit retains Lean v4.35.0-rc3 and mathlib revision \path{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. The immutable source location is https://github.com/afageri1/theta-hankel-complex-scale-exclusion/tree/b0218c813dd2f521a8d5a1752688b82c77b5e5dd.
+
+Independent Stage 6 audit. GitHub Actions run 38002265077 completed successfully on ubuntu-latest and windows-latest on 9 October 2026. Each job checked out commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. It built the final RH-equivalence target and reran the six printed axiom inspections. It also verified that tracked sources were unchanged. Both final inspections list only propext, Classical.choice, and Quot.sound, with no sorryAx. We obtained Mathlib dependencies from its binary cache. The CI built the project target on fresh hosted runners with the GitHub build cache disabled. This is a reproducibility check using the standard Lean kernel, not a second-kernel validation. The workflow and logs are available at https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38002265077.
+
+The exact recorded toolchain is \texttt{\seqsplit{leanprover/lean4:v4.35.0-rc3}}. The release-candidate suffix is part of this version identifier and must not be dropped or silently replaced by a stable release. Reproducibility depends on the exact toolchain and dependency revisions. Using a release candidate does not itself invalidate a checked proof. Migration to another Lean release requires a fresh build and audit.
+
+The mathlib revision above comes from the actual dependency manifest. It is not inferred from the CPP~2020 library reference. The combined snapshot includes the eighty checked cell batches, the certified moment inequality, the real factorization, and the complex-root classification. We incorporated these sources from commit \texttt{\seqsplit{5cd221d78d6840f97bac7b6ad61be36ddc006887}} on \texttt{\seqsplit{research/jensen-foundations}}; reproduction should use the immutable combined commit. A moving branch does not identify a fixed snapshot.
+
+The earlier Stage~4 snapshot, commit \path{198bcf14b5f5d554c5e2e179815417e57f6f81a4}, remains the reference for the historical Stage~4 build records. The combined snapshot supplies a separate GitHub Actions workflow that builds the Stage~4 audit and final Stage~5 complex-root target on Linux and Windows. The latter target imports the certified moment inequality and real factorization. Inclusion of this workflow is not a claim that its runs have completed successfully; its results must be inspected separately from the supplied local build records. Reproduction of the sources uses the immutable combined commit specified above.
+
+A reproducible release includes the project sources and the final audit source. It also includes lean-toolchain, the Lake configuration, lake-manifest.json, and the certificate-generation and repair scripts needed to regenerate the checked files.\texttt{\seqsplit{}}\texttt{\seqsplit{}} Preserve the dependency manifest so that ``mathlib'' names an exact revision instead of a moving branch. For a clean reproduction, clone the repository and select the combined snapshot:
+
+\begin{verbatim}
 git clone https://github.com/afageri1/theta-hankel-complex-scale-exclusion.git
 cd theta-hankel-complex-scale-exclusion
 git checkout --detach 62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7
 lake exe cache get
-\end{lstlisting}
+\end{verbatim}
+
 Then run
-\begin{lstlisting}
+
+\begin{verbatim}
 lake build HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
-\end{lstlisting}
-Inspect theorem statements as well as the build result. The explicit theorem quantifies over $c\in\C$ and compares functions on $\C$. Axiom inspection can be repeated with
-\begin{lstlisting}
+\end{verbatim}
+
+Inspect theorem statements as well as the build result. The explicit theorem quantifies over \(c \in \mathbb{C}\) and compares functions on \(\mathbb{C}\). Axiom inspection can be repeated with
+
+\begin{verbatim}
 import HodgeProofHP.Stage4ThetaComplexScaledObstructionAudit
 
 #print axioms
   HodgeProofHP.hpThetaHankel_no_complex_scale_normalizedXi_explicit
 #print axioms
   HodgeProofHP.hpThetaHankel_every_complex_scale_exists_mismatch
-\end{lstlisting}
+\end{verbatim}
+
 For the Stage~5 results, the build targets in the combined snapshot are
-\begin{lstlisting}
+
+\begin{verbatim}
 lake build HodgeProofHP.Stage5ThetaJensenCertifiedMomentInequality
 lake build HodgeProofHP.Stage5ThetaJensenQuadraticFactorization
 lake build HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
-\end{lstlisting}
+\end{verbatim}
+
 The final complex-root audit can be repeated with
-\begin{lstlisting}
+
+\begin{verbatim}
 import HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
 
 #print axioms
@@ -520,54 +693,122 @@ import HodgeProofHP.Stage5ThetaJensenQuadraticComplexRoots
   HodgeProofHP.hpThetaJensenQuadratic_zero_complex_eval_eq_zero_iff
 #print axioms
   HodgeProofHP.hpThetaJensenQuadratic_zero_complex_root_im_zero
-\end{lstlisting}
-Independent reproduction should use a clean checkout and document exact Lean and mathlib revisions, operating system, and audit output. This separates mathematical certification from environment-specific build observations. The argument requires neither an external interval library as an oracle nor acceptance of displayed decimal approximations as proof.
+\end{verbatim}
 
-\section{Scope of the exclusion}
-The theorem excludes equality with the fixed normalized target after a constant complex change of argument. It includes real, imaginary, zero, and general complex scales. The normalization $X(0)=P(0)=1$ is part of the statement; the identity is not merely proportionality at unspecified normalization.
+Independent reproduction should use a clean checkout and document exact Lean and mathlib revisions, operating system, and audit output. This separates mathematical certification from environment-specific build observations. The argument does not require an external interval library as an oracle, nor does it require accepting a displayed decimal as proof.
 
-The conclusion does not assert different zero sets. A nowhere-vanishing entire factor may change Taylor coefficients while preserving zeros and multiplicities; multiplication by $\exp(az^2+bz^4)$ is an example. More precisely, if for a fixed $c$ the nonzero entire functions $P(c\,\cdot)$ and $X$ had identical zeros with identical multiplicities, their quotient would extend to a nowhere-vanishing entire function on $\C$. It would admit an entire logarithm, yielding $P(cz)=X(z)\exp(g(z))$ for an entire $g$. This is conditional, not an asserted zero correspondence. Zero-set equality without multiplicity information does not justify the quotient argument.
+\hypertarget{scope-of-the-exclusion}{%
+\section{11 Scope of the exclusion}\label{scope-of-the-exclusion}}
 
-Positivity of $S=A^*A$ does not establish a spectral realization of xi zeros. Such a realization requires a separate correspondence theorem, including completeness and multiplicity. The present paper proves that the direct product identity~\eqref{eq:exclusion} cannot supply that correspondence for this construction; it gives no contradiction to the Riemann hypothesis.
+The theorem excludes equality with the fixed normalized target after a constant complex change of argument. It includes real, imaginary, zero, and general complex scales. The normalization \(X(0) = P(0) = 1\) is part of the statement; the identity is not mere proportionality at unspecified normalization.
 
-The work claims no priority over all possible informal obstructions to this kernel. Its verifiable contribution is the explicit quantitative obstruction and formal dependency chain. Broader novelty comparisons require a dedicated review of theta-kernel spectral models beyond the contextual references used here.
+The conclusion does not assert different zero sets. A nowhere-vanishing entire factor may change Taylor coefficients while preserving zeros and multiplicities; multiplication by \(\exp\left( az^{2} + bz^{4} \right)\) is an example. More precisely, fix \(c\) and suppose the nonzero entire functions \(P(c\, \cdot )\) and \(X\) have identical zeros with identical multiplicities. Their quotient would then extend to a nowhere-vanishing entire function on \(\mathbb{C}\). It would admit an entire logarithm, yielding \(P(cz) = X(z)\exp\left( g(z) \right)\) for an entire \(g\). This is a conditional observation. We do not assert a zero correspondence. Zero-set equality without multiplicity information does not justify the quotient argument.
 
-\section{Future research}
-\noindent\textbf{Eigenvalue decay and zero counting.} A complementary obstruction could compare quantitative decay of the eigenvalues with the growth and zero-counting properties required by xi. Since a positive eigenvalue $\lambda_i$ contributes zeros at $z=\pm\lambda_i^{-1/2}$, a bound on the eigenvalue counting function near zero would control the zero count of the product. The rapid decay of the kernel suggests studying finite-rank approximation errors and the resulting singular-value bounds, then translating them to eigenvalue decay for $S=A^*A$. Any exclusion derived this way would require proved decay estimates, justified counting asymptotics, and a formal bridge from spectral data to product zeros. Kernel decay alone is not such a proof. This argument remains future work and is not used by the current audit.
+Positivity of \(S = A^{*}A\) does not establish a spectral realization of xi zeros. Such a realization requires a separate correspondence theorem, including completeness and multiplicity. The present paper proves that the direct product identity~(29) cannot supply that correspondence for this construction; it gives no contradiction to the Riemann hypothesis.
 
-\noindent\textbf{Sharper moment certificates.} A smaller rational upper threshold for $M_2$, certified in Lean and propagated to the arithmetic theorem, would enlarge the separation in~\eqref{eq:margin}. Equation~\eqref{eq:tolerance} identifies the exact admissible threshold for the present companion bounds. Refinement should retain the same kernel normalization and provide the certificate source and audit output.
+The work does not claim priority over every informal obstruction to this kernel. Its verifiable contribution is the explicit quantitative obstruction and formal dependency chain. Broader novelty comparisons require a dedicated review of theta-kernel spectral models beyond the contextual references used here.
 
-A new candidate should be tested against second and fourth coefficient identities before undertaking a large formal development. Definitions of moments, trace quantities, and normalized target must be explicit; numerical exploration can guide thresholds but cannot replace analytic proofs or kernel-checked certificates.
+\hypertarget{future-research}{%
+\section{12 Future research}\label{future-research}}
 
-An identity allowing an additional entire factor is a different problem. Admissible factors need explicit normalization and growth constraints; unrestricted factors can conceal the identification problem. A nonlinear change of argument likewise requires a separate analysis of its effect on zeros and multiplicities. Neither modification is established here.
+\textbf{Eigenvalue decay and zero counting.} A complementary obstruction could compare quantitative decay of the eigenvalues with the growth and zero-counting properties required by xi. Since a positive eigenvalue \(\lambda_{i}\) contributes zeros at \(z = \pm \lambda_{i}^{- 1/2}\), a bound on the eigenvalue counting function near zero would control the zero count of the product. The rapid decay of the kernel suggests studying finite-rank approximation errors and the resulting singular-value bounds, then translating them to eigenvalue decay for \(S = A^{*}A\). Any exclusion derived this way would require proved decay estimates, justified counting asymptotics, and a formal bridge from spectral data to product zeros. Kernel decay alone is not such a proof. This argument remains future work and is not used by the current audit.
 
-Any bridge to the Riemann hypothesis must identify the relevant spectral data with xi zeros, including completeness and multiplicity. The current result supplies an exclusion test for one direct product identity. Completing the immutable release metadata and recording an independent clean audit build are necessary reproducibility steps before submission.
+\textbf{Sharper moment certificates.} A smaller rational upper threshold for \(M_{2}\), certified in Lean and propagated to the arithmetic theorem, would enlarge the separation in~(25). Equation~(23) identifies the exact admissible threshold for the present companion bounds. Refinement should retain the same kernel normalization and provide the certificate source and audit output.
 
-\section{Conclusion}
-The development provides two complementary results from the same differential theta kernel. A Rayleigh estimate and certified fourth-order separation exclude equality of the adjoint-square spectral product with normalized xi after every constant complex rescaling. A separate 1600-cell integral certificate proves a strict quadratic Jensen inequality with an explicit rational margin, followed by factorization and complete complex-root classification. The latter is a formalization of a particular classical hyperbolicity statement, not a universal Jensen theorem or a proof of RH. The supplied audits report the standard axiom list without \code{sorryAx}; a pinned combined release and independent clean rebuild remain necessary for full reproducibility.
+Before starting a large formal development, test a new candidate against second and fourth coefficient identities. Definitions of moments, trace quantities, and normalized target must be explicit; numerical exploration can guide thresholds but cannot replace analytic proofs or kernel-checked certificates.
 
-\Needspace{8\baselineskip}
-\section*{Code availability}
-The source repository is:\par\noindent\repo.\par
-The public combined Stage~4 and Stage~5 sources are pinned to commit \code{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}; the exact Lean and mathlib revisions are recorded in Section~\ref{sec:repro}. A version-specific archive DOI has not yet been supplied. The recorded toolchain is Lean \code{v4.35.0-rc3}; a moving repository branch is insufficient to reproduce the exact source snapshot. Supplied local audit records and independently reproducible CI results are distinguished in Section~\ref{sec:repro}.
+An identity allowing an additional entire factor is a different problem. Admissible factors need explicit normalization and growth constraints; unrestricted factors can conceal the identification problem. A nonlinear change of argument likewise requires a separate analysis of its effect on zeros and multiplicities. We do not establish either modification here.
 
-\begin{thebibliography}{99}
-\bibitem{lean} Leonardo de Moura and Sebastian Ullrich. The Lean 4 Theorem Prover and Programming Language. In \emph{Automated Deduction---CADE 28}, pp.~625--635. Springer, 2021. \url{https://doi.org/10.1007/978-3-030-79876-5_37}.
-\bibitem{mathlib} The mathlib Community. The Lean Mathematical Library. In \emph{Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020)}, 2020. \url{https://doi.org/10.1145/3372885.3373824}. Preprint: \url{https://arxiv.org/abs/1910.09336}.
-\bibitem{connes} Alain Connes. Trace formula in noncommutative geometry and the zeros of the Riemann zeta function. \emph{Selecta Mathematica, New Series} \textbf{5}, 29--106, 1999. Preprint: \url{https://arxiv.org/abs/math/9811068}.
-\bibitem{berry} Michael V. Berry and Jonathan P. Keating. The Riemann Zeros and Eigenvalue Asymptotics. \emph{SIAM Review} \textbf{41}(2), 236--266, 1999. \url{https://doi.org/10.1137/S0036144598347497}.
-\bibitem{titchmarsh} E. C. Titchmarsh. \emph{The Theory of the Riemann Zeta-Function}. Second edition, revised by D. R. Heath-Brown. Clarendon Press, Oxford, 1986. ISBN 9780198533696.
-\bibitem{cnv} George Csordas, Timothy S. Norfolk, and Richard S. Varga. The Riemann hypothesis and the Tur\'an inequalities. \emph{Transactions of the American Mathematical Society} \textbf{296}(2), 521--541, 1986. Author-hosted copy: \url{https://www.math.kent.edu/~varga/pub/paper_157.pdf}.
-\bibitem{gorz} Michael Griffin, Ken Ono, Larry Rolen, and Don Zagier. Jensen polynomials for the Riemann zeta function and other sequences. \emph{Proceedings of the National Academy of Sciences} \textbf{116}(23), 11103--11110, 2019. \url{https://doi.org/10.1073/pnas.1902572116}. Preprint: \url{https://arxiv.org/abs/1902.07321}.
-\bibitem{farmer} David W. Farmer. Jensen polynomials are not a plausible route to proving the Riemann Hypothesis. Preprint, revised 9 November 2022. \url{https://arxiv.org/abs/2008.07206v2}.
-\bibitem{gsix} G Six. The Bost--Connes Modular Generator as a candidate Hilbert--P\'olya Operator, Lean 4 Formalization. Companion repository, 2026. \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}. Repository description consulted 7 October 2026; conditional reduction with explicitly declared additional axioms.
-\end{thebibliography}
+We return to this in Section 13. That section supplies a formal bridge from the theta-Jensen generating function to Mathlib\textquotesingle s Riemann hypothesis. The global exclusion of non-real zeros remains unresolved. Spectral identifications involving completeness and multiplicity remain separate questions.
 
-\clearpage
-\appendix
-\section{Exact arithmetic check}
-The following calculation checks arithmetic after certification of the analytic thresholds; it does not replace the integral proofs. It verifies the separation margin, the concentration bound, and the second-moment tolerance.
-\begin{lstlisting}
+\hypertarget{a-formal-reduction-of-the-riemann-hypothesis}{%
+\section{13 A formal reduction of the Riemann hypothesis}\label{a-formal-reduction-of-the-riemann-hypothesis}}
+
+\hypertarget{the-entire-generating-function}{%
+\subsection{13.1 The entire generating function}\label{the-entire-generating-function}}
+
+With the moment normalization of Section 7, define
+
+\[F(w) = \sum_{n = 0}^{\infty}\frac{\gamma(n)}{n!}w^{n},\quad\quad\gamma(n) = \frac{n!M_{2n}}{(2n)!}.\]
+
+Stage 6 establishes integrability of all even moments and absolute convergence of the complex moment series. It also proves that F is analytic at every complex argument. The formal identities are
+
+\[F\left( z^{2} \right) = \Xi(iz),\quad\quad F\left( - t^{2} \right) = \Xi(t).\]
+
+In particular, using the complex square root gives \(F(w) = \Xi\left( i\sqrt{w} \right)\). These identities use the critical-line normalization of xi already fixed in Section 2. The derivative-coefficient theorem gives
+
+\[F^{(n)}(0) = \gamma(n).\]
+
+Consequently, the moment-based Jensen polynomials agree with the polynomials formed from the derivatives of this entire function. Nonnegative coefficients and a strictly positive constant coefficient also establish \(F(x) > 0\) for every real \(x \geq 0\). Positivity on this axis does not exclude zeros away from it.
+
+\hypertarget{equivalence-with-mathlibs-riemann-hypothesis}{%
+\subsection{13.2 Equivalence with Mathlib's Riemann hypothesis}\label{equivalence-with-mathlibs-riemann-hypothesis}}
+
+The final module connects the zero-location reduction to Mathlib's existing proposition RiemannHypothesis. It does not introduce a local replacement for RH. Its theorem states
+
+\[RiemannHypothesis\  \Leftrightarrow \ \forall w \in \mathbb{C},\quad Im(w) \neq 0 \Rightarrow F(w) \neq 0.\]
+
+Equivalently, every zero of F is a strictly negative real number. For example, \(F\left( - t^{2} \right) = \Xi(t)\) maps real zeros of the critical xi function to nonpositive real zeros of F. Positivity on the nonnegative real axis rules out the endpoint. Conversely, the square-root identity transfers a zero of F to a zero of xi. The Stage 4 module \path{Stage4RiemannHypothesisEquivalence} supplies this bridge through hpRiemannHypothesis\_iff\_critical\_real\_zeros, which connects real critical-xi zeros to Mathlib's RiemannHypothesis. The Lean theorem is named hpThetaJensen\_RH\_iff\_nonrealZeroExclusion in \path{Stage6ThetaJensenRiemannHypothesisEquivalence.lean}. The accompanying implication hpThetaJensen\_RH\_of\_nonrealZeroExclusion explicitly requires hpThetaJensenNonrealZeroExclusion as a hypothesis. That proposition is not proved in this development.
+
+\hypertarget{audit-evidence-and-scope}{%
+\subsection{13.3 Audit evidence and scope}\label{audit-evidence-and-scope}}
+
+The supplied local build record, dated 9 October 2026, reports successful compilation of the final target with 3926 dependency jobs. Its six printed theorem dependency lists contain only propext, Classical.choice, and Quot.sound, with no sorryAx. This count belongs to that target dependency graph; it is not a count of mathematical results. The complete Stage 6 module list appears in Section 9.5. Independent CI subsequently confirmed successful builds and final axiom inspections on both Linux and Windows for the pinned Stage 6 commit, as detailed in Section 10. Reproduction of the final statement uses:
+
+\begin{verbatim}
+git checkout --detach b0218c813dd2f521a8d5a1752688b82c77b5e5dd
+lake exe cache get
+lake build HodgeProofHP.Stage6ThetaJensenRiemannHypothesisEquivalence
+\end{verbatim}
+
+This result formalizes a reduction. It does not prove RH. Nor does it establish hyperbolicity of the full Jensen family. The unresolved global zero-exclusion statement is itself equivalent to RH. The contribution claimed here is the formal connection between these particular definitions, not a new analytic proof of the classical criterion. The source snapshot is pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}; its Lean and mathlib versions and the independent CI results are recorded in Section 10.
+
+\hypertarget{conclusion}{%
+\section{14 Conclusion}\label{conclusion}}
+
+We provide two complementary results from the same differential theta kernel. A Rayleigh estimate and certified fourth-order separation exclude equality of the adjoint-square spectral product with normalized xi after every constant complex rescaling. A separate 1600-cell integral certificate proves a strict quadratic Jensen inequality with an explicit rational margin, followed by factorization and complete complex-root classification. The latter is a formalization of a particular classical hyperbolicity statement, not a universal Jensen theorem, and not a proof of RH. The supplied audits report the standard axiom list without sorryAx; the Stage 6 source commit and successful Linux and Windows CI audits are now recorded in Section 10. Stage 6 additionally supplies the entire generating function and the formal RH equivalence of Section 13. Its remaining zero-exclusion hypothesis is equivalent to RH and is not discharged.
+
+\hypertarget{code-availability}{%
+\section{Code availability}\label{code-availability}}
+
+The source repository is:
+
+\url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}.
+
+Stage 4 and Stage 5 sources are pinned to commit \path{62429ce4cea0ebf751a0b15f1d3b5bcdc47072d7}. The later Stage 6 extension is pinned to commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. Both use the Lean and mathlib revisions recorded in Section 10. The immutable GitHub source commits and completed CI runs provide the presently verified reproduction references. The manuscript is archived at \url{https://doi.org/10.5281/zenodo.23227199}; this DOI identifies the manuscript PDF, not an archived source release. The original Lean sources and supporting scripts are licensed under Apache 2.0; the repository LICENSE records the scope and preserves third-party and manuscript licensing.
+
+\hypertarget{ai-assistance-disclosure}{%
+\section{AI Assistance Disclosure}\label{ai-assistance-disclosure}}
+
+This work forms part of a research project pursued by the author over the past two years. ChatGPT (OpenAI) assisted with manuscript drafting and editing, Lean proof development, and supporting scripts. The author directed the project and retains responsibility for the submitted manuscript, its interpretations, and its references. Formal verification evidence is provided by the Lean kernel checks and the local and GitHub Actions build and axiom audits documented in this paper. AI assistance supported the development and audit workflow; acceptance of the formal proofs depends on Lean's kernel and the recorded dependencies, not on an AI tool's assessment.
+
+\hypertarget{references}{%
+\section{References}\label{references}}
+
+{[}1{]} de Moura, L., and Ullrich, S. (2021). \emph{The Lean 4 Theorem Prover and Programming Language.} Automated Deduction---CADE 28, pp. 625--635. Springer. \url{https://doi.org/10.1007/978-3-030-79876-5_37}.
+
+{[}2{]} The mathlib Community. (2020). \emph{The Lean Mathematical Library.} Proceedings of the 9th ACM SIGPLAN International Conference on Certified Programs and Proofs (CPP 2020). \url{https://doi.org/10.1145/3372885.3373824}. Preprint: \url{https://arxiv.org/abs/1910.09336}.
+
+{[}3{]} Connes, A. (1999). \emph{Trace formula in noncommutative geometry and the zeros of the Riemann zeta function.} Selecta Mathematica, New Series, 5, 29--106. Preprint: \url{https://arxiv.org/abs/math/9811068}.
+
+{[}4{]} Berry, M. V., and Keating, J. P. (1999). \emph{The Riemann Zeros and Eigenvalue Asymptotics.} SIAM Review, 41(2), 236--266. \url{https://doi.org/10.1137/S0036144598347497}.
+
+{[}5{]} Titchmarsh, E. C. (1986). \emph{The Theory of the Riemann Zeta-Function.} Second edition, revised by D. R. Heath-Brown. Clarendon Press, Oxford.
+
+{[}6{]} Csordas, G., Norfolk, T. S., and Varga, R. S. (1986). \emph{The Riemann hypothesis and the Turán inequalities.} Transactions of the American Mathematical Society, 296(2), 521--541. Author-hosted copy: \url{https://www.math.kent.edu/~varga/pub/paper_157.pdf}.
+
+{[}7{]} Griffin, M., Ono, K., Rolen, L., and Zagier, D. (2019). \emph{Jensen polynomials for the Riemann zeta function and other sequences.} Proceedings of the National Academy of Sciences, 116(23), 11103--11110. \url{https://doi.org/10.1073/pnas.1902572116}. Preprint: \url{https://arxiv.org/abs/1902.07321}.
+
+{[}8{]} Farmer, D. W. (2022). \emph{Jensen polynomials are not a plausible route to proving the Riemann Hypothesis.} Preprint, version revised 9 November 2022. \url{https://arxiv.org/abs/2008.07206v2}.
+
+{[}9{]} G Six. (2026). \emph{The Bost--Connes Modular Generator as a candidate Hilbert--Pólya Operator, Lean 4 Formalization.} Companion repository; consulted 10 October 2026. \url{https://github.com/localparty/hilbert-polya-bost-connes-lean}. This is a software repository, not a peer-reviewed article; it presents a conditional reduction with explicitly declared additional assumptions.
+
+\hypertarget{a-exact-arithmetic-check}{%
+\section{A Exact arithmetic check}\label{a-exact-arithmetic-check}}
+
+The numbers come out as follows. The following calculation checks arithmetic after certification of the analytic thresholds; it does not replace the integral proofs. It verifies the separation margin, the concentration bound, and the second-moment tolerance.
+
+\begin{verbatim}
 from fractions import Fraction as F
 
 a = F(27, 1000)
@@ -589,12 +830,16 @@ assert 3*(1-rho_lower) < b*m/a**2
 m2_limit_squared = b*m*e**2 / (3*(e**2-t**4))
 assert m2_limit_squared == F(195075, 264173779)
 assert a*a < m2_limit_squared
-\end{lstlisting}
+\end{verbatim}
+
 The Lean exclusion uses the corresponding arithmetic argument together with certified integral and spectral inequalities. The ratio and tolerance computations are algebraic restatements of the supplied thresholds, not new claims of independently audited Lean lemmas.
 
-\section{Quadratic certificate arithmetic}
+\hypertarget{b-quadratic-certificate-arithmetic}{%
+\section{B Quadratic certificate arithmetic}\label{b-quadratic-certificate-arithmetic}}
+
 The following independent rational calculation checks the arithmetic of the exported thresholds. It does not certify the analytic integrals.
-\begin{lstlisting}
+
+\begin{verbatim}
 from fractions import Fraction as F
 
 m0_upper = F(501, 1000)
@@ -609,5 +854,212 @@ tail = F(1, 50000000)
 assert F(125142475349, 250000000000) <= m0_upper-tail
 assert F(11394869437, 500000000000) >= m2_lower
 assert F(1499664107, 500000000000) <= m4_upper-tail
-\end{lstlisting}
+\end{verbatim}
+
+\hypertarget{appendix-c-exact-lean-definitions-and-theorem-statements}{%
+\section{Appendix C Exact Lean definitions and theorem statements}\label{appendix-c-exact-lean-definitions-and-theorem-statements}}
+
+These excerpts reproduce definitions and theorem statements in namespace HodgeProofHP at commit \path{b0218c813dd2f521a8d5a1752688b82c77b5e5dd}. Source filenames are relative to HodgeProofHP/. Proof bodies are omitted for the theorem statements in C.1, C.4--C.6, C.8, and C.9; C.7 retains the short RH-equivalence proofs. The excerpts are not a standalone Lean module: imports, namespace context, notation, and instances remain in the source files. A declaration written as def may occur within a noncomputable section, which explains the different spelling from noncomputable def.
+
+Lean checks that proofs establish their formal statements. Readers must also check that the definitions match the mathematical claims in the manuscript. The Stage 6 equivalence connects this particular generating function to Mathlib's RiemannHypothesis and therefore checks that relationship formally. It does not verify every interpretation or reference in the paper. The global non-real-zero exclusion remains unproved.
+
+\hypertarget{c.1-the-differential-theta-kernel}{%
+\subsection{C.1 The differential theta kernel}\label{c.1-the-differential-theta-kernel}}
+
+The theta function used in Section 2 is HurwitzZeta.cosKernel 0 x. The HasSum statement below identifies theta minus its constant term with twice the positive-index Gaussian series; the profile then fixes the exponential weight.
+
+Source: \path{Stage4RiemannThetaKernel.lean}; \path{Stage4ThetaGaussianProfileSeries.lean}; \path{Stage4ThetaDifferentialKernelSeries.lean}
+
+\begin{verbatim}
+def hpRiemannThetaKernel (x : ℝ) : ℝ :=
+  HurwitzZeta.cosKernel 0 x - 1
+theorem hpRiemannThetaKernel_hasSum
+    (x : ℝ) (hx : 0 < x) :
+    HasSum
+      (fun n : ℕ =>
+        2 * Real.exp (-Real.pi * ((n : ℝ) + 1) ^ 2 * x))
+      (hpRiemannThetaKernel x)
+def hpRiemannThetaLogProfile (u : ℝ) : ℝ :=
+  Real.exp (u / 2) *
+    hpRiemannThetaKernel (Real.exp (2 * u))
+def hpRiemannThetaDifferentialKernel (u : ℝ) : ℝ :=
+  deriv (deriv hpRiemannThetaLogProfile) u -
+    (1 / 4 : ℝ) * hpRiemannThetaLogProfile u
+\end{verbatim}
+
+\hypertarget{c.2-xi-and-its-critical-line-normalization}{%
+\subsection{C.2 Xi and its critical-line normalization}\label{c.2-xi-and-its-critical-line-normalization}}
+
+Source: \path{Stage4RiemannXiDefinition.lean}
+
+\begin{verbatim}
+def hpRiemannXi (s : ℂ) : ℂ :=
+  (s * (s - 1) / 2) * completedRiemannZeta₀ s + 1 / 2
+def hpRiemannXiCritical (t : ℂ) : ℂ :=
+  hpRiemannXi ((1 / 2 : ℂ) + Complex.I * t)
+\end{verbatim}
+
+\hypertarget{c.3-the-normalized-target}{%
+\subsection{C.3 The normalized target}\label{c.3-the-normalized-target}}
+
+Source: \path{Stage4ThetaNormalizedXiObstruction.lean}
+
+\begin{verbatim}
+noncomputable def hpThetaNormalizedXi (z : ℂ) : ℂ :=
+  hpRiemannXiCritical z / hpRiemannXiCritical 0
+\end{verbatim}
+
+\hypertarget{c.4-the-spectral-index-and-multiplicity}{%
+\subsection{C.4 The spectral index and multiplicity}\label{c.4-the-spectral-index-and-multiplicity}}
+
+The sigma index pairs each complex eigenvalue with an index in a chosen Hilbert basis of its eigenspace. Eigenvalues therefore occur with eigenspace multiplicity. The assembled basis includes the zero eigenspace; its zero values contribute zero to spectral sums and factors equal to one to the product.
+
+Source: \path{Stage4ThetaHankelEigenspaceBases.lean}; \path{Stage4ThetaHankelSpectralFamily.lean}; \path{Stage4ThetaHankelSpectralBasis.lean}; \path{Stage4ThetaHankelSpectralValues.lean}
+
+\begin{verbatim}
+noncomputable abbrev hpThetaHankelEigenspace (ev : ℂ) :
+    Submodule ℂ HPThetaHankelSpace :=
+  Module.End.eigenspace hpThetaHankelAdjointSquare.toLinearMap ev
+theorem hpThetaHankelEigenspace_exists_hilbertBasis (ev : ℂ) :
+    ∃ (w : Set ↥(hpThetaHankelEigenspace ev))
+      (b : HilbertBasis w ℂ ↥(hpThetaHankelEigenspace ev)),
+      ⇑b = Subtype.val
+noncomputable def hpThetaHankelEigenspaceBasisSet (ev : ℂ) :
+    Set ↥(hpThetaHankelEigenspace ev) :=
+  Classical.choose (hpThetaHankelEigenspace_exists_hilbertBasis ev)
+noncomputable abbrev HPThetaHankelSpectralIndex :=
+  Σ ev : ℂ, ↥(hpThetaHankelEigenspaceBasisSet ev)
+noncomputable def hpThetaHankelSpectralBasis :
+    HilbertBasis HPThetaHankelSpectralIndex ℂ HPThetaHankelSpace :=
+  HilbertBasis.mkOfOrthogonalEqBot
+    hpThetaHankelSpectralFamily_orthonormal
+    hpThetaHankelSpectralFamily_orthogonalComplement_eq_bot
+theorem hpThetaHankelSpectralBasis_apply
+    (i : HPThetaHankelSpectralIndex) :
+    hpThetaHankelAdjointSquare (hpThetaHankelSpectralBasis i) =
+      i.1 • hpThetaHankelSpectralBasis i
+theorem hpThetaHankelSpectralValue_real_nonneg
+    (i : HPThetaHankelSpectralIndex) :
+    i.1.im = 0 ∧ 0 ≤ i.1.re
+\end{verbatim}
+
+\hypertarget{c.5-the-spectral-factors-and-convergence}{%
+\subsection{C.5 The spectral factors and convergence}\label{c.5-the-spectral-factors-and-convergence}}
+
+The Multipliable and HasProd statements establish convergence of the indexed product to the function defined above; its meaning does not rest on the default value of an unconvergent infinite product.
+
+Source: \path{Stage4ThetaHankelSpectralProductPreparation.lean} and \path{Stage4ThetaHankelSpectralProductUniform.lean}; \path{Stage4ThetaHankelSpectralProductBasics.lean}
+
+\begin{verbatim}
+noncomputable def hpThetaHankelSpectralProductFactor
+    (i : HPThetaHankelSpectralIndex) (z : ℂ) : ℂ :=
+  1 - z ^ 2 * i.1
+noncomputable def hpThetaHankelSpectralProduct (z : ℂ) : ℂ :=
+  ∏' i : HPThetaHankelSpectralIndex,
+    hpThetaHankelSpectralProductFactor i z
+theorem hpThetaHankelSpectralProduct_multipliable (z : ℂ) :
+    Multipliable
+      (fun i : HPThetaHankelSpectralIndex =>
+        hpThetaHankelSpectralProductFactor i z)
+theorem hpThetaHankelSpectralProduct_hasProd (z : ℂ) :
+    HasProd
+      (fun i : HPThetaHankelSpectralIndex =>
+        hpThetaHankelSpectralProductFactor i z)
+      (hpThetaHankelSpectralProduct z)
+\end{verbatim}
+
+\hypertarget{c.6-the-moments-coefficients-and-generating-function}{%
+\subsection{C.6 The moments coefficients and generating function}\label{c.6-the-moments-coefficients-and-generating-function}}
+
+The norm-summability statement establishes absolute convergence, and HasSum identifies the limit with F. Positivity at every nonnegative real argument, in particular at zero, directly rules out F being identically zero. This conclusion does not require assuming RH.
+
+Source: \path{Stage5ThetaJensenFoundations.lean}; \path{Stage6ThetaJensenGeneratingFunction.lean}; \path{Stage6ThetaJensenPositiveAxis.lean}; \path{Stage6ThetaPhiAllMomentsIntegrability.lean}; \path{Stage6ThetaJensenZeroReduction.lean}
+
+\begin{verbatim}
+def hpThetaPhiEvenMoment (n : ℕ) : ℝ :=
+  ∫ u : ℝ in Set.Ioi 0,
+    u ^ (2 * n) * hpRiemannThetaDifferentialKernel u
+theorem hpThetaPhi_natMoment_integrableOn (m : ℕ) :
+    IntegrableOn
+      (fun u : ℝ => u ^ m * hpRiemannThetaDifferentialKernel u)
+      (Set.Ioi 0) volume
+theorem hpThetaPhi_evenMoment_integrableOn (n : ℕ) :
+    IntegrableOn
+      (fun u : ℝ => u ^ (2 * n) * hpRiemannThetaDifferentialKernel u)
+      (Set.Ioi 0) volume
+def hpThetaJensenGamma (n : ℕ) : ℝ :=
+  (Nat.factorial n : ℝ) * hpThetaPhiEvenMoment n /
+    (Nat.factorial (2 * n) : ℝ)
+def hpThetaJensenGeneratingFunction (w : ℂ) : ℂ :=
+  ∑' n : ℕ, (hpThetaJensenGamma n : ℂ) * w ^ n / (Nat.factorial n : ℂ)
+theorem hpThetaJensenGeneratingFunction_summable_norm (w : ℂ) :
+    Summable (fun n : ℕ =>
+      ‖(hpThetaJensenGamma n : ℂ) * w ^ n / (Nat.factorial n : ℂ)‖)
+theorem hpThetaJensenGeneratingFunction_hasSum (w : ℂ) :
+    HasSum (fun n : ℕ =>
+      (hpThetaJensenGamma n : ℂ) * w ^ n / (Nat.factorial n : ℂ))
+      (hpThetaJensenGeneratingFunction w)
+theorem hpThetaJensenGeneratingFunction_real_re_pos (x : ℝ) (hx : 0 ≤ x) :
+    0 < (hpThetaJensenGeneratingFunction (x : ℂ)).re
+theorem hpThetaJensenGeneratingFunction_neg_sq (t : ℂ) :
+    hpThetaJensenGeneratingFunction (-t ^ 2) = hpRiemannXiCritical t
+\end{verbatim}
+
+\hypertarget{c.7-the-unresolved-exclusion-and-rh-equivalence}{%
+\subsection{C.7 The unresolved exclusion and RH equivalence}\label{c.7-the-unresolved-exclusion-and-rh-equivalence}}
+
+Source: \path{Stage6ThetaJensenRiemannHypothesisEquivalence.lean}
+
+\begin{verbatim}
+def hpThetaJensenNonrealZeroExclusion : Prop :=
+  ∀ w : ℂ, w.im ≠ 0 → hpThetaJensenGeneratingFunction w ≠ 0
+theorem hpThetaJensen_RH_iff_nonrealZeroExclusion :
+    RiemannHypothesis ↔ hpThetaJensenNonrealZeroExclusion :=
+  hpThetaJensen_RH_iff_negativeRealZeros.trans
+    hpThetaJensen_nonrealZeroExclusion_iff_negativeRealZeros.symm
+theorem hpThetaJensen_RH_of_nonrealZeroExclusion
+    (h : hpThetaJensenNonrealZeroExclusion) : RiemannHypothesis :=
+  hpThetaJensen_RH_iff_nonrealZeroExclusion.mpr h
+\end{verbatim}
+
+\hypertarget{c.8-the-cosine-integral-bridge}{%
+\subsection{C.8 The cosine integral bridge}\label{c.8-the-cosine-integral-bridge}}
+
+These statements provide both integrability and the identity in equation (3), at every complex frequency.
+
+Source: \path{Stage4RiemannXiPhiRepresentation.lean}
+
+\begin{verbatim}
+theorem hpRiemannThetaDifferentialKernel_cos_integrableOn
+    (z : ℂ) :
+    IntegrableOn
+      (fun u : ℝ =>
+        (hpRiemannThetaDifferentialKernel u : ℂ) *
+          Complex.cos (z * (u : ℂ)))
+      (Set.Ioi 0) volume
+theorem hpRiemannXiCritical_eq_differentialKernel_cosine_integral
+    (z : ℂ) :
+    hpRiemannXiCritical z =
+      ∫ u : ℝ in Set.Ioi 0,
+        (hpRiemannThetaDifferentialKernel u : ℂ) *
+          Complex.cos (z * (u : ℂ))
+\end{verbatim}
+
+\hypertarget{c.9-the-complex-scale-exclusion-statements}{%
+\subsection{C.9 The complex scale exclusion statements}\label{c.9-the-complex-scale-exclusion-statements}}
+
+These are the two final statements displayed in Section 9.2. They exclude an identity of functions for every constant complex scale; they do not assert inequality of their zero sets.
+
+Source: \path{Stage4ThetaComplexScaledObstruction.lean}; \path{Stage4ThetaComplexScaledObstructionAudit.lean}
+
+\begin{verbatim}
+theorem hpThetaHankel_no_complex_scale_normalizedXi_explicit :
+    ¬ ∃ c : ℂ,
+      (fun z : ℂ => hpThetaHankelSpectralProduct (c * z)) =
+        hpThetaNormalizedXi
+theorem hpThetaHankel_every_complex_scale_exists_mismatch :
+    ∀ c : ℂ, ∃ z : ℂ,
+      hpThetaHankelSpectralProduct (c * z) ≠ hpThetaNormalizedXi z
+\end{verbatim}
+
 \end{document}
