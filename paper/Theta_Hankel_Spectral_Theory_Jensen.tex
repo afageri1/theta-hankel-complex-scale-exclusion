@@ -636,7 +636,7 @@ Preliminary Python interval calculations guide discovery but are not proof artif
 
 \textbf{Source repository.} \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion}.
 
-Manuscript archive. Zenodo record \url{https://zenodo.org/records/23227199}, version 1.0, is published with DOI \url{https://doi.org/10.5281/zenodo.23227199}. The record was checked on 10 October 2026 and contains a single manuscript PDF, including the Stage 6 discussion. It does not archive the Lean source files; the Lean sources are archived separately as release v1.0.0, described below.
+Manuscript version. This revised manuscript is version 2.0, with DOI \url{https://doi.org/10.5281/zenodo.23287787}. The original manuscript version 1.0 remains available at \url{https://doi.org/10.5281/zenodo.23227199}. The Lean sources are archived separately as release v1.0.0, described below.
 
 \noindent\textbf{Version information.} The archived source release is
 \code{v1.0.0}, commit \code{dbb6bd2447296cab184d7bb457054c6efec6207d},
@@ -645,7 +645,7 @@ Its \code{lean-toolchain} specifies \code{leanprover/lean4:v4.35.0-rc3},
 and its \code{lake-manifest.json} pins mathlib to
 \code{ec6a61cec0d8f9fda04453e9bb5761a79aa43a70}. This DOI identifies the
 Lean source archive; the manuscript is identified separately by
-\url{https://doi.org/10.5281/zenodo.23227199}.
+\url{https://doi.org/10.5281/zenodo.23287787}.
 
 \textbf{Release audit.} All three GitHub Actions workflows completed successfully on Linux and Windows at the release commit on 10 October 2026: the complete paper audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409666}; the Stage 4 audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409598}; and the Stage 6 RH reduction audit, \url{https://github.com/afageri1/theta-hankel-complex-scale-exclusion/actions/runs/38037409551}. The final theorem dependency and tracked-source checks succeeded on both platforms. The reports list only propext, Classical.choice, and Quot.sound, with no sorryAx. Mathlib dependencies were obtained from its binary cache; the project build cache was disabled. This checks reproducibility with Lean's standard kernel rather than with an independent second kernel. The earlier Stage 6 source commit \code{b0218c813dd2f521a8d5a1752688b82c77b5e5dd} remains a historical audit reference.
 
@@ -777,7 +777,7 @@ We provide two complementary results from the same differential theta kernel. A 
 The Lean sources are archived as release \code{v1.0.0}
 (commit \code{dbb6bd2447296cab184d7bb457054c6efec6207d}) at
 \url{https://doi.org/10.5281/zenodo.23287564} (reference [10]), and are
-developed at \repo. The manuscript DOI, 10.5281/zenodo.23227199, identifies
+developed at \repo. The manuscript DOI, 10.5281/zenodo.23287787, identifies
 this paper and not the source archive. Exact Lean and mathlib revisions
 are recorded in \hyperref[sec:repro]{Section 10}. Original Lean sources and supporting scripts are licensed under Apache 2.0; dependencies and manuscripts retain their stated licenses.
 
