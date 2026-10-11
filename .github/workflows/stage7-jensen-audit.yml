@@ -29,12 +29,12 @@ jobs:
       - name: Validate axiom parser
         shell: bash
         run: python scripts/test_check_axioms.py
-      - name: Build certified low degrees and assumption frontier
+      - name: Build Stage 7 convergence and cofinal criterion
         uses: leanprover/lean-action@f061402b660e0c34644504b324e830f2991d4865
         with:
           auto-config: "false"
           build: "true"
-          build-args: HodgeProofHP.Stage7ThetaJensenAssumptionFrontier
+          build-args: HodgeProofHP.Stage7ThetaJensenCofinalCriterion
           test: "false"
           lint: "false"
           use-github-cache: "false"
