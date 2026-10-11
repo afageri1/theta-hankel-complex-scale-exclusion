@@ -52,6 +52,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cofinal_criterion.sh
           bash scripts/audit_stage7_jensen_assumption_frontier.sh
           bash scripts/audit_stage7_jensen_cubic_algebra.sh
+          bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           git diff --exit-code
           git diff --cached --exit-code
       - name: Preserve axiom report
@@ -70,4 +71,5 @@ jobs:
             stage7-jensen-cofinal-criterion-axioms.log
             stage7-jensen-assumption-frontier-axioms.log
             stage7-jensen-cubic-algebra-axioms.log
+            stage7-jensen-sixth-moment-tail-axioms.log
           if-no-files-found: warn
