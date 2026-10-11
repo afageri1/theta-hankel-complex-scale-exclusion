@@ -27,6 +27,7 @@ def generate(root, output):
     totals = [Fraction(0), Fraction(0)]
     exact_totals = [Fraction(0), Fraction(0)]
     rounded = [[], []]
+    prefix_proofs = []
     rectangles = [[], []]
     proofs = []
     for b in range(80):
@@ -44,11 +45,26 @@ def generate(root, output):
             assert (bound <= value) if side == 0 else (value <= bound)
             rounded[side].append(f"  | {b} => {rational(bound)}")
             rectangles[side].append(
-                f"  | {b} => ∑ j ∈ Finset.range 20, "
-                f"((({20*b} : ℝ) + (j : ℝ) + {side}) / 1600) ^ 6 * "
+                f"  | {b} => ∑ j ∈ Finset.range 20,\n"
+                f"      ((({20*b} : ℝ) + (j : ℝ) + {side}) / 1600) ^ 6 *\n        "
                 f"{stem}{label} j / 1600")
             totals[side] += bound
             exact_totals[side] += value
+            previous = f"hpThetaJensenSixth{label}Prefix{b:03}"
+            if b == 0:
+                prefix_proofs.append(f"""
+theorem {previous} :
+    (∑ b ∈ Finset.range 0, hpThetaJensenSixthBatch{label} b) = (0 : ℝ) := by
+  simp
+""")
+            prefix_proofs.append(f"""
+theorem hpThetaJensenSixth{label}Prefix{b+1:03} :
+    (∑ b ∈ Finset.range {b+1}, hpThetaJensenSixthBatch{label} b) =
+      {rational(totals[side])} := by
+  change (∑ b ∈ Finset.range ({b} + 1), hpThetaJensenSixthBatch{label} b) = _
+  rw [Finset.sum_range_succ, {previous}]
+  norm_num [hpThetaJensenSixthBatch{label}]
+""")
         proofs.append(f"""
 theorem hpThetaJensenSixthRectanglesBatch{b:03}_bounds :
     hpThetaJensenSixthBatchLower {b} ≤ hpThetaJensenSixthRectangleLower {b} ∧
@@ -106,7 +122,8 @@ theorem hpThetaJensen_sixthRectangle_lower_numeric :
       ⟨b, Finset.mem_range.mp hb⟩).1
   have hn : (592 / 1000000 : ℝ) ≤
       ∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchLower b := by
-    norm_num [Finset.sum_range_succ, hpThetaJensenSixthBatchLower]
+    rw [hpThetaJensenSixthLowerPrefix080]
+    norm_num
   exact le_trans hn h
 
 theorem hpThetaJensen_sixthRectangle_upper_numeric :
@@ -120,7 +137,8 @@ theorem hpThetaJensen_sixthRectangle_upper_numeric :
       ⟨b, Finset.mem_range.mp hb⟩).2
   have hn : (∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchUpper b) ≤
       (608 / 1000000 : ℝ) - 1 / 50000000 := by
-    norm_num [Finset.sum_range_succ, hpThetaJensenSixthBatchUpper]
+    rw [hpThetaJensenSixthUpperPrefix080]
+    norm_num
   exact le_trans h hn
 
 #print axioms hpThetaJensen_sixthRectangleBatch_bounds
@@ -128,7 +146,8 @@ theorem hpThetaJensen_sixthRectangle_upper_numeric :
 #print axioms hpThetaJensen_sixthRectangle_upper_numeric
 end HodgeProofHP
 """
-    output.write_text(header + ''.join(definitions) + ''.join(proofs) + footer, encoding='utf-8')
+    output.write_text(header + ''.join(definitions) + ''.join(proofs) +
+                      ''.join(prefix_proofs) + footer, encoding='utf-8')
     for side, label in enumerate(('lower', 'upper')):
         print(f"{label}: exact={exact_totals[side]}, rounded={totals[side]}")
     print(f"Wrote {output}")

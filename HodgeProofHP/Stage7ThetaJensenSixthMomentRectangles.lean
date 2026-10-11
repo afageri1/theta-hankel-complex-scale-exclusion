@@ -188,170 +188,490 @@ def hpThetaJensenSixthBatchUpper (b : ℕ) : ℝ :=
 
 def hpThetaJensenSixthRectangleLower (b : ℕ) : ℝ :=
   match b with
-  | 0 => ∑ j ∈ Finset.range 20, (((0 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch000Lower j / 1600
-  | 1 => ∑ j ∈ Finset.range 20, (((20 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch001Lower j / 1600
-  | 2 => ∑ j ∈ Finset.range 20, (((40 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch002Lower j / 1600
-  | 3 => ∑ j ∈ Finset.range 20, (((60 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch003Lower j / 1600
-  | 4 => ∑ j ∈ Finset.range 20, (((80 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch004Lower j / 1600
-  | 5 => ∑ j ∈ Finset.range 20, (((100 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch005Lower j / 1600
-  | 6 => ∑ j ∈ Finset.range 20, (((120 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch006Lower j / 1600
-  | 7 => ∑ j ∈ Finset.range 20, (((140 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch007Lower j / 1600
-  | 8 => ∑ j ∈ Finset.range 20, (((160 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch008Lower j / 1600
-  | 9 => ∑ j ∈ Finset.range 20, (((180 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch009Lower j / 1600
-  | 10 => ∑ j ∈ Finset.range 20, (((200 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch010Lower j / 1600
-  | 11 => ∑ j ∈ Finset.range 20, (((220 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch011Lower j / 1600
-  | 12 => ∑ j ∈ Finset.range 20, (((240 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch012Lower j / 1600
-  | 13 => ∑ j ∈ Finset.range 20, (((260 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch013Lower j / 1600
-  | 14 => ∑ j ∈ Finset.range 20, (((280 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch014Lower j / 1600
-  | 15 => ∑ j ∈ Finset.range 20, (((300 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch015Lower j / 1600
-  | 16 => ∑ j ∈ Finset.range 20, (((320 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch016Lower j / 1600
-  | 17 => ∑ j ∈ Finset.range 20, (((340 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch017Lower j / 1600
-  | 18 => ∑ j ∈ Finset.range 20, (((360 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch018Lower j / 1600
-  | 19 => ∑ j ∈ Finset.range 20, (((380 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch019Lower j / 1600
-  | 20 => ∑ j ∈ Finset.range 20, (((400 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch020Lower j / 1600
-  | 21 => ∑ j ∈ Finset.range 20, (((420 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch021Lower j / 1600
-  | 22 => ∑ j ∈ Finset.range 20, (((440 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch022Lower j / 1600
-  | 23 => ∑ j ∈ Finset.range 20, (((460 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch023Lower j / 1600
-  | 24 => ∑ j ∈ Finset.range 20, (((480 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch024Lower j / 1600
-  | 25 => ∑ j ∈ Finset.range 20, (((500 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch025Lower j / 1600
-  | 26 => ∑ j ∈ Finset.range 20, (((520 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch026Lower j / 1600
-  | 27 => ∑ j ∈ Finset.range 20, (((540 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch027Lower j / 1600
-  | 28 => ∑ j ∈ Finset.range 20, (((560 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch028Lower j / 1600
-  | 29 => ∑ j ∈ Finset.range 20, (((580 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch029Lower j / 1600
-  | 30 => ∑ j ∈ Finset.range 20, (((600 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch030Lower j / 1600
-  | 31 => ∑ j ∈ Finset.range 20, (((620 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch031Lower j / 1600
-  | 32 => ∑ j ∈ Finset.range 20, (((640 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch032Lower j / 1600
-  | 33 => ∑ j ∈ Finset.range 20, (((660 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch033Lower j / 1600
-  | 34 => ∑ j ∈ Finset.range 20, (((680 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch034Lower j / 1600
-  | 35 => ∑ j ∈ Finset.range 20, (((700 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch035Lower j / 1600
-  | 36 => ∑ j ∈ Finset.range 20, (((720 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch036Lower j / 1600
-  | 37 => ∑ j ∈ Finset.range 20, (((740 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch037Lower j / 1600
-  | 38 => ∑ j ∈ Finset.range 20, (((760 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch038Lower j / 1600
-  | 39 => ∑ j ∈ Finset.range 20, (((780 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch039Lower j / 1600
-  | 40 => ∑ j ∈ Finset.range 20, (((800 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch040Lower j / 1600
-  | 41 => ∑ j ∈ Finset.range 20, (((820 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch041Lower j / 1600
-  | 42 => ∑ j ∈ Finset.range 20, (((840 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch042Lower j / 1600
-  | 43 => ∑ j ∈ Finset.range 20, (((860 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch043Lower j / 1600
-  | 44 => ∑ j ∈ Finset.range 20, (((880 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch044Lower j / 1600
-  | 45 => ∑ j ∈ Finset.range 20, (((900 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch045Lower j / 1600
-  | 46 => ∑ j ∈ Finset.range 20, (((920 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch046Lower j / 1600
-  | 47 => ∑ j ∈ Finset.range 20, (((940 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch047Lower j / 1600
-  | 48 => ∑ j ∈ Finset.range 20, (((960 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch048Lower j / 1600
-  | 49 => ∑ j ∈ Finset.range 20, (((980 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch049Lower j / 1600
-  | 50 => ∑ j ∈ Finset.range 20, (((1000 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch050Lower j / 1600
-  | 51 => ∑ j ∈ Finset.range 20, (((1020 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch051Lower j / 1600
-  | 52 => ∑ j ∈ Finset.range 20, (((1040 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch052Lower j / 1600
-  | 53 => ∑ j ∈ Finset.range 20, (((1060 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch053Lower j / 1600
-  | 54 => ∑ j ∈ Finset.range 20, (((1080 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch054Lower j / 1600
-  | 55 => ∑ j ∈ Finset.range 20, (((1100 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch055Lower j / 1600
-  | 56 => ∑ j ∈ Finset.range 20, (((1120 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch056Lower j / 1600
-  | 57 => ∑ j ∈ Finset.range 20, (((1140 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch057Lower j / 1600
-  | 58 => ∑ j ∈ Finset.range 20, (((1160 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch058Lower j / 1600
-  | 59 => ∑ j ∈ Finset.range 20, (((1180 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch059Lower j / 1600
-  | 60 => ∑ j ∈ Finset.range 20, (((1200 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch060Lower j / 1600
-  | 61 => ∑ j ∈ Finset.range 20, (((1220 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch061Lower j / 1600
-  | 62 => ∑ j ∈ Finset.range 20, (((1240 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch062Lower j / 1600
-  | 63 => ∑ j ∈ Finset.range 20, (((1260 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch063Lower j / 1600
-  | 64 => ∑ j ∈ Finset.range 20, (((1280 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch064Lower j / 1600
-  | 65 => ∑ j ∈ Finset.range 20, (((1300 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch065Lower j / 1600
-  | 66 => ∑ j ∈ Finset.range 20, (((1320 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch066Lower j / 1600
-  | 67 => ∑ j ∈ Finset.range 20, (((1340 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch067Lower j / 1600
-  | 68 => ∑ j ∈ Finset.range 20, (((1360 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch068Lower j / 1600
-  | 69 => ∑ j ∈ Finset.range 20, (((1380 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch069Lower j / 1600
-  | 70 => ∑ j ∈ Finset.range 20, (((1400 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch070Lower j / 1600
-  | 71 => ∑ j ∈ Finset.range 20, (((1420 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch071Lower j / 1600
-  | 72 => ∑ j ∈ Finset.range 20, (((1440 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch072Lower j / 1600
-  | 73 => ∑ j ∈ Finset.range 20, (((1460 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch073Lower j / 1600
-  | 74 => ∑ j ∈ Finset.range 20, (((1480 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch074Lower j / 1600
-  | 75 => ∑ j ∈ Finset.range 20, (((1500 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch075Lower j / 1600
-  | 76 => ∑ j ∈ Finset.range 20, (((1520 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch076Lower j / 1600
-  | 77 => ∑ j ∈ Finset.range 20, (((1540 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch077Lower j / 1600
-  | 78 => ∑ j ∈ Finset.range 20, (((1560 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch078Lower j / 1600
-  | 79 => ∑ j ∈ Finset.range 20, (((1580 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 * hpThetaJensenCellsBatch079Lower j / 1600
+  | 0 => ∑ j ∈ Finset.range 20,
+      (((0 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch000Lower j / 1600
+  | 1 => ∑ j ∈ Finset.range 20,
+      (((20 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch001Lower j / 1600
+  | 2 => ∑ j ∈ Finset.range 20,
+      (((40 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch002Lower j / 1600
+  | 3 => ∑ j ∈ Finset.range 20,
+      (((60 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch003Lower j / 1600
+  | 4 => ∑ j ∈ Finset.range 20,
+      (((80 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch004Lower j / 1600
+  | 5 => ∑ j ∈ Finset.range 20,
+      (((100 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch005Lower j / 1600
+  | 6 => ∑ j ∈ Finset.range 20,
+      (((120 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch006Lower j / 1600
+  | 7 => ∑ j ∈ Finset.range 20,
+      (((140 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch007Lower j / 1600
+  | 8 => ∑ j ∈ Finset.range 20,
+      (((160 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch008Lower j / 1600
+  | 9 => ∑ j ∈ Finset.range 20,
+      (((180 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch009Lower j / 1600
+  | 10 => ∑ j ∈ Finset.range 20,
+      (((200 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch010Lower j / 1600
+  | 11 => ∑ j ∈ Finset.range 20,
+      (((220 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch011Lower j / 1600
+  | 12 => ∑ j ∈ Finset.range 20,
+      (((240 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch012Lower j / 1600
+  | 13 => ∑ j ∈ Finset.range 20,
+      (((260 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch013Lower j / 1600
+  | 14 => ∑ j ∈ Finset.range 20,
+      (((280 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch014Lower j / 1600
+  | 15 => ∑ j ∈ Finset.range 20,
+      (((300 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch015Lower j / 1600
+  | 16 => ∑ j ∈ Finset.range 20,
+      (((320 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch016Lower j / 1600
+  | 17 => ∑ j ∈ Finset.range 20,
+      (((340 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch017Lower j / 1600
+  | 18 => ∑ j ∈ Finset.range 20,
+      (((360 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch018Lower j / 1600
+  | 19 => ∑ j ∈ Finset.range 20,
+      (((380 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch019Lower j / 1600
+  | 20 => ∑ j ∈ Finset.range 20,
+      (((400 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch020Lower j / 1600
+  | 21 => ∑ j ∈ Finset.range 20,
+      (((420 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch021Lower j / 1600
+  | 22 => ∑ j ∈ Finset.range 20,
+      (((440 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch022Lower j / 1600
+  | 23 => ∑ j ∈ Finset.range 20,
+      (((460 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch023Lower j / 1600
+  | 24 => ∑ j ∈ Finset.range 20,
+      (((480 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch024Lower j / 1600
+  | 25 => ∑ j ∈ Finset.range 20,
+      (((500 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch025Lower j / 1600
+  | 26 => ∑ j ∈ Finset.range 20,
+      (((520 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch026Lower j / 1600
+  | 27 => ∑ j ∈ Finset.range 20,
+      (((540 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch027Lower j / 1600
+  | 28 => ∑ j ∈ Finset.range 20,
+      (((560 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch028Lower j / 1600
+  | 29 => ∑ j ∈ Finset.range 20,
+      (((580 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch029Lower j / 1600
+  | 30 => ∑ j ∈ Finset.range 20,
+      (((600 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch030Lower j / 1600
+  | 31 => ∑ j ∈ Finset.range 20,
+      (((620 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch031Lower j / 1600
+  | 32 => ∑ j ∈ Finset.range 20,
+      (((640 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch032Lower j / 1600
+  | 33 => ∑ j ∈ Finset.range 20,
+      (((660 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch033Lower j / 1600
+  | 34 => ∑ j ∈ Finset.range 20,
+      (((680 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch034Lower j / 1600
+  | 35 => ∑ j ∈ Finset.range 20,
+      (((700 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch035Lower j / 1600
+  | 36 => ∑ j ∈ Finset.range 20,
+      (((720 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch036Lower j / 1600
+  | 37 => ∑ j ∈ Finset.range 20,
+      (((740 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch037Lower j / 1600
+  | 38 => ∑ j ∈ Finset.range 20,
+      (((760 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch038Lower j / 1600
+  | 39 => ∑ j ∈ Finset.range 20,
+      (((780 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch039Lower j / 1600
+  | 40 => ∑ j ∈ Finset.range 20,
+      (((800 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch040Lower j / 1600
+  | 41 => ∑ j ∈ Finset.range 20,
+      (((820 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch041Lower j / 1600
+  | 42 => ∑ j ∈ Finset.range 20,
+      (((840 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch042Lower j / 1600
+  | 43 => ∑ j ∈ Finset.range 20,
+      (((860 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch043Lower j / 1600
+  | 44 => ∑ j ∈ Finset.range 20,
+      (((880 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch044Lower j / 1600
+  | 45 => ∑ j ∈ Finset.range 20,
+      (((900 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch045Lower j / 1600
+  | 46 => ∑ j ∈ Finset.range 20,
+      (((920 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch046Lower j / 1600
+  | 47 => ∑ j ∈ Finset.range 20,
+      (((940 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch047Lower j / 1600
+  | 48 => ∑ j ∈ Finset.range 20,
+      (((960 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch048Lower j / 1600
+  | 49 => ∑ j ∈ Finset.range 20,
+      (((980 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch049Lower j / 1600
+  | 50 => ∑ j ∈ Finset.range 20,
+      (((1000 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch050Lower j / 1600
+  | 51 => ∑ j ∈ Finset.range 20,
+      (((1020 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch051Lower j / 1600
+  | 52 => ∑ j ∈ Finset.range 20,
+      (((1040 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch052Lower j / 1600
+  | 53 => ∑ j ∈ Finset.range 20,
+      (((1060 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch053Lower j / 1600
+  | 54 => ∑ j ∈ Finset.range 20,
+      (((1080 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch054Lower j / 1600
+  | 55 => ∑ j ∈ Finset.range 20,
+      (((1100 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch055Lower j / 1600
+  | 56 => ∑ j ∈ Finset.range 20,
+      (((1120 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch056Lower j / 1600
+  | 57 => ∑ j ∈ Finset.range 20,
+      (((1140 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch057Lower j / 1600
+  | 58 => ∑ j ∈ Finset.range 20,
+      (((1160 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch058Lower j / 1600
+  | 59 => ∑ j ∈ Finset.range 20,
+      (((1180 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch059Lower j / 1600
+  | 60 => ∑ j ∈ Finset.range 20,
+      (((1200 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch060Lower j / 1600
+  | 61 => ∑ j ∈ Finset.range 20,
+      (((1220 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch061Lower j / 1600
+  | 62 => ∑ j ∈ Finset.range 20,
+      (((1240 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch062Lower j / 1600
+  | 63 => ∑ j ∈ Finset.range 20,
+      (((1260 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch063Lower j / 1600
+  | 64 => ∑ j ∈ Finset.range 20,
+      (((1280 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch064Lower j / 1600
+  | 65 => ∑ j ∈ Finset.range 20,
+      (((1300 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch065Lower j / 1600
+  | 66 => ∑ j ∈ Finset.range 20,
+      (((1320 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch066Lower j / 1600
+  | 67 => ∑ j ∈ Finset.range 20,
+      (((1340 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch067Lower j / 1600
+  | 68 => ∑ j ∈ Finset.range 20,
+      (((1360 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch068Lower j / 1600
+  | 69 => ∑ j ∈ Finset.range 20,
+      (((1380 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch069Lower j / 1600
+  | 70 => ∑ j ∈ Finset.range 20,
+      (((1400 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch070Lower j / 1600
+  | 71 => ∑ j ∈ Finset.range 20,
+      (((1420 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch071Lower j / 1600
+  | 72 => ∑ j ∈ Finset.range 20,
+      (((1440 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch072Lower j / 1600
+  | 73 => ∑ j ∈ Finset.range 20,
+      (((1460 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch073Lower j / 1600
+  | 74 => ∑ j ∈ Finset.range 20,
+      (((1480 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch074Lower j / 1600
+  | 75 => ∑ j ∈ Finset.range 20,
+      (((1500 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch075Lower j / 1600
+  | 76 => ∑ j ∈ Finset.range 20,
+      (((1520 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch076Lower j / 1600
+  | 77 => ∑ j ∈ Finset.range 20,
+      (((1540 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch077Lower j / 1600
+  | 78 => ∑ j ∈ Finset.range 20,
+      (((1560 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch078Lower j / 1600
+  | 79 => ∑ j ∈ Finset.range 20,
+      (((1580 : ℝ) + (j : ℝ) + 0) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch079Lower j / 1600
   | _ => 0
 
 def hpThetaJensenSixthRectangleUpper (b : ℕ) : ℝ :=
   match b with
-  | 0 => ∑ j ∈ Finset.range 20, (((0 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch000Upper j / 1600
-  | 1 => ∑ j ∈ Finset.range 20, (((20 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch001Upper j / 1600
-  | 2 => ∑ j ∈ Finset.range 20, (((40 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch002Upper j / 1600
-  | 3 => ∑ j ∈ Finset.range 20, (((60 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch003Upper j / 1600
-  | 4 => ∑ j ∈ Finset.range 20, (((80 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch004Upper j / 1600
-  | 5 => ∑ j ∈ Finset.range 20, (((100 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch005Upper j / 1600
-  | 6 => ∑ j ∈ Finset.range 20, (((120 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch006Upper j / 1600
-  | 7 => ∑ j ∈ Finset.range 20, (((140 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch007Upper j / 1600
-  | 8 => ∑ j ∈ Finset.range 20, (((160 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch008Upper j / 1600
-  | 9 => ∑ j ∈ Finset.range 20, (((180 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch009Upper j / 1600
-  | 10 => ∑ j ∈ Finset.range 20, (((200 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch010Upper j / 1600
-  | 11 => ∑ j ∈ Finset.range 20, (((220 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch011Upper j / 1600
-  | 12 => ∑ j ∈ Finset.range 20, (((240 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch012Upper j / 1600
-  | 13 => ∑ j ∈ Finset.range 20, (((260 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch013Upper j / 1600
-  | 14 => ∑ j ∈ Finset.range 20, (((280 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch014Upper j / 1600
-  | 15 => ∑ j ∈ Finset.range 20, (((300 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch015Upper j / 1600
-  | 16 => ∑ j ∈ Finset.range 20, (((320 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch016Upper j / 1600
-  | 17 => ∑ j ∈ Finset.range 20, (((340 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch017Upper j / 1600
-  | 18 => ∑ j ∈ Finset.range 20, (((360 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch018Upper j / 1600
-  | 19 => ∑ j ∈ Finset.range 20, (((380 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch019Upper j / 1600
-  | 20 => ∑ j ∈ Finset.range 20, (((400 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch020Upper j / 1600
-  | 21 => ∑ j ∈ Finset.range 20, (((420 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch021Upper j / 1600
-  | 22 => ∑ j ∈ Finset.range 20, (((440 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch022Upper j / 1600
-  | 23 => ∑ j ∈ Finset.range 20, (((460 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch023Upper j / 1600
-  | 24 => ∑ j ∈ Finset.range 20, (((480 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch024Upper j / 1600
-  | 25 => ∑ j ∈ Finset.range 20, (((500 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch025Upper j / 1600
-  | 26 => ∑ j ∈ Finset.range 20, (((520 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch026Upper j / 1600
-  | 27 => ∑ j ∈ Finset.range 20, (((540 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch027Upper j / 1600
-  | 28 => ∑ j ∈ Finset.range 20, (((560 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch028Upper j / 1600
-  | 29 => ∑ j ∈ Finset.range 20, (((580 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch029Upper j / 1600
-  | 30 => ∑ j ∈ Finset.range 20, (((600 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch030Upper j / 1600
-  | 31 => ∑ j ∈ Finset.range 20, (((620 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch031Upper j / 1600
-  | 32 => ∑ j ∈ Finset.range 20, (((640 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch032Upper j / 1600
-  | 33 => ∑ j ∈ Finset.range 20, (((660 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch033Upper j / 1600
-  | 34 => ∑ j ∈ Finset.range 20, (((680 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch034Upper j / 1600
-  | 35 => ∑ j ∈ Finset.range 20, (((700 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch035Upper j / 1600
-  | 36 => ∑ j ∈ Finset.range 20, (((720 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch036Upper j / 1600
-  | 37 => ∑ j ∈ Finset.range 20, (((740 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch037Upper j / 1600
-  | 38 => ∑ j ∈ Finset.range 20, (((760 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch038Upper j / 1600
-  | 39 => ∑ j ∈ Finset.range 20, (((780 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch039Upper j / 1600
-  | 40 => ∑ j ∈ Finset.range 20, (((800 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch040Upper j / 1600
-  | 41 => ∑ j ∈ Finset.range 20, (((820 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch041Upper j / 1600
-  | 42 => ∑ j ∈ Finset.range 20, (((840 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch042Upper j / 1600
-  | 43 => ∑ j ∈ Finset.range 20, (((860 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch043Upper j / 1600
-  | 44 => ∑ j ∈ Finset.range 20, (((880 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch044Upper j / 1600
-  | 45 => ∑ j ∈ Finset.range 20, (((900 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch045Upper j / 1600
-  | 46 => ∑ j ∈ Finset.range 20, (((920 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch046Upper j / 1600
-  | 47 => ∑ j ∈ Finset.range 20, (((940 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch047Upper j / 1600
-  | 48 => ∑ j ∈ Finset.range 20, (((960 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch048Upper j / 1600
-  | 49 => ∑ j ∈ Finset.range 20, (((980 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch049Upper j / 1600
-  | 50 => ∑ j ∈ Finset.range 20, (((1000 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch050Upper j / 1600
-  | 51 => ∑ j ∈ Finset.range 20, (((1020 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch051Upper j / 1600
-  | 52 => ∑ j ∈ Finset.range 20, (((1040 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch052Upper j / 1600
-  | 53 => ∑ j ∈ Finset.range 20, (((1060 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch053Upper j / 1600
-  | 54 => ∑ j ∈ Finset.range 20, (((1080 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch054Upper j / 1600
-  | 55 => ∑ j ∈ Finset.range 20, (((1100 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch055Upper j / 1600
-  | 56 => ∑ j ∈ Finset.range 20, (((1120 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch056Upper j / 1600
-  | 57 => ∑ j ∈ Finset.range 20, (((1140 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch057Upper j / 1600
-  | 58 => ∑ j ∈ Finset.range 20, (((1160 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch058Upper j / 1600
-  | 59 => ∑ j ∈ Finset.range 20, (((1180 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch059Upper j / 1600
-  | 60 => ∑ j ∈ Finset.range 20, (((1200 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch060Upper j / 1600
-  | 61 => ∑ j ∈ Finset.range 20, (((1220 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch061Upper j / 1600
-  | 62 => ∑ j ∈ Finset.range 20, (((1240 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch062Upper j / 1600
-  | 63 => ∑ j ∈ Finset.range 20, (((1260 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch063Upper j / 1600
-  | 64 => ∑ j ∈ Finset.range 20, (((1280 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch064Upper j / 1600
-  | 65 => ∑ j ∈ Finset.range 20, (((1300 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch065Upper j / 1600
-  | 66 => ∑ j ∈ Finset.range 20, (((1320 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch066Upper j / 1600
-  | 67 => ∑ j ∈ Finset.range 20, (((1340 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch067Upper j / 1600
-  | 68 => ∑ j ∈ Finset.range 20, (((1360 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch068Upper j / 1600
-  | 69 => ∑ j ∈ Finset.range 20, (((1380 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch069Upper j / 1600
-  | 70 => ∑ j ∈ Finset.range 20, (((1400 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch070Upper j / 1600
-  | 71 => ∑ j ∈ Finset.range 20, (((1420 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch071Upper j / 1600
-  | 72 => ∑ j ∈ Finset.range 20, (((1440 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch072Upper j / 1600
-  | 73 => ∑ j ∈ Finset.range 20, (((1460 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch073Upper j / 1600
-  | 74 => ∑ j ∈ Finset.range 20, (((1480 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch074Upper j / 1600
-  | 75 => ∑ j ∈ Finset.range 20, (((1500 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch075Upper j / 1600
-  | 76 => ∑ j ∈ Finset.range 20, (((1520 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch076Upper j / 1600
-  | 77 => ∑ j ∈ Finset.range 20, (((1540 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch077Upper j / 1600
-  | 78 => ∑ j ∈ Finset.range 20, (((1560 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch078Upper j / 1600
-  | 79 => ∑ j ∈ Finset.range 20, (((1580 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 * hpThetaJensenCellsBatch079Upper j / 1600
+  | 0 => ∑ j ∈ Finset.range 20,
+      (((0 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch000Upper j / 1600
+  | 1 => ∑ j ∈ Finset.range 20,
+      (((20 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch001Upper j / 1600
+  | 2 => ∑ j ∈ Finset.range 20,
+      (((40 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch002Upper j / 1600
+  | 3 => ∑ j ∈ Finset.range 20,
+      (((60 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch003Upper j / 1600
+  | 4 => ∑ j ∈ Finset.range 20,
+      (((80 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch004Upper j / 1600
+  | 5 => ∑ j ∈ Finset.range 20,
+      (((100 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch005Upper j / 1600
+  | 6 => ∑ j ∈ Finset.range 20,
+      (((120 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch006Upper j / 1600
+  | 7 => ∑ j ∈ Finset.range 20,
+      (((140 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch007Upper j / 1600
+  | 8 => ∑ j ∈ Finset.range 20,
+      (((160 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch008Upper j / 1600
+  | 9 => ∑ j ∈ Finset.range 20,
+      (((180 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch009Upper j / 1600
+  | 10 => ∑ j ∈ Finset.range 20,
+      (((200 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch010Upper j / 1600
+  | 11 => ∑ j ∈ Finset.range 20,
+      (((220 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch011Upper j / 1600
+  | 12 => ∑ j ∈ Finset.range 20,
+      (((240 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch012Upper j / 1600
+  | 13 => ∑ j ∈ Finset.range 20,
+      (((260 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch013Upper j / 1600
+  | 14 => ∑ j ∈ Finset.range 20,
+      (((280 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch014Upper j / 1600
+  | 15 => ∑ j ∈ Finset.range 20,
+      (((300 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch015Upper j / 1600
+  | 16 => ∑ j ∈ Finset.range 20,
+      (((320 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch016Upper j / 1600
+  | 17 => ∑ j ∈ Finset.range 20,
+      (((340 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch017Upper j / 1600
+  | 18 => ∑ j ∈ Finset.range 20,
+      (((360 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch018Upper j / 1600
+  | 19 => ∑ j ∈ Finset.range 20,
+      (((380 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch019Upper j / 1600
+  | 20 => ∑ j ∈ Finset.range 20,
+      (((400 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch020Upper j / 1600
+  | 21 => ∑ j ∈ Finset.range 20,
+      (((420 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch021Upper j / 1600
+  | 22 => ∑ j ∈ Finset.range 20,
+      (((440 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch022Upper j / 1600
+  | 23 => ∑ j ∈ Finset.range 20,
+      (((460 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch023Upper j / 1600
+  | 24 => ∑ j ∈ Finset.range 20,
+      (((480 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch024Upper j / 1600
+  | 25 => ∑ j ∈ Finset.range 20,
+      (((500 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch025Upper j / 1600
+  | 26 => ∑ j ∈ Finset.range 20,
+      (((520 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch026Upper j / 1600
+  | 27 => ∑ j ∈ Finset.range 20,
+      (((540 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch027Upper j / 1600
+  | 28 => ∑ j ∈ Finset.range 20,
+      (((560 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch028Upper j / 1600
+  | 29 => ∑ j ∈ Finset.range 20,
+      (((580 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch029Upper j / 1600
+  | 30 => ∑ j ∈ Finset.range 20,
+      (((600 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch030Upper j / 1600
+  | 31 => ∑ j ∈ Finset.range 20,
+      (((620 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch031Upper j / 1600
+  | 32 => ∑ j ∈ Finset.range 20,
+      (((640 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch032Upper j / 1600
+  | 33 => ∑ j ∈ Finset.range 20,
+      (((660 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch033Upper j / 1600
+  | 34 => ∑ j ∈ Finset.range 20,
+      (((680 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch034Upper j / 1600
+  | 35 => ∑ j ∈ Finset.range 20,
+      (((700 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch035Upper j / 1600
+  | 36 => ∑ j ∈ Finset.range 20,
+      (((720 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch036Upper j / 1600
+  | 37 => ∑ j ∈ Finset.range 20,
+      (((740 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch037Upper j / 1600
+  | 38 => ∑ j ∈ Finset.range 20,
+      (((760 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch038Upper j / 1600
+  | 39 => ∑ j ∈ Finset.range 20,
+      (((780 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch039Upper j / 1600
+  | 40 => ∑ j ∈ Finset.range 20,
+      (((800 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch040Upper j / 1600
+  | 41 => ∑ j ∈ Finset.range 20,
+      (((820 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch041Upper j / 1600
+  | 42 => ∑ j ∈ Finset.range 20,
+      (((840 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch042Upper j / 1600
+  | 43 => ∑ j ∈ Finset.range 20,
+      (((860 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch043Upper j / 1600
+  | 44 => ∑ j ∈ Finset.range 20,
+      (((880 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch044Upper j / 1600
+  | 45 => ∑ j ∈ Finset.range 20,
+      (((900 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch045Upper j / 1600
+  | 46 => ∑ j ∈ Finset.range 20,
+      (((920 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch046Upper j / 1600
+  | 47 => ∑ j ∈ Finset.range 20,
+      (((940 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch047Upper j / 1600
+  | 48 => ∑ j ∈ Finset.range 20,
+      (((960 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch048Upper j / 1600
+  | 49 => ∑ j ∈ Finset.range 20,
+      (((980 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch049Upper j / 1600
+  | 50 => ∑ j ∈ Finset.range 20,
+      (((1000 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch050Upper j / 1600
+  | 51 => ∑ j ∈ Finset.range 20,
+      (((1020 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch051Upper j / 1600
+  | 52 => ∑ j ∈ Finset.range 20,
+      (((1040 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch052Upper j / 1600
+  | 53 => ∑ j ∈ Finset.range 20,
+      (((1060 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch053Upper j / 1600
+  | 54 => ∑ j ∈ Finset.range 20,
+      (((1080 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch054Upper j / 1600
+  | 55 => ∑ j ∈ Finset.range 20,
+      (((1100 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch055Upper j / 1600
+  | 56 => ∑ j ∈ Finset.range 20,
+      (((1120 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch056Upper j / 1600
+  | 57 => ∑ j ∈ Finset.range 20,
+      (((1140 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch057Upper j / 1600
+  | 58 => ∑ j ∈ Finset.range 20,
+      (((1160 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch058Upper j / 1600
+  | 59 => ∑ j ∈ Finset.range 20,
+      (((1180 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch059Upper j / 1600
+  | 60 => ∑ j ∈ Finset.range 20,
+      (((1200 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch060Upper j / 1600
+  | 61 => ∑ j ∈ Finset.range 20,
+      (((1220 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch061Upper j / 1600
+  | 62 => ∑ j ∈ Finset.range 20,
+      (((1240 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch062Upper j / 1600
+  | 63 => ∑ j ∈ Finset.range 20,
+      (((1260 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch063Upper j / 1600
+  | 64 => ∑ j ∈ Finset.range 20,
+      (((1280 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch064Upper j / 1600
+  | 65 => ∑ j ∈ Finset.range 20,
+      (((1300 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch065Upper j / 1600
+  | 66 => ∑ j ∈ Finset.range 20,
+      (((1320 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch066Upper j / 1600
+  | 67 => ∑ j ∈ Finset.range 20,
+      (((1340 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch067Upper j / 1600
+  | 68 => ∑ j ∈ Finset.range 20,
+      (((1360 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch068Upper j / 1600
+  | 69 => ∑ j ∈ Finset.range 20,
+      (((1380 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch069Upper j / 1600
+  | 70 => ∑ j ∈ Finset.range 20,
+      (((1400 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch070Upper j / 1600
+  | 71 => ∑ j ∈ Finset.range 20,
+      (((1420 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch071Upper j / 1600
+  | 72 => ∑ j ∈ Finset.range 20,
+      (((1440 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch072Upper j / 1600
+  | 73 => ∑ j ∈ Finset.range 20,
+      (((1460 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch073Upper j / 1600
+  | 74 => ∑ j ∈ Finset.range 20,
+      (((1480 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch074Upper j / 1600
+  | 75 => ∑ j ∈ Finset.range 20,
+      (((1500 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch075Upper j / 1600
+  | 76 => ∑ j ∈ Finset.range 20,
+      (((1520 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch076Upper j / 1600
+  | 77 => ∑ j ∈ Finset.range 20,
+      (((1540 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch077Upper j / 1600
+  | 78 => ∑ j ∈ Finset.range 20,
+      (((1560 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch078Upper j / 1600
+  | 79 => ∑ j ∈ Finset.range 20,
+      (((1580 : ℝ) + (j : ℝ) + 1) / 1600) ^ 6 *
+        hpThetaJensenCellsBatch079Upper j / 1600
   | _ => 0
 
 theorem hpThetaJensenSixthRectanglesBatch000_bounds :
@@ -914,6 +1234,1134 @@ theorem hpThetaJensenSixthRectanglesBatch079_bounds :
     hpThetaJensenSixthRectangleLower, hpThetaJensenSixthRectangleUpper,
     Finset.sum_range_succ, hpThetaJensenCellsBatch079Lower, hpThetaJensenCellsBatch079Upper]
 
+theorem hpThetaJensenSixthLowerPrefix000 :
+    (∑ b ∈ Finset.range 0, hpThetaJensenSixthBatchLower b) = (0 : ℝ) := by
+  simp
+
+theorem hpThetaJensenSixthLowerPrefix001 :
+    (∑ b ∈ Finset.range 1, hpThetaJensenSixthBatchLower b) =
+      (1 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (0 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix000]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix000 :
+    (∑ b ∈ Finset.range 0, hpThetaJensenSixthBatchUpper b) = (0 : ℝ) := by
+  simp
+
+theorem hpThetaJensenSixthUpperPrefix001 :
+    (∑ b ∈ Finset.range 1, hpThetaJensenSixthBatchUpper b) =
+      (3 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (0 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix000]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix002 :
+    (∑ b ∈ Finset.range 2, hpThetaJensenSixthBatchLower b) =
+      (141 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (1 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix001]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix002 :
+    (∑ b ∈ Finset.range 2, hpThetaJensenSixthBatchUpper b) =
+      (17 / 10000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (1 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix001]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix003 :
+    (∑ b ∈ Finset.range 3, hpThetaJensenSixthBatchLower b) =
+      (6177 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (2 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix002]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix003 :
+    (∑ b ∈ Finset.range 3, hpThetaJensenSixthBatchUpper b) =
+      (7017 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (2 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix002]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix004 :
+    (∑ b ∈ Finset.range 4, hpThetaJensenSixthBatchLower b) =
+      (93217 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (3 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix003]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix004 :
+    (∑ b ∈ Finset.range 4, hpThetaJensenSixthBatchUpper b) =
+      (205689 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (3 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix003]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix005 :
+    (∑ b ∈ Finset.range 5, hpThetaJensenSixthBatchLower b) =
+      (110989 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (4 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix004]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix005 :
+    (∑ b ∈ Finset.range 5, hpThetaJensenSixthBatchUpper b) =
+      (962673 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (4 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix004]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix006 :
+    (∑ b ∈ Finset.range 6, hpThetaJensenSixthBatchLower b) =
+      (1580417 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (5 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix005]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix006 :
+    (∑ b ∈ Finset.range 6, hpThetaJensenSixthBatchUpper b) =
+      (677493 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (5 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix005]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix007 :
+    (∑ b ∈ Finset.range 7, hpThetaJensenSixthBatchLower b) =
+      (57507 / 6250000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (6 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix006]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix007 :
+    (∑ b ∈ Finset.range 7, hpThetaJensenSixthBatchUpper b) =
+      (9779781 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (6 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix006]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix008 :
+    (∑ b ∈ Finset.range 8, hpThetaJensenSixthBatchLower b) =
+      (23105827 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (7 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix007]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix008 :
+    (∑ b ∈ Finset.range 8, hpThetaJensenSixthBatchUpper b) =
+      (3051 / 125000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (7 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix007]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix009 :
+    (∑ b ∈ Finset.range 9, hpThetaJensenSixthBatchLower b) =
+      (1036177 / 20000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (8 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix008]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix009 :
+    (∑ b ∈ Finset.range 9, hpThetaJensenSixthBatchUpper b) =
+      (2723403 / 50000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (8 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix008]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix010 :
+    (∑ b ∈ Finset.range 10, hpThetaJensenSixthBatchLower b) =
+      (53095523 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (9 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix009]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix010 :
+    (∑ b ∈ Finset.range 10, hpThetaJensenSixthBatchUpper b) =
+      (111218519 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (9 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix009]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix011 :
+    (∑ b ∈ Finset.range 11, hpThetaJensenSixthBatchLower b) =
+      (202320431 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (10 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix010]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix011 :
+    (∑ b ∈ Finset.range 11, hpThetaJensenSixthBatchUpper b) =
+      (211246229 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (10 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix010]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix012 :
+    (∑ b ∈ Finset.range 12, hpThetaJensenSixthBatchLower b) =
+      (181379777 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (11 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix011]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix012 :
+    (∑ b ∈ Finset.range 12, hpThetaJensenSixthBatchUpper b) =
+      (188899171 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (11 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix011]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix013 :
+    (∑ b ∈ Finset.range 13, hpThetaJensenSixthBatchLower b) =
+      (61786131 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (12 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix012]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix013 :
+    (∑ b ∈ Finset.range 13, hpThetaJensenSixthBatchUpper b) =
+      (642100389 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (12 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix012]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix014 :
+    (∑ b ∈ Finset.range 14, hpThetaJensenSixthBatchLower b) =
+      (125870317 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (13 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix013]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix014 :
+    (∑ b ∈ Finset.range 14, hpThetaJensenSixthBatchUpper b) =
+      (522284081 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (13 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix013]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix015 :
+    (∑ b ∈ Finset.range 15, hpThetaJensenSixthBatchLower b) =
+      (1579377673 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (14 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix014]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix015 :
+    (∑ b ∈ Finset.range 15, hpThetaJensenSixthBatchUpper b) =
+      (1635814097 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (14 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix014]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix016 :
+    (∑ b ∈ Finset.range 16, hpThetaJensenSixthBatchLower b) =
+      (598773367 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (15 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix015]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix016 :
+    (∑ b ∈ Finset.range 16, hpThetaJensenSixthBatchUpper b) =
+      (2477347589 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (15 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix015]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix017 :
+    (∑ b ∈ Finset.range 17, hpThetaJensenSixthBatchLower b) =
+      (55079227 / 15625000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (16 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix016]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix017 :
+    (∑ b ∈ Finset.range 17, hpThetaJensenSixthBatchUpper b) =
+      (1820936863 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (16 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix016]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix018 :
+    (∑ b ∈ Finset.range 18, hpThetaJensenSixthBatchLower b) =
+      (5051068793 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (17 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix017]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix018 :
+    (∑ b ∈ Finset.range 18, hpThetaJensenSixthBatchUpper b) =
+      (81454787 / 15625000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (17 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix017]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix019 :
+    (∑ b ∈ Finset.range 19, hpThetaJensenSixthBatchLower b) =
+      (1766232841 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (18 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix018]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix019 :
+    (∑ b ∈ Finset.range 19, hpThetaJensenSixthBatchUpper b) =
+      (56914291 / 7812500000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (18 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix018]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix020 :
+    (∑ b ∈ Finset.range 20, hpThetaJensenSixthBatchLower b) =
+      (9667284127 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (19 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix019]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix020 :
+    (∑ b ∈ Finset.range 20, hpThetaJensenSixthBatchUpper b) =
+      (1992112429 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (19 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix019]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix021 :
+    (∑ b ∈ Finset.range 21, hpThetaJensenSixthBatchLower b) =
+      (1296563623 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (20 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix020]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix021 :
+    (∑ b ∈ Finset.range 21, hpThetaJensenSixthBatchUpper b) =
+      (3337404313 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (20 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix020]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix022 :
+    (∑ b ∈ Finset.range 22, hpThetaJensenSixthBatchLower b) =
+      (3414379491 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (21 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix021]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix022 :
+    (∑ b ∈ Finset.range 22, hpThetaJensenSixthBatchUpper b) =
+      (4391640589 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (21 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix021]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix023 :
+    (∑ b ∈ Finset.range 23, hpThetaJensenSixthBatchLower b) =
+      (4419872261 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (22 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix022]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix023 :
+    (∑ b ∈ Finset.range 23, hpThetaJensenSixthBatchUpper b) =
+      (5681785181 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (22 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix022]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix024 :
+    (∑ b ∈ Finset.range 24, hpThetaJensenSixthBatchLower b) =
+      (140796177 / 5000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (23 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix023]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix024 :
+    (∑ b ∈ Finset.range 24, hpThetaJensenSixthBatchUpper b) =
+      (7236232719 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (23 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix023]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix025 :
+    (∑ b ∈ Finset.range 25, hpThetaJensenSixthBatchLower b) =
+      (35356831651 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (24 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix024]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix025 :
+    (∑ b ∈ Finset.range 25, hpThetaJensenSixthBatchUpper b) =
+      (36327460781 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (24 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix024]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix026 :
+    (∑ b ∈ Finset.range 26, hpThetaJensenSixthBatchLower b) =
+      (43787555763 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (25 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix025]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix026 :
+    (∑ b ∈ Finset.range 26, hpThetaJensenSixthBatchUpper b) =
+      (44972118513 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (25 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix025]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix027 :
+    (∑ b ∈ Finset.range 27, hpThetaJensenSixthBatchLower b) =
+      (1338321427 / 25000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (26 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix026]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix027 :
+    (∑ b ∈ Finset.range 27, hpThetaJensenSixthBatchUpper b) =
+      (27481011601 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (26 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix026]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix028 :
+    (∑ b ∈ Finset.range 28, hpThetaJensenSixthBatchLower b) =
+      (64656314049 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (27 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix027]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix028 :
+    (∑ b ∈ Finset.range 28, hpThetaJensenSixthBatchUpper b) =
+      (66362034617 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (27 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix027]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix029 :
+    (∑ b ∈ Finset.range 29, hpThetaJensenSixthBatchLower b) =
+      (77200036399 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (28 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix028]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix029 :
+    (∑ b ∈ Finset.range 29, hpThetaJensenSixthBatchUpper b) =
+      (19803771409 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (28 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix028]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix030 :
+    (∑ b ∈ Finset.range 30, hpThetaJensenSixthBatchLower b) =
+      (91181561693 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (29 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix029]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix030 :
+    (∑ b ∈ Finset.range 30, hpThetaJensenSixthBatchUpper b) =
+      (93539018383 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (29 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix029]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix031 :
+    (∑ b ∈ Finset.range 31, hpThetaJensenSixthBatchLower b) =
+      (13323926359 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (30 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix030]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix031 :
+    (∑ b ∈ Finset.range 31, hpThetaJensenSixthBatchUpper b) =
+      (13665511449 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (30 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix030]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix032 :
+    (∑ b ∈ Finset.range 32, hpThetaJensenSixthBatchLower b) =
+      (123391445037 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (31 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix031]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix032 :
+    (∑ b ∈ Finset.range 32, hpThetaJensenSixthBatchUpper b) =
+      (126531304061 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (31 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix031]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix033 :
+    (∑ b ∈ Finset.range 33, hpThetaJensenSixthBatchLower b) =
+      (28302826969 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (32 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix032]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix033 :
+    (∑ b ∈ Finset.range 33, hpThetaJensenSixthBatchUpper b) =
+      (145091647689 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (32 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix032]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix034 :
+    (∑ b ∈ Finset.range 34, hpThetaJensenSixthBatchLower b) =
+      (20107851977 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (33 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix033]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix034 :
+    (∑ b ∈ Finset.range 34, hpThetaJensenSixthBatchUpper b) =
+      (4122659123 / 25000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (33 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix033]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix035 :
+    (∑ b ∈ Finset.range 35, hpThetaJensenSixthBatchLower b) =
+      (4532823987 / 25000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (34 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix034]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix035 :
+    (∑ b ∈ Finset.range 35, hpThetaJensenSixthBatchUpper b) =
+      (2903878771 / 15625000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (34 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix034]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix036 :
+    (∑ b ∈ Finset.range 36, hpThetaJensenSixthBatchLower b) =
+      (202714443873 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (35 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix035]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix036 :
+    (∑ b ∈ Finset.range 36, hpThetaJensenSixthBatchUpper b) =
+      (51940979247 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (35 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix035]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix037 :
+    (∑ b ∈ Finset.range 37, hpThetaJensenSixthBatchLower b) =
+      (28111844987 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (36 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix036]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix037 :
+    (∑ b ∈ Finset.range 37, hpThetaJensenSixthBatchUpper b) =
+      (230477152033 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (36 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix036]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix038 :
+    (∑ b ∈ Finset.range 38, hpThetaJensenSixthBatchLower b) =
+      (247663045153 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (37 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix037]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix038 :
+    (∑ b ∈ Finset.range 38, hpThetaJensenSixthBatchUpper b) =
+      (63448234243 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (37 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix037]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix039 :
+    (∑ b ∈ Finset.range 39, hpThetaJensenSixthBatchLower b) =
+      (135407398317 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (38 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix038]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix039 :
+    (∑ b ∈ Finset.range 39, hpThetaJensenSixthBatchUpper b) =
+      (277502296207 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (38 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix038]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix040 :
+    (∑ b ∈ Finset.range 40, hpThetaJensenSixthBatchLower b) =
+      (147068540221 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (39 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix039]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix040 :
+    (∑ b ∈ Finset.range 40, hpThetaJensenSixthBatchUpper b) =
+      (301387600247 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (39 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix039]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix041 :
+    (∑ b ∈ Finset.range 41, hpThetaJensenSixthBatchLower b) =
+      (79353508143 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (40 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix040]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix041 :
+    (∑ b ∈ Finset.range 41, hpThetaJensenSixthBatchUpper b) =
+      (325228176899 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (40 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix040]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix042 :
+    (∑ b ∈ Finset.range 42, hpThetaJensenSixthBatchLower b) =
+      (21277026941 / 62500000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (41 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix041]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix042 :
+    (∑ b ∈ Finset.range 42, hpThetaJensenSixthBatchUpper b) =
+      (69761199553 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (41 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix041]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix043 :
+    (∑ b ∈ Finset.range 43, hpThetaJensenSixthBatchLower b) =
+      (36298711743 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (42 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix042]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix043 :
+    (∑ b ∈ Finset.range 43, hpThetaJensenSixthBatchUpper b) =
+      (92977803469 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (42 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix042]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix044 :
+    (∑ b ∈ Finset.range 44, hpThetaJensenSixthBatchLower b) =
+      (15395442189 / 40000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (43 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix043]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix044 :
+    (∑ b ∈ Finset.range 44, hpThetaJensenSixthBatchUpper b) =
+      (394347323339 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (43 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix043]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix045 :
+    (∑ b ∈ Finset.range 45, hpThetaJensenSixthBatchLower b) =
+      (101488707249 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (44 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix044]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix045 :
+    (∑ b ∈ Finset.range 45, hpThetaJensenSixthBatchUpper b) =
+      (83187154827 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (44 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix044]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix046 :
+    (∑ b ∈ Finset.range 46, hpThetaJensenSixthBatchLower b) =
+      (426040431541 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (45 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix045]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix046 :
+    (∑ b ∈ Finset.range 46, hpThetaJensenSixthBatchUpper b) =
+      (436519835437 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (45 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix045]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix047 :
+    (∑ b ∈ Finset.range 47, hpThetaJensenSixthBatchLower b) =
+      (445014196031 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (46 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix046]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix047 :
+    (∑ b ∈ Finset.range 47, hpThetaJensenSixthBatchUpper b) =
+      (18238704353 / 40000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (46 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix046]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix048 :
+    (∑ b ∈ Finset.range 48, hpThetaJensenSixthBatchLower b) =
+      (231386904201 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (47 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix047]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix048 :
+    (∑ b ∈ Finset.range 48, hpThetaJensenSixthBatchUpper b) =
+      (474174094699 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (47 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix047]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix049 :
+    (∑ b ∈ Finset.range 49, hpThetaJensenSixthBatchLower b) =
+      (3833954823 / 8000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (48 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix048]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix049 :
+    (∑ b ∈ Finset.range 49, hpThetaJensenSixthBatchUpper b) =
+      (61382784487 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (48 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix048]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix050 :
+    (∑ b ∈ Finset.range 50, hpThetaJensenSixthBatchLower b) =
+      (494378403937 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (49 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix049]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix050 :
+    (∑ b ∈ Finset.range 50, hpThetaJensenSixthBatchUpper b) =
+      (506583227493 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (49 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix049]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix051 :
+    (∑ b ∈ Finset.range 51, hpThetaJensenSixthBatchLower b) =
+      (508155217487 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (50 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix050]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix051 :
+    (∑ b ∈ Finset.range 51, hpThetaJensenSixthBatchUpper b) =
+      (520715306473 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (50 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix050]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix052 :
+    (∑ b ∈ Finset.range 52, hpThetaJensenSixthBatchLower b) =
+      (52057911297 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (51 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix051]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix052 :
+    (∑ b ∈ Finset.range 52, hpThetaJensenSixthBatchUpper b) =
+      (533462513931 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (51 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix051]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix053 :
+    (∑ b ∈ Finset.range 53, hpThetaJensenSixthBatchLower b) =
+      (531677169831 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (52 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix052]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix053 :
+    (∑ b ∈ Finset.range 53, hpThetaJensenSixthBatchUpper b) =
+      (272426077527 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (52 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix052]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix054 :
+    (∑ b ∈ Finset.range 54, hpThetaJensenSixthBatchLower b) =
+      (541496384783 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (53 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix053]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix054 :
+    (∑ b ∈ Finset.range 54, hpThetaJensenSixthBatchUpper b) =
+      (554931945879 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (53 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix053]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix055 :
+    (∑ b ∈ Finset.range 55, hpThetaJensenSixthBatchLower b) =
+      (55010044967 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (54 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix054]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix055 :
+    (∑ b ∈ Finset.range 55, hpThetaJensenSixthBatchUpper b) =
+      (281883364701 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (54 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix054]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix056 :
+    (∑ b ∈ Finset.range 56, hpThetaJensenSixthBatchLower b) =
+      (278783157127 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (55 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix055]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix056 :
+    (∑ b ∈ Finset.range 56, hpThetaJensenSixthBatchUpper b) =
+      (571434968817 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (55 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix055]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix057 :
+    (∑ b ∈ Finset.range 57, hpThetaJensenSixthBatchLower b) =
+      (112796138597 / 200000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (56 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix056]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix057 :
+    (∑ b ∈ Finset.range 57, hpThetaJensenSixthBatchUpper b) =
+      (289012589927 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (56 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix056]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix058 :
+    (∑ b ∈ Finset.range 58, hpThetaJensenSixthBatchLower b) =
+      (569436661479 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (57 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix057]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix058 :
+    (∑ b ∈ Finset.range 58, hpThetaJensenSixthBatchUpper b) =
+      (583632451821 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (57 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix057]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix059 :
+    (∑ b ∈ Finset.range 59, hpThetaJensenSixthBatchLower b) =
+      (287015234639 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (58 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix058]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix059 :
+    (∑ b ∈ Finset.range 59, hpThetaJensenSixthBatchUpper b) =
+      (294177593241 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (58 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix058]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix060 :
+    (∑ b ∈ Finset.range 60, hpThetaJensenSixthBatchLower b) =
+      (577858670273 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (59 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix059]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix060 :
+    (∑ b ∈ Finset.range 60, hpThetaJensenSixthBatchUpper b) =
+      (1480730397 / 2500000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (59 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix059]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix061 :
+    (∑ b ∈ Finset.range 61, hpThetaJensenSixthBatchLower b) =
+      (290507822643 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (60 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix060]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix061 :
+    (∑ b ∈ Finset.range 61, hpThetaJensenSixthBatchUpper b) =
+      (148884994213 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (60 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix060]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix062 :
+    (∑ b ∈ Finset.range 62, hpThetaJensenSixthBatchLower b) =
+      (72948945379 / 125000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (61 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix061]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix062 :
+    (∑ b ∈ Finset.range 62, hpThetaJensenSixthBatchUpper b) =
+      (299095493859 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (61 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix061]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix063 :
+    (∑ b ∈ Finset.range 63, hpThetaJensenSixthBatchLower b) =
+      (58567079799 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (62 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix062]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix063 :
+    (∑ b ∈ Finset.range 63, hpThetaJensenSixthBatchUpper b) =
+      (600331650157 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (62 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix062]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix064 :
+    (∑ b ∈ Finset.range 64, hpThetaJensenSixthBatchLower b) =
+      (587330799919 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (63 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix063]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix064 :
+    (∑ b ∈ Finset.range 64, hpThetaJensenSixthBatchUpper b) =
+      (602041368267 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (63 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix063]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix065 :
+    (∑ b ∈ Finset.range 65, hpThetaJensenSixthBatchLower b) =
+      (294320693971 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (64 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix064]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix065 :
+    (∑ b ∈ Finset.range 65, hpThetaJensenSixthBatchUpper b) =
+      (603391759689 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (64 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix064]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix066 :
+    (∑ b ∈ Finset.range 66, hpThetaJensenSixthBatchLower b) =
+      (589664426189 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (65 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix065]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix066 :
+    (∑ b ∈ Finset.range 66, hpThetaJensenSixthBatchUpper b) =
+      (12088926297 / 20000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (65 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix065]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix067 :
+    (∑ b ∈ Finset.range 67, hpThetaJensenSixthBatchLower b) =
+      (59045382697 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (66 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix066]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix067 :
+    (∑ b ∈ Finset.range 67, hpThetaJensenSixthBatchUpper b) =
+      (605260391649 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (66 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix066]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix068 :
+    (∑ b ∈ Finset.range 68, hpThetaJensenSixthBatchLower b) =
+      (18470494379 / 31250000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (67 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix067]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix068 :
+    (∑ b ∈ Finset.range 68, hpThetaJensenSixthBatchUpper b) =
+      (605881484219 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (67 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix067]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix069 :
+    (∑ b ∈ Finset.range 69, hpThetaJensenSixthBatchLower b) =
+      (23660377039 / 40000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (68 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix068]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix069 :
+    (∑ b ∈ Finset.range 69, hpThetaJensenSixthBatchUpper b) =
+      (606349701023 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (68 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix068]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix070 :
+    (∑ b ∈ Finset.range 70, hpThetaJensenSixthBatchLower b) =
+      (147961767603 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (69 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix069]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix070 :
+    (∑ b ∈ Finset.range 70, hpThetaJensenSixthBatchUpper b) =
+      (606698390283 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (69 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix069]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix071 :
+    (∑ b ∈ Finset.range 71, hpThetaJensenSixthBatchLower b) =
+      (148023821947 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (70 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix070]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix071 :
+    (∑ b ∈ Finset.range 71, hpThetaJensenSixthBatchUpper b) =
+      (30347742773 / 50000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (70 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix070]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix072 :
+    (∑ b ∈ Finset.range 72, hpThetaJensenSixthBatchLower b) =
+      (592275460797 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (71 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix071]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix072 :
+    (∑ b ∈ Finset.range 72, hpThetaJensenSixthBatchUpper b) =
+      (303570555773 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (71 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix071]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix073 :
+    (∑ b ∈ Finset.range 73, hpThetaJensenSixthBatchLower b) =
+      (148101139909 / 250000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (72 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix072]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix073 :
+    (∑ b ∈ Finset.range 73, hpThetaJensenSixthBatchUpper b) =
+      (24290985613 / 40000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (72 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix072]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix074 :
+    (∑ b ∈ Finset.range 74, hpThetaJensenSixthBatchLower b) =
+      (592495848099 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (73 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix073]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix074 :
+    (∑ b ∈ Finset.range 74, hpThetaJensenSixthBatchUpper b) =
+      (607369113317 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (73 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix073]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix075 :
+    (∑ b ∈ Finset.range 75, hpThetaJensenSixthBatchLower b) =
+      (592559535207 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (74 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix074]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix075 :
+    (∑ b ∈ Finset.range 75, hpThetaJensenSixthBatchUpper b) =
+      (303717529961 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (74 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix074]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix076 :
+    (∑ b ∈ Finset.range 76, hpThetaJensenSixthBatchLower b) =
+      (296301679507 / 500000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (75 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix075]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix076 :
+    (∑ b ∈ Finset.range 76, hpThetaJensenSixthBatchUpper b) =
+      (607480465201 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (75 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix075]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix077 :
+    (∑ b ∈ Finset.range 77, hpThetaJensenSixthBatchLower b) =
+      (592633093739 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (76 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix076]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix077 :
+    (∑ b ∈ Finset.range 77, hpThetaJensenSixthBatchUpper b) =
+      (607511291831 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (76 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix076]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix078 :
+    (∑ b ∈ Finset.range 78, hpThetaJensenSixthBatchLower b) =
+      (592652981273 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (77 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix077]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix078 :
+    (∑ b ∈ Finset.range 78, hpThetaJensenSixthBatchUpper b) =
+      (18985372589 / 31250000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (77 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix077]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix079 :
+    (∑ b ∈ Finset.range 79, hpThetaJensenSixthBatchLower b) =
+      (29633304459 / 50000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (78 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix078]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix079 :
+    (∑ b ∈ Finset.range 79, hpThetaJensenSixthBatchUpper b) =
+      (607545529779 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (78 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix078]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
+theorem hpThetaJensenSixthLowerPrefix080 :
+    (∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchLower b) =
+      (59267460009 / 100000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (79 + 1), hpThetaJensenSixthBatchLower b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthLowerPrefix079]
+  norm_num [hpThetaJensenSixthBatchLower]
+
+theorem hpThetaJensenSixthUpperPrefix080 :
+    (∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchUpper b) =
+      (607554371021 / 1000000000000000 : ℝ) := by
+  change (∑ b ∈ Finset.range (79 + 1), hpThetaJensenSixthBatchUpper b) = _
+  rw [Finset.sum_range_succ, hpThetaJensenSixthUpperPrefix079]
+  norm_num [hpThetaJensenSixthBatchUpper]
+
 theorem hpThetaJensen_sixthRectangleBatch_bounds (b : Fin 80) :
     hpThetaJensenSixthBatchLower b.val ≤ hpThetaJensenSixthRectangleLower b.val ∧
       hpThetaJensenSixthRectangleUpper b.val ≤ hpThetaJensenSixthBatchUpper b.val := by
@@ -1010,7 +2458,8 @@ theorem hpThetaJensen_sixthRectangle_lower_numeric :
       ⟨b, Finset.mem_range.mp hb⟩).1
   have hn : (592 / 1000000 : ℝ) ≤
       ∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchLower b := by
-    norm_num [Finset.sum_range_succ, hpThetaJensenSixthBatchLower]
+    rw [hpThetaJensenSixthLowerPrefix080]
+    norm_num
   exact le_trans hn h
 
 theorem hpThetaJensen_sixthRectangle_upper_numeric :
@@ -1024,7 +2473,8 @@ theorem hpThetaJensen_sixthRectangle_upper_numeric :
       ⟨b, Finset.mem_range.mp hb⟩).2
   have hn : (∑ b ∈ Finset.range 80, hpThetaJensenSixthBatchUpper b) ≤
       (608 / 1000000 : ℝ) - 1 / 50000000 := by
-    norm_num [Finset.sum_range_succ, hpThetaJensenSixthBatchUpper]
+    rw [hpThetaJensenSixthUpperPrefix080]
+    norm_num
   exact le_trans h hn
 
 #print axioms hpThetaJensen_sixthRectangleBatch_bounds
