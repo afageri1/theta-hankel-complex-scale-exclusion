@@ -67,7 +67,7 @@ theorem hpThetaJensen_sixthBatchIntegral_of_kernelBounds
       congr 1 <;> push_cast <;> ring
     simp_rw [hc]
     norm_num only [Nat.cast_ofNat] at h
-    have hend : s / 1600 + (20 : ℝ) * (1 / 1600) = (s + 20) / 1600 := by ring
+    have hend : s / 1600 + 1 / 80 = (s + 20) / 1600 := by ring
     rw [hend] at h
     exact h
   have hlow :
@@ -1380,8 +1380,8 @@ theorem hpThetaJensen_sixthBatchIntegral_bounds (b : Fin 80) :
           u ^ 6 * hpRiemannThetaDifferentialKernel u) ≤
         hpThetaJensenSixthRectangleUpper b.val := by
   fin_cases b
-  · exact hpThetaJensenSixthBatch000_integral_bounds
-  · exact hpThetaJensenSixthBatch001_integral_bounds
+  · simpa using hpThetaJensenSixthBatch000_integral_bounds
+  · simpa using hpThetaJensenSixthBatch001_integral_bounds
   · exact hpThetaJensenSixthBatch002_integral_bounds
   · exact hpThetaJensenSixthBatch003_integral_bounds
   · exact hpThetaJensenSixthBatch004_integral_bounds
