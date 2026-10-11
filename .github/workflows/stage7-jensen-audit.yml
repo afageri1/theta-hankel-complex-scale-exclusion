@@ -52,6 +52,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cofinal_criterion.sh
           bash scripts/audit_stage7_jensen_assumption_frontier.sh
           bash scripts/audit_stage7_jensen_cubic_algebra.sh
+          bash scripts/audit_stage7_jensen_cubic_integral.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -74,6 +75,7 @@ jobs:
             stage7-jensen-cofinal-criterion-axioms.log
             stage7-jensen-assumption-frontier-axioms.log
             stage7-jensen-cubic-algebra-axioms.log
+            stage7-jensen-cubic-integral-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
