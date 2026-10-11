@@ -20,7 +20,8 @@ namespace HodgeProofHP
 
 theorem hpThetaJensenGamma_three :
     hpThetaJensenGamma 3 = hpThetaPhiEvenMoment 3 / 120 := by
-  norm_num [hpThetaJensenGamma, Nat.factorial] <;> ring
+  norm_num [hpThetaJensenGamma, Nat.factorial]
+  ring
 
 theorem hpThetaJensenPolynomial_three :
     hpThetaJensenPolynomial 3 0 =
@@ -29,6 +30,7 @@ theorem hpThetaJensenPolynomial_three :
       Polynomial.C (3 * hpThetaJensenGamma 2) * Polynomial.X ^ 2 +
       Polynomial.C (hpThetaJensenGamma 3) * Polynomial.X ^ 3 := by
   norm_num [hpThetaJensenPolynomial, Finset.sum_range_succ, Nat.choose]
+  simp only [Polynomial.C_ofNat]
 
 /-- The same polynomial in Mathlib's cubic representation. -/
 def hpThetaJensenCubic : Cubic ℝ :=
