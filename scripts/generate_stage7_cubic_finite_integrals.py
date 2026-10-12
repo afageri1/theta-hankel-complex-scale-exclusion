@@ -31,7 +31,7 @@ theorem {pre}_batchIntegral_rectangle_bounds (b : Fin 80) :
   fin_cases b
 '''
  for b in range(80):
-  src+=f'  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch{b:03}Neg{p}_integral_bounds\n'
+  src+=f'  · simpa only [{pre}RectangleLower, {pre}RectangleUpper,\n      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using\n      hpThetaJensenCubicBatch{b:03}Neg{p}_integral_bounds\n'
  src+=f'''
 theorem {pre}_batchIntegral_sum :
     (∑ b ∈ Finset.range 80,
@@ -72,8 +72,9 @@ theorem {pre}_finiteIntegral_bounds :
     intro b hb
     exact ({pre}_batchIntegral_rectangle_bounds ⟨b, Finset.mem_range.mp hb⟩).2
   rw [{pre}_batchIntegral_sum] at hl hu
-  exact ⟨le_trans {pre}_rectangle_lower_numeric hl,
-    le_trans hu {pre}_rectangle_upper_numeric⟩
+  constructor
+  · convert le_trans {pre}_rectangle_lower_numeric hl using 1 <;> norm_num
+  · convert le_trans hu {pre}_rectangle_upper_numeric using 1 <;> norm_num
 
 #print axioms {pre}_batchIntegral_rectangle_bounds
 #print axioms {pre}_batchIntegral_sum

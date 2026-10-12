@@ -21,86 +21,246 @@ theorem hpThetaJensenCubicNeg90_batchIntegral_rectangle_bounds (b : Fin 80) :
       hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight (-90) u) ≤
         hpThetaJensenCubicNeg90RectangleUpper b.val := by
   fin_cases b
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch000Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch001Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch002Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch003Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch004Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch005Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch006Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch007Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch008Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch009Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch010Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch011Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch012Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch013Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch014Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch015Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch016Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch017Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch018Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch019Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch020Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch021Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch022Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch023Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch024Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch025Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch026Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch027Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch028Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch029Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch030Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch031Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch032Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch033Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch034Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch035Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch036Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch037Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch038Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch039Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch040Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch041Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch042Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch043Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch044Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch045Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch046Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch047Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch048Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch049Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch050Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch051Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch052Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch053Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch054Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch055Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch056Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch057Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch058Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch059Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch060Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch061Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch062Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch063Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch064Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch065Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch066Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch067Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch068Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch069Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch070Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch071Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch072Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch073Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch074Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch075Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch076Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch077Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch078Neg90_integral_bounds
-  · simpa only [Nat.cast_ofNat] using hpThetaJensenCubicBatch079Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch000Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch001Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch002Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch003Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch004Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch005Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch006Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch007Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch008Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch009Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch010Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch011Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch012Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch013Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch014Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch015Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch016Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch017Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch018Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch019Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch020Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch021Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch022Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch023Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch024Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch025Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch026Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch027Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch028Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch029Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch030Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch031Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch032Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch033Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch034Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch035Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch036Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch037Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch038Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch039Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch040Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch041Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch042Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch043Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch044Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch045Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch046Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch047Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch048Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch049Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch050Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch051Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch052Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch053Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch054Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch055Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch056Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch057Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch058Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch059Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch060Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch061Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch062Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch063Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch064Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch065Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch066Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch067Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch068Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch069Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch070Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch071Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch072Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch073Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch074Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch075Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch076Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch077Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch078Neg90_integral_bounds
+  · simpa only [hpThetaJensenCubicNeg90RectangleLower, hpThetaJensenCubicNeg90RectangleUpper,
+      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+      hpThetaJensenCubicBatch079Neg90_integral_bounds
 
 theorem hpThetaJensenCubicNeg90_batchIntegral_sum :
     (∑ b ∈ Finset.range 80,
@@ -141,8 +301,9 @@ theorem hpThetaJensenCubicNeg90_finiteIntegral_bounds :
     intro b hb
     exact (hpThetaJensenCubicNeg90_batchIntegral_rectangle_bounds ⟨b, Finset.mem_range.mp hb⟩).2
   rw [hpThetaJensenCubicNeg90_batchIntegral_sum] at hl hu
-  exact ⟨le_trans hpThetaJensenCubicNeg90_rectangle_lower_numeric hl,
-    le_trans hu hpThetaJensenCubicNeg90_rectangle_upper_numeric⟩
+  constructor
+  · convert le_trans hpThetaJensenCubicNeg90_rectangle_lower_numeric hl using 1 <;> norm_num
+  · convert le_trans hu hpThetaJensenCubicNeg90_rectangle_upper_numeric using 1 <;> norm_num
 
 #print axioms hpThetaJensenCubicNeg90_batchIntegral_rectangle_bounds
 #print axioms hpThetaJensenCubicNeg90_batchIntegral_sum
