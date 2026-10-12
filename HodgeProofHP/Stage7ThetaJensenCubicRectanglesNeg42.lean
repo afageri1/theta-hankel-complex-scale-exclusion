@@ -673,562 +673,1202 @@ def hpThetaJensenCubicNeg42RectangleUpper (b : ℕ) : ℝ :=
 theorem hpThetaJensenCubicNeg42RectanglesBatch000_bounds :
     hpThetaJensenCubicNeg42BatchLower 0 ≤ hpThetaJensenCubicNeg42RectangleLower 0 ∧
       hpThetaJensenCubicNeg42RectangleUpper 0 ≤ hpThetaJensenCubicNeg42BatchUpper 0 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch000Lower, hpThetaJensenCellsBatch000Upper, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+  constructor
+  · change (11057485997337 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch000Lower j * hpThetaJensenCubicWeightBatch000Neg42Lower j) (hpThetaJensenCellsBatch000Upper j * hpThetaJensenCubicWeightBatch000Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch000Lower, hpThetaJensenCellsBatch000Upper, hpThetaJensenCubicWeightBatch000Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch000Lower j * hpThetaJensenCubicWeightBatch000Neg42Upper j) (hpThetaJensenCellsBatch000Upper j * hpThetaJensenCubicWeightBatch000Neg42Upper j) / 1600) ≤
+        (4472048395583 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch000Lower, hpThetaJensenCellsBatch000Upper, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch001_bounds :
     hpThetaJensenCubicNeg42BatchLower 1 ≤ hpThetaJensenCubicNeg42RectangleLower 1 ∧
       hpThetaJensenCubicNeg42RectangleUpper 1 ≤ hpThetaJensenCubicNeg42BatchUpper 1 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch001Lower, hpThetaJensenCellsBatch001Upper, hpThetaJensenCubicWeightBatch001Neg42Lower, hpThetaJensenCubicWeightBatch001Neg42Upper]
+  constructor
+  · change (5403616057829 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch001Lower j * hpThetaJensenCubicWeightBatch001Neg42Lower j) (hpThetaJensenCellsBatch001Upper j * hpThetaJensenCubicWeightBatch001Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch001Lower, hpThetaJensenCellsBatch001Upper, hpThetaJensenCubicWeightBatch001Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch001Lower j * hpThetaJensenCubicWeightBatch001Neg42Upper j) (hpThetaJensenCellsBatch001Upper j * hpThetaJensenCubicWeightBatch001Neg42Upper j) / 1600) ≤
+        (875093526849 / 40000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch001Lower, hpThetaJensenCellsBatch001Upper, hpThetaJensenCubicWeightBatch001Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch002_bounds :
     hpThetaJensenCubicNeg42BatchLower 2 ≤ hpThetaJensenCubicNeg42RectangleLower 2 ∧
       hpThetaJensenCubicNeg42RectangleUpper 2 ≤ hpThetaJensenCubicNeg42BatchUpper 2 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch002Lower, hpThetaJensenCellsBatch002Upper, hpThetaJensenCubicWeightBatch002Neg42Lower, hpThetaJensenCubicWeightBatch002Neg42Upper]
+  constructor
+  · change (5156650691487 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch002Lower j * hpThetaJensenCubicWeightBatch002Neg42Lower j) (hpThetaJensenCellsBatch002Upper j * hpThetaJensenCubicWeightBatch002Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch002Lower, hpThetaJensenCellsBatch002Upper, hpThetaJensenCubicWeightBatch002Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch002Lower j * hpThetaJensenCubicWeightBatch002Neg42Upper j) (hpThetaJensenCellsBatch002Upper j * hpThetaJensenCubicWeightBatch002Neg42Upper j) / 1600) ≤
+        (20901240187879 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch002Lower, hpThetaJensenCellsBatch002Upper, hpThetaJensenCubicWeightBatch002Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch003_bounds :
     hpThetaJensenCubicNeg42BatchLower 3 ≤ hpThetaJensenCubicNeg42RectangleLower 3 ∧
       hpThetaJensenCubicNeg42RectangleUpper 3 ≤ hpThetaJensenCubicNeg42BatchUpper 3 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch003Lower, hpThetaJensenCellsBatch003Upper, hpThetaJensenCubicWeightBatch003Neg42Lower, hpThetaJensenCubicWeightBatch003Neg42Upper]
+  constructor
+  · change (19178915185443 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch003Lower j * hpThetaJensenCubicWeightBatch003Neg42Lower j) (hpThetaJensenCellsBatch003Upper j * hpThetaJensenCubicWeightBatch003Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch003Lower, hpThetaJensenCellsBatch003Upper, hpThetaJensenCubicWeightBatch003Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch003Lower j * hpThetaJensenCubicWeightBatch003Neg42Upper j) (hpThetaJensenCellsBatch003Upper j * hpThetaJensenCubicWeightBatch003Neg42Upper j) / 1600) ≤
+        (9729602770891 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch003Lower, hpThetaJensenCellsBatch003Upper, hpThetaJensenCubicWeightBatch003Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch004_bounds :
     hpThetaJensenCubicNeg42BatchLower 4 ≤ hpThetaJensenCubicNeg42RectangleLower 4 ∧
       hpThetaJensenCubicNeg42RectangleUpper 4 ≤ hpThetaJensenCubicNeg42BatchUpper 4 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch004Lower, hpThetaJensenCellsBatch004Upper, hpThetaJensenCubicWeightBatch004Neg42Lower, hpThetaJensenCubicWeightBatch004Neg42Upper]
+  constructor
+  · change (8655746519309 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch004Lower j * hpThetaJensenCubicWeightBatch004Neg42Lower j) (hpThetaJensenCellsBatch004Upper j * hpThetaJensenCubicWeightBatch004Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch004Lower, hpThetaJensenCellsBatch004Upper, hpThetaJensenCubicWeightBatch004Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch004Lower j * hpThetaJensenCubicWeightBatch004Neg42Upper j) (hpThetaJensenCellsBatch004Upper j * hpThetaJensenCubicWeightBatch004Neg42Upper j) / 1600) ≤
+        (17591216373599 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch004Lower, hpThetaJensenCellsBatch004Upper, hpThetaJensenCubicWeightBatch004Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch005_bounds :
     hpThetaJensenCubicNeg42BatchLower 5 ≤ hpThetaJensenCubicNeg42RectangleLower 5 ∧
       hpThetaJensenCubicNeg42RectangleUpper 5 ≤ hpThetaJensenCubicNeg42BatchUpper 5 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch005Lower, hpThetaJensenCellsBatch005Upper, hpThetaJensenCubicWeightBatch005Neg42Lower, hpThetaJensenCubicWeightBatch005Neg42Upper]
+  constructor
+  · change (3015138946243 / 200000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch005Lower j * hpThetaJensenCubicWeightBatch005Neg42Lower j) (hpThetaJensenCellsBatch005Upper j * hpThetaJensenCubicWeightBatch005Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch005Lower, hpThetaJensenCellsBatch005Upper, hpThetaJensenCubicWeightBatch005Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch005Lower j * hpThetaJensenCubicWeightBatch005Neg42Upper j) (hpThetaJensenCellsBatch005Upper j * hpThetaJensenCubicWeightBatch005Neg42Upper j) / 1600) ≤
+        (7674342919999 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch005Lower, hpThetaJensenCellsBatch005Upper, hpThetaJensenCubicWeightBatch005Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch006_bounds :
     hpThetaJensenCubicNeg42BatchLower 6 ≤ hpThetaJensenCubicNeg42RectangleLower 6 ∧
       hpThetaJensenCubicNeg42RectangleUpper 6 ≤ hpThetaJensenCubicNeg42BatchUpper 6 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch006Lower, hpThetaJensenCellsBatch006Upper, hpThetaJensenCubicWeightBatch006Neg42Lower, hpThetaJensenCubicWeightBatch006Neg42Upper]
+  constructor
+  · change (3133127646461 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch006Lower j * hpThetaJensenCubicWeightBatch006Neg42Lower j) (hpThetaJensenCellsBatch006Upper j * hpThetaJensenCubicWeightBatch006Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch006Lower, hpThetaJensenCellsBatch006Upper, hpThetaJensenCubicWeightBatch006Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch006Lower j * hpThetaJensenCubicWeightBatch006Neg42Upper j) (hpThetaJensenCellsBatch006Upper j * hpThetaJensenCubicWeightBatch006Neg42Upper j) / 1600) ≤
+        (1599102731147 / 125000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch006Lower, hpThetaJensenCellsBatch006Upper, hpThetaJensenCubicWeightBatch006Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch007_bounds :
     hpThetaJensenCubicNeg42BatchLower 7 ≤ hpThetaJensenCubicNeg42RectangleLower 7 ∧
       hpThetaJensenCubicNeg42RectangleUpper 7 ≤ hpThetaJensenCubicNeg42BatchUpper 7 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch007Lower, hpThetaJensenCellsBatch007Upper, hpThetaJensenCubicWeightBatch007Neg42Lower, hpThetaJensenCubicWeightBatch007Neg42Upper]
+  constructor
+  · change (9750642281803 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch007Lower j * hpThetaJensenCubicWeightBatch007Neg42Lower j) (hpThetaJensenCellsBatch007Upper j * hpThetaJensenCubicWeightBatch007Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch007Lower, hpThetaJensenCellsBatch007Upper, hpThetaJensenCubicWeightBatch007Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch007Lower j * hpThetaJensenCubicWeightBatch007Neg42Upper j) (hpThetaJensenCellsBatch007Upper j * hpThetaJensenCubicWeightBatch007Neg42Upper j) / 1600) ≤
+        (2498175067461 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch007Lower, hpThetaJensenCellsBatch007Upper, hpThetaJensenCubicWeightBatch007Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch008_bounds :
     hpThetaJensenCubicNeg42BatchLower 8 ≤ hpThetaJensenCubicNeg42RectangleLower 8 ∧
       hpThetaJensenCubicNeg42RectangleUpper 8 ≤ hpThetaJensenCubicNeg42BatchUpper 8 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch008Lower, hpThetaJensenCellsBatch008Upper, hpThetaJensenCubicWeightBatch008Neg42Lower, hpThetaJensenCubicWeightBatch008Neg42Upper]
+  constructor
+  · change (1360871716537 / 200000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch008Lower j * hpThetaJensenCubicWeightBatch008Neg42Lower j) (hpThetaJensenCellsBatch008Upper j * hpThetaJensenCubicWeightBatch008Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch008Lower, hpThetaJensenCellsBatch008Upper, hpThetaJensenCubicWeightBatch008Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch008Lower j * hpThetaJensenCubicWeightBatch008Neg42Upper j) (hpThetaJensenCellsBatch008Upper j * hpThetaJensenCubicWeightBatch008Neg42Upper j) / 1600) ≤
+        (140462195307 / 20000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch008Lower, hpThetaJensenCellsBatch008Upper, hpThetaJensenCubicWeightBatch008Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch009_bounds :
     hpThetaJensenCubicNeg42BatchLower 9 ≤ hpThetaJensenCubicNeg42RectangleLower 9 ∧
       hpThetaJensenCubicNeg42RectangleUpper 9 ≤ hpThetaJensenCubicNeg42BatchUpper 9 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch009Lower, hpThetaJensenCellsBatch009Upper, hpThetaJensenCubicWeightBatch009Neg42Lower, hpThetaJensenCubicWeightBatch009Neg42Upper]
+  constructor
+  · change (942799323239 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch009Lower j * hpThetaJensenCubicWeightBatch009Neg42Lower j) (hpThetaJensenCellsBatch009Upper j * hpThetaJensenCubicWeightBatch009Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch009Lower, hpThetaJensenCellsBatch009Upper, hpThetaJensenCubicWeightBatch009Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch009Lower j * hpThetaJensenCubicWeightBatch009Neg42Upper j) (hpThetaJensenCellsBatch009Upper j * hpThetaJensenCubicWeightBatch009Neg42Upper j) / 1600) ≤
+        (990559588891 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch009Lower, hpThetaJensenCellsBatch009Upper, hpThetaJensenCubicWeightBatch009Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch010_bounds :
     hpThetaJensenCubicNeg42BatchLower 10 ≤ hpThetaJensenCubicNeg42RectangleLower 10 ∧
       hpThetaJensenCubicNeg42RectangleUpper 10 ≤ hpThetaJensenCubicNeg42BatchUpper 10 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch010Lower, hpThetaJensenCellsBatch010Upper, hpThetaJensenCubicWeightBatch010Neg42Lower, hpThetaJensenCubicWeightBatch010Neg42Upper]
+  constructor
+  · change (728447450997 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch010Lower j * hpThetaJensenCubicWeightBatch010Neg42Lower j) (hpThetaJensenCellsBatch010Upper j * hpThetaJensenCubicWeightBatch010Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch010Lower, hpThetaJensenCellsBatch010Upper, hpThetaJensenCubicWeightBatch010Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch010Lower j * hpThetaJensenCubicWeightBatch010Neg42Upper j) (hpThetaJensenCellsBatch010Upper j * hpThetaJensenCubicWeightBatch010Neg42Upper j) / 1600) ≤
+        (445009846529 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch010Lower, hpThetaJensenCellsBatch010Upper, hpThetaJensenCubicWeightBatch010Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch011_bounds :
     hpThetaJensenCubicNeg42BatchLower 11 ≤ hpThetaJensenCubicNeg42RectangleLower 11 ∧
       hpThetaJensenCubicNeg42RectangleUpper 11 ≤ hpThetaJensenCubicNeg42BatchUpper 11 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch011Lower, hpThetaJensenCellsBatch011Upper, hpThetaJensenCubicWeightBatch011Neg42Lower, hpThetaJensenCubicWeightBatch011Neg42Upper]
+  constructor
+  · change (-567303963787 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch011Lower j * hpThetaJensenCubicWeightBatch011Neg42Lower j) (hpThetaJensenCellsBatch011Upper j * hpThetaJensenCubicWeightBatch011Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch011Lower, hpThetaJensenCellsBatch011Upper, hpThetaJensenCubicWeightBatch011Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch011Lower j * hpThetaJensenCubicWeightBatch011Neg42Upper j) (hpThetaJensenCellsBatch011Upper j * hpThetaJensenCubicWeightBatch011Neg42Upper j) / 1600) ≤
+        (-13087435733 / 6250000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch011Lower, hpThetaJensenCellsBatch011Upper, hpThetaJensenCubicWeightBatch011Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch012_bounds :
     hpThetaJensenCubicNeg42BatchLower 12 ≤ hpThetaJensenCubicNeg42RectangleLower 12 ∧
       hpThetaJensenCubicNeg42RectangleUpper 12 ≤ hpThetaJensenCubicNeg42BatchUpper 12 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch012Lower, hpThetaJensenCellsBatch012Upper, hpThetaJensenCubicWeightBatch012Neg42Lower, hpThetaJensenCubicWeightBatch012Neg42Upper]
+  constructor
+  · change (-513359842967 / 100000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch012Lower j * hpThetaJensenCubicWeightBatch012Neg42Lower j) (hpThetaJensenCellsBatch012Upper j * hpThetaJensenCubicWeightBatch012Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch012Lower, hpThetaJensenCellsBatch012Upper, hpThetaJensenCubicWeightBatch012Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch012Lower j * hpThetaJensenCubicWeightBatch012Neg42Upper j) (hpThetaJensenCellsBatch012Upper j * hpThetaJensenCubicWeightBatch012Neg42Upper j) / 1600) ≤
+        (-4928493872539 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch012Lower, hpThetaJensenCellsBatch012Upper, hpThetaJensenCubicWeightBatch012Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch013_bounds :
     hpThetaJensenCubicNeg42BatchLower 13 ≤ hpThetaJensenCubicNeg42RectangleLower 13 ∧
       hpThetaJensenCubicNeg42RectangleUpper 13 ≤ hpThetaJensenCubicNeg42BatchUpper 13 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch013Lower, hpThetaJensenCellsBatch013Upper, hpThetaJensenCubicWeightBatch013Neg42Lower, hpThetaJensenCubicWeightBatch013Neg42Upper]
+  constructor
+  · change (-7787272976609 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch013Lower j * hpThetaJensenCubicWeightBatch013Neg42Lower j) (hpThetaJensenCellsBatch013Upper j * hpThetaJensenCubicWeightBatch013Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch013Lower, hpThetaJensenCellsBatch013Upper, hpThetaJensenCubicWeightBatch013Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch013Lower j * hpThetaJensenCubicWeightBatch013Neg42Upper j) (hpThetaJensenCellsBatch013Upper j * hpThetaJensenCubicWeightBatch013Neg42Upper j) / 1600) ≤
+        (-7556776557507 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch013Lower, hpThetaJensenCellsBatch013Upper, hpThetaJensenCubicWeightBatch013Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch014_bounds :
     hpThetaJensenCubicNeg42BatchLower 14 ≤ hpThetaJensenCubicNeg42RectangleLower 14 ∧
       hpThetaJensenCubicNeg42RectangleUpper 14 ≤ hpThetaJensenCubicNeg42BatchUpper 14 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch014Lower, hpThetaJensenCellsBatch014Upper, hpThetaJensenCubicWeightBatch014Neg42Lower, hpThetaJensenCubicWeightBatch014Neg42Upper]
+  constructor
+  · change (-5085045667039 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch014Lower j * hpThetaJensenCubicWeightBatch014Neg42Lower j) (hpThetaJensenCellsBatch014Upper j * hpThetaJensenCubicWeightBatch014Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch014Lower, hpThetaJensenCellsBatch014Upper, hpThetaJensenCubicWeightBatch014Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch014Lower j * hpThetaJensenCubicWeightBatch014Neg42Upper j) (hpThetaJensenCellsBatch014Upper j * hpThetaJensenCubicWeightBatch014Neg42Upper j) / 1600) ≤
+        (-2479800784107 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch014Lower, hpThetaJensenCellsBatch014Upper, hpThetaJensenCubicWeightBatch014Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch015_bounds :
     hpThetaJensenCubicNeg42BatchLower 15 ≤ hpThetaJensenCubicNeg42RectangleLower 15 ∧
       hpThetaJensenCubicNeg42RectangleUpper 15 ≤ hpThetaJensenCubicNeg42BatchUpper 15 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch015Lower, hpThetaJensenCellsBatch015Upper, hpThetaJensenCubicWeightBatch015Neg42Lower, hpThetaJensenCubicWeightBatch015Neg42Upper]
+  constructor
+  · change (-12231437569371 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch015Lower j * hpThetaJensenCubicWeightBatch015Neg42Lower j) (hpThetaJensenCellsBatch015Upper j * hpThetaJensenCubicWeightBatch015Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch015Lower, hpThetaJensenCellsBatch015Upper, hpThetaJensenCubicWeightBatch015Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch015Lower j * hpThetaJensenCubicWeightBatch015Neg42Upper j) (hpThetaJensenCellsBatch015Upper j * hpThetaJensenCubicWeightBatch015Neg42Upper j) / 1600) ≤
+        (-11965538384797 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch015Lower, hpThetaJensenCellsBatch015Upper, hpThetaJensenCubicWeightBatch015Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch016_bounds :
     hpThetaJensenCubicNeg42BatchLower 16 ≤ hpThetaJensenCubicNeg42RectangleLower 16 ∧
       hpThetaJensenCubicNeg42RectangleUpper 16 ≤ hpThetaJensenCubicNeg42BatchUpper 16 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch016Lower, hpThetaJensenCellsBatch016Upper, hpThetaJensenCubicWeightBatch016Neg42Lower, hpThetaJensenCubicWeightBatch016Neg42Upper]
+  constructor
+  · change (-696576241323 / 50000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch016Lower j * hpThetaJensenCubicWeightBatch016Neg42Lower j) (hpThetaJensenCellsBatch016Upper j * hpThetaJensenCubicWeightBatch016Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch016Lower, hpThetaJensenCellsBatch016Upper, hpThetaJensenCubicWeightBatch016Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch016Lower j * hpThetaJensenCubicWeightBatch016Neg42Upper j) (hpThetaJensenCellsBatch016Upper j * hpThetaJensenCubicWeightBatch016Neg42Upper j) / 1600) ≤
+        (-13656233723557 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch016Lower, hpThetaJensenCellsBatch016Upper, hpThetaJensenCubicWeightBatch016Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch017_bounds :
     hpThetaJensenCubicNeg42BatchLower 17 ≤ hpThetaJensenCubicNeg42RectangleLower 17 ∧
       hpThetaJensenCubicNeg42RectangleUpper 17 ≤ hpThetaJensenCubicNeg42BatchUpper 17 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch017Lower, hpThetaJensenCellsBatch017Upper, hpThetaJensenCubicWeightBatch017Neg42Lower, hpThetaJensenCubicWeightBatch017Neg42Upper]
+  constructor
+  · change (-15242305220049 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch017Lower j * hpThetaJensenCubicWeightBatch017Neg42Lower j) (hpThetaJensenCellsBatch017Upper j * hpThetaJensenCubicWeightBatch017Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch017Lower, hpThetaJensenCellsBatch017Upper, hpThetaJensenCubicWeightBatch017Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch017Lower j * hpThetaJensenCubicWeightBatch017Neg42Upper j) (hpThetaJensenCellsBatch017Upper j * hpThetaJensenCubicWeightBatch017Neg42Upper j) / 1600) ≤
+        (-935208233241 / 62500000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch017Lower, hpThetaJensenCellsBatch017Upper, hpThetaJensenCubicWeightBatch017Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch018_bounds :
     hpThetaJensenCubicNeg42BatchLower 18 ≤ hpThetaJensenCubicNeg42RectangleLower 18 ∧
       hpThetaJensenCubicNeg42RectangleUpper 18 ≤ hpThetaJensenCubicNeg42BatchUpper 18 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch018Lower, hpThetaJensenCellsBatch018Upper, hpThetaJensenCubicWeightBatch018Neg42Lower, hpThetaJensenCubicWeightBatch018Neg42Upper]
+  constructor
+  · change (-4036991577249 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch018Lower j * hpThetaJensenCubicWeightBatch018Neg42Lower j) (hpThetaJensenCellsBatch018Upper j * hpThetaJensenCubicWeightBatch018Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch018Lower, hpThetaJensenCellsBatch018Upper, hpThetaJensenCubicWeightBatch018Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch018Lower j * hpThetaJensenCubicWeightBatch018Neg42Upper j) (hpThetaJensenCellsBatch018Upper j * hpThetaJensenCubicWeightBatch018Neg42Upper j) / 1600) ≤
+        (-1983870212631 / 125000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch018Lower, hpThetaJensenCellsBatch018Upper, hpThetaJensenCubicWeightBatch018Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch019_bounds :
     hpThetaJensenCubicNeg42BatchLower 19 ≤ hpThetaJensenCubicNeg42RectangleLower 19 ∧
       hpThetaJensenCubicNeg42RectangleUpper 19 ≤ hpThetaJensenCubicNeg42BatchUpper 19 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch019Lower, hpThetaJensenCellsBatch019Upper, hpThetaJensenCubicWeightBatch019Neg42Lower, hpThetaJensenCubicWeightBatch019Neg42Upper]
+  constructor
+  · change (-8322501638267 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch019Lower j * hpThetaJensenCubicWeightBatch019Neg42Lower j) (hpThetaJensenCellsBatch019Upper j * hpThetaJensenCubicWeightBatch019Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch019Lower, hpThetaJensenCellsBatch019Upper, hpThetaJensenCubicWeightBatch019Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch019Lower j * hpThetaJensenCubicWeightBatch019Neg42Upper j) (hpThetaJensenCellsBatch019Upper j * hpThetaJensenCubicWeightBatch019Neg42Upper j) / 1600) ≤
+        (-127932932787 / 7812500000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch019Lower, hpThetaJensenCellsBatch019Upper, hpThetaJensenCubicWeightBatch019Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch020_bounds :
     hpThetaJensenCubicNeg42BatchLower 20 ≤ hpThetaJensenCubicNeg42RectangleLower 20 ∧
       hpThetaJensenCubicNeg42RectangleUpper 20 ≤ hpThetaJensenCubicNeg42BatchUpper 20 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch020Lower, hpThetaJensenCellsBatch020Upper, hpThetaJensenCubicWeightBatch020Neg42Lower, hpThetaJensenCubicWeightBatch020Neg42Upper]
+  constructor
+  · change (-16741872005611 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch020Lower j * hpThetaJensenCubicWeightBatch020Neg42Lower j) (hpThetaJensenCellsBatch020Upper j * hpThetaJensenCubicWeightBatch020Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch020Lower, hpThetaJensenCellsBatch020Upper, hpThetaJensenCubicWeightBatch020Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch020Lower j * hpThetaJensenCubicWeightBatch020Neg42Upper j) (hpThetaJensenCellsBatch020Upper j * hpThetaJensenCubicWeightBatch020Neg42Upper j) / 1600) ≤
+        (-1648480818769 / 100000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch020Lower, hpThetaJensenCellsBatch020Upper, hpThetaJensenCubicWeightBatch020Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch021_bounds :
     hpThetaJensenCubicNeg42BatchLower 21 ≤ hpThetaJensenCubicNeg42RectangleLower 21 ∧
       hpThetaJensenCubicNeg42RectangleUpper 21 ≤ hpThetaJensenCubicNeg42BatchUpper 21 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch021Lower, hpThetaJensenCellsBatch021Upper, hpThetaJensenCubicWeightBatch021Neg42Lower, hpThetaJensenCubicWeightBatch021Neg42Upper]
+  constructor
+  · change (-16458244262347 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch021Lower j * hpThetaJensenCubicWeightBatch021Neg42Lower j) (hpThetaJensenCellsBatch021Upper j * hpThetaJensenCubicWeightBatch021Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch021Lower, hpThetaJensenCellsBatch021Upper, hpThetaJensenCubicWeightBatch021Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch021Lower j * hpThetaJensenCubicWeightBatch021Neg42Upper j) (hpThetaJensenCellsBatch021Upper j * hpThetaJensenCubicWeightBatch021Neg42Upper j) / 1600) ≤
+        (-324366928957 / 20000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch021Lower, hpThetaJensenCellsBatch021Upper, hpThetaJensenCubicWeightBatch021Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch022_bounds :
     hpThetaJensenCubicNeg42BatchLower 22 ≤ hpThetaJensenCubicNeg42RectangleLower 22 ∧
       hpThetaJensenCubicNeg42RectangleUpper 22 ≤ hpThetaJensenCubicNeg42BatchUpper 22 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch022Lower, hpThetaJensenCellsBatch022Upper, hpThetaJensenCubicWeightBatch022Neg42Lower, hpThetaJensenCubicWeightBatch022Neg42Upper]
+  constructor
+  · change (-3955975330211 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch022Lower j * hpThetaJensenCubicWeightBatch022Neg42Lower j) (hpThetaJensenCellsBatch022Upper j * hpThetaJensenCubicWeightBatch022Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch022Lower, hpThetaJensenCellsBatch022Upper, hpThetaJensenCubicWeightBatch022Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch022Lower j * hpThetaJensenCubicWeightBatch022Neg42Upper j) (hpThetaJensenCellsBatch022Upper j * hpThetaJensenCubicWeightBatch022Neg42Upper j) / 1600) ≤
+        (-15605237202019 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch022Lower, hpThetaJensenCellsBatch022Upper, hpThetaJensenCubicWeightBatch022Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch023_bounds :
     hpThetaJensenCubicNeg42BatchLower 23 ≤ hpThetaJensenCubicNeg42RectangleLower 23 ∧
       hpThetaJensenCubicNeg42RectangleUpper 23 ≤ hpThetaJensenCubicNeg42BatchUpper 23 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch023Lower, hpThetaJensenCellsBatch023Upper, hpThetaJensenCubicWeightBatch023Neg42Lower, hpThetaJensenCubicWeightBatch023Neg42Upper]
+  constructor
+  · change (-14878118513979 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch023Lower j * hpThetaJensenCubicWeightBatch023Neg42Lower j) (hpThetaJensenCellsBatch023Upper j * hpThetaJensenCubicWeightBatch023Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch023Lower, hpThetaJensenCellsBatch023Upper, hpThetaJensenCubicWeightBatch023Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch023Lower j * hpThetaJensenCubicWeightBatch023Neg42Upper j) (hpThetaJensenCellsBatch023Upper j * hpThetaJensenCubicWeightBatch023Neg42Upper j) / 1600) ≤
+        (-2936499988019 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch023Lower, hpThetaJensenCellsBatch023Upper, hpThetaJensenCubicWeightBatch023Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch024_bounds :
     hpThetaJensenCubicNeg42BatchLower 24 ≤ hpThetaJensenCubicNeg42RectangleLower 24 ∧
       hpThetaJensenCubicNeg42RectangleUpper 24 ≤ hpThetaJensenCubicNeg42BatchUpper 24 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch024Lower, hpThetaJensenCellsBatch024Upper, hpThetaJensenCubicWeightBatch024Neg42Lower, hpThetaJensenCubicWeightBatch024Neg42Upper]
+  constructor
+  · change (-13675599982689 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch024Lower j * hpThetaJensenCubicWeightBatch024Neg42Lower j) (hpThetaJensenCellsBatch024Upper j * hpThetaJensenCubicWeightBatch024Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch024Lower, hpThetaJensenCellsBatch024Upper, hpThetaJensenCubicWeightBatch024Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch024Lower j * hpThetaJensenCubicWeightBatch024Neg42Upper j) (hpThetaJensenCellsBatch024Upper j * hpThetaJensenCubicWeightBatch024Neg42Upper j) / 1600) ≤
+        (-13485804877541 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch024Lower, hpThetaJensenCellsBatch024Upper, hpThetaJensenCubicWeightBatch024Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch025_bounds :
     hpThetaJensenCubicNeg42BatchLower 25 ≤ hpThetaJensenCubicNeg42RectangleLower 25 ∧
       hpThetaJensenCubicNeg42RectangleUpper 25 ≤ hpThetaJensenCubicNeg42BatchUpper 25 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch025Lower, hpThetaJensenCellsBatch025Upper, hpThetaJensenCubicWeightBatch025Neg42Lower, hpThetaJensenCubicWeightBatch025Neg42Upper]
+  constructor
+  · change (-12258969651339 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch025Lower j * hpThetaJensenCubicWeightBatch025Neg42Lower j) (hpThetaJensenCellsBatch025Upper j * hpThetaJensenCubicWeightBatch025Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch025Lower, hpThetaJensenCellsBatch025Upper, hpThetaJensenCubicWeightBatch025Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch025Lower j * hpThetaJensenCubicWeightBatch025Neg42Upper j) (hpThetaJensenCellsBatch025Upper j * hpThetaJensenCubicWeightBatch025Neg42Upper j) / 1600) ≤
+        (-12073004276257 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch025Lower, hpThetaJensenCellsBatch025Upper, hpThetaJensenCubicWeightBatch025Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch026_bounds :
     hpThetaJensenCubicNeg42BatchLower 26 ≤ hpThetaJensenCubicNeg42RectangleLower 26 ∧
       hpThetaJensenCubicNeg42RectangleUpper 26 ≤ hpThetaJensenCubicNeg42BatchUpper 26 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch026Lower, hpThetaJensenCellsBatch026Upper, hpThetaJensenCubicWeightBatch026Neg42Lower, hpThetaJensenCubicWeightBatch026Neg42Upper]
+  constructor
+  · change (-2669665068517 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch026Lower j * hpThetaJensenCubicWeightBatch026Neg42Lower j) (hpThetaJensenCellsBatch026Upper j * hpThetaJensenCubicWeightBatch026Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch026Lower, hpThetaJensenCellsBatch026Upper, hpThetaJensenCubicWeightBatch026Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch026Lower j * hpThetaJensenCubicWeightBatch026Neg42Upper j) (hpThetaJensenCellsBatch026Upper j * hpThetaJensenCubicWeightBatch026Neg42Upper j) / 1600) ≤
+        (-82036092251 / 7812500000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch026Lower, hpThetaJensenCellsBatch026Upper, hpThetaJensenCubicWeightBatch026Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch027_bounds :
     hpThetaJensenCubicNeg42BatchLower 27 ≤ hpThetaJensenCubicNeg42RectangleLower 27 ∧
       hpThetaJensenCubicNeg42RectangleUpper 27 ≤ hpThetaJensenCubicNeg42BatchUpper 27 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch027Lower, hpThetaJensenCellsBatch027Upper, hpThetaJensenCubicWeightBatch027Neg42Lower, hpThetaJensenCubicWeightBatch027Neg42Upper]
+  constructor
+  · change (-2247417289851 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch027Lower j * hpThetaJensenCubicWeightBatch027Neg42Lower j) (hpThetaJensenCellsBatch027Upper j * hpThetaJensenCubicWeightBatch027Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch027Lower, hpThetaJensenCellsBatch027Upper, hpThetaJensenCubicWeightBatch027Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch027Lower j * hpThetaJensenCubicWeightBatch027Neg42Upper j) (hpThetaJensenCellsBatch027Upper j * hpThetaJensenCubicWeightBatch027Neg42Upper j) / 1600) ≤
+        (-8823160327677 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch027Lower, hpThetaJensenCellsBatch027Upper, hpThetaJensenCubicWeightBatch027Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch028_bounds :
     hpThetaJensenCubicNeg42BatchLower 28 ≤ hpThetaJensenCubicNeg42RectangleLower 28 ∧
       hpThetaJensenCubicNeg42RectangleUpper 28 ≤ hpThetaJensenCubicNeg42BatchUpper 28 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch028Lower, hpThetaJensenCellsBatch028Upper, hpThetaJensenCubicWeightBatch028Neg42Lower, hpThetaJensenCubicWeightBatch028Neg42Upper]
+  constructor
+  · change (-226449315539 / 31250000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch028Lower j * hpThetaJensenCubicWeightBatch028Neg42Lower j) (hpThetaJensenCellsBatch028Upper j * hpThetaJensenCubicWeightBatch028Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch028Lower, hpThetaJensenCellsBatch028Upper, hpThetaJensenCubicWeightBatch028Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch028Lower j * hpThetaJensenCubicWeightBatch028Neg42Upper j) (hpThetaJensenCellsBatch028Upper j * hpThetaJensenCubicWeightBatch028Neg42Upper j) / 1600) ≤
+        (-1773609596801 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch028Lower, hpThetaJensenCellsBatch028Upper, hpThetaJensenCubicWeightBatch028Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch029_bounds :
     hpThetaJensenCubicNeg42BatchLower 29 ≤ hpThetaJensenCubicNeg42RectangleLower 29 ∧
       hpThetaJensenCubicNeg42RectangleUpper 29 ≤ hpThetaJensenCubicNeg42BatchUpper 29 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch029Lower, hpThetaJensenCellsBatch029Upper, hpThetaJensenCubicWeightBatch029Neg42Lower, hpThetaJensenCubicWeightBatch029Neg42Upper]
+  constructor
+  · change (-2750378999383 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch029Lower j * hpThetaJensenCubicWeightBatch029Neg42Lower j) (hpThetaJensenCellsBatch029Upper j * hpThetaJensenCubicWeightBatch029Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch029Lower, hpThetaJensenCellsBatch029Upper, hpThetaJensenCubicWeightBatch029Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch029Lower j * hpThetaJensenCubicWeightBatch029Neg42Upper j) (hpThetaJensenCellsBatch029Upper j * hpThetaJensenCubicWeightBatch029Neg42Upper j) / 1600) ≤
+        (-5365798234391 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch029Lower, hpThetaJensenCellsBatch029Upper, hpThetaJensenCubicWeightBatch029Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch030_bounds :
     hpThetaJensenCubicNeg42BatchLower 30 ≤ hpThetaJensenCubicNeg42RectangleLower 30 ∧
       hpThetaJensenCubicNeg42RectangleUpper 30 ≤ hpThetaJensenCubicNeg42BatchUpper 30 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch030Lower, hpThetaJensenCellsBatch030Upper, hpThetaJensenCubicWeightBatch030Neg42Lower, hpThetaJensenCubicWeightBatch030Neg42Upper]
+  constructor
+  · change (-380076413717 / 100000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch030Lower j * hpThetaJensenCubicWeightBatch030Neg42Lower j) (hpThetaJensenCellsBatch030Upper j * hpThetaJensenCubicWeightBatch030Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch030Lower, hpThetaJensenCellsBatch030Upper, hpThetaJensenCubicWeightBatch030Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch030Lower j * hpThetaJensenCubicWeightBatch030Neg42Upper j) (hpThetaJensenCellsBatch030Upper j * hpThetaJensenCubicWeightBatch030Neg42Upper j) / 1600) ≤
+        (-115141735977 / 31250000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch030Lower, hpThetaJensenCellsBatch030Upper, hpThetaJensenCubicWeightBatch030Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch031_bounds :
     hpThetaJensenCubicNeg42BatchLower 31 ≤ hpThetaJensenCubicNeg42RectangleLower 31 ∧
       hpThetaJensenCubicNeg42RectangleUpper 31 ≤ hpThetaJensenCubicNeg42BatchUpper 31 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch031Lower, hpThetaJensenCellsBatch031Upper, hpThetaJensenCubicWeightBatch031Neg42Lower, hpThetaJensenCubicWeightBatch031Neg42Upper]
+  constructor
+  · change (-2188977332819 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch031Lower j * hpThetaJensenCubicWeightBatch031Neg42Lower j) (hpThetaJensenCellsBatch031Upper j * hpThetaJensenCubicWeightBatch031Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch031Lower, hpThetaJensenCellsBatch031Upper, hpThetaJensenCubicWeightBatch031Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch031Lower j * hpThetaJensenCubicWeightBatch031Neg42Upper j) (hpThetaJensenCellsBatch031Upper j * hpThetaJensenCubicWeightBatch031Neg42Upper j) / 1600) ≤
+        (-1046281619599 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch031Lower, hpThetaJensenCellsBatch031Upper, hpThetaJensenCubicWeightBatch031Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch032_bounds :
     hpThetaJensenCubicNeg42BatchLower 32 ≤ hpThetaJensenCubicNeg42RectangleLower 32 ∧
       hpThetaJensenCubicNeg42RectangleUpper 32 ≤ hpThetaJensenCubicNeg42BatchUpper 32 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch032Lower, hpThetaJensenCellsBatch032Upper, hpThetaJensenCubicWeightBatch032Neg42Lower, hpThetaJensenCubicWeightBatch032Neg42Upper]
+  constructor
+  · change (-350766836819 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch032Lower j * hpThetaJensenCubicWeightBatch032Neg42Lower j) (hpThetaJensenCellsBatch032Upper j * hpThetaJensenCubicWeightBatch032Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch032Lower, hpThetaJensenCellsBatch032Upper, hpThetaJensenCubicWeightBatch032Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch032Lower j * hpThetaJensenCubicWeightBatch032Neg42Upper j) (hpThetaJensenCellsBatch032Upper j * hpThetaJensenCubicWeightBatch032Neg42Upper j) / 1600) ≤
+        (-25013815621 / 40000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch032Lower, hpThetaJensenCellsBatch032Upper, hpThetaJensenCubicWeightBatch032Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch033_bounds :
     hpThetaJensenCubicNeg42BatchLower 33 ≤ hpThetaJensenCubicNeg42RectangleLower 33 ∧
       hpThetaJensenCubicNeg42RectangleUpper 33 ≤ hpThetaJensenCubicNeg42BatchUpper 33 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch033Lower, hpThetaJensenCellsBatch033Upper, hpThetaJensenCubicWeightBatch033Neg42Lower, hpThetaJensenCubicWeightBatch033Neg42Upper]
+  constructor
+  · change (623284795131 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch033Lower j * hpThetaJensenCubicWeightBatch033Neg42Lower j) (hpThetaJensenCellsBatch033Upper j * hpThetaJensenCubicWeightBatch033Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch033Lower, hpThetaJensenCellsBatch033Upper, hpThetaJensenCubicWeightBatch033Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch033Lower j * hpThetaJensenCubicWeightBatch033Neg42Upper j) (hpThetaJensenCellsBatch033Upper j * hpThetaJensenCubicWeightBatch033Neg42Upper j) / 1600) ≤
+        (699060190769 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch033Lower, hpThetaJensenCellsBatch033Upper, hpThetaJensenCubicWeightBatch033Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch034_bounds :
     hpThetaJensenCubicNeg42BatchLower 34 ≤ hpThetaJensenCubicNeg42RectangleLower 34 ∧
       hpThetaJensenCubicNeg42RectangleUpper 34 ≤ hpThetaJensenCubicNeg42BatchUpper 34 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch034Lower, hpThetaJensenCellsBatch034Upper, hpThetaJensenCubicWeightBatch034Neg42Lower, hpThetaJensenCubicWeightBatch034Neg42Upper]
+  constructor
+  · change (353075806089 / 200000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch034Lower j * hpThetaJensenCubicWeightBatch034Neg42Lower j) (hpThetaJensenCellsBatch034Upper j * hpThetaJensenCubicWeightBatch034Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch034Lower, hpThetaJensenCellsBatch034Upper, hpThetaJensenCubicWeightBatch034Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch034Lower j * hpThetaJensenCubicWeightBatch034Neg42Upper j) (hpThetaJensenCellsBatch034Upper j * hpThetaJensenCubicWeightBatch034Neg42Upper j) / 1600) ≤
+        (371353454969 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch034Lower, hpThetaJensenCellsBatch034Upper, hpThetaJensenCubicWeightBatch034Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch035_bounds :
     hpThetaJensenCubicNeg42BatchLower 35 ≤ hpThetaJensenCubicNeg42RectangleLower 35 ∧
       hpThetaJensenCubicNeg42RectangleUpper 35 ≤ hpThetaJensenCubicNeg42BatchUpper 35 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch035Lower, hpThetaJensenCellsBatch035Upper, hpThetaJensenCubicWeightBatch035Neg42Lower, hpThetaJensenCubicWeightBatch035Neg42Upper]
+  constructor
+  · change (2721616218953 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch035Lower j * hpThetaJensenCubicWeightBatch035Neg42Lower j) (hpThetaJensenCellsBatch035Upper j * hpThetaJensenCubicWeightBatch035Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch035Lower, hpThetaJensenCellsBatch035Upper, hpThetaJensenCubicWeightBatch035Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch035Lower j * hpThetaJensenCubicWeightBatch035Neg42Upper j) (hpThetaJensenCellsBatch035Upper j * hpThetaJensenCubicWeightBatch035Neg42Upper j) / 1600) ≤
+        (2825157055859 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch035Lower, hpThetaJensenCellsBatch035Upper, hpThetaJensenCubicWeightBatch035Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch036_bounds :
     hpThetaJensenCubicNeg42BatchLower 36 ≤ hpThetaJensenCubicNeg42RectangleLower 36 ∧
       hpThetaJensenCubicNeg42RectangleUpper 36 ≤ hpThetaJensenCubicNeg42BatchUpper 36 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch036Lower, hpThetaJensenCellsBatch036Upper, hpThetaJensenCubicWeightBatch036Neg42Lower, hpThetaJensenCubicWeightBatch036Neg42Upper]
+  constructor
+  · change (3486106552341 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch036Lower j * hpThetaJensenCubicWeightBatch036Neg42Lower j) (hpThetaJensenCellsBatch036Upper j * hpThetaJensenCubicWeightBatch036Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch036Lower, hpThetaJensenCellsBatch036Upper, hpThetaJensenCubicWeightBatch036Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch036Lower j * hpThetaJensenCubicWeightBatch036Neg42Upper j) (hpThetaJensenCellsBatch036Upper j * hpThetaJensenCubicWeightBatch036Neg42Upper j) / 1600) ≤
+        (359834170703 / 100000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch036Lower, hpThetaJensenCellsBatch036Upper, hpThetaJensenCubicWeightBatch036Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch037_bounds :
     hpThetaJensenCubicNeg42BatchLower 37 ≤ hpThetaJensenCubicNeg42RectangleLower 37 ∧
       hpThetaJensenCubicNeg42RectangleUpper 37 ≤ hpThetaJensenCubicNeg42BatchUpper 37 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch037Lower, hpThetaJensenCellsBatch037Upper, hpThetaJensenCubicWeightBatch037Neg42Lower, hpThetaJensenCubicWeightBatch037Neg42Upper]
+  constructor
+  · change (2029937881291 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch037Lower j * hpThetaJensenCubicWeightBatch037Neg42Lower j) (hpThetaJensenCellsBatch037Upper j * hpThetaJensenCubicWeightBatch037Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch037Lower, hpThetaJensenCellsBatch037Upper, hpThetaJensenCubicWeightBatch037Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch037Lower j * hpThetaJensenCubicWeightBatch037Neg42Upper j) (hpThetaJensenCellsBatch037Upper j * hpThetaJensenCubicWeightBatch037Neg42Upper j) / 1600) ≤
+        (4177451872341 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch037Lower, hpThetaJensenCellsBatch037Upper, hpThetaJensenCubicWeightBatch037Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch038_bounds :
     hpThetaJensenCubicNeg42BatchLower 38 ≤ hpThetaJensenCubicNeg42RectangleLower 38 ∧
       hpThetaJensenCubicNeg42RectangleUpper 38 ≤ hpThetaJensenCubicNeg42BatchUpper 38 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch038Lower, hpThetaJensenCellsBatch038Upper, hpThetaJensenCubicWeightBatch038Neg42Lower, hpThetaJensenCubicWeightBatch038Neg42Upper]
+  constructor
+  · change (556267293241 / 125000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch038Lower j * hpThetaJensenCubicWeightBatch038Neg42Lower j) (hpThetaJensenCellsBatch038Upper j * hpThetaJensenCubicWeightBatch038Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch038Lower, hpThetaJensenCellsBatch038Upper, hpThetaJensenCubicWeightBatch038Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch038Lower j * hpThetaJensenCubicWeightBatch038Neg42Upper j) (hpThetaJensenCellsBatch038Upper j * hpThetaJensenCubicWeightBatch038Neg42Upper j) / 1600) ≤
+        (4569898715667 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch038Lower, hpThetaJensenCellsBatch038Upper, hpThetaJensenCubicWeightBatch038Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch039_bounds :
     hpThetaJensenCubicNeg42BatchLower 39 ≤ hpThetaJensenCubicNeg42RectangleLower 39 ∧
       hpThetaJensenCubicNeg42RectangleUpper 39 ≤ hpThetaJensenCubicNeg42BatchUpper 39 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch039Lower, hpThetaJensenCellsBatch039Upper, hpThetaJensenCubicWeightBatch039Neg42Lower, hpThetaJensenCubicWeightBatch039Neg42Upper]
+  constructor
+  · change (2334693312141 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch039Lower j * hpThetaJensenCubicWeightBatch039Neg42Lower j) (hpThetaJensenCellsBatch039Upper j * hpThetaJensenCubicWeightBatch039Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch039Lower, hpThetaJensenCellsBatch039Upper, hpThetaJensenCubicWeightBatch039Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch039Lower j * hpThetaJensenCubicWeightBatch039Neg42Upper j) (hpThetaJensenCellsBatch039Upper j * hpThetaJensenCubicWeightBatch039Neg42Upper j) / 1600) ≤
+        (119711226953 / 25000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch039Lower, hpThetaJensenCellsBatch039Upper, hpThetaJensenCubicWeightBatch039Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch040_bounds :
     hpThetaJensenCubicNeg42BatchLower 40 ≤ hpThetaJensenCubicNeg42RectangleLower 40 ∧
       hpThetaJensenCubicNeg42RectangleUpper 40 ≤ hpThetaJensenCubicNeg42BatchUpper 40 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch040Lower, hpThetaJensenCellsBatch040Upper, hpThetaJensenCubicWeightBatch040Neg42Lower, hpThetaJensenCubicWeightBatch040Neg42Upper]
+  constructor
+  · change (2367175451453 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch040Lower j * hpThetaJensenCubicWeightBatch040Neg42Lower j) (hpThetaJensenCellsBatch040Upper j * hpThetaJensenCubicWeightBatch040Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch040Lower, hpThetaJensenCellsBatch040Upper, hpThetaJensenCubicWeightBatch040Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch040Lower j * hpThetaJensenCubicWeightBatch040Neg42Upper j) (hpThetaJensenCellsBatch040Upper j * hpThetaJensenCubicWeightBatch040Neg42Upper j) / 1600) ≤
+        (970033944667 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch040Lower, hpThetaJensenCellsBatch040Upper, hpThetaJensenCubicWeightBatch040Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch041_bounds :
     hpThetaJensenCubicNeg42BatchLower 41 ≤ hpThetaJensenCubicNeg42RectangleLower 41 ∧
       hpThetaJensenCubicNeg42RectangleUpper 41 ≤ hpThetaJensenCubicNeg42BatchUpper 41 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch041Lower, hpThetaJensenCellsBatch041Upper, hpThetaJensenCubicWeightBatch041Neg42Lower, hpThetaJensenCubicWeightBatch041Neg42Upper]
+  constructor
+  · change (932977648869 / 200000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch041Lower j * hpThetaJensenCubicWeightBatch041Neg42Lower j) (hpThetaJensenCellsBatch041Upper j * hpThetaJensenCubicWeightBatch041Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch041Lower, hpThetaJensenCellsBatch041Upper, hpThetaJensenCubicWeightBatch041Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch041Lower j * hpThetaJensenCubicWeightBatch041Neg42Upper j) (hpThetaJensenCellsBatch041Upper j * hpThetaJensenCubicWeightBatch041Neg42Upper j) / 1600) ≤
+        (2387649485937 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch041Lower, hpThetaJensenCellsBatch041Upper, hpThetaJensenCubicWeightBatch041Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch042_bounds :
     hpThetaJensenCubicNeg42BatchLower 42 ≤ hpThetaJensenCubicNeg42RectangleLower 42 ∧
       hpThetaJensenCubicNeg42RectangleUpper 42 ≤ hpThetaJensenCubicNeg42BatchUpper 42 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch042Lower, hpThetaJensenCellsBatch042Upper, hpThetaJensenCubicWeightBatch042Neg42Lower, hpThetaJensenCubicWeightBatch042Neg42Upper]
+  constructor
+  · change (4482856507709 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch042Lower j * hpThetaJensenCubicWeightBatch042Neg42Lower j) (hpThetaJensenCellsBatch042Upper j * hpThetaJensenCubicWeightBatch042Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch042Lower, hpThetaJensenCellsBatch042Upper, hpThetaJensenCubicWeightBatch042Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch042Lower j * hpThetaJensenCubicWeightBatch042Neg42Upper j) (hpThetaJensenCellsBatch042Upper j * hpThetaJensenCubicWeightBatch042Neg42Upper j) / 1600) ≤
+        (2293051602011 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch042Lower, hpThetaJensenCellsBatch042Upper, hpThetaJensenCubicWeightBatch042Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch043_bounds :
     hpThetaJensenCubicNeg42BatchLower 43 ≤ hpThetaJensenCubicNeg42RectangleLower 43 ∧
       hpThetaJensenCubicNeg42RectangleUpper 43 ≤ hpThetaJensenCubicNeg42BatchUpper 43 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch043Lower, hpThetaJensenCellsBatch043Upper, hpThetaJensenCubicWeightBatch043Neg42Lower, hpThetaJensenCubicWeightBatch043Neg42Upper]
+  constructor
+  · change (4211026531613 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch043Lower j * hpThetaJensenCubicWeightBatch043Neg42Lower j) (hpThetaJensenCellsBatch043Upper j * hpThetaJensenCubicWeightBatch043Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch043Lower, hpThetaJensenCellsBatch043Upper, hpThetaJensenCubicWeightBatch043Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch043Lower j * hpThetaJensenCubicWeightBatch043Neg42Upper j) (hpThetaJensenCellsBatch043Upper j * hpThetaJensenCubicWeightBatch043Neg42Upper j) / 1600) ≤
+        (4305771849229 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch043Lower, hpThetaJensenCellsBatch043Upper, hpThetaJensenCubicWeightBatch043Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch044_bounds :
     hpThetaJensenCubicNeg42BatchLower 44 ≤ hpThetaJensenCubicNeg42RectangleLower 44 ∧
       hpThetaJensenCubicNeg42RectangleUpper 44 ≤ hpThetaJensenCubicNeg42BatchUpper 44 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch044Lower, hpThetaJensenCellsBatch044Upper, hpThetaJensenCubicWeightBatch044Neg42Lower, hpThetaJensenCubicWeightBatch044Neg42Upper]
+  constructor
+  · change (968019728011 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch044Lower j * hpThetaJensenCubicWeightBatch044Neg42Lower j) (hpThetaJensenCellsBatch044Upper j * hpThetaJensenCubicWeightBatch044Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch044Lower, hpThetaJensenCellsBatch044Upper, hpThetaJensenCubicWeightBatch044Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch044Lower j * hpThetaJensenCubicWeightBatch044Neg42Upper j) (hpThetaJensenCellsBatch044Upper j * hpThetaJensenCubicWeightBatch044Neg42Upper j) / 1600) ≤
+        (3957398086393 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch044Lower, hpThetaJensenCellsBatch044Upper, hpThetaJensenCubicWeightBatch044Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch045_bounds :
     hpThetaJensenCubicNeg42BatchLower 45 ≤ hpThetaJensenCubicNeg42RectangleLower 45 ∧
       hpThetaJensenCubicNeg42RectangleUpper 45 ≤ hpThetaJensenCubicNeg42BatchUpper 45 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch045Lower, hpThetaJensenCellsBatch045Upper, hpThetaJensenCubicWeightBatch045Neg42Lower, hpThetaJensenCubicWeightBatch045Neg42Upper]
+  constructor
+  · change (3487723552651 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch045Lower j * hpThetaJensenCubicWeightBatch045Neg42Lower j) (hpThetaJensenCellsBatch045Upper j * hpThetaJensenCubicWeightBatch045Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch045Lower, hpThetaJensenCellsBatch045Upper, hpThetaJensenCubicWeightBatch045Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch045Lower j * hpThetaJensenCubicWeightBatch045Neg42Upper j) (hpThetaJensenCellsBatch045Upper j * hpThetaJensenCubicWeightBatch045Neg42Upper j) / 1600) ≤
+        (3563084004337 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch045Lower, hpThetaJensenCellsBatch045Upper, hpThetaJensenCubicWeightBatch045Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch046_bounds :
     hpThetaJensenCubicNeg42BatchLower 46 ≤ hpThetaJensenCubicNeg42RectangleLower 46 ∧
       hpThetaJensenCubicNeg42RectangleUpper 46 ≤ hpThetaJensenCubicNeg42BatchUpper 46 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch046Lower, hpThetaJensenCellsBatch046Upper, hpThetaJensenCubicWeightBatch046Neg42Lower, hpThetaJensenCubicWeightBatch046Neg42Upper]
+  constructor
+  · change (3077970168751 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch046Lower j * hpThetaJensenCubicWeightBatch046Neg42Lower j) (hpThetaJensenCellsBatch046Upper j * hpThetaJensenCubicWeightBatch046Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch046Lower, hpThetaJensenCellsBatch046Upper, hpThetaJensenCubicWeightBatch046Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch046Lower j * hpThetaJensenCubicWeightBatch046Neg42Upper j) (hpThetaJensenCellsBatch046Upper j * hpThetaJensenCubicWeightBatch046Neg42Upper j) / 1600) ≤
+        (1571599487693 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch046Lower, hpThetaJensenCellsBatch046Upper, hpThetaJensenCubicWeightBatch046Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch047_bounds :
     hpThetaJensenCubicNeg42BatchLower 47 ≤ hpThetaJensenCubicNeg42RectangleLower 47 ∧
       hpThetaJensenCubicNeg42RectangleUpper 47 ≤ hpThetaJensenCubicNeg42BatchUpper 47 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch047Lower, hpThetaJensenCellsBatch047Upper, hpThetaJensenCubicWeightBatch047Neg42Lower, hpThetaJensenCubicWeightBatch047Neg42Upper]
+  constructor
+  · change (166285472169 / 62500000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch047Lower j * hpThetaJensenCubicWeightBatch047Neg42Lower j) (hpThetaJensenCellsBatch047Upper j * hpThetaJensenCubicWeightBatch047Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch047Lower, hpThetaJensenCellsBatch047Upper, hpThetaJensenCubicWeightBatch047Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch047Lower j * hpThetaJensenCubicWeightBatch047Neg42Upper j) (hpThetaJensenCellsBatch047Upper j * hpThetaJensenCubicWeightBatch047Neg42Upper j) / 1600) ≤
+        (21217260403 / 7812500000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch047Lower, hpThetaJensenCellsBatch047Upper, hpThetaJensenCubicWeightBatch047Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch048_bounds :
     hpThetaJensenCubicNeg42BatchLower 48 ≤ hpThetaJensenCubicNeg42RectangleLower 48 ∧
       hpThetaJensenCubicNeg42RectangleUpper 48 ≤ hpThetaJensenCubicNeg42BatchUpper 48 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch048Lower, hpThetaJensenCellsBatch048Upper, hpThetaJensenCubicWeightBatch048Neg42Lower, hpThetaJensenCubicWeightBatch048Neg42Upper]
+  constructor
+  · change (2250618601267 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch048Lower j * hpThetaJensenCubicWeightBatch048Neg42Lower j) (hpThetaJensenCellsBatch048Upper j * hpThetaJensenCubicWeightBatch048Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch048Lower, hpThetaJensenCellsBatch048Upper, hpThetaJensenCubicWeightBatch048Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch048Lower j * hpThetaJensenCubicWeightBatch048Neg42Upper j) (hpThetaJensenCellsBatch048Upper j * hpThetaJensenCubicWeightBatch048Neg42Upper j) / 1600) ≤
+        (459257320721 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch048Lower, hpThetaJensenCellsBatch048Upper, hpThetaJensenCubicWeightBatch048Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch049_bounds :
     hpThetaJensenCubicNeg42BatchLower 49 ≤ hpThetaJensenCubicNeg42RectangleLower 49 ∧
       hpThetaJensenCubicNeg42RectangleUpper 49 ≤ hpThetaJensenCubicNeg42BatchUpper 49 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch049Lower, hpThetaJensenCellsBatch049Upper, hpThetaJensenCubicWeightBatch049Neg42Lower, hpThetaJensenCubicWeightBatch049Neg42Upper]
+  constructor
+  · change (465088914437 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch049Lower j * hpThetaJensenCubicWeightBatch049Neg42Lower j) (hpThetaJensenCellsBatch049Upper j * hpThetaJensenCubicWeightBatch049Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch049Lower, hpThetaJensenCellsBatch049Upper, hpThetaJensenCubicWeightBatch049Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch049Lower j * hpThetaJensenCubicWeightBatch049Neg42Upper j) (hpThetaJensenCellsBatch049Upper j * hpThetaJensenCubicWeightBatch049Neg42Upper j) / 1600) ≤
+        (118569048691 / 62500000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch049Lower, hpThetaJensenCellsBatch049Upper, hpThetaJensenCubicWeightBatch049Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch050_bounds :
     hpThetaJensenCubicNeg42BatchLower 50 ≤ hpThetaJensenCubicNeg42RectangleLower 50 ∧
       hpThetaJensenCubicNeg42RectangleUpper 50 ≤ hpThetaJensenCubicNeg42BatchUpper 50 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch050Lower, hpThetaJensenCellsBatch050Upper, hpThetaJensenCubicWeightBatch050Neg42Lower, hpThetaJensenCubicWeightBatch050Neg42Upper]
+  constructor
+  · change (1498196831859 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch050Lower j * hpThetaJensenCubicWeightBatch050Neg42Lower j) (hpThetaJensenCellsBatch050Upper j * hpThetaJensenCubicWeightBatch050Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch050Lower, hpThetaJensenCellsBatch050Upper, hpThetaJensenCubicWeightBatch050Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch050Lower j * hpThetaJensenCubicWeightBatch050Neg42Upper j) (hpThetaJensenCellsBatch050Upper j * hpThetaJensenCubicWeightBatch050Neg42Upper j) / 1600) ≤
+        (1528694895397 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch050Lower, hpThetaJensenCellsBatch050Upper, hpThetaJensenCubicWeightBatch050Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch051_bounds :
     hpThetaJensenCubicNeg42BatchLower 51 ≤ hpThetaJensenCubicNeg42RectangleLower 51 ∧
       hpThetaJensenCubicNeg42RectangleUpper 51 ≤ hpThetaJensenCubicNeg42BatchUpper 51 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch051Lower, hpThetaJensenCellsBatch051Upper, hpThetaJensenCubicWeightBatch051Neg42Lower, hpThetaJensenCubicWeightBatch051Neg42Upper]
+  constructor
+  · change (1171307039231 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch051Lower j * hpThetaJensenCubicWeightBatch051Neg42Lower j) (hpThetaJensenCellsBatch051Upper j * hpThetaJensenCubicWeightBatch051Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch051Lower, hpThetaJensenCellsBatch051Upper, hpThetaJensenCubicWeightBatch051Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch051Lower j * hpThetaJensenCubicWeightBatch051Neg42Upper j) (hpThetaJensenCellsBatch051Upper j * hpThetaJensenCubicWeightBatch051Neg42Upper j) / 1600) ≤
+        (598512351523 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch051Lower, hpThetaJensenCellsBatch051Upper, hpThetaJensenCubicWeightBatch051Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch052_bounds :
     hpThetaJensenCubicNeg42BatchLower 52 ≤ hpThetaJensenCubicNeg42RectangleLower 52 ∧
       hpThetaJensenCubicNeg42RectangleUpper 52 ≤ hpThetaJensenCubicNeg42BatchUpper 52 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch052Lower, hpThetaJensenCellsBatch052Upper, hpThetaJensenCubicWeightBatch052Neg42Lower, hpThetaJensenCubicWeightBatch052Neg42Upper]
+  constructor
+  · change (884242668921 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch052Lower j * hpThetaJensenCubicWeightBatch052Neg42Lower j) (hpThetaJensenCellsBatch052Upper j * hpThetaJensenCubicWeightBatch052Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch052Lower, hpThetaJensenCellsBatch052Upper, hpThetaJensenCubicWeightBatch052Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch052Lower j * hpThetaJensenCubicWeightBatch052Neg42Upper j) (hpThetaJensenCellsBatch052Upper j * hpThetaJensenCubicWeightBatch052Neg42Upper j) / 1600) ≤
+        (11317455369 / 12500000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch052Lower, hpThetaJensenCellsBatch052Upper, hpThetaJensenCubicWeightBatch052Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch053_bounds :
     hpThetaJensenCubicNeg42BatchLower 53 ≤ hpThetaJensenCubicNeg42RectangleLower 53 ∧
       hpThetaJensenCubicNeg42RectangleUpper 53 ≤ hpThetaJensenCubicNeg42BatchUpper 53 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch053Lower, hpThetaJensenCellsBatch053Upper, hpThetaJensenCubicWeightBatch053Neg42Lower, hpThetaJensenCubicWeightBatch053Neg42Upper]
+  constructor
+  · change (638544666371 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch053Lower j * hpThetaJensenCubicWeightBatch053Neg42Lower j) (hpThetaJensenCellsBatch053Upper j * hpThetaJensenCubicWeightBatch053Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch053Lower, hpThetaJensenCellsBatch053Upper, hpThetaJensenCubicWeightBatch053Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch053Lower j * hpThetaJensenCubicWeightBatch053Neg42Upper j) (hpThetaJensenCellsBatch053Upper j * hpThetaJensenCubicWeightBatch053Neg42Upper j) / 1600) ≤
+        (655471344201 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch053Lower, hpThetaJensenCellsBatch053Upper, hpThetaJensenCubicWeightBatch053Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch054_bounds :
     hpThetaJensenCubicNeg42BatchLower 54 ≤ hpThetaJensenCubicNeg42RectangleLower 54 ∧
       hpThetaJensenCubicNeg42RectangleUpper 54 ≤ hpThetaJensenCubicNeg42BatchUpper 54 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch054Lower, hpThetaJensenCellsBatch054Upper, hpThetaJensenCubicWeightBatch054Neg42Lower, hpThetaJensenCubicWeightBatch054Neg42Upper]
+  constructor
+  · change (54224731919 / 125000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch054Lower j * hpThetaJensenCubicWeightBatch054Neg42Lower j) (hpThetaJensenCellsBatch054Upper j * hpThetaJensenCubicWeightBatch054Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch054Lower, hpThetaJensenCellsBatch054Upper, hpThetaJensenCubicWeightBatch054Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch054Lower j * hpThetaJensenCubicWeightBatch054Neg42Upper j) (hpThetaJensenCellsBatch054Upper j * hpThetaJensenCubicWeightBatch054Neg42Upper j) / 1600) ≤
+        (446918531129 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch054Lower, hpThetaJensenCellsBatch054Upper, hpThetaJensenCubicWeightBatch054Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch055_bounds :
     hpThetaJensenCubicNeg42BatchLower 55 ≤ hpThetaJensenCubicNeg42RectangleLower 55 ∧
       hpThetaJensenCubicNeg42RectangleUpper 55 ≤ hpThetaJensenCubicNeg42BatchUpper 55 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch055Lower, hpThetaJensenCellsBatch055Upper, hpThetaJensenCubicWeightBatch055Neg42Lower, hpThetaJensenCubicWeightBatch055Neg42Upper]
+  constructor
+  · change (268023329111 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch055Lower j * hpThetaJensenCubicWeightBatch055Neg42Lower j) (hpThetaJensenCellsBatch055Upper j * hpThetaJensenCubicWeightBatch055Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch055Lower, hpThetaJensenCellsBatch055Upper, hpThetaJensenCubicWeightBatch055Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch055Lower j * hpThetaJensenCubicWeightBatch055Neg42Upper j) (hpThetaJensenCellsBatch055Upper j * hpThetaJensenCubicWeightBatch055Neg42Upper j) / 1600) ≤
+        (5556196467 / 20000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch055Lower, hpThetaJensenCellsBatch055Upper, hpThetaJensenCubicWeightBatch055Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch056_bounds :
     hpThetaJensenCubicNeg42BatchLower 56 ≤ hpThetaJensenCubicNeg42RectangleLower 56 ∧
       hpThetaJensenCubicNeg42RectangleUpper 56 ≤ hpThetaJensenCubicNeg42BatchUpper 56 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch056Lower, hpThetaJensenCellsBatch056Upper, hpThetaJensenCubicWeightBatch056Neg42Lower, hpThetaJensenCubicWeightBatch056Neg42Upper]
+  constructor
+  · change (138076516123 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch056Lower j * hpThetaJensenCubicWeightBatch056Neg42Lower j) (hpThetaJensenCellsBatch056Upper j * hpThetaJensenCubicWeightBatch056Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch056Lower, hpThetaJensenCellsBatch056Upper, hpThetaJensenCubicWeightBatch056Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch056Lower j * hpThetaJensenCubicWeightBatch056Neg42Upper j) (hpThetaJensenCellsBatch056Upper j * hpThetaJensenCubicWeightBatch056Neg42Upper j) / 1600) ≤
+        (72510820453 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch056Lower, hpThetaJensenCellsBatch056Upper, hpThetaJensenCubicWeightBatch056Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch057_bounds :
     hpThetaJensenCubicNeg42BatchLower 57 ≤ hpThetaJensenCubicNeg42RectangleLower 57 ∧
       hpThetaJensenCubicNeg42RectangleUpper 57 ≤ hpThetaJensenCubicNeg42BatchUpper 57 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch057Lower, hpThetaJensenCellsBatch057Upper, hpThetaJensenCubicWeightBatch057Neg42Lower, hpThetaJensenCubicWeightBatch057Neg42Upper]
+  constructor
+  · change (10007139249 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch057Lower j * hpThetaJensenCubicWeightBatch057Neg42Lower j) (hpThetaJensenCellsBatch057Upper j * hpThetaJensenCubicWeightBatch057Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch057Lower, hpThetaJensenCellsBatch057Upper, hpThetaJensenCubicWeightBatch057Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch057Lower j * hpThetaJensenCubicWeightBatch057Neg42Upper j) (hpThetaJensenCellsBatch057Upper j * hpThetaJensenCubicWeightBatch057Neg42Upper j) / 1600) ≤
+        (44621021641 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch057Lower, hpThetaJensenCellsBatch057Upper, hpThetaJensenCubicWeightBatch057Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch058_bounds :
     hpThetaJensenCubicNeg42BatchLower 58 ≤ hpThetaJensenCubicNeg42RectangleLower 58 ∧
       hpThetaJensenCubicNeg42RectangleUpper 58 ≤ hpThetaJensenCubicNeg42BatchUpper 58 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch058Lower, hpThetaJensenCellsBatch058Upper, hpThetaJensenCubicWeightBatch058Neg42Lower, hpThetaJensenCubicWeightBatch058Neg42Upper]
+  constructor
+  · change (-31184309601 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch058Lower j * hpThetaJensenCubicWeightBatch058Neg42Lower j) (hpThetaJensenCellsBatch058Upper j * hpThetaJensenCubicWeightBatch058Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch058Lower, hpThetaJensenCellsBatch058Upper, hpThetaJensenCubicWeightBatch058Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch058Lower j * hpThetaJensenCubicWeightBatch058Neg42Upper j) (hpThetaJensenCellsBatch058Upper j * hpThetaJensenCubicWeightBatch058Neg42Upper j) / 1600) ≤
+        (-27158126793 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch058Lower, hpThetaJensenCellsBatch058Upper, hpThetaJensenCubicWeightBatch058Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch059_bounds :
     hpThetaJensenCubicNeg42BatchLower 59 ≤ hpThetaJensenCubicNeg42RectangleLower 59 ∧
       hpThetaJensenCubicNeg42RectangleUpper 59 ≤ hpThetaJensenCubicNeg42BatchUpper 59 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch059Lower, hpThetaJensenCellsBatch059Upper, hpThetaJensenCubicWeightBatch059Neg42Lower, hpThetaJensenCubicWeightBatch059Neg42Upper]
+  constructor
+  · change (-79787443433 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch059Lower j * hpThetaJensenCubicWeightBatch059Neg42Lower j) (hpThetaJensenCellsBatch059Upper j * hpThetaJensenCubicWeightBatch059Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch059Lower, hpThetaJensenCellsBatch059Upper, hpThetaJensenCubicWeightBatch059Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch059Lower j * hpThetaJensenCubicWeightBatch059Neg42Upper j) (hpThetaJensenCellsBatch059Upper j * hpThetaJensenCubicWeightBatch059Neg42Upper j) / 1600) ≤
+        (-2999476543 / 40000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch059Lower, hpThetaJensenCellsBatch059Upper, hpThetaJensenCubicWeightBatch059Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch060_bounds :
     hpThetaJensenCubicNeg42BatchLower 60 ≤ hpThetaJensenCubicNeg42RectangleLower 60 ∧
       hpThetaJensenCubicNeg42RectangleUpper 60 ≤ hpThetaJensenCubicNeg42BatchUpper 60 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch060Lower, hpThetaJensenCellsBatch060Upper, hpThetaJensenCubicWeightBatch060Neg42Lower, hpThetaJensenCubicWeightBatch060Neg42Upper]
+  constructor
+  · change (-27340106033 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch060Lower j * hpThetaJensenCubicWeightBatch060Neg42Lower j) (hpThetaJensenCellsBatch060Upper j * hpThetaJensenCubicWeightBatch060Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch060Lower, hpThetaJensenCellsBatch060Upper, hpThetaJensenCubicWeightBatch060Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch060Lower j * hpThetaJensenCubicWeightBatch060Neg42Upper j) (hpThetaJensenCellsBatch060Upper j * hpThetaJensenCubicWeightBatch060Neg42Upper j) / 1600) ≤
+        (-20840490421 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch060Lower, hpThetaJensenCellsBatch060Upper, hpThetaJensenCubicWeightBatch060Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch061_bounds :
     hpThetaJensenCubicNeg42BatchLower 61 ≤ hpThetaJensenCubicNeg42RectangleLower 61 ∧
       hpThetaJensenCubicNeg42RectangleUpper 61 ≤ hpThetaJensenCubicNeg42BatchUpper 61 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch061Lower, hpThetaJensenCellsBatch061Upper, hpThetaJensenCubicWeightBatch061Neg42Lower, hpThetaJensenCubicWeightBatch061Neg42Upper]
+  constructor
+  · change (-6204097833 / 50000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch061Lower j * hpThetaJensenCubicWeightBatch061Neg42Lower j) (hpThetaJensenCellsBatch061Upper j * hpThetaJensenCubicWeightBatch061Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch061Lower, hpThetaJensenCellsBatch061Upper, hpThetaJensenCubicWeightBatch061Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch061Lower j * hpThetaJensenCubicWeightBatch061Neg42Upper j) (hpThetaJensenCellsBatch061Upper j * hpThetaJensenCubicWeightBatch061Neg42Upper j) / 1600) ≤
+        (-29722554839 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch061Lower, hpThetaJensenCellsBatch061Upper, hpThetaJensenCubicWeightBatch061Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch062_bounds :
     hpThetaJensenCubicNeg42BatchLower 62 ≤ hpThetaJensenCubicNeg42RectangleLower 62 ∧
       hpThetaJensenCubicNeg42RectangleUpper 62 ≤ hpThetaJensenCubicNeg42BatchUpper 62 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch062Lower, hpThetaJensenCellsBatch062Upper, hpThetaJensenCubicWeightBatch062Neg42Lower, hpThetaJensenCubicWeightBatch062Neg42Upper]
+  constructor
+  · change (-127703405057 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch062Lower j * hpThetaJensenCubicWeightBatch062Neg42Lower j) (hpThetaJensenCellsBatch062Upper j * hpThetaJensenCubicWeightBatch062Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch062Lower, hpThetaJensenCellsBatch062Upper, hpThetaJensenCubicWeightBatch062Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch062Lower j * hpThetaJensenCubicWeightBatch062Neg42Upper j) (hpThetaJensenCellsBatch062Upper j * hpThetaJensenCubicWeightBatch062Neg42Upper j) / 1600) ≤
+        (-2454302337 / 20000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch062Lower, hpThetaJensenCellsBatch062Upper, hpThetaJensenCubicWeightBatch062Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch063_bounds :
     hpThetaJensenCubicNeg42BatchLower 63 ≤ hpThetaJensenCubicNeg42RectangleLower 63 ∧
       hpThetaJensenCubicNeg42RectangleUpper 63 ≤ hpThetaJensenCubicNeg42BatchUpper 63 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch063Lower, hpThetaJensenCellsBatch063Upper, hpThetaJensenCubicWeightBatch063Neg42Lower, hpThetaJensenCubicWeightBatch063Neg42Upper]
+  constructor
+  · change (-61734437713 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch063Lower j * hpThetaJensenCubicWeightBatch063Neg42Lower j) (hpThetaJensenCellsBatch063Upper j * hpThetaJensenCubicWeightBatch063Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch063Lower, hpThetaJensenCellsBatch063Upper, hpThetaJensenCubicWeightBatch063Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch063Lower j * hpThetaJensenCubicWeightBatch063Neg42Upper j) (hpThetaJensenCellsBatch063Upper j * hpThetaJensenCubicWeightBatch063Neg42Upper j) / 1600) ≤
+        (-23769211129 / 200000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch063Lower, hpThetaJensenCellsBatch063Upper, hpThetaJensenCubicWeightBatch063Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch064_bounds :
     hpThetaJensenCubicNeg42BatchLower 64 ≤ hpThetaJensenCubicNeg42RectangleLower 64 ∧
       hpThetaJensenCubicNeg42RectangleUpper 64 ≤ hpThetaJensenCubicNeg42BatchUpper 64 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch064Lower, hpThetaJensenCellsBatch064Upper, hpThetaJensenCubicWeightBatch064Neg42Lower, hpThetaJensenCubicWeightBatch064Neg42Upper]
+  constructor
+  · change (-57040849047 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch064Lower j * hpThetaJensenCubicWeightBatch064Neg42Lower j) (hpThetaJensenCellsBatch064Upper j * hpThetaJensenCubicWeightBatch064Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch064Lower, hpThetaJensenCellsBatch064Upper, hpThetaJensenCubicWeightBatch064Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch064Lower j * hpThetaJensenCubicWeightBatch064Neg42Upper j) (hpThetaJensenCellsBatch064Upper j * hpThetaJensenCubicWeightBatch064Neg42Upper j) / 1600) ≤
+        (-109923357743 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch064Lower, hpThetaJensenCellsBatch064Upper, hpThetaJensenCubicWeightBatch064Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch065_bounds :
     hpThetaJensenCubicNeg42BatchLower 65 ≤ hpThetaJensenCubicNeg42RectangleLower 65 ∧
       hpThetaJensenCubicNeg42RectangleUpper 65 ≤ hpThetaJensenCubicNeg42BatchUpper 65 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch065Lower, hpThetaJensenCellsBatch065Upper, hpThetaJensenCubicWeightBatch065Neg42Lower, hpThetaJensenCubicWeightBatch065Neg42Upper]
+  constructor
+  · change (-50854431817 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch065Lower j * hpThetaJensenCubicWeightBatch065Neg42Lower j) (hpThetaJensenCellsBatch065Upper j * hpThetaJensenCubicWeightBatch065Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch065Lower, hpThetaJensenCellsBatch065Upper, hpThetaJensenCubicWeightBatch065Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch065Lower j * hpThetaJensenCubicWeightBatch065Neg42Upper j) (hpThetaJensenCellsBatch065Upper j * hpThetaJensenCubicWeightBatch065Neg42Upper j) / 1600) ≤
+        (-98063266909 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch065Lower, hpThetaJensenCellsBatch065Upper, hpThetaJensenCubicWeightBatch065Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch066_bounds :
     hpThetaJensenCubicNeg42BatchLower 66 ≤ hpThetaJensenCubicNeg42RectangleLower 66 ∧
       hpThetaJensenCubicNeg42RectangleUpper 66 ≤ hpThetaJensenCubicNeg42BatchUpper 66 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch066Lower, hpThetaJensenCellsBatch066Upper, hpThetaJensenCubicWeightBatch066Neg42Lower, hpThetaJensenCubicWeightBatch066Neg42Upper]
+  constructor
+  · change (-44007147187 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch066Lower j * hpThetaJensenCubicWeightBatch066Neg42Lower j) (hpThetaJensenCellsBatch066Upper j * hpThetaJensenCubicWeightBatch066Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch066Lower, hpThetaJensenCellsBatch066Upper, hpThetaJensenCubicWeightBatch066Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch066Lower j * hpThetaJensenCubicWeightBatch066Neg42Upper j) (hpThetaJensenCellsBatch066Upper j * hpThetaJensenCubicWeightBatch066Neg42Upper j) / 1600) ≤
+        (-21222673423 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch066Lower, hpThetaJensenCellsBatch066Upper, hpThetaJensenCubicWeightBatch066Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch067_bounds :
     hpThetaJensenCubicNeg42BatchLower 67 ≤ hpThetaJensenCubicNeg42RectangleLower 67 ∧
       hpThetaJensenCubicNeg42RectangleUpper 67 ≤ hpThetaJensenCubicNeg42BatchUpper 67 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch067Lower, hpThetaJensenCellsBatch067Upper, hpThetaJensenCubicWeightBatch067Neg42Lower, hpThetaJensenCubicWeightBatch067Neg42Upper]
+  constructor
+  · change (-74212084043 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch067Lower j * hpThetaJensenCubicWeightBatch067Neg42Lower j) (hpThetaJensenCellsBatch067Upper j * hpThetaJensenCubicWeightBatch067Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch067Lower, hpThetaJensenCellsBatch067Upper, hpThetaJensenCubicWeightBatch067Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch067Lower j * hpThetaJensenCubicWeightBatch067Neg42Upper j) (hpThetaJensenCellsBatch067Upper j * hpThetaJensenCubicWeightBatch067Neg42Upper j) / 1600) ≤
+        (-4474459043 / 62500000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch067Lower, hpThetaJensenCellsBatch067Upper, hpThetaJensenCubicWeightBatch067Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch068_bounds :
     hpThetaJensenCubicNeg42BatchLower 68 ≤ hpThetaJensenCubicNeg42RectangleLower 68 ∧
       hpThetaJensenCubicNeg42RectangleUpper 68 ≤ hpThetaJensenCubicNeg42BatchUpper 68 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch068Lower, hpThetaJensenCellsBatch068Upper, hpThetaJensenCubicWeightBatch068Neg42Lower, hpThetaJensenCubicWeightBatch068Neg42Upper]
+  constructor
+  · change (-61131367951 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch068Lower j * hpThetaJensenCubicWeightBatch068Neg42Lower j) (hpThetaJensenCellsBatch068Upper j * hpThetaJensenCubicWeightBatch068Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch068Lower, hpThetaJensenCellsBatch068Upper, hpThetaJensenCubicWeightBatch068Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch068Lower j * hpThetaJensenCubicWeightBatch068Neg42Upper j) (hpThetaJensenCellsBatch068Upper j * hpThetaJensenCubicWeightBatch068Neg42Upper j) / 1600) ≤
+        (-1179504809 / 20000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch068Lower, hpThetaJensenCellsBatch068Upper, hpThetaJensenCubicWeightBatch068Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch069_bounds :
     hpThetaJensenCubicNeg42BatchLower 69 ≤ hpThetaJensenCubicNeg42RectangleLower 69 ∧
       hpThetaJensenCubicNeg42RectangleUpper 69 ≤ hpThetaJensenCubicNeg42BatchUpper 69 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch069Lower, hpThetaJensenCellsBatch069Upper, hpThetaJensenCubicWeightBatch069Neg42Lower, hpThetaJensenCubicWeightBatch069Neg42Upper]
+  constructor
+  · change (-6160730809 / 125000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch069Lower j * hpThetaJensenCubicWeightBatch069Neg42Lower j) (hpThetaJensenCellsBatch069Upper j * hpThetaJensenCubicWeightBatch069Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch069Lower, hpThetaJensenCellsBatch069Upper, hpThetaJensenCubicWeightBatch069Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch069Lower j * hpThetaJensenCubicWeightBatch069Neg42Upper j) (hpThetaJensenCellsBatch069Upper j * hpThetaJensenCubicWeightBatch069Neg42Upper j) / 1600) ≤
+        (-47544634529 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch069Lower, hpThetaJensenCellsBatch069Upper, hpThetaJensenCubicWeightBatch069Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch070_bounds :
     hpThetaJensenCubicNeg42BatchLower 70 ≤ hpThetaJensenCubicNeg42RectangleLower 70 ∧
       hpThetaJensenCubicNeg42RectangleUpper 70 ≤ hpThetaJensenCubicNeg42BatchUpper 70 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch070Lower, hpThetaJensenCellsBatch070Upper, hpThetaJensenCubicWeightBatch070Neg42Lower, hpThetaJensenCubicWeightBatch070Neg42Upper]
+  constructor
+  · change (-3894227737 / 100000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch070Lower j * hpThetaJensenCubicWeightBatch070Neg42Lower j) (hpThetaJensenCellsBatch070Upper j * hpThetaJensenCubicWeightBatch070Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch070Lower, hpThetaJensenCellsBatch070Upper, hpThetaJensenCubicWeightBatch070Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch070Lower j * hpThetaJensenCubicWeightBatch070Neg42Upper j) (hpThetaJensenCellsBatch070Upper j * hpThetaJensenCubicWeightBatch070Neg42Upper j) / 1600) ≤
+        (-18780538777 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch070Lower, hpThetaJensenCellsBatch070Upper, hpThetaJensenCubicWeightBatch070Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch071_bounds :
     hpThetaJensenCubicNeg42BatchLower 71 ≤ hpThetaJensenCubicNeg42RectangleLower 71 ∧
       hpThetaJensenCubicNeg42RectangleUpper 71 ≤ hpThetaJensenCubicNeg42BatchUpper 71 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch071Lower, hpThetaJensenCellsBatch071Upper, hpThetaJensenCubicWeightBatch071Neg42Lower, hpThetaJensenCubicWeightBatch071Neg42Upper]
+  constructor
+  · change (-15091949523 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch071Lower j * hpThetaJensenCubicWeightBatch071Neg42Lower j) (hpThetaJensenCellsBatch071Upper j * hpThetaJensenCubicWeightBatch071Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch071Lower, hpThetaJensenCellsBatch071Upper, hpThetaJensenCubicWeightBatch071Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch071Lower j * hpThetaJensenCubicWeightBatch071Neg42Upper j) (hpThetaJensenCellsBatch071Upper j * hpThetaJensenCubicWeightBatch071Neg42Upper j) / 1600) ≤
+        (-14553554621 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch071Lower, hpThetaJensenCellsBatch071Upper, hpThetaJensenCubicWeightBatch071Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch072_bounds :
     hpThetaJensenCubicNeg42BatchLower 72 ≤ hpThetaJensenCubicNeg42RectangleLower 72 ∧
       hpThetaJensenCubicNeg42RectangleUpper 72 ≤ hpThetaJensenCubicNeg42BatchUpper 72 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch072Lower, hpThetaJensenCellsBatch072Upper, hpThetaJensenCubicWeightBatch072Neg42Lower, hpThetaJensenCubicWeightBatch072Neg42Upper]
+  constructor
+  · change (-22965891983 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch072Lower j * hpThetaJensenCubicWeightBatch072Neg42Lower j) (hpThetaJensenCellsBatch072Upper j * hpThetaJensenCubicWeightBatch072Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch072Lower, hpThetaJensenCellsBatch072Upper, hpThetaJensenCubicWeightBatch072Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch072Lower j * hpThetaJensenCubicWeightBatch072Neg42Upper j) (hpThetaJensenCellsBatch072Upper j * hpThetaJensenCubicWeightBatch072Neg42Upper j) / 1600) ≤
+        (-22140553401 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch072Lower, hpThetaJensenCellsBatch072Upper, hpThetaJensenCubicWeightBatch072Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch073_bounds :
     hpThetaJensenCubicNeg42BatchLower 73 ≤ hpThetaJensenCubicNeg42RectangleLower 73 ∧
       hpThetaJensenCubicNeg42RectangleUpper 73 ≤ hpThetaJensenCubicNeg42BatchUpper 73 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch073Lower, hpThetaJensenCellsBatch073Upper, hpThetaJensenCubicWeightBatch073Neg42Lower, hpThetaJensenCubicWeightBatch073Neg42Upper]
+  constructor
+  · change (-17161649569 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch073Lower j * hpThetaJensenCubicWeightBatch073Neg42Lower j) (hpThetaJensenCellsBatch073Upper j * hpThetaJensenCubicWeightBatch073Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch073Lower, hpThetaJensenCellsBatch073Upper, hpThetaJensenCubicWeightBatch073Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch073Lower j * hpThetaJensenCubicWeightBatch073Neg42Upper j) (hpThetaJensenCellsBatch073Upper j * hpThetaJensenCubicWeightBatch073Neg42Upper j) / 1600) ≤
+        (-8269768287 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch073Lower, hpThetaJensenCellsBatch073Upper, hpThetaJensenCubicWeightBatch073Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch074_bounds :
     hpThetaJensenCubicNeg42BatchLower 74 ≤ hpThetaJensenCubicNeg42RectangleLower 74 ∧
       hpThetaJensenCubicNeg42RectangleUpper 74 ≤ hpThetaJensenCubicNeg42BatchUpper 74 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch074Lower, hpThetaJensenCellsBatch074Upper, hpThetaJensenCubicWeightBatch074Neg42Lower, hpThetaJensenCubicWeightBatch074Neg42Upper]
+  constructor
+  · change (-12599482123 / 1000000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch074Lower j * hpThetaJensenCubicWeightBatch074Neg42Lower j) (hpThetaJensenCellsBatch074Upper j * hpThetaJensenCubicWeightBatch074Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch074Lower, hpThetaJensenCellsBatch074Upper, hpThetaJensenCubicWeightBatch074Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch074Lower j * hpThetaJensenCubicWeightBatch074Neg42Upper j) (hpThetaJensenCellsBatch074Upper j * hpThetaJensenCubicWeightBatch074Neg42Upper j) / 1600) ≤
+        (-3034548813 / 250000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch074Lower, hpThetaJensenCellsBatch074Upper, hpThetaJensenCubicWeightBatch074Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch075_bounds :
     hpThetaJensenCubicNeg42BatchLower 75 ≤ hpThetaJensenCubicNeg42RectangleLower 75 ∧
       hpThetaJensenCubicNeg42RectangleUpper 75 ≤ hpThetaJensenCubicNeg42BatchUpper 75 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch075Lower, hpThetaJensenCellsBatch075Upper, hpThetaJensenCubicWeightBatch075Neg42Lower, hpThetaJensenCubicWeightBatch075Neg42Upper]
+  constructor
+  · change (-1136243437 / 125000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch075Lower j * hpThetaJensenCubicWeightBatch075Neg42Lower j) (hpThetaJensenCellsBatch075Upper j * hpThetaJensenCubicWeightBatch075Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch075Lower, hpThetaJensenCellsBatch075Upper, hpThetaJensenCubicWeightBatch075Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch075Lower j * hpThetaJensenCubicWeightBatch075Neg42Upper j) (hpThetaJensenCellsBatch075Upper j * hpThetaJensenCubicWeightBatch075Neg42Upper j) / 1600) ≤
+        (-8753538807 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch075Lower, hpThetaJensenCellsBatch075Upper, hpThetaJensenCubicWeightBatch075Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch076_bounds :
     hpThetaJensenCubicNeg42BatchLower 76 ≤ hpThetaJensenCubicNeg42RectangleLower 76 ∧
       hpThetaJensenCubicNeg42RectangleUpper 76 ≤ hpThetaJensenCubicNeg42BatchUpper 76 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch076Lower, hpThetaJensenCellsBatch076Upper, hpThetaJensenCubicWeightBatch076Neg42Lower, hpThetaJensenCubicWeightBatch076Neg42Upper]
+  constructor
+  · change (-3222666011 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch076Lower j * hpThetaJensenCubicWeightBatch076Neg42Lower j) (hpThetaJensenCellsBatch076Upper j * hpThetaJensenCubicWeightBatch076Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch076Lower, hpThetaJensenCellsBatch076Upper, hpThetaJensenCubicWeightBatch076Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch076Lower j * hpThetaJensenCubicWeightBatch076Neg42Upper j) (hpThetaJensenCellsBatch076Upper j * hpThetaJensenCubicWeightBatch076Neg42Upper j) / 1600) ≤
+        (-6203966021 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch076Lower, hpThetaJensenCellsBatch076Upper, hpThetaJensenCubicWeightBatch076Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch077_bounds :
     hpThetaJensenCubicNeg42BatchLower 77 ≤ hpThetaJensenCubicNeg42RectangleLower 77 ∧
       hpThetaJensenCubicNeg42RectangleUpper 77 ≤ hpThetaJensenCubicNeg42BatchUpper 77 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch077Lower, hpThetaJensenCellsBatch077Upper, hpThetaJensenCubicWeightBatch077Neg42Lower, hpThetaJensenCubicWeightBatch077Neg42Upper]
+  constructor
+  · change (-1122970151 / 250000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch077Lower j * hpThetaJensenCubicWeightBatch077Neg42Lower j) (hpThetaJensenCellsBatch077Upper j * hpThetaJensenCubicWeightBatch077Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch077Lower, hpThetaJensenCellsBatch077Upper, hpThetaJensenCubicWeightBatch077Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch077Lower j * hpThetaJensenCubicWeightBatch077Neg42Upper j) (hpThetaJensenCellsBatch077Upper j * hpThetaJensenCubicWeightBatch077Neg42Upper j) / 1600) ≤
+        (-2160754001 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch077Lower, hpThetaJensenCellsBatch077Upper, hpThetaJensenCubicWeightBatch077Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch078_bounds :
     hpThetaJensenCubicNeg42BatchLower 78 ≤ hpThetaJensenCubicNeg42RectangleLower 78 ∧
       hpThetaJensenCubicNeg42RectangleUpper 78 ≤ hpThetaJensenCubicNeg42BatchUpper 78 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch078Lower, hpThetaJensenCellsBatch078Upper, hpThetaJensenCubicWeightBatch078Neg42Lower, hpThetaJensenCubicWeightBatch078Neg42Upper]
+  constructor
+  · change (-1538444737 / 500000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch078Lower j * hpThetaJensenCubicWeightBatch078Neg42Lower j) (hpThetaJensenCellsBatch078Upper j * hpThetaJensenCubicWeightBatch078Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch078Lower, hpThetaJensenCellsBatch078Upper, hpThetaJensenCubicWeightBatch078Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch078Lower j * hpThetaJensenCubicWeightBatch078Neg42Upper j) (hpThetaJensenCellsBatch078Upper j * hpThetaJensenCubicWeightBatch078Neg42Upper j) / 1600) ≤
+        (-2958600731 / 1000000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch078Lower, hpThetaJensenCellsBatch078Upper, hpThetaJensenCubicWeightBatch078Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42RectanglesBatch079_bounds :
     hpThetaJensenCubicNeg42BatchLower 79 ≤ hpThetaJensenCubicNeg42RectangleLower 79 ∧
       hpThetaJensenCubicNeg42RectangleUpper 79 ≤ hpThetaJensenCubicNeg42BatchUpper 79 := by
-  norm_num [hpThetaJensenCubicNeg42BatchLower, hpThetaJensenCubicNeg42BatchUpper,
-    hpThetaJensenCubicNeg42RectangleLower, hpThetaJensenCubicNeg42RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, hpThetaJensenCellsBatch079Lower, hpThetaJensenCellsBatch079Upper, hpThetaJensenCubicWeightBatch079Neg42Lower, hpThetaJensenCubicWeightBatch079Neg42Upper]
+  constructor
+  · change (-414293313 / 200000000000000 : ℝ) ≤
+      ∑ j ∈ Finset.range 20,
+        min (hpThetaJensenCellsBatch079Lower j * hpThetaJensenCubicWeightBatch079Neg42Lower j) (hpThetaJensenCellsBatch079Upper j * hpThetaJensenCubicWeightBatch079Neg42Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch079Lower, hpThetaJensenCellsBatch079Upper, hpThetaJensenCubicWeightBatch079Neg42Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max (hpThetaJensenCellsBatch079Lower j * hpThetaJensenCubicWeightBatch079Neg42Upper j) (hpThetaJensenCellsBatch079Upper j * hpThetaJensenCubicWeightBatch079Neg42Upper j) / 1600) ≤
+        (-995316339 / 500000000000000 : ℝ)
+    norm_num [max_def, Finset.sum_range_succ,
+      hpThetaJensenCellsBatch079Lower, hpThetaJensenCellsBatch079Upper, hpThetaJensenCubicWeightBatch079Neg42Upper]
 
 theorem hpThetaJensenCubicNeg42LowerPrefix000 :
     (∑ b ∈ Finset.range 0, hpThetaJensenCubicNeg42BatchLower b) = (0 : ℝ) := by

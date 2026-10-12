@@ -76,9 +76,17 @@ def generate(point, kernel_dir, weight_dir, output_dir):
         proofs.append(f'''\ntheorem {pre}RectanglesBatch{b:03}_bounds :
     {pre}BatchLower {b} ≤ {pre}RectangleLower {b} ∧
       {pre}RectangleUpper {b} ≤ {pre}BatchUpper {b} := by
-  norm_num [{pre}BatchLower, {pre}BatchUpper,
-    {pre}RectangleLower, {pre}RectangleUpper, min_def, max_def,
-    Finset.sum_range_succ, {k}Lower, {k}Upper, {w}Lower, {w}Upper]
+  constructor
+  · change {rounded[0][-1].split('=> ', 1)[1]} ≤
+      ∑ j ∈ Finset.range 20,
+        min ({k}Lower j * {w}Lower j) ({k}Upper j * {w}Lower j) / 1600
+    norm_num [min_def, Finset.sum_range_succ,
+      {k}Lower, {k}Upper, {w}Lower]
+  · change (∑ j ∈ Finset.range 20,
+      max ({k}Lower j * {w}Upper j) ({k}Upper j * {w}Upper j) / 1600) ≤
+        {rounded[1][-1].split('=> ', 1)[1]}
+    norm_num [max_def, Finset.sum_range_succ,
+      {k}Lower, {k}Upper, {w}Upper]
 ''')
     lower, upper = POINTS[point]
     if not lower <= totals[0] <= actual[0] <= actual[1] <= totals[1] <= upper:
