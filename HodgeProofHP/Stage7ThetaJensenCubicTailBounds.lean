@@ -29,20 +29,23 @@ theorem hpThetaJensenCubicWeight_abs_le_sixth (p u : ℝ)
   have htri : |hpThetaJensenCubicWeight p u| ≤
       1 + (3 * |p| / 2) * u ^ 2 + (|p| ^ 2 / 4) * u ^ 4 +
         (|p| ^ 3 / 120) * u ^ 6 := by
-    have h1 := abs_add (1 : ℝ) ((3 * p / 2) * u ^ 2)
-    have h2a := abs_add (1 + (3 * p / 2) * u ^ 2) ((p ^ 2 / 4) * u ^ 4)
-    have h3a := abs_add (1 + (3 * p / 2) * u ^ 2 + (p ^ 2 / 4) * u ^ 4)
+    have h1 := abs_add_le (1 : ℝ) ((3 * p / 2) * u ^ 2)
+    have h2a := abs_add_le (1 + (3 * p / 2) * u ^ 2) ((p ^ 2 / 4) * u ^ 4)
+    have h3a := abs_add_le (1 + (3 * p / 2) * u ^ 2 + (p ^ 2 / 4) * u ^ 4)
       ((p ^ 3 / 120) * u ^ 6)
     simp only [abs_mul, abs_div, abs_pow, abs_of_nonneg hu0] at h1 h2a h3a
     norm_num at h1 h2a h3a
     unfold hpThetaJensenCubicWeight
+    simp only [sq_abs]
     linarith
   have ha : (3 * |p| / 2) * u ^ 2 ≤ 135 * u ^ 6 := by
     have hc : 3 * |p| / 2 ≤ (135 : ℝ) := by linarith
     have hm := mul_le_mul_of_nonneg_right hc (sq_nonneg u)
     nlinarith
   have hb : (|p| ^ 2 / 4) * u ^ 4 ≤ 2025 * u ^ 6 := by
-    have hc : |p| ^ 2 / 4 ≤ (2025 : ℝ) := by linarith
+    have hc : |p| ^ 2 / 4 ≤ (2025 : ℝ) := by
+      rw [sq_abs]
+      linarith
     have hm := mul_le_mul_of_nonneg_right hc (pow_nonneg hu0 4)
     nlinarith
   have hc : (|p| ^ 3 / 120) * u ^ 6 ≤ 6075 * u ^ 6 := by
@@ -63,9 +66,17 @@ theorem hpThetaJensenCubic_tail_abs_le (p : ℝ) (hp : |p| ≤ 90) :
   have hmajor : IntegrableOn (fun u : ℝ =>
       10000 * (u ^ 6 * hpRiemannThetaDifferentialKernel u))
       (Set.Ioi 1) volume := by
-    apply (hpThetaPhi_sixthMoment_integrableOn.const_mul 10000).mono_set
-    intro u hu
-    exact lt_trans (by norm_num : (0 : ℝ) < 1) hu
+    have h6tail : IntegrableOn
+        (fun u : ℝ => u ^ 6 * hpRiemannThetaDifferentialKernel u)
+        (Set.Ioi 1) volume := by
+      apply hpThetaPhi_sixthMoment_integrableOn.mono_set
+      intro u hu
+      change 1 < u at hu
+      exact lt_trans (by norm_num : (0 : ℝ) < 1) hu
+    change Integrable (fun u : ℝ =>
+      10000 * (u ^ 6 * hpRiemannThetaDifferentialKernel u))
+      (volume.restrict (Set.Ioi 1))
+    exact h6tail.const_mul 10000
   have hbound : (∫ u : ℝ in Set.Ioi 1,
       |hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight p u|) ≤
       ∫ u : ℝ in Set.Ioi 1,
@@ -73,10 +84,15 @@ theorem hpThetaJensenCubic_tail_abs_le (p : ℝ) (hp : |p| ≤ 90) :
     have habs : IntegrableOn (fun u : ℝ =>
         |hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight p u|)
         (Set.Ioi 1) volume := by
+      change Integrable (fun u : ℝ =>
+        |hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight p u|)
+        (volume.restrict (Set.Ioi 1))
       simpa only [Real.norm_eq_abs] using hint.norm
     apply integral_mono_ae habs hmajor
     filter_upwards [ae_restrict_mem measurableSet_Ioi] with u hu
-    have hk := (hpThetaPhi_pos_on_nonnegative u (by linarith [hu])).le
+    change 1 < u at hu
+    have hu0 : 0 ≤ u := by linarith
+    have hk := (hpThetaPhi_pos_on_nonnegative u hu0).le
     have hw := hpThetaJensenCubicWeight_abs_le_sixth p u hp (le_of_lt hu)
     rw [abs_mul, abs_of_nonneg hk]
     nlinarith [mul_le_mul_of_nonneg_left hw hk]
