@@ -16,6 +16,16 @@ No numerical coefficient enclosure or evaluation sign is asserted.
 noncomputable section
 namespace HodgeProofHP
 
+theorem hpThetaBernsteinValue_six_explicit (c : Fin 7 → ℝ) (t : ℝ) :
+    hpThetaBernsteinValue 6 c t =
+      c 0 * (1 - t) ^ 6 + 6 * c 1 * t * (1 - t) ^ 5 +
+      15 * c 2 * t ^ 2 * (1 - t) ^ 4 +
+      20 * c 3 * t ^ 3 * (1 - t) ^ 3 +
+      15 * c 4 * t ^ 4 * (1 - t) ^ 2 +
+      6 * c 5 * t ^ 5 * (1 - t) + c 6 * t ^ 6 := by
+  norm_num [hpThetaBernsteinValue, Fin.sum_univ_succ]
+  ring
+
 def hpThetaBernsteinPowerTwo (a h : ℝ) (k : Fin 7) : ℝ :=
   a ^ 2 + (k.val : ℝ) / 3 * a * h + (k.val.choose 2 : ℝ) / 15 * h ^ 2
 
@@ -40,9 +50,10 @@ def hpThetaJensenCubicBernsteinCoefficient (p a h : ℝ) (k : Fin 7) : ℝ :=
 theorem hpThetaJensenCubicWeight_bernstein_expansion (p a h t : ℝ) :
     hpThetaBernsteinValue 6 (hpThetaJensenCubicBernsteinCoefficient p a h) t =
       hpThetaJensenCubicWeight p (a + h * t) := by
-  norm_num [hpThetaBernsteinValue, hpThetaJensenCubicBernsteinCoefficient,
+  rw [hpThetaBernsteinValue_six_explicit]
+  norm_num [hpThetaJensenCubicBernsteinCoefficient,
     hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour, hpThetaBernsteinPowerSix,
-    hpThetaJensenCubicWeight, Fin.sum_univ_succ]
+    hpThetaJensenCubicWeight]
   ring
 
 theorem hpThetaJensenCubicWeight_bernstein_cell (p a b u : ℝ) (hab : a < b) :
