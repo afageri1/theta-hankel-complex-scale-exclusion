@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Adil Fagiri
 -/
 import HodgeProofHP.Stage7ThetaJensenCubicIntegral
+import HodgeProofHP.Stage4ThetaPhiPositiveLowerBound
 import Mathlib.MeasureTheory.Integral.Bochner.Set
 
 /-!
