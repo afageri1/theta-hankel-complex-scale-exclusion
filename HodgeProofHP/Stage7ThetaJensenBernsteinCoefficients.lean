@@ -23,7 +23,7 @@ theorem hpThetaBernsteinValue_six_explicit (c : Fin 7 → ℝ) (t : ℝ) :
       20 * c 3 * t ^ 3 * (1 - t) ^ 3 +
       15 * c 4 * t ^ 4 * (1 - t) ^ 2 +
       6 * c 5 * t ^ 5 * (1 - t) + c 6 * t ^ 6 := by
-  norm_num [hpThetaBernsteinValue, Fin.sum_univ_succ]
+  norm_num [hpThetaBernsteinValue, Fin.sum_univ_succ, Nat.choose]
   ring
 
 def hpThetaBernsteinPowerTwo (a h : ℝ) (k : Fin 7) : ℝ :=
@@ -53,7 +53,7 @@ theorem hpThetaJensenCubicWeight_bernstein_expansion (p a h t : ℝ) :
   rw [hpThetaBernsteinValue_six_explicit]
   norm_num [hpThetaJensenCubicBernsteinCoefficient,
     hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour, hpThetaBernsteinPowerSix,
-    hpThetaJensenCubicWeight]
+    hpThetaJensenCubicWeight, Nat.choose]
   ring
 
 theorem hpThetaJensenCubicWeight_bernstein_cell (p a b u : ℝ) (hab : a < b) :
