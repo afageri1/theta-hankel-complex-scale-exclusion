@@ -53,6 +53,7 @@ jobs:
           bash scripts/audit_stage7_jensen_assumption_frontier.sh
           bash scripts/audit_stage7_jensen_cubic_algebra.sh
           bash scripts/audit_stage7_jensen_cubic_integral.sh
+          bash scripts/audit_stage7_jensen_cubic_signed_cells.sh
           bash scripts/audit_stage7_jensen_bernstein_bounds.sh
           bash scripts/audit_stage7_jensen_bernstein_coefficients.sh
           bash scripts/audit_stage7_jensen_cubic_weight_all.sh
@@ -79,6 +80,7 @@ jobs:
             stage7-jensen-assumption-frontier-axioms.log
             stage7-jensen-cubic-algebra-axioms.log
             stage7-jensen-cubic-integral-axioms.log
+            stage7-jensen-cubic-signed-cells-axioms.log
             stage7-jensen-bernstein-bounds-axioms.log
             stage7-jensen-bernstein-coefficients-axioms.log
             stage7-jensen-cubic-weight-batch*-axioms.log
