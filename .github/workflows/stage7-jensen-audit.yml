@@ -55,7 +55,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cubic_integral.sh
           bash scripts/audit_stage7_jensen_bernstein_bounds.sh
           bash scripts/audit_stage7_jensen_bernstein_coefficients.sh
-          bash scripts/audit_stage7_jensen_cubic_weight_batch000.sh
+          bash scripts/audit_stage7_jensen_cubic_weight_all.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -81,7 +81,7 @@ jobs:
             stage7-jensen-cubic-integral-axioms.log
             stage7-jensen-bernstein-bounds-axioms.log
             stage7-jensen-bernstein-coefficients-axioms.log
-            stage7-jensen-cubic-weight-batch000-axioms.log
+            stage7-jensen-cubic-weight-batch*-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log

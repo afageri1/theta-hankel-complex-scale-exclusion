@@ -72,12 +72,14 @@ theorem {stem}Cell{j:02}_bounds (u : ℝ)
       hpThetaJensenCubicWeight ({p}) u ≤ {stem}Upper {j} := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     ({p}) ({i} / 1600) ({i+1} / 1600) u
-    ({stem}Lower {j}) ({stem}Upper {j}) (by norm_num) hu
+    ({stem}Lower {j})
+    ({stem}Upper {j}) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, {stem}Lower, {stem}Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      {stem}Lower, {stem}Upper]
 ''')
         final_name = f'{stem}_bounds'
         chunks.append(f'''
@@ -89,7 +91,9 @@ theorem {final_name} (j : Fin 20) (u : ℝ)
   fin_cases j
 ''')
         for j in range(20):
-            chunks.append(f'''  · have h := {stem}Cell{j:02}_bounds u (by norm_num at hu ⊢; exact hu)
+            chunks.append(f'''  · have h := {stem}Cell{j:02}_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
 ''')
         reports.append(final_name)

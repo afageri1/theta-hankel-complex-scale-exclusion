@@ -65,12 +65,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell00_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 0 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (0 / 1600) (1 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 0) (hpThetaJensenCubicWeightBatch000Neg90Upper 0) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 0)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 0) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell01_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (1 / 1600 : ℝ) (2 / 1600 : ℝ)) :
@@ -78,12 +80,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell01_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 1 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (1 / 1600) (2 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 1) (hpThetaJensenCubicWeightBatch000Neg90Upper 1) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 1)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 1) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell02_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (2 / 1600 : ℝ) (3 / 1600 : ℝ)) :
@@ -91,12 +95,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell02_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 2 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (2 / 1600) (3 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 2) (hpThetaJensenCubicWeightBatch000Neg90Upper 2) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 2)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 2) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell03_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (3 / 1600 : ℝ) (4 / 1600 : ℝ)) :
@@ -104,12 +110,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell03_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 3 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (3 / 1600) (4 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 3) (hpThetaJensenCubicWeightBatch000Neg90Upper 3) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 3)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 3) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell04_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (4 / 1600 : ℝ) (5 / 1600 : ℝ)) :
@@ -117,12 +125,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell04_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 4 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (4 / 1600) (5 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 4) (hpThetaJensenCubicWeightBatch000Neg90Upper 4) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 4)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 4) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell05_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (5 / 1600 : ℝ) (6 / 1600 : ℝ)) :
@@ -130,12 +140,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell05_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 5 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (5 / 1600) (6 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 5) (hpThetaJensenCubicWeightBatch000Neg90Upper 5) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 5)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 5) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell06_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (6 / 1600 : ℝ) (7 / 1600 : ℝ)) :
@@ -143,12 +155,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell06_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 6 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (6 / 1600) (7 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 6) (hpThetaJensenCubicWeightBatch000Neg90Upper 6) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 6)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 6) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell07_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (7 / 1600 : ℝ) (8 / 1600 : ℝ)) :
@@ -156,12 +170,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell07_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 7 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (7 / 1600) (8 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 7) (hpThetaJensenCubicWeightBatch000Neg90Upper 7) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 7)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 7) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell08_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (8 / 1600 : ℝ) (9 / 1600 : ℝ)) :
@@ -169,12 +185,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell08_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 8 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (8 / 1600) (9 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 8) (hpThetaJensenCubicWeightBatch000Neg90Upper 8) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 8)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 8) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell09_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (9 / 1600 : ℝ) (10 / 1600 : ℝ)) :
@@ -182,12 +200,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell09_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 9 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (9 / 1600) (10 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 9) (hpThetaJensenCubicWeightBatch000Neg90Upper 9) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 9)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 9) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell10_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (10 / 1600 : ℝ) (11 / 1600 : ℝ)) :
@@ -195,12 +215,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell10_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 10 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (10 / 1600) (11 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 10) (hpThetaJensenCubicWeightBatch000Neg90Upper 10) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 10)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 10) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell11_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (11 / 1600 : ℝ) (12 / 1600 : ℝ)) :
@@ -208,12 +230,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell11_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 11 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (11 / 1600) (12 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 11) (hpThetaJensenCubicWeightBatch000Neg90Upper 11) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 11)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 11) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell12_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (12 / 1600 : ℝ) (13 / 1600 : ℝ)) :
@@ -221,12 +245,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell12_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 12 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (12 / 1600) (13 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 12) (hpThetaJensenCubicWeightBatch000Neg90Upper 12) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 12)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 12) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell13_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (13 / 1600 : ℝ) (14 / 1600 : ℝ)) :
@@ -234,12 +260,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell13_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 13 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (13 / 1600) (14 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 13) (hpThetaJensenCubicWeightBatch000Neg90Upper 13) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 13)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 13) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell14_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (14 / 1600 : ℝ) (15 / 1600 : ℝ)) :
@@ -247,12 +275,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell14_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 14 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (14 / 1600) (15 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 14) (hpThetaJensenCubicWeightBatch000Neg90Upper 14) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 14)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 14) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell15_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (15 / 1600 : ℝ) (16 / 1600 : ℝ)) :
@@ -260,12 +290,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell15_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 15 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (15 / 1600) (16 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 15) (hpThetaJensenCubicWeightBatch000Neg90Upper 15) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 15)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 15) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell16_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (16 / 1600 : ℝ) (17 / 1600 : ℝ)) :
@@ -273,12 +305,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell16_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 16 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (16 / 1600) (17 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 16) (hpThetaJensenCubicWeightBatch000Neg90Upper 16) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 16)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 16) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell17_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (17 / 1600 : ℝ) (18 / 1600 : ℝ)) :
@@ -286,12 +320,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell17_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 17 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (17 / 1600) (18 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 17) (hpThetaJensenCubicWeightBatch000Neg90Upper 17) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 17)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 17) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell18_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (18 / 1600 : ℝ) (19 / 1600 : ℝ)) :
@@ -299,12 +335,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell18_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 18 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (18 / 1600) (19 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 18) (hpThetaJensenCubicWeightBatch000Neg90Upper 18) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 18)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 18) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90Cell19_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (19 / 1600 : ℝ) (20 / 1600 : ℝ)) :
@@ -312,12 +350,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg90Cell19_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper 19 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-90) (19 / 1600) (20 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg90Lower 19) (hpThetaJensenCubicWeightBatch000Neg90Upper 19) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg90Lower 19)
+    (hpThetaJensenCubicWeightBatch000Neg90Upper 19) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg90Lower, hpThetaJensenCubicWeightBatch000Neg90Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg90_bounds (j : Fin 20) (u : ℝ)
     (hu : u ∈ Set.Icc (((0 : ℝ) + (j.val : ℝ)) / 1600)
@@ -325,45 +365,85 @@ theorem hpThetaJensenCubicWeightBatch000Neg90_bounds (j : Fin 20) (u : ℝ)
     hpThetaJensenCubicWeightBatch000Neg90Lower j.val ≤ hpThetaJensenCubicWeight (-90) u ∧
       hpThetaJensenCubicWeight (-90) u ≤ hpThetaJensenCubicWeightBatch000Neg90Upper j.val := by
   fin_cases j
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell00_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell00_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell01_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell01_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell02_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell02_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell03_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell03_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell04_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell04_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell05_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell05_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell06_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell06_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell07_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell07_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell08_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell08_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell09_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell09_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell10_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell10_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell11_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell11_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell12_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell12_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell13_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell13_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell14_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell14_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell15_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell15_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell16_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell16_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell17_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell17_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell18_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell18_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell19_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg90Cell19_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
 
 def hpThetaJensenCubicWeightBatch000Neg55Lower (j : ℕ) : ℝ :=
@@ -420,12 +500,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell00_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 0 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (0 / 1600) (1 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 0) (hpThetaJensenCubicWeightBatch000Neg55Upper 0) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 0)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 0) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell01_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (1 / 1600 : ℝ) (2 / 1600 : ℝ)) :
@@ -433,12 +515,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell01_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 1 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (1 / 1600) (2 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 1) (hpThetaJensenCubicWeightBatch000Neg55Upper 1) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 1)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 1) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell02_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (2 / 1600 : ℝ) (3 / 1600 : ℝ)) :
@@ -446,12 +530,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell02_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 2 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (2 / 1600) (3 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 2) (hpThetaJensenCubicWeightBatch000Neg55Upper 2) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 2)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 2) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell03_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (3 / 1600 : ℝ) (4 / 1600 : ℝ)) :
@@ -459,12 +545,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell03_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 3 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (3 / 1600) (4 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 3) (hpThetaJensenCubicWeightBatch000Neg55Upper 3) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 3)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 3) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell04_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (4 / 1600 : ℝ) (5 / 1600 : ℝ)) :
@@ -472,12 +560,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell04_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 4 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (4 / 1600) (5 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 4) (hpThetaJensenCubicWeightBatch000Neg55Upper 4) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 4)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 4) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell05_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (5 / 1600 : ℝ) (6 / 1600 : ℝ)) :
@@ -485,12 +575,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell05_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 5 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (5 / 1600) (6 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 5) (hpThetaJensenCubicWeightBatch000Neg55Upper 5) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 5)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 5) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell06_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (6 / 1600 : ℝ) (7 / 1600 : ℝ)) :
@@ -498,12 +590,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell06_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 6 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (6 / 1600) (7 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 6) (hpThetaJensenCubicWeightBatch000Neg55Upper 6) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 6)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 6) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell07_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (7 / 1600 : ℝ) (8 / 1600 : ℝ)) :
@@ -511,12 +605,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell07_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 7 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (7 / 1600) (8 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 7) (hpThetaJensenCubicWeightBatch000Neg55Upper 7) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 7)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 7) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell08_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (8 / 1600 : ℝ) (9 / 1600 : ℝ)) :
@@ -524,12 +620,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell08_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 8 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (8 / 1600) (9 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 8) (hpThetaJensenCubicWeightBatch000Neg55Upper 8) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 8)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 8) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell09_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (9 / 1600 : ℝ) (10 / 1600 : ℝ)) :
@@ -537,12 +635,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell09_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 9 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (9 / 1600) (10 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 9) (hpThetaJensenCubicWeightBatch000Neg55Upper 9) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 9)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 9) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell10_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (10 / 1600 : ℝ) (11 / 1600 : ℝ)) :
@@ -550,12 +650,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell10_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 10 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (10 / 1600) (11 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 10) (hpThetaJensenCubicWeightBatch000Neg55Upper 10) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 10)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 10) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell11_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (11 / 1600 : ℝ) (12 / 1600 : ℝ)) :
@@ -563,12 +665,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell11_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 11 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (11 / 1600) (12 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 11) (hpThetaJensenCubicWeightBatch000Neg55Upper 11) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 11)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 11) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell12_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (12 / 1600 : ℝ) (13 / 1600 : ℝ)) :
@@ -576,12 +680,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell12_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 12 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (12 / 1600) (13 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 12) (hpThetaJensenCubicWeightBatch000Neg55Upper 12) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 12)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 12) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell13_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (13 / 1600 : ℝ) (14 / 1600 : ℝ)) :
@@ -589,12 +695,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell13_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 13 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (13 / 1600) (14 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 13) (hpThetaJensenCubicWeightBatch000Neg55Upper 13) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 13)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 13) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell14_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (14 / 1600 : ℝ) (15 / 1600 : ℝ)) :
@@ -602,12 +710,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell14_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 14 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (14 / 1600) (15 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 14) (hpThetaJensenCubicWeightBatch000Neg55Upper 14) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 14)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 14) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell15_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (15 / 1600 : ℝ) (16 / 1600 : ℝ)) :
@@ -615,12 +725,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell15_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 15 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (15 / 1600) (16 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 15) (hpThetaJensenCubicWeightBatch000Neg55Upper 15) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 15)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 15) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell16_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (16 / 1600 : ℝ) (17 / 1600 : ℝ)) :
@@ -628,12 +740,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell16_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 16 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (16 / 1600) (17 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 16) (hpThetaJensenCubicWeightBatch000Neg55Upper 16) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 16)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 16) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell17_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (17 / 1600 : ℝ) (18 / 1600 : ℝ)) :
@@ -641,12 +755,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell17_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 17 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (17 / 1600) (18 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 17) (hpThetaJensenCubicWeightBatch000Neg55Upper 17) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 17)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 17) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell18_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (18 / 1600 : ℝ) (19 / 1600 : ℝ)) :
@@ -654,12 +770,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell18_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 18 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (18 / 1600) (19 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 18) (hpThetaJensenCubicWeightBatch000Neg55Upper 18) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 18)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 18) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55Cell19_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (19 / 1600 : ℝ) (20 / 1600 : ℝ)) :
@@ -667,12 +785,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg55Cell19_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper 19 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-55) (19 / 1600) (20 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg55Lower 19) (hpThetaJensenCubicWeightBatch000Neg55Upper 19) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg55Lower 19)
+    (hpThetaJensenCubicWeightBatch000Neg55Upper 19) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg55Lower, hpThetaJensenCubicWeightBatch000Neg55Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg55_bounds (j : Fin 20) (u : ℝ)
     (hu : u ∈ Set.Icc (((0 : ℝ) + (j.val : ℝ)) / 1600)
@@ -680,45 +800,85 @@ theorem hpThetaJensenCubicWeightBatch000Neg55_bounds (j : Fin 20) (u : ℝ)
     hpThetaJensenCubicWeightBatch000Neg55Lower j.val ≤ hpThetaJensenCubicWeight (-55) u ∧
       hpThetaJensenCubicWeight (-55) u ≤ hpThetaJensenCubicWeightBatch000Neg55Upper j.val := by
   fin_cases j
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell00_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell00_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell01_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell01_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell02_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell02_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell03_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell03_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell04_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell04_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell05_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell05_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell06_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell06_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell07_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell07_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell08_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell08_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell09_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell09_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell10_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell10_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell11_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell11_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell12_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell12_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell13_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell13_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell14_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell14_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell15_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell15_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell16_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell16_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell17_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell17_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell18_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell18_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell19_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg55Cell19_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
 
 def hpThetaJensenCubicWeightBatch000Neg42Lower (j : ℕ) : ℝ :=
@@ -775,12 +935,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell00_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 0 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (0 / 1600) (1 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 0) (hpThetaJensenCubicWeightBatch000Neg42Upper 0) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 0)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 0) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell01_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (1 / 1600 : ℝ) (2 / 1600 : ℝ)) :
@@ -788,12 +950,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell01_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 1 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (1 / 1600) (2 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 1) (hpThetaJensenCubicWeightBatch000Neg42Upper 1) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 1)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 1) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell02_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (2 / 1600 : ℝ) (3 / 1600 : ℝ)) :
@@ -801,12 +965,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell02_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 2 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (2 / 1600) (3 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 2) (hpThetaJensenCubicWeightBatch000Neg42Upper 2) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 2)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 2) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell03_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (3 / 1600 : ℝ) (4 / 1600 : ℝ)) :
@@ -814,12 +980,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell03_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 3 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (3 / 1600) (4 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 3) (hpThetaJensenCubicWeightBatch000Neg42Upper 3) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 3)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 3) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell04_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (4 / 1600 : ℝ) (5 / 1600 : ℝ)) :
@@ -827,12 +995,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell04_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 4 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (4 / 1600) (5 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 4) (hpThetaJensenCubicWeightBatch000Neg42Upper 4) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 4)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 4) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell05_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (5 / 1600 : ℝ) (6 / 1600 : ℝ)) :
@@ -840,12 +1010,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell05_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 5 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (5 / 1600) (6 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 5) (hpThetaJensenCubicWeightBatch000Neg42Upper 5) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 5)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 5) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell06_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (6 / 1600 : ℝ) (7 / 1600 : ℝ)) :
@@ -853,12 +1025,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell06_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 6 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (6 / 1600) (7 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 6) (hpThetaJensenCubicWeightBatch000Neg42Upper 6) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 6)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 6) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell07_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (7 / 1600 : ℝ) (8 / 1600 : ℝ)) :
@@ -866,12 +1040,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell07_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 7 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (7 / 1600) (8 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 7) (hpThetaJensenCubicWeightBatch000Neg42Upper 7) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 7)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 7) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell08_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (8 / 1600 : ℝ) (9 / 1600 : ℝ)) :
@@ -879,12 +1055,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell08_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 8 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (8 / 1600) (9 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 8) (hpThetaJensenCubicWeightBatch000Neg42Upper 8) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 8)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 8) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell09_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (9 / 1600 : ℝ) (10 / 1600 : ℝ)) :
@@ -892,12 +1070,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell09_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 9 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (9 / 1600) (10 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 9) (hpThetaJensenCubicWeightBatch000Neg42Upper 9) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 9)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 9) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell10_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (10 / 1600 : ℝ) (11 / 1600 : ℝ)) :
@@ -905,12 +1085,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell10_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 10 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (10 / 1600) (11 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 10) (hpThetaJensenCubicWeightBatch000Neg42Upper 10) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 10)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 10) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell11_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (11 / 1600 : ℝ) (12 / 1600 : ℝ)) :
@@ -918,12 +1100,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell11_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 11 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (11 / 1600) (12 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 11) (hpThetaJensenCubicWeightBatch000Neg42Upper 11) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 11)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 11) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell12_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (12 / 1600 : ℝ) (13 / 1600 : ℝ)) :
@@ -931,12 +1115,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell12_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 12 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (12 / 1600) (13 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 12) (hpThetaJensenCubicWeightBatch000Neg42Upper 12) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 12)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 12) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell13_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (13 / 1600 : ℝ) (14 / 1600 : ℝ)) :
@@ -944,12 +1130,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell13_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 13 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (13 / 1600) (14 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 13) (hpThetaJensenCubicWeightBatch000Neg42Upper 13) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 13)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 13) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell14_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (14 / 1600 : ℝ) (15 / 1600 : ℝ)) :
@@ -957,12 +1145,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell14_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 14 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (14 / 1600) (15 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 14) (hpThetaJensenCubicWeightBatch000Neg42Upper 14) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 14)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 14) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell15_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (15 / 1600 : ℝ) (16 / 1600 : ℝ)) :
@@ -970,12 +1160,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell15_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 15 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (15 / 1600) (16 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 15) (hpThetaJensenCubicWeightBatch000Neg42Upper 15) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 15)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 15) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell16_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (16 / 1600 : ℝ) (17 / 1600 : ℝ)) :
@@ -983,12 +1175,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell16_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 16 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (16 / 1600) (17 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 16) (hpThetaJensenCubicWeightBatch000Neg42Upper 16) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 16)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 16) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell17_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (17 / 1600 : ℝ) (18 / 1600 : ℝ)) :
@@ -996,12 +1190,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell17_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 17 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (17 / 1600) (18 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 17) (hpThetaJensenCubicWeightBatch000Neg42Upper 17) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 17)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 17) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell18_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (18 / 1600 : ℝ) (19 / 1600 : ℝ)) :
@@ -1009,12 +1205,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell18_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 18 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (18 / 1600) (19 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 18) (hpThetaJensenCubicWeightBatch000Neg42Upper 18) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 18)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 18) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42Cell19_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (19 / 1600 : ℝ) (20 / 1600 : ℝ)) :
@@ -1022,12 +1220,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg42Cell19_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper 19 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-42) (19 / 1600) (20 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg42Lower 19) (hpThetaJensenCubicWeightBatch000Neg42Upper 19) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg42Lower 19)
+    (hpThetaJensenCubicWeightBatch000Neg42Upper 19) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg42Lower, hpThetaJensenCubicWeightBatch000Neg42Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg42_bounds (j : Fin 20) (u : ℝ)
     (hu : u ∈ Set.Icc (((0 : ℝ) + (j.val : ℝ)) / 1600)
@@ -1035,45 +1235,85 @@ theorem hpThetaJensenCubicWeightBatch000Neg42_bounds (j : Fin 20) (u : ℝ)
     hpThetaJensenCubicWeightBatch000Neg42Lower j.val ≤ hpThetaJensenCubicWeight (-42) u ∧
       hpThetaJensenCubicWeight (-42) u ≤ hpThetaJensenCubicWeightBatch000Neg42Upper j.val := by
   fin_cases j
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell00_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell00_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell01_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell01_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell02_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell02_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell03_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell03_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell04_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell04_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell05_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell05_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell06_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell06_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell07_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell07_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell08_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell08_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell09_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell09_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell10_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell10_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell11_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell11_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell12_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell12_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell13_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell13_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell14_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell14_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell15_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell15_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell16_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell16_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell17_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell17_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell18_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell18_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell19_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg42Cell19_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
 
 def hpThetaJensenCubicWeightBatch000Neg15Lower (j : ℕ) : ℝ :=
@@ -1130,12 +1370,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell00_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 0 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (0 / 1600) (1 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 0) (hpThetaJensenCubicWeightBatch000Neg15Upper 0) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 0)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 0) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell01_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (1 / 1600 : ℝ) (2 / 1600 : ℝ)) :
@@ -1143,12 +1385,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell01_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 1 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (1 / 1600) (2 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 1) (hpThetaJensenCubicWeightBatch000Neg15Upper 1) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 1)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 1) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell02_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (2 / 1600 : ℝ) (3 / 1600 : ℝ)) :
@@ -1156,12 +1400,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell02_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 2 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (2 / 1600) (3 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 2) (hpThetaJensenCubicWeightBatch000Neg15Upper 2) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 2)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 2) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell03_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (3 / 1600 : ℝ) (4 / 1600 : ℝ)) :
@@ -1169,12 +1415,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell03_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 3 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (3 / 1600) (4 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 3) (hpThetaJensenCubicWeightBatch000Neg15Upper 3) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 3)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 3) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell04_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (4 / 1600 : ℝ) (5 / 1600 : ℝ)) :
@@ -1182,12 +1430,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell04_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 4 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (4 / 1600) (5 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 4) (hpThetaJensenCubicWeightBatch000Neg15Upper 4) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 4)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 4) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell05_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (5 / 1600 : ℝ) (6 / 1600 : ℝ)) :
@@ -1195,12 +1445,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell05_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 5 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (5 / 1600) (6 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 5) (hpThetaJensenCubicWeightBatch000Neg15Upper 5) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 5)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 5) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell06_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (6 / 1600 : ℝ) (7 / 1600 : ℝ)) :
@@ -1208,12 +1460,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell06_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 6 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (6 / 1600) (7 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 6) (hpThetaJensenCubicWeightBatch000Neg15Upper 6) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 6)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 6) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell07_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (7 / 1600 : ℝ) (8 / 1600 : ℝ)) :
@@ -1221,12 +1475,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell07_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 7 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (7 / 1600) (8 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 7) (hpThetaJensenCubicWeightBatch000Neg15Upper 7) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 7)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 7) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell08_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (8 / 1600 : ℝ) (9 / 1600 : ℝ)) :
@@ -1234,12 +1490,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell08_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 8 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (8 / 1600) (9 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 8) (hpThetaJensenCubicWeightBatch000Neg15Upper 8) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 8)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 8) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell09_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (9 / 1600 : ℝ) (10 / 1600 : ℝ)) :
@@ -1247,12 +1505,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell09_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 9 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (9 / 1600) (10 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 9) (hpThetaJensenCubicWeightBatch000Neg15Upper 9) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 9)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 9) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell10_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (10 / 1600 : ℝ) (11 / 1600 : ℝ)) :
@@ -1260,12 +1520,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell10_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 10 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (10 / 1600) (11 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 10) (hpThetaJensenCubicWeightBatch000Neg15Upper 10) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 10)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 10) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell11_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (11 / 1600 : ℝ) (12 / 1600 : ℝ)) :
@@ -1273,12 +1535,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell11_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 11 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (11 / 1600) (12 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 11) (hpThetaJensenCubicWeightBatch000Neg15Upper 11) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 11)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 11) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell12_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (12 / 1600 : ℝ) (13 / 1600 : ℝ)) :
@@ -1286,12 +1550,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell12_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 12 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (12 / 1600) (13 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 12) (hpThetaJensenCubicWeightBatch000Neg15Upper 12) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 12)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 12) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell13_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (13 / 1600 : ℝ) (14 / 1600 : ℝ)) :
@@ -1299,12 +1565,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell13_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 13 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (13 / 1600) (14 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 13) (hpThetaJensenCubicWeightBatch000Neg15Upper 13) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 13)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 13) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell14_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (14 / 1600 : ℝ) (15 / 1600 : ℝ)) :
@@ -1312,12 +1580,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell14_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 14 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (14 / 1600) (15 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 14) (hpThetaJensenCubicWeightBatch000Neg15Upper 14) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 14)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 14) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell15_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (15 / 1600 : ℝ) (16 / 1600 : ℝ)) :
@@ -1325,12 +1595,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell15_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 15 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (15 / 1600) (16 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 15) (hpThetaJensenCubicWeightBatch000Neg15Upper 15) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 15)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 15) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell16_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (16 / 1600 : ℝ) (17 / 1600 : ℝ)) :
@@ -1338,12 +1610,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell16_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 16 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (16 / 1600) (17 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 16) (hpThetaJensenCubicWeightBatch000Neg15Upper 16) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 16)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 16) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell17_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (17 / 1600 : ℝ) (18 / 1600 : ℝ)) :
@@ -1351,12 +1625,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell17_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 17 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (17 / 1600) (18 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 17) (hpThetaJensenCubicWeightBatch000Neg15Upper 17) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 17)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 17) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell18_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (18 / 1600 : ℝ) (19 / 1600 : ℝ)) :
@@ -1364,12 +1640,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell18_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 18 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (18 / 1600) (19 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 18) (hpThetaJensenCubicWeightBatch000Neg15Upper 18) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 18)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 18) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15Cell19_bounds (u : ℝ)
     (hu : u ∈ Set.Icc (19 / 1600 : ℝ) (20 / 1600 : ℝ)) :
@@ -1377,12 +1655,14 @@ theorem hpThetaJensenCubicWeightBatch000Neg15Cell19_bounds (u : ℝ)
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper 19 := by
   apply hpThetaJensenCubicWeight_bounds_of_coefficients
     (-15) (19 / 1600) (20 / 1600) u
-    (hpThetaJensenCubicWeightBatch000Neg15Lower 19) (hpThetaJensenCubicWeightBatch000Neg15Upper 19) (by norm_num) hu
+    (hpThetaJensenCubicWeightBatch000Neg15Lower 19)
+    (hpThetaJensenCubicWeightBatch000Neg15Upper 19) (by norm_num) hu
   intro k
   fin_cases k <;>
     norm_num [hpThetaJensenCubicBernsteinCoefficient,
       hpThetaBernsteinPowerTwo, hpThetaBernsteinPowerFour,
-      hpThetaBernsteinPowerSix, Nat.choose, hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
+      hpThetaBernsteinPowerSix, Nat.choose,
+      hpThetaJensenCubicWeightBatch000Neg15Lower, hpThetaJensenCubicWeightBatch000Neg15Upper]
 
 theorem hpThetaJensenCubicWeightBatch000Neg15_bounds (j : Fin 20) (u : ℝ)
     (hu : u ∈ Set.Icc (((0 : ℝ) + (j.val : ℝ)) / 1600)
@@ -1390,45 +1670,85 @@ theorem hpThetaJensenCubicWeightBatch000Neg15_bounds (j : Fin 20) (u : ℝ)
     hpThetaJensenCubicWeightBatch000Neg15Lower j.val ≤ hpThetaJensenCubicWeight (-15) u ∧
       hpThetaJensenCubicWeight (-15) u ≤ hpThetaJensenCubicWeightBatch000Neg15Upper j.val := by
   fin_cases j
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell00_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell00_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell01_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell01_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell02_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell02_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell03_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell03_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell04_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell04_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell05_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell05_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell06_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell06_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell07_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell07_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell08_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell08_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell09_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell09_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell10_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell10_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell11_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell11_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell12_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell12_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell13_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell13_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell14_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell14_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell15_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell15_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell16_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell16_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell17_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell17_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell18_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell18_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
-  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell19_bounds u (by norm_num at hu ⊢; exact hu)
+  · have h := hpThetaJensenCubicWeightBatch000Neg15Cell19_bounds u (by
+      norm_num at hu ⊢
+      exact hu)
     simpa using h
 
 #print axioms hpThetaJensenCubicWeightBatch000Neg90_bounds
