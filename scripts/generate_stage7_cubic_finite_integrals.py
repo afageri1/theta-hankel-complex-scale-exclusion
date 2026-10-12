@@ -11,6 +11,20 @@ Authors: Adil Fagiri
 BOUNDS={90:('(-26 / 100 : ℝ)','(-23 / 100 : ℝ)'),55:('(6 / 1000 : ℝ)','(18 / 1000 : ℝ)'),42:('(-19 / 1000 : ℝ)','(-9 / 1000 : ℝ)'),15:('(127 / 1000 : ℝ)','(134 / 1000 : ℝ)')}
 def generate(p):
  pre=f'hpThetaJensenCubicNeg{p}'
+ helpers=''
+ for b in range(80):
+  helpers+=f'''
+theorem {pre}Batch{b:03}_integral_rectangle_bounds :
+    {pre}RectangleLower {b} ≤
+      (∫ u : ℝ in Set.Ioo ((({b} : ℕ) : ℝ) / 80) (((({b} : ℕ) : ℝ) + 1) / 80),
+        hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight (-{p}) u) ∧
+    (∫ u : ℝ in Set.Ioo ((({b} : ℕ) : ℝ) / 80) (((({b} : ℕ) : ℝ) + 1) / 80),
+      hpRiemannThetaDifferentialKernel u * hpThetaJensenCubicWeight (-{p}) u) ≤
+        {pre}RectangleUpper {b} := by
+  simpa only [{pre}RectangleLower, {pre}RectangleUpper,
+    Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using
+    hpThetaJensenCubicBatch{b:03}Neg{p}_integral_bounds
+'''
  src=HEADER+f'''import HodgeProofHP.Stage7ThetaJensenCubicBatchIntegralsNeg{p}
 import HodgeProofHP.Stage7ThetaJensenCubicRectanglesNeg{p}
 
@@ -21,6 +35,7 @@ open MeasureTheory
 open scoped BigOperators
 namespace HodgeProofHP
 
+{helpers}
 theorem {pre}_batchIntegral_rectangle_bounds (b : Fin 80) :
     {pre}RectangleLower b.val ≤
       (∫ u : ℝ in Set.Ioo ((b.val : ℝ) / 80) (((b.val : ℝ) + 1) / 80),
@@ -31,7 +46,7 @@ theorem {pre}_batchIntegral_rectangle_bounds (b : Fin 80) :
   fin_cases b
 '''
  for b in range(80):
-  src+=f'  · simpa only [{pre}RectangleLower, {pre}RectangleUpper,\n      Nat.cast_ofNat, Nat.cast_zero, Nat.cast_one] using\n      hpThetaJensenCubicBatch{b:03}Neg{p}_integral_bounds\n'
+  src+=f'  · exact {pre}Batch{b:03}_integral_rectangle_bounds\n'
  src+=f'''
 theorem {pre}_batchIntegral_sum :
     (∑ b ∈ Finset.range 80,
