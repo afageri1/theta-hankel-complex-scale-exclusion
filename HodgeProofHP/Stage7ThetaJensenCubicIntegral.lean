@@ -52,8 +52,11 @@ theorem hpThetaJensenCubic_eval_eq_integral (p : ℝ) :
   have h4 := (hpThetaPhi_natMoment_integrableOn 4).const_mul (p ^ 2 / 4)
   have h6 := (hpThetaPhi_natMoment_integrableOn 6).const_mul (p ^ 3 / 120)
   simp_rw [hpThetaJensenCubicWeight_mul_kernel]
-  rw [integral_add ((h0.add h2).add h4) h6,
-    integral_add (h0.add h2) h4, integral_add h0 h2,
+  have hadd2 := integral_add h0 h2
+  have hadd4 := integral_add (h0.add h2) h4
+  have hadd6 := integral_add ((h0.add h2).add h4) h6
+  simp only [Pi.add_apply] at hadd2 hadd4 hadd6
+  rw [hadd6, hadd4, hadd2,
     integral_const_mul, integral_const_mul, integral_const_mul,
     hpThetaJensenCubic_eval_moments]
   simp only [hpThetaPhiEvenMoment, hpThetaPhiMomentFour, Nat.reduceMul, pow_zero, one_mul]
