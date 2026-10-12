@@ -60,6 +60,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cubic_batch_integrals.sh
           bash scripts/audit_stage7_jensen_cubic_rectangles.sh
           bash scripts/audit_stage7_jensen_cubic_finite_integrals.sh
+          bash scripts/audit_stage7_jensen_cubic_signs.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -91,10 +92,13 @@ jobs:
             stage7-jensen-cubic-batch-integrals-neg*-axioms.log
             stage7-jensen-cubic-rectangles-neg*-axioms.log
             stage7-jensen-cubic-finite-integral-neg*-axioms.log
+            stage7-jensen-cubic-tail-axioms.log
+            stage7-jensen-cubic-signs-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
             stage7-jensen-sixth-moment-certified-axioms.log
           if-no-files-found: warn
+
 
 
