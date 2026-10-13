@@ -36,6 +36,7 @@ theorem hpThetaPhiSquareTailLogSlope_hasDerivAt (x : ℝ) (hx : 0 < x) :
     exact hpThetaPhi_hasDerivAt_kernelSeries (Real.sqrt x)
   have h := ((hphi.comp x (Real.hasDerivAt_sqrt (ne_of_gt hx))).neg).div
     (hpThetaPhiSquareTail_hasDerivAt x hx) hK0
+  dsimp only [Function.comp_apply, Pi.neg_apply] at h
   change HasDerivAt hpThetaPhiSquareTailLogSlope _ x at h
   convert h using 1 <;>
     unfold hpThetaPhiCNVTailExpression hpThetaPhiSquareTail <;>
