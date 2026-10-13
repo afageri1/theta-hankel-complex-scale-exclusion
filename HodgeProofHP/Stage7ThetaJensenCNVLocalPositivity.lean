@@ -28,7 +28,9 @@ theorem hpThetaPhiCNVTailExpression_div_tendsto_right :
       (hpThetaPhiCNVTailFirstDerivative 0) (Set.Ioi 0) 0 := by
     apply hd.mono
     intro t ht
-    exact ht.le
+    change (0 : ℝ) < t at ht
+    change (0 : ℝ) ≤ t
+    exact le_of_lt ht
   have hlim := (hasDerivWithinAt_iff_tendsto_slope'
     (show (0 : ℝ) ∉ Set.Ioi 0 by simp)).mp hr
   have hfun : slope hpThetaPhiCNVTailExpression 0 =
