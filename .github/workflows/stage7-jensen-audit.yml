@@ -64,6 +64,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cubic_real_roots.sh
           bash scripts/audit_stage7_jensen_cubic_factorization.sh
           bash scripts/audit_stage7_jensen_cubic_assumption_frontier.sh
+          bash scripts/audit_stage7_jensen_turan_moment_equivalence.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -100,6 +101,7 @@ jobs:
             stage7-jensen-cubic-real-roots-axioms.log
             stage7-jensen-cubic-factorization-axioms.log
             stage7-jensen-cubic-assumption-frontier-axioms.log
+            stage7-jensen-turan-moment-equivalence-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
