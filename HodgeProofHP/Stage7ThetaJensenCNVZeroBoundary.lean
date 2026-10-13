@@ -22,35 +22,40 @@ theorem hpThetaCNV_logProfile_first_reflection (u : ℝ) :
       deriv hpRiemannThetaLogProfile u +
         (1 / 2 : ℝ) * Real.exp (u / 2) +
         (1 / 2 : ℝ) * Real.exp ((-u) / 2) := by
+  have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) u := by
+    simpa only [id_eq, neg_one_mul, mul_one] using
+      (hasDerivAt_id u).const_mul (-1 : ℝ)
   have hd := (hpRiemannThetaLogProfile_differentiable u).hasDerivAt
   have hn : HasDerivAt (fun v : ℝ => hpRiemannThetaLogProfile (-v))
       (-deriv hpRiemannThetaLogProfile (-u)) u := by
     simpa only [Function.comp_def, mul_neg, mul_one] using
-      ((hpRiemannThetaLogProfile_differentiable (-u)).hasDerivAt).comp u
-        ((hasDerivAt_id u).neg)
+      ((hpRiemannThetaLogProfile_differentiable (-u)).hasDerivAt).comp u hneg
   have hep := ((hasDerivAt_id u).div_const 2).exp
-  have hem := (((hasDerivAt_id u).neg).div_const 2).exp
+  have hem := (hneg.div_const 2).exp
   have hr := (hd.add hep).sub hem
   have hfun : (fun v : ℝ => hpRiemannThetaLogProfile (-v)) =
       (fun v : ℝ => hpRiemannThetaLogProfile v +
         Real.exp (v / 2) - Real.exp ((-v) / 2)) :=
     funext hpRiemannThetaLogProfile_reflection
   rw [hfun] at hn
-  convert hn.unique hr using 1 <;> ring
+  convert hn.unique hr using 1 <;> simp only [id_eq] <;> ring
 
 theorem hpThetaCNV_logProfile_second_reflection (u : ℝ) :
     deriv (deriv hpRiemannThetaLogProfile) (-u) =
       deriv (deriv hpRiemannThetaLogProfile) u +
         (1 / 4 : ℝ) * Real.exp (u / 2) -
         (1 / 4 : ℝ) * Real.exp ((-u) / 2) := by
+  have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) u := by
+    simpa only [id_eq, neg_one_mul, mul_one] using
+      (hasDerivAt_id u).const_mul (-1 : ℝ)
   have hd := (hpRiemannThetaLogProfile_deriv_differentiable u).hasDerivAt
   have hn : HasDerivAt (fun v : ℝ => -deriv hpRiemannThetaLogProfile (-v))
       (deriv (deriv hpRiemannThetaLogProfile) (-u)) u := by
-    simpa only [Function.comp_def, Pi.neg_apply, mul_neg, mul_one, neg_neg] using
+    simpa only [Function.comp_def, neg_one_mul, mul_neg, mul_one, neg_neg] using
       (((hpRiemannThetaLogProfile_deriv_differentiable (-u)).hasDerivAt).comp u
-        ((hasDerivAt_id u).neg)).neg
+        hneg).const_mul (-1 : ℝ)
   have hep := (((hasDerivAt_id u).div_const 2).exp).const_mul (1 / 2 : ℝ)
-  have hem := ((((hasDerivAt_id u).neg).div_const 2).exp).const_mul (1 / 2 : ℝ)
+  have hem := ((hneg.div_const 2).exp).const_mul (1 / 2 : ℝ)
   have hr := (hd.add hep).add hem
   have hfun : (fun v : ℝ => -deriv hpRiemannThetaLogProfile (-v)) =
       (fun v : ℝ => deriv hpRiemannThetaLogProfile v +
@@ -58,7 +63,7 @@ theorem hpThetaCNV_logProfile_second_reflection (u : ℝ) :
         (1 / 2 : ℝ) * Real.exp ((-v) / 2)) :=
     funext hpThetaCNV_logProfile_first_reflection
   rw [hfun] at hn
-  convert hn.unique hr using 1 <;> ring
+  convert hn.unique hr using 1 <;> simp only [id_eq] <;> ring
 
 theorem hpThetaPhi_reflection (u : ℝ) :
     hpRiemannThetaDifferentialKernel (-u) = hpRiemannThetaDifferentialKernel u := by
@@ -69,10 +74,14 @@ theorem hpThetaPhi_reflection (u : ℝ) :
 theorem hpThetaPhi_deriv_zero :
     deriv hpRiemannThetaDifferentialKernel 0 = 0 := by
   have hd := (hpThetaPhi_hasDerivAt_kernelSeries 0).differentiableAt.hasDerivAt
+  have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) 0 := by
+    simpa only [id_eq, neg_one_mul, mul_one] using
+      (hasDerivAt_id (0 : ℝ)).const_mul (-1 : ℝ)
+  have hdneg := (hpThetaPhi_hasDerivAt_kernelSeries (-(0 : ℝ))).differentiableAt.hasDerivAt
   have hn : HasDerivAt (fun u : ℝ => hpRiemannThetaDifferentialKernel (-u))
       (-deriv hpRiemannThetaDifferentialKernel 0) 0 := by
     simpa only [neg_zero, Function.comp_def, mul_neg, mul_one] using
-      hd.comp 0 ((hasDerivAt_id (0 : ℝ)).neg)
+      hdneg.comp 0 hneg
   have hfun : (fun u : ℝ => hpRiemannThetaDifferentialKernel (-u)) =
       hpRiemannThetaDifferentialKernel := funext hpThetaPhi_reflection
   rw [hfun] at hn
