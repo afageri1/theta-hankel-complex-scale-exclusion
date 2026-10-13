@@ -77,6 +77,7 @@ jobs:
           bash scripts/audit_stage7_jensen_kernel_third_derivative_criterion.sh
           bash scripts/audit_stage7_jensen_kernel_third_derivative_majorant.sh
           bash scripts/audit_stage7_jensen_cnv_tail_derivatives.sh
+          bash scripts/audit_stage7_jensen_cnv_zero_boundary.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -126,6 +127,7 @@ jobs:
             stage7-jensen-kernel-third-derivative-criterion-axioms.log
             stage7-jensen-kernel-third-derivative-majorant-axioms.log
             stage7-jensen-cnv-tail-derivatives-axioms.log
+            stage7-jensen-cnv-zero-boundary-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
