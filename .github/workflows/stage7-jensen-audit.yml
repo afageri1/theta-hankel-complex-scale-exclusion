@@ -67,6 +67,7 @@ jobs:
           bash scripts/audit_stage7_jensen_turan_moment_equivalence.sh
           bash scripts/audit_stage7_jensen_weighted_tail_foundations.sh
           bash scripts/audit_stage7_jensen_weighted_tail_derivative.sh
+          bash scripts/audit_stage7_jensen_weighted_tail_positive.sh
           bash scripts/audit_stage7_jensen_kernel_derivative_criterion.sh
           bash scripts/audit_stage7_jensen_kernel_derivative_majorant.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
@@ -108,6 +109,7 @@ jobs:
             stage7-jensen-turan-moment-equivalence-axioms.log
             stage7-jensen-weighted-tail-foundations-axioms.log
             stage7-jensen-weighted-tail-derivative-axioms.log
+            stage7-jensen-weighted-tail-positive-axioms.log
             stage7-jensen-kernel-derivative-criterion-axioms.log
             stage7-jensen-kernel-derivative-majorant-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
