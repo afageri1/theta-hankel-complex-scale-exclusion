@@ -46,7 +46,7 @@ theorem hpThetaGaussianKernelDerivativeFactor_norm_le
       30 * a ^ 2 * Real.exp (2 * u) ^ 2 - 15 * a * Real.exp (2 * u) =
       -8 * x ^ 3 + 30 * x ^ 2 - 15 * x := by dsimp [x]; ring
   rw [heq]
-  exact hn.trans hp
+  simpa only [y, mul_assoc] using hn.trans hp
 
 theorem hpThetaGaussianKernelDerivativeTerm_bound_on_Ioo (l r : ℝ) :
     ∀ n : ℕ, ∀ u ∈ Set.Ioo l r,
