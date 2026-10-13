@@ -28,7 +28,8 @@ theorem hpThetaGaussianKernelTerm_hasDerivAt (a u : ℝ) :
   have he := ((hasDerivAt_id u).const_mul 2).exp
   have hp := ((he.pow 2).const_mul (4 * a ^ 2)).sub (he.const_mul (6 * a))
   convert hp.mul (hpThetaGaussianProfile_hasDerivAt a u) using 1 <;>
-    simp only [hpThetaGaussianKernelTerm, hpThetaGaussianKernelDerivativeTerm] <;> ring
+    norm_num [hpThetaGaussianKernelTerm, hpThetaGaussianKernelDerivativeTerm,
+      Pi.sub_apply, Pi.pow_apply] <;> ring
 
 theorem hpThetaGaussianKernelTerm_deriv (a u : ℝ) :
     deriv (hpThetaGaussianKernelTerm a) u =
