@@ -86,6 +86,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_local_positivity.sh
           bash scripts/audit_stage7_jensen_cnv_kernel_second_near_zero.sh
           bash scripts/audit_stage7_jensen_cnv_second_interval_criterion.sh
+          bash scripts/audit_stage7_jensen_cnv_second_on_one_fiftieth.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -145,6 +146,9 @@ jobs:
             stage7-jensen-cnv-local-positivity-axioms.log
             stage7-jensen-cnv-kernel-second-near-zero-axioms.log
             stage7-jensen-cnv-second-interval-criterion-axioms.log
+            stage7-jensen-cnv-interval-gluing-axioms.log
+            stage7-jensen-cnv-second-cells-batch*-axioms.log
+            stage7-jensen-cnv-second-on-one-fiftieth-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
