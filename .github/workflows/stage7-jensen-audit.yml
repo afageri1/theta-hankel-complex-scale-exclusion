@@ -89,6 +89,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_second_on_one_fiftieth.sh
           bash scripts/audit_stage7_jensen_cnv_weighted_tail_sharp_upper.sh
           bash scripts/audit_stage7_jensen_cnv_kernel_lower_one_fiftieth.sh
+          bash scripts/audit_stage7_jensen_cnv_kernel_upper_one_fiftieth.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -153,6 +154,7 @@ jobs:
             stage7-jensen-cnv-second-on-one-fiftieth-axioms.log
             stage7-jensen-cnv-weighted-tail-sharp-upper-axioms.log
             stage7-jensen-cnv-kernel-lower-one-fiftieth-axioms.log
+            stage7-jensen-cnv-kernel-upper-one-fiftieth-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
