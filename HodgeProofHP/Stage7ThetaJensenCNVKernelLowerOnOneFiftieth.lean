@@ -26,7 +26,7 @@ theorem hpThetaPhi_deriv_ge_neg35_mul_on_oneFiftieth (t : ℝ)
   have hbound : ∀ u ∈ interior (Set.Icc (0 : ℝ) (1 / 50)),
       (-35 : ℝ) ≤ deriv (deriv hpRiemannThetaDifferentialKernel) u := by
     intro u hu
-    exact hpThetaPhi_secondDeriv_ge_neg35_on_oneFiftieth u (Set.interior_subset hu)
+    exact hpThetaPhi_secondDeriv_ge_neg35_on_oneFiftieth u (interior_subset hu)
   have h := (convex_Icc (0 : ℝ) (1 / 50)).mul_sub_le_image_sub_of_le_deriv
     hd.continuous.continuousOn hd.differentiableOn hbound
     0 (by constructor <;> norm_num) t ht ht.1
@@ -48,7 +48,7 @@ theorem hpThetaPhi_ge_zero_sub_seven_tenths_mul_on_oneFiftieth (t : ℝ)
   have hbound : ∀ u ∈ interior (Set.Icc (0 : ℝ) (1 / 50)),
       (-7 / 10 : ℝ) ≤ deriv hpRiemannThetaDifferentialKernel u := by
     intro u hu
-    exact hpThetaPhi_deriv_ge_neg_seven_tenths_on_oneFiftieth u (Set.interior_subset hu)
+    exact hpThetaPhi_deriv_ge_neg_seven_tenths_on_oneFiftieth u (interior_subset hu)
   have h := (convex_Icc (0 : ℝ) (1 / 50)).mul_sub_le_image_sub_of_le_deriv
     hd.continuous.continuousOn hd.differentiableOn hbound
     0 (by constructor <;> norm_num) t ht ht.1
