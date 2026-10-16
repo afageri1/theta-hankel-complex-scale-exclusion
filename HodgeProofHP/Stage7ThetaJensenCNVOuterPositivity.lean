@@ -65,7 +65,9 @@ theorem hpThetaCNV_scalar_numerator_pos (t q r : ℝ)
   let D := 8 * q ^ 3 - 30 * q ^ 2 + 15 * q
   let F := 1 + t * (2 * q - 1 / 2)
   let A := q * (16 * q ^ 2 - 9 * q + 15 / 2)
-  change 0 < t * A - D - r * (t * P ^ 2 + F * D + (4016 / 125 : ℝ) * (1 + r) * F * q ^ 3)
+  suffices hmain : 0 < t * A - D -
+      r * (t * P ^ 2 + F * D + (4016 / 125 : ℝ) * (1 + r) * F * q ^ 3) by
+    convert hmain using 1 <;> dsimp [A, D, F, P] <;> ring
   have ht0 : 0 ≤ t := by linarith
   have hq0 : 0 ≤ q := by linarith
   have hqpos : 0 < q := by linarith
