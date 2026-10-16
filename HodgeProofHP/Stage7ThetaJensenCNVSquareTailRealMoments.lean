@@ -32,8 +32,8 @@ theorem hpThetaCNV_rpow_exp_integrableOn (p r : ℝ) (hp : -1 < p) (hr : 0 < r) 
       (fun x : ℝ => Real.exp (-x) * x ^ p) 0 hr).mpr
     simpa only [mul_zero] using hgamma
   have h := hscaled.const_mul ((r ^ p)⁻¹)
-  apply h.congr_fun _ measurableSet_Ioi
-  intro x hx
+  apply Integrable.congr h
+  filter_upwards [ae_restrict_mem measurableSet_Ioi] with x hx
   rw [Real.mul_rpow hr.le hx.le]
   simp only [neg_mul]
   field_simp [ne_of_gt (Real.rpow_pos_of_pos hr p)]
@@ -60,6 +60,8 @@ theorem hpThetaPhiSquareTail_rpowMoment_integrableOn (p : ℝ) (hp : -1 < p) :
   apply hmajor.mono' (hc.aestronglyMeasurable measurableSet_Ioi)
   filter_upwards [ae_restrict_mem measurableSet_Ioi] with x hx
   have hxpow : 0 ≤ x ^ p := Real.rpow_nonneg hx.le p
+  change ‖x ^ p * hpThetaPhiSquareTail x‖ ≤
+    hpThetaCNVTailDecayAmplitude * (x ^ p * Real.exp (-hpThetaCNVTailDecayRate * x))
   rw [Real.norm_eq_abs, abs_of_nonneg
     (mul_nonneg hxpow (hpThetaPhiSquareTail_pos x hx).le)]
   have h := mul_le_mul_of_nonneg_left (hpThetaPhiSquareTail_le_exponential x hx.le) hxpow
