@@ -100,6 +100,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_global_positivity.sh
           bash scripts/audit_stage7_jensen_cnv_strict_log_concavity.sh
           bash scripts/audit_stage7_jensen_cnv_finite_integral_comparison.sh
+          bash scripts/audit_stage7_jensen_cnv_square_tail_moments.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -178,6 +179,7 @@ jobs:
             stage7-jensen-cnv-global-positivity-axioms.log
             stage7-jensen-cnv-strict-log-concavity-axioms.log
             stage7-jensen-cnv-finite-integral-comparison-axioms.log
+            stage7-jensen-cnv-square-tail-moments-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
