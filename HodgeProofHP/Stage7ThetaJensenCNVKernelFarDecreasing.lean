@@ -92,8 +92,9 @@ theorem hpThetaPhi_le_two_on_nonnegative (t : ℝ) (ht : 0 ≤ t) :
   · exact hpThetaPhi_le_two_on_oneFiftieth t ⟨ht, hnear⟩
   · have hfar : (1 / 50 : ℝ) < t := lt_of_not_ge hnear
     have hdec := hpThetaPhi_strictAntiOn_far
-      (show (1 / 50 : ℝ) ∈ Set.Ici (1 / 50 : ℝ) from le_rfl)
-      (show t ∈ Set.Ici (1 / 50 : ℝ) from hfar.le) hfar
+      (show (1 / 50 : ℝ) ∈ Set.Ici (1 / 50 : ℝ) by simp)
+      (show t ∈ Set.Ici (1 / 50 : ℝ) by
+        simpa only [Set.mem_Ici] using hfar.le) hfar
     exact hdec.le.trans (hpThetaPhi_le_two_on_oneFiftieth (1 / 50) (by
       constructor <;> norm_num))
 
