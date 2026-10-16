@@ -165,7 +165,7 @@ theorem hpThetaCNV_derivative_remainder_le (t : ℝ) (ht : (1 / 50 : ℝ) ≤ t)
   have hsum := hasSum_le hpoint hnegative hgeom
   have hquot := mul_le_mul_of_nonneg_left (hpThetaCNV_farDerivativeRatio_quotient_le t ht) hA
   have hfinal : (A * q) * (1 - q)⁻¹ ≤ A / 250 := by
-    simpa only [q, div_eq_mul_inv, mul_assoc] using hquot
+    simpa only [q, div_eq_mul_inv, mul_assoc, one_mul] using hquot
   exact hsum.trans hfinal
 
 theorem hpThetaPhi_abs_deriv_le_first_add_remainder_on_far (t : ℝ)
