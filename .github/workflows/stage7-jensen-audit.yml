@@ -92,6 +92,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_positive_one_fiftieth.sh
           bash scripts/audit_stage7_jensen_cnv_kernel_far_decreasing.sh
           bash scripts/audit_stage7_jensen_cnv_far_derivative_bound.sh
+          bash scripts/audit_stage7_jensen_cnv_weighted_tail_barrier.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -160,6 +161,7 @@ jobs:
             stage7-jensen-cnv-positive-one-fiftieth-axioms.log
             stage7-jensen-cnv-kernel-far-decreasing-axioms.log
             stage7-jensen-cnv-far-derivative-bound-axioms.log
+            stage7-jensen-cnv-weighted-tail-barrier-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
