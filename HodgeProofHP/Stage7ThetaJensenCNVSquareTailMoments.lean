@@ -45,7 +45,8 @@ theorem hpThetaPhiSquareTail_le_tangent_exponential (x : ℝ) (hx : 1 ≤ x) :
     hpThetaPhiSquareTail x ≤ hpThetaPhiSquareTail 1 *
       Real.exp (-hpThetaCNVTailDecayRate * (x - 1)) := by
   have h1 : hpThetaPhiSquareTailLogSlope 1 = -hpThetaCNVTailDecayRate := by
-    simp [hpThetaPhiSquareTailLogSlope, hpThetaCNVTailDecayRate]
+    simp only [hpThetaPhiSquareTailLogSlope, hpThetaCNVTailDecayRate, Real.sqrt_one]
+    ring
   have hc : ContinuousOn (fun y : ℝ => Real.log (hpThetaPhiSquareTail y)) (Set.Ici 1) := by
     intro y hy
     have hy1 : 1 ≤ y := by simpa only [Set.mem_Ici] using hy
@@ -114,7 +115,7 @@ theorem hpThetaCNV_natPower_exp_bound (m : ℕ) (x : ℝ) (hx : 0 ≤ x) :
   have hr : 0 < r := by dsimp [r]; exact div_pos hpThetaCNVTailDecayRate_pos (by norm_num)
   have hT : 0 ≤ T := by dsimp [T]; positivity
   have hf : (Nat.factorial m : ℝ) ≠ 0 := by exact_mod_cast Nat.factorial_ne_zero m
-  have hpow := Real.pow_div_factorial_le_exp (mul_nonneg hr.le hx) m
+  have hpow := Real.pow_div_factorial_le_exp (r * x) (mul_nonneg hr.le hx) m
   have heq : T * ((r * x) ^ m / (Nat.factorial m : ℝ)) = x ^ m := by
     dsimp [T]
     rw [mul_pow]
