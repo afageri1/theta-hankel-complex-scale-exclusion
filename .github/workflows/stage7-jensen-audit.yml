@@ -95,6 +95,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_weighted_tail_barrier.sh
           bash scripts/audit_stage7_jensen_cnv_far_derivative_exponential.sh
           bash scripts/audit_stage7_jensen_cnv_weighted_tail_exponential.sh
+          bash scripts/audit_stage7_jensen_cnv_far_comparison_criterion.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -166,6 +167,7 @@ jobs:
             stage7-jensen-cnv-weighted-tail-barrier-axioms.log
             stage7-jensen-cnv-far-derivative-exponential-axioms.log
             stage7-jensen-cnv-weighted-tail-exponential-axioms.log
+            stage7-jensen-cnv-far-comparison-criterion-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
