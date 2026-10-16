@@ -63,15 +63,15 @@ theorem hpThetaPhiCNVTailExpression_linear_lower_on_oneFiftieth (t : ℝ)
     (11439 / 250000 : ℝ) * t ≤ hpThetaPhiCNVTailExpression t := by
   have hc : ContinuousOn hpThetaPhiCNVTailExpression (Set.Icc (0 : ℝ) (1 / 50)) := by
     intro u hu
-    exact (hpThetaPhiCNVTailExpression_hasDerivWithinAt_nonnegative u hu.1)
-      .continuousWithinAt.mono (fun v hv => hv.1)
+    have hdu := hpThetaPhiCNVTailExpression_hasDerivWithinAt_nonnegative u hu.1
+    exact hdu.continuousWithinAt.mono (fun v hv => hv.1)
   have hd : DifferentiableOn ℝ hpThetaPhiCNVTailExpression
       (interior (Set.Icc (0 : ℝ) (1 / 50))) := by
     intro u hu
     have hu' : u ∈ Set.Ioo (0 : ℝ) (1 / 50) := by
       simpa only [interior_Icc] using hu
-    exact (hpThetaPhiCNVTailExpression_hasDerivAt u hu'.1)
-      .differentiableAt.differentiableWithinAt
+    have hdu := hpThetaPhiCNVTailExpression_hasDerivAt u hu'.1
+    exact hdu.differentiableAt.differentiableWithinAt
   have hbound : ∀ u ∈ interior (Set.Icc (0 : ℝ) (1 / 50)),
       (11439 / 250000 : ℝ) ≤ deriv hpThetaPhiCNVTailExpression u := by
     intro u hu
