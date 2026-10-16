@@ -97,6 +97,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_weighted_tail_exponential.sh
           bash scripts/audit_stage7_jensen_cnv_far_comparison_criterion.sh
           bash scripts/audit_stage7_jensen_cnv_outer_positivity.sh
+          bash scripts/audit_stage7_jensen_cnv_global_positivity.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -170,6 +171,9 @@ jobs:
             stage7-jensen-cnv-weighted-tail-exponential-axioms.log
             stage7-jensen-cnv-far-comparison-criterion-axioms.log
             stage7-jensen-cnv-outer-positivity-axioms.log
+            stage7-jensen-cnv-compact-certificates-axioms.log
+            stage7-jensen-cnv-compact-cells-batch*-axioms.log
+            stage7-jensen-cnv-global-positivity-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
