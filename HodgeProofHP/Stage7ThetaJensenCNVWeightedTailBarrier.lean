@@ -103,7 +103,7 @@ theorem hpThetaPhiWeightedTail_le_explicit_barrier (t : ℝ) (ht : 0 ≤ t) :
     have hcomp := hpThetaCNV_weightedTail_finite_barrier_comparison t R ht hR
     have hpos := hpThetaCNVWeightedTailBarrier_pos R (ht.trans hR)
     linarith
-  exact le_of_tendsto hlim hineq
+  exact le_of_tendsto_of_tendsto tendsto_const_nhds hlim hineq
 
 #print axioms hpThetaCNVWeightedTailBarrier_hasDerivAt
 #print axioms hpThetaCNVWeightedTailBarrier_pos
