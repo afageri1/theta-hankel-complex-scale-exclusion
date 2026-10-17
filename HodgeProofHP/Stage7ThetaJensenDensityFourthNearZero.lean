@@ -105,7 +105,7 @@ theorem hpThetaDensityInterval_fourth_first_le (t : ℝ)
     have hc := mul_le_mul_of_nonneg_left he
       (by norm_num : (0 : ℝ) ≤ (10001 / 10000 : ℝ) * 2)
     simp only [hpThetaGaussianProfile, zero_div, mul_zero, Real.exp_zero,
-      mul_one, zero_sub] at hb
+      mul_one, zero_sub] at hb ⊢
     nlinarith only [hb, hc]
   have hprod := mul_le_mul hp hprofile (hpThetaGaussianProfile_pos a t).le
     (by norm_num : (0 : ℝ) ≤ 16684)
@@ -153,7 +153,7 @@ theorem hpThetaDensityInterval_fourth_second_le (t : ℝ)
     have hc := mul_le_mul_of_nonneg_left he
       (by norm_num : (0 : ℝ) ≤ (10001 / 10000 : ℝ) * 2)
     simp only [hpThetaGaussianProfile, zero_div, mul_zero, Real.exp_zero,
-      mul_one, zero_sub] at hb
+      mul_one, zero_sub] at hb ⊢
     nlinarith only [hb, hc]
   have hprod := mul_le_mul hp hprofile (hpThetaGaussianProfile_pos a t).le
     (by norm_num : (0 : ℝ) ≤ 34406226)
