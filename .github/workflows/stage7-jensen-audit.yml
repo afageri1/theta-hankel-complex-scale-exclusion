@@ -120,6 +120,7 @@ jobs:
           bash scripts/audit_stage7_jensen_density_explicit_radius.sh
           bash scripts/audit_stage7_jensen_density_curvature_interval_criterion.sh
           bash scripts/audit_stage7_jensen_density_curvature_pilot_cell.sh
+          bash scripts/audit_stage7_jensen_density_curvature_cell_criterion.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
