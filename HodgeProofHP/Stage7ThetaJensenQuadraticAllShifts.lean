@@ -24,7 +24,7 @@ theorem hpThetaJensenGamma_pos_allShifts (n : ℕ) : 0 < hpThetaJensenGamma n :=
   cases n with
   | zero => exact hpThetaJensenGamma_zero_pos
   | succ n =>
-    rw [Nat.succ_eq_add_one, hpThetaJensenGamma_succ_eq_normalizedHalfMoment]
+    rw [hpThetaJensenGamma_succ_eq_normalizedHalfMoment]
     exact mul_pos (div_pos (Real.Gamma_pos_of_pos (by norm_num)) (by positivity))
       (hpThetaCNVNormalizedHalfMoment_pos n)
 
