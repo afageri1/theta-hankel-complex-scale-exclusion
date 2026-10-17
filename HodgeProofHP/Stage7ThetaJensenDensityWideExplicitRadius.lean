@@ -41,6 +41,8 @@ private theorem hpDensityWideExplicit_d3 (t : ℝ) :
   rw [hpThetaPhi_fourthDeriv_eq_kernelSeries]
   exact hpThetaPhi_thirdDeriv_hasDerivAt_kernelSeries t
 
+set_option maxHeartbeats 2000000 in
+-- Elaborating the mean-value estimate needs more than the default heartbeat budget.
 private theorem hpDensityWideExplicit_upper (f df : ℝ → ℝ) (C t : ℝ)
     (ht : t ∈ Set.Icc (0 : ℝ) (1 / 100))
     (hf : ∀ u : ℝ, HasDerivAt f (df u) u)
