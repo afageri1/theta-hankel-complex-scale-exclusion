@@ -108,6 +108,7 @@ jobs:
           bash scripts/audit_stage7_jensen_cnv_general_turan.sh
           bash scripts/audit_stage7_jensen_quadratic_all_shifts.sh
           bash scripts/audit_stage7_jensen_cubic_higher_turan.sh
+          bash scripts/audit_stage7_jensen_cubic_higher_turan_roots.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -195,6 +196,7 @@ jobs:
             stage7-jensen-cnv-general-turan-axioms.log
             stage7-jensen-quadratic-all-shifts-axioms.log
             stage7-jensen-cubic-higher-turan-axioms.log
+            stage7-jensen-cubic-higher-turan-roots-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
