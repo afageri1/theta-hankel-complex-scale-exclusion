@@ -38,7 +38,9 @@ theorem hpThetaCNV_squareSubstitution_factor (m : ℕ) (t : ℝ) (ht : 0 < t) :
       _ = t ^ m := Real.rpow_natCast t m
   have hK : hpThetaPhiSquareTail (t ^ (2 : ℝ)) =
       2 * hpThetaPhiWeightedTail t := by
-    rw [Real.rpow_natCast t 2]
+    have ht2 : t ^ (2 : ℝ) = t ^ (2 : ℕ) := by
+      simpa only [Nat.cast_ofNat] using Real.rpow_natCast t 2
+    rw [ht2]
     simp only [hpThetaPhiSquareTail, Real.sqrt_sq_eq_abs, abs_of_pos ht]
   rw [show (2 : ℝ) - 1 = 1 by norm_num, Real.rpow_one, hK]
   calc
@@ -73,6 +75,9 @@ theorem hpThetaCNV_tailMomentProduct_hasDerivAt (m : ℕ) (t : ℝ) (ht : 0 < t)
         t ^ (m + 2) * hpRiemannThetaDifferentialKernel t) t := by
   have h := ((hasDerivAt_id t).pow (m + 1)).mul
     (hpThetaPhiWeightedTail_hasDerivAt t ht)
+  change HasDerivAt (fun u : ℝ => u ^ (m + 1) * hpThetaPhiWeightedTail u)
+    (((m + 1 : ℕ) : ℝ) * t ^ (m + 1 - 1) * 1 * hpThetaPhiWeightedTail t +
+      t ^ (m + 1) * -(t * hpRiemannThetaDifferentialKernel t)) t at h
   convert h using 1 <;>
     simp only [Nat.add_sub_cancel, Nat.cast_add, Nat.cast_one, pow_succ] <;> ring
 
