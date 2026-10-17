@@ -102,7 +102,9 @@ theorem hpThetaDensityPilot_secondTerm_le_geometric (n : ℕ) (t : ℝ)
   have hb := hpThetaDensityPilot_parameter_bounds t ht
   change b ∈ Set.Icc (2343 / 500 : ℝ) (4687 / 1000) at hb
   have hb0 : 0 ≤ b := by linarith [hb.1]
-  have hm : 1 ≤ m := by dsimp [m]; positivity
+  have hm : 1 ≤ m := by
+    dsimp [m]
+    exact le_add_of_nonneg_left (Nat.cast_nonneg n)
   have hm0 : 0 ≤ m := by linarith
   have hq : 2 ≤ b * m ^ 2 := by
     have hs := pow_le_pow_left₀ (by norm_num : (0 : ℝ) ≤ 1) hm 2
