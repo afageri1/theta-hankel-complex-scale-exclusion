@@ -92,10 +92,13 @@ theorem hpThetaCNV_strict_integral_comparison (w q : ℝ → ℝ)
     · exact hf
   have heval : (∫ x in Set.Ioi (0 : ℝ), f x) = D - c * C - q c * B + (c * q c) * A := by
     dsimp [f, A, B, C, D]
-    rw [integral_add ((hxqw.sub (hqw.const_mul c)).sub (hxw.const_mul (q c)))
-      (hw.const_mul (c * q c)),
-      integral_sub (hxqw.sub (hqw.const_mul c)) (hxw.const_mul (q c)),
-      integral_sub hxqw (hqw.const_mul c)]
+    have hadd := integral_add
+      ((hxqw.sub (hqw.const_mul c)).sub (hxw.const_mul (q c)))
+      (hw.const_mul (c * q c))
+    have hsub := integral_sub (hxqw.sub (hqw.const_mul c)) (hxw.const_mul (q c))
+    have hsub' := integral_sub hxqw (hqw.const_mul c)
+    simp only [Pi.sub_apply, Pi.add_apply] at hadd hsub hsub'
+    rw [hadd, hsub, hsub']
     simp only [integral_const_mul]
   have heval' : (∫ x in Set.Ioi (0 : ℝ), f x) = D - c * C := by
     rw [heval]
