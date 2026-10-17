@@ -115,6 +115,7 @@ jobs:
           bash scripts/audit_stage7_jensen_density_log_curvature.sh
           bash scripts/audit_stage7_jensen_density_curvature_boundary.sh
           bash scripts/audit_stage7_jensen_kernel_fourth_derivative_majorant.sh
+          bash scripts/audit_stage7_jensen_density_endpoint_coefficient.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -210,6 +211,7 @@ jobs:
             stage7-jensen-density-curvature-boundary-axioms.log
             stage7-jensen-kernel-fourth-derivative-criterion-axioms.log
             stage7-jensen-kernel-fourth-derivative-majorant-axioms.log
+            stage7-jensen-density-endpoint-coefficient-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
