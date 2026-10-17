@@ -113,6 +113,7 @@ jobs:
           bash scripts/audit_stage7_jensen_turan_defect_upper.sh
           bash scripts/audit_stage7_jensen_turan_defect_limits.sh
           bash scripts/audit_stage7_jensen_density_log_curvature.sh
+          bash scripts/audit_stage7_jensen_density_curvature_boundary.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -205,6 +206,7 @@ jobs:
             stage7-jensen-turan-defect-upper-axioms.log
             stage7-jensen-turan-defect-limits-axioms.log
             stage7-jensen-density-log-curvature-axioms.log
+            stage7-jensen-density-curvature-boundary-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
