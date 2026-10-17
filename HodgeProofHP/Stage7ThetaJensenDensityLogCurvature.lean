@@ -60,7 +60,13 @@ theorem hpThetaPhiDensityNormalizedSlope_hasDerivAt (t : ℝ) (ht : 0 < t) :
     exact hpThetaPhi_deriv_hasDerivAt_kernelSeries t
   have hp := hpThetaPhi_pos_on_nonnegative t ht.le
   have h := hphi'.div ((hasDerivAt_id t).mul hphi) (mul_ne_zero ht.ne' hp.ne')
-  change HasDerivAt hpThetaPhiDensityNormalizedSlope _ t at h
+  change HasDerivAt hpThetaPhiDensityNormalizedSlope
+    ((deriv (deriv hpRiemannThetaDifferentialKernel) t *
+        (t * hpRiemannThetaDifferentialKernel t) -
+      deriv hpRiemannThetaDifferentialKernel t *
+        (1 * hpRiemannThetaDifferentialKernel t +
+          t * deriv hpRiemannThetaDifferentialKernel t)) /
+      (t * hpRiemannThetaDifferentialKernel t) ^ 2) t at h
   convert h using 1 <;>
     unfold hpThetaPhiDensityCurvature <;>
     field_simp [ht.ne', hp.ne'] <;> ring
@@ -76,10 +82,10 @@ theorem hpThetaPhiSquareDensity_log_hasDerivAt (x : ℝ) (hx : 0 < x) :
   have hp := hpThetaPhi_pos_on_nonnegative (Real.sqrt x) hs.le
   have h := ((hpThetaPhi_density_hasDerivAt (Real.sqrt x)).comp x
     (Real.hasDerivAt_sqrt hx.ne')).log hp.ne'
+  dsimp only [Function.comp_apply] at h
   change HasDerivAt (fun y : ℝ => Real.log (hpThetaPhiSquareDensity y)) _ x at h
   convert h using 1 <;>
-    unfold hpThetaPhiSquareDensityLogSlope hpThetaPhiDensityNormalizedSlope
-      hpThetaPhiSquareDensity <;>
+    unfold hpThetaPhiSquareDensityLogSlope hpThetaPhiDensityNormalizedSlope <;>
     field_simp [hs.ne', hp.ne'] <;> ring
 
 theorem hpThetaPhiSquareDensity_log_deriv (x : ℝ) (hx : 0 < x) :
