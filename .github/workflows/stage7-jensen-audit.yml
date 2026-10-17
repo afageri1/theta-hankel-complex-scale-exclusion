@@ -119,6 +119,7 @@ jobs:
           bash scripts/audit_stage7_jensen_density_endpoint_certificate.sh
           bash scripts/audit_stage7_jensen_density_explicit_radius.sh
           bash scripts/audit_stage7_jensen_density_curvature_interval_criterion.sh
+          bash scripts/audit_stage7_jensen_density_curvature_pilot_cell.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
@@ -219,6 +220,7 @@ jobs:
             stage7-jensen-density-fourth-near-zero-axioms.log
             stage7-jensen-density-explicit-radius-axioms.log
             stage7-jensen-density-curvature-interval-criterion-axioms.log
+            stage7-jensen-density-curvature-pilot-cell-axioms.log
             stage7-jensen-sixth-moment-tail-axioms.log
             stage7-jensen-sixth-moment-cells-axioms.log
             stage7-jensen-sixth-moment-rectangles-axioms.log
