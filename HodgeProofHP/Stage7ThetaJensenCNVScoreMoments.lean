@@ -121,7 +121,7 @@ theorem hpThetaCNV_halfWeight_mul_x (n : ℕ) (x : ℝ) (hx : 0 < x) :
   have he : ((n + 1 : ℕ) : ℝ) + 1 / 2 = 1 + ((n : ℝ) + 1 / 2) := by
     push_cast
     ring
-  rw [he, Real.rpow_add hx, Real.rpow_one]
+  rw [he, Real.rpow_add hx 1 ((n : ℝ) + 1 / 2), Real.rpow_one]
   ring
 
 theorem hpThetaCNVHalfMoment_strict_inequality (n : ℕ) :
@@ -169,6 +169,8 @@ theorem hpThetaCNVHalfMoment_strict_inequality (n : ℕ) :
           (x ^ (((n + 1 : ℕ) : ℝ) + 1 / 2) * hpThetaPhiSquareTail x) := by
         apply setIntegral_congr_fun measurableSet_Ioi
         intro x hx
+        change x * hpThetaCNVScore x * w x = hpThetaCNVScore x *
+          (x ^ (((n + 1 : ℕ) : ℝ) + 1 / 2) * hpThetaPhiSquareTail x)
         rw [← hpThetaCNV_halfWeight_mul_x n x hx]
         dsimp [w]
         ring
