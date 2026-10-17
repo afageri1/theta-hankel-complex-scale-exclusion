@@ -194,7 +194,7 @@ theorem hpThetaDensityCell_pilot_remainder_le (t : ℝ)
   have h := hpThetaDensityCell_second_remainder_le t 7998 (1 / 4000)
     h2 hA (by norm_num) (by norm_num) hr
   norm_num at h
-  exact h
+  linarith only [h]
 
 #print axioms hpThetaDensityCell_secondTerm_le_geometric
 #print axioms hpThetaDensityCell_second_remainder_le
