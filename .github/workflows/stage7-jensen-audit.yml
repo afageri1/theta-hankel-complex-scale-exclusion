@@ -122,6 +122,7 @@ jobs:
           bash scripts/audit_stage7_jensen_density_curvature_pilot_cell.sh
           bash scripts/audit_stage7_jensen_density_curvature_cell_criterion.sh
           bash scripts/audit_stage7_jensen_density_compact_coverage.sh
+          bash scripts/audit_stage7_jensen_density_endpoint_sharp_certificate.sh
           bash scripts/audit_stage7_jensen_sixth_moment_tail.sh
           bash scripts/audit_stage7_jensen_sixth_moment_cells.sh
           bash scripts/audit_stage7_jensen_sixth_moment_rectangles.sh
