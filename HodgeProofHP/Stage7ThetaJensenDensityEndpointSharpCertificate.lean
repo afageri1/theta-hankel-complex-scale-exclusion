@@ -57,7 +57,7 @@ theorem hpThetaDensitySharp_second_gaussian_le :
   have hprod := mul_le_mul hp hS (hpThetaGaussianProfile_pos a 0).le
     (by norm_num : (0 : ℝ) ≤ 202343)
   have hparam : hpThetaGaussianParameter 1 = a := by
-    norm_num [hpThetaGaussianParameter, a]
+    norm_num [hpThetaGaussianParameter, a] <;> ring
   have hterm : hpThetaGaussianKernelSecondDerivativeTerm (hpThetaGaussianParameter 1) 0 =
       (16 * a ^ 4 - 112 * a ^ 3 + 165 * a ^ 2 - (75 / 2 : ℝ) * a) *
         hpThetaGaussianProfile a 0 := by
