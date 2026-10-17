@@ -57,7 +57,7 @@ private theorem hpDensityWideExplicit_upper (f df : ℝ → ℝ) (C t : ℝ)
     intro u hu
     rw [(hn u).deriv]
     linarith [hb u (interior_subset hu)]
-  have h := (convex_Icc (0 : ℝ) (1 / 10000)).mul_sub_le_image_sub_of_le_deriv
+  have h := (convex_Icc (0 : ℝ) (1 / 100)).mul_sub_le_image_sub_of_le_deriv
     hd.continuous.continuousOn hd.differentiableOn hbound
     0 (by constructor <;> norm_num) t ht ht.1
   simp only [sub_zero] at h
