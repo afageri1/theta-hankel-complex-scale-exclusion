@@ -49,7 +49,7 @@ theorem hpThetaPhi_density_first_reflection (t : ℝ) :
     -deriv hpRiemannThetaDifferentialKernel (-t) =
       deriv hpRiemannThetaDifferentialKernel t := by
   have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) t := by
-    simpa only [id_eq] using (hasDerivAt_id t).neg
+    simpa only [id_eq] using! (hasDerivAt_id t).neg
   have hn : HasDerivAt (fun v : ℝ => hpRiemannThetaDifferentialKernel (-v))
       (-deriv hpRiemannThetaDifferentialKernel (-t)) t := by
     simpa only [Function.comp_def, mul_neg, mul_one] using
@@ -63,10 +63,10 @@ theorem hpThetaPhi_density_second_reflection (t : ℝ) :
     deriv (deriv hpRiemannThetaDifferentialKernel) (-t) =
       deriv (deriv hpRiemannThetaDifferentialKernel) t := by
   have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) t := by
-    simpa only [id_eq] using (hasDerivAt_id t).neg
+    simpa only [id_eq] using! (hasDerivAt_id t).neg
   have hn : HasDerivAt (fun v : ℝ => -deriv hpRiemannThetaDifferentialKernel (-v))
       (deriv (deriv hpRiemannThetaDifferentialKernel) (-t)) t := by
-    simpa only [Function.comp_def, mul_neg, mul_one, neg_neg] using
+    simpa only [Function.comp_def, mul_neg, mul_one, neg_neg] using!
       ((hpDensityEndpoint_d1 (-t)).comp t hneg).neg
   have he : (fun v : ℝ => -deriv hpRiemannThetaDifferentialKernel (-v)) =
       deriv hpRiemannThetaDifferentialKernel := funext hpThetaPhi_density_first_reflection
@@ -76,7 +76,7 @@ theorem hpThetaPhi_density_second_reflection (t : ℝ) :
 theorem hpThetaPhi_thirdDeriv_zero :
     deriv (deriv (deriv hpRiemannThetaDifferentialKernel)) 0 = 0 := by
   have hneg : HasDerivAt (fun v : ℝ => -v) (-1 : ℝ) 0 := by
-    simpa only [id_eq] using (hasDerivAt_id (0 : ℝ)).neg
+    simpa only [id_eq] using! (hasDerivAt_id (0 : ℝ)).neg
   have hn : HasDerivAt
       (fun v : ℝ => deriv (deriv hpRiemannThetaDifferentialKernel) (-v))
       (-deriv (deriv (deriv hpRiemannThetaDifferentialKernel)) 0) 0 := by
