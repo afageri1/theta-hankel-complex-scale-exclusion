@@ -19,8 +19,10 @@ theorem hpThetaDensityCells_parameter_bounds (l u EL EU L U t : ℝ)
     Real.pi * Real.exp (2 * t) ∈ Set.Icc L U := by
   have hpL : (31415 / 10000 : ℝ) ≤ Real.pi := by linarith [Real.pi_gt_d4]
   have hpU : Real.pi ≤ (3927 / 1250 : ℝ) := by linarith [Real.pi_lt_d4]
-  have hELt := heL.trans (Real.exp_le_exp.mpr (by linarith [ht.1]))
-  have hEUt := (Real.exp_le_exp.mpr (by linarith [ht.2])).trans heU
+  have hELt : EL ≤ Real.exp (2 * t) :=
+    heL.trans (Real.exp_le_exp.mpr (by linarith [ht.1]))
+  have hEUt : Real.exp (2 * t) ≤ EU :=
+    (Real.exp_le_exp.mpr (by linarith [ht.2])).trans heU
   constructor
   · exact hL.trans (mul_le_mul hpL hELt hEL Real.pi_pos.le)
   · exact (mul_le_mul hpU hEUt (Real.exp_nonneg _) (by norm_num)).trans hU
