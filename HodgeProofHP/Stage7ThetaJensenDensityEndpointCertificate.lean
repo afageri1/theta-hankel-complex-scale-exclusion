@@ -226,8 +226,9 @@ theorem hpThetaDensityEndpoint_fourth_second_le :
       (2 * Real.exp (-a)) ≤ (250 : ℝ) := by
     norm_num at hmul
     linarith
-  simpa [hpThetaGaussianKernelFourthDerivativeTerm, hpThetaGaussianParameter,
-    hpThetaGaussianProfile, a, mul_comm] using hb
+  norm_num [hpThetaGaussianKernelFourthDerivativeTerm, hpThetaGaussianParameter,
+    hpThetaGaussianProfile, a, mul_comm] at hb ⊢
+  exact hb
 
 theorem hpThetaDensityEndpoint_second_remainder_le :
     deriv (deriv hpRiemannThetaDifferentialKernel) 0 -
@@ -261,7 +262,7 @@ theorem hpThetaDensityEndpoint_second_remainder_le :
     let a := hpThetaGaussianParameter (n + 1)
     have hm : (2 : ℝ) ≤ ((n + 1 : ℕ) : ℝ) + 1 := by
       push_cast
-      have hn := Nat.cast_nonneg (R := ℝ) n
+      have hn : (0 : ℝ) ≤ (n : ℝ) := Nat.cast_nonneg n
       linarith
     have hsq := pow_le_pow_left₀ (by norm_num : (0 : ℝ) ≤ 2) hm 2
     have hscaled := mul_le_mul Real.pi_gt_three.le hsq
@@ -276,7 +277,9 @@ theorem hpThetaDensityEndpoint_second_remainder_le :
       simpa only [hpThetaGaussianKernelSecondDerivativeTerm, mul_zero, Real.exp_zero,
         one_pow, mul_one] using h
     have hgen : a ^ 4 * hpThetaGaussianProfile a 0 ≤ A * R ^ n := by
-      simpa [a, A, R] using hpThetaDensityEndpoint_monomial_geometric 4 1 n
+      have h := hpThetaDensityEndpoint_monomial_geometric 4 1 n
+      norm_num [a, A, R] at h ⊢
+      exact h
     calc
       _ ≤ (16 : ℝ) * (a ^ 4 * hpThetaGaussianProfile a 0) := by
         simpa only [mul_assoc] using hterm
@@ -336,7 +339,7 @@ theorem hpThetaDensityEndpoint_fourth_remainder_le :
     let a := hpThetaGaussianParameter (n + 2)
     have hm : (3 : ℝ) ≤ ((n + 2 : ℕ) : ℝ) + 1 := by
       push_cast
-      have hn := Nat.cast_nonneg (R := ℝ) n
+      have hn : (0 : ℝ) ≤ (n : ℝ) := Nat.cast_nonneg n
       linarith
     have hsq := pow_le_pow_left₀ (by norm_num : (0 : ℝ) ≤ 3) hm 2
     have hscaled := mul_le_mul Real.pi_gt_three.le hsq
@@ -351,7 +354,9 @@ theorem hpThetaDensityEndpoint_fourth_remainder_le :
       simpa only [hpThetaGaussianKernelFourthDerivativeTerm, mul_zero, Real.exp_zero,
         one_pow, mul_one] using h
     have hgen : a ^ 6 * hpThetaGaussianProfile a 0 ≤ A * R ^ n := by
-      simpa [a, A, R] using hpThetaDensityEndpoint_monomial_geometric 6 2 n
+      have h := hpThetaDensityEndpoint_monomial_geometric 6 2 n
+      norm_num [a, A, R] at h ⊢
+      exact h
     calc
       _ ≤ (64 : ℝ) * (a ^ 6 * hpThetaGaussianProfile a 0) := by
         simpa only [mul_assoc] using hterm
