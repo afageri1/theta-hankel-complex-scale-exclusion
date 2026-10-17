@@ -73,7 +73,9 @@ theorem hpThetaCNV_strict_integral_comparison (w q : ℝ → ℝ)
         (sub_pos.mpr (hq hc hx hcx))) (hwpos x hx)).le
   have hsupport : Set.Ioi (c + 1) ⊆ Function.support f ∩ Set.Ioi 0 := by
     intro x hx
-    have hcx : c < x := by linarith
+    have hcx : c < x := by
+      change c + 1 < x at hx
+      linarith
     have hx0 : 0 < x := hc.trans hcx
     refine ⟨?_, hx0⟩
     rw [Function.mem_support, hfactor]
@@ -84,7 +86,7 @@ theorem hpThetaCNV_strict_integral_comparison (w q : ℝ → ℝ)
     · have hm : volume (Set.Ioi (c + 1)) ≤ volume (Function.support f ∩ Set.Ioi 0) :=
         measure_mono hsupport
       rw [Real.volume_Ioi] at hm
-      exact lt_of_lt_of_le (by simp : (0 : ℝ≥0∞) < ⊤) hm
+      exact lt_of_lt_of_le (by simp) hm
     · filter_upwards [ae_restrict_mem measurableSet_Ioi] with x hx
       exact hnonneg x hx
     · exact hf
