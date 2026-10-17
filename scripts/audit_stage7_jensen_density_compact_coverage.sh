@@ -2,8 +2,12 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 
+# Build one new batch per Lake invocation. On the reported Windows run,
+# simultaneous batch compilers failed while reading different imported objects.
+# Preserve existing build objects; do not clean or redownload dependencies.
+export LEAN_NUM_THREADS="${LEAN_NUM_THREADS:-1}"
 python scripts/generate_stage7_density_curvature_cells.py --check
-lake build HodgeProofHP.Stage7ThetaJensenDensityCompactCoverage
+lake build HodgeProofHP.Stage7ThetaJensenDensityCurvatureRationalCells
 
 COMMON_LOG=stage7-jensen-density-rational-cells-axioms.log
 lake env lean HodgeProofHP/Stage7ThetaJensenDensityCurvatureRationalCells.lean 2>&1 | tee "$COMMON_LOG"
@@ -14,12 +18,15 @@ python scripts/check_axioms.py "$COMMON_LOG" \
   --expect HodgeProofHP.hpThetaDensityCells_positive_glue
 
 for batch in 000 001 002 003 004 005 006 007; do
+  BUILD_LOG="stage7-jensen-density-compact-batch${batch}-build.log"
+  lake build "HodgeProofHP.Stage7ThetaJensenDensityCompactCellsBatch${batch}" 2>&1 | tee "$BUILD_LOG"
   LOG="stage7-jensen-density-compact-batch${batch}-axioms.log"
   lake env lean "HodgeProofHP/Stage7ThetaJensenDensityCompactCellsBatch${batch}.lean" 2>&1 | tee "$LOG"
   python scripts/check_axioms.py "$LOG" \
     --expect "HodgeProofHP.hpThetaDensityCompact_cellsBatch${batch}"
 done
 
+lake build HodgeProofHP.Stage7ThetaJensenDensityCompactCoverage
 FINAL_LOG=stage7-jensen-density-compact-coverage-axioms.log
 lake env lean HodgeProofHP/Stage7ThetaJensenDensityCompactCoverage.lean 2>&1 | tee "$FINAL_LOG"
 python scripts/check_axioms.py "$FINAL_LOG" \
