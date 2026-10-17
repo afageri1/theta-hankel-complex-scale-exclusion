@@ -59,7 +59,7 @@ theorem hpThetaPhiEvenMoment_variance_nonneg (n : ℕ) (c : ℝ) :
       (hpThetaPhi_pos_on_nonnegative t ht.le).le
   have hadd := integral_add (h2.sub (h1.const_mul (2 * c))) (h0.const_mul (c ^ 2))
   have hsub := integral_sub h2 (h1.const_mul (2 * c))
-  simp only [Pi.sub_apply, Pi.add_apply] at hadd hsub
+  simp only [Pi.sub_apply] at hadd hsub
   rw [hadd, hsub] at hp
   simp only [integral_const_mul] at hp
   exact hp
@@ -100,8 +100,8 @@ theorem hpThetaJensenGamma_weighted_logConvex (n : ℕ) :
       hpThetaJensenMomentScale n ^ 2 / (4 * (2 * (n : ℝ) + 1)) *
         (hpThetaPhiEvenMoment n * hpThetaPhiEvenMoment (n + 2) -
           hpThetaPhiEvenMoment (n + 1) ^ 2) := by
-    rw [hpThetaJensenGamma_succ_momentScale,
-      hpThetaJensenGamma_add_two_momentScale, hzero]
+    rw [hpThetaJensenGamma_add_two_momentScale n,
+      hpThetaJensenGamma_succ_momentScale n, hzero]
     field_simp [ha, hb]
     ring
   have hp : 0 ≤
