@@ -1,0 +1,126 @@
+/-
+Copyright (c) 2026 Adil Fagiri. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Adil Fagiri
+-/
+import HodgeProofHP.Stage7ThetaJensenDensityExpCoverage
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch000
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch001
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch002
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch003
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch004
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch005
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch006
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch007
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch008
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch009
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch010
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch011
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch012
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch013
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch014
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch015
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch016
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch017
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch018
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch019
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch020
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch021
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch022
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch023
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch024
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch025
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch026
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch027
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch028
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch029
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch030
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch031
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch032
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch033
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch034
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch035
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch036
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch037
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch038
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch039
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch040
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch041
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch042
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch043
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch044
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch045
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch046
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch047
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch048
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch049
+import HodgeProofHP.Stage7ThetaJensenDensityLowerExpCellsBatch050
+
+/-! Connected middle coverage [2/25, 1/10]. The gap (1/50, 2/25) remains open. -/
+noncomputable section
+namespace HodgeProofHP
+
+theorem hpThetaPhiDensityCurvature_pos_on_twoTwentyFifths_oneTenth :
+    ∀ t ∈ Set.Icc (2 / 25 : ℝ) (1 / 10), 0 < hpThetaPhiDensityCurvature t := by
+  exact (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch000
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch001
+      hpThetaDensityLowerExpCompact_cellsBatch002))
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch003
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch004
+      hpThetaDensityLowerExpCompact_cellsBatch005)))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch006
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch007
+      hpThetaDensityLowerExpCompact_cellsBatch008))
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch009
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch010
+      hpThetaDensityLowerExpCompact_cellsBatch011))))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch012
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch013
+      hpThetaDensityLowerExpCompact_cellsBatch014))
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch015
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch016
+      hpThetaDensityLowerExpCompact_cellsBatch017)))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch018
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch019
+      hpThetaDensityLowerExpCompact_cellsBatch020))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch021
+      hpThetaDensityLowerExpCompact_cellsBatch022)
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch023
+      hpThetaDensityLowerExpCompact_cellsBatch024)))))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch025
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch026
+      hpThetaDensityLowerExpCompact_cellsBatch027))
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch028
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch029
+      hpThetaDensityLowerExpCompact_cellsBatch030)))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch031
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch032
+      hpThetaDensityLowerExpCompact_cellsBatch033))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch034
+      hpThetaDensityLowerExpCompact_cellsBatch035)
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch036
+      hpThetaDensityLowerExpCompact_cellsBatch037))))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch038
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch039
+      hpThetaDensityLowerExpCompact_cellsBatch040))
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch041
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch042
+      hpThetaDensityLowerExpCompact_cellsBatch043)))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch044
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch045
+      hpThetaDensityLowerExpCompact_cellsBatch046))
+      (hpThetaDensityCells_positive_glue (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch047
+      hpThetaDensityLowerExpCompact_cellsBatch048)
+      (hpThetaDensityCells_positive_glue hpThetaDensityLowerExpCompact_cellsBatch049
+      hpThetaDensityLowerExpCompact_cellsBatch050))))))
+
+theorem hpThetaPhiDensityCurvature_pos_on_lower_middle_extension :
+    ∀ t ∈ Set.Icc (2 / 25 : ℝ) (200001 / 1000000),
+      0 < hpThetaPhiDensityCurvature t := by
+  exact hpThetaDensityCells_positive_glue
+    hpThetaPhiDensityCurvature_pos_on_twoTwentyFifths_oneTenth
+    hpThetaPhiDensityCurvature_pos_on_middle_extension
+
+#print axioms hpThetaPhiDensityCurvature_pos_on_twoTwentyFifths_oneTenth
+#print axioms hpThetaPhiDensityCurvature_pos_on_lower_middle_extension
+end HodgeProofHP
